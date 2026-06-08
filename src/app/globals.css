@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #fff6f4;
+  --color-peach: #ffd9c2;
+  --color-sunshine: #ffe08a;
+  --color-mint: #beeac8;
+  --color-sky: #bde1ff;
+  --color-lavender: #d7c6f4;
+  --color-bubblegum: #ffc1d6;
+  --color-charcoal: #2a2a2a;
+  --color-muted: #5c5c5c;
+  --color-border: #f0ddd6;
+  --color-warm-brown: #8b6f5c;
+
+  --font-sans: var(--font-jakarta);
+
+  --radius-card: 16px;
+  --radius-btn: 10px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-charcoal font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-sans tracking-tight;
+  }
+}
+
+@layer utilities {
+  .section-pad {
+    @apply py-16 sm:py-20;
+  }
+
+  .card {
+    @apply rounded-[var(--radius-card)] border border-border bg-white;
+  }
+
+  .container-main {
+    @apply mx-auto max-w-6xl px-5 sm:px-8;
+  }
+
+  .palette-bar {
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      #ffc1d6 0%,
+      #ffd9c2 16%,
+      #ffe08a 33%,
+      #beeac8 50%,
+      #bde1ff 66%,
+      #d7c6f4 83%,
+      #ffc1d6 100%
+    );
+  }
+
+  .bg-section-peach {
+    @apply bg-peach/25;
+  }
+
+  .bg-section-mint {
+    @apply bg-mint/20;
+  }
+
+  .bg-section-lavender {
+    @apply bg-lavender/25;
+  }
+
+  .bg-section-sky {
+    @apply bg-sky/20;
+  }
+}
