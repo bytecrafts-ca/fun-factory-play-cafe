@@ -40,7 +40,7 @@ export const hours: DayHours[] = [
 ];
 
 export const admissions = [
-  { ageGroup: "Under 1", price: "Free with paying sibling" },
+  { ageGroup: "Under 1", price: "Free with paying sibling · $5.00 drop-in" },
   { ageGroup: "1 to 3 years", price: "$10.00" },
   { ageGroup: "4 to 13 years", price: "$14.00" },
   { ageGroup: "14 to 17 years", price: "$10.00" },
