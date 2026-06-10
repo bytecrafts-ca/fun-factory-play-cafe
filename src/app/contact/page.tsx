@@ -4,7 +4,6 @@ import { GoogleMap } from "@/components/GoogleMap";
 import { HoursWidget } from "@/components/HoursWidget";
 import { PageHero } from "@/components/PageHero";
 import { SocialLinks } from "@/components/SocialLinks";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
