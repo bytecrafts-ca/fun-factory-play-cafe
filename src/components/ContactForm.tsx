@@ -89,11 +89,20 @@ export function ContactForm() {
             </label>
             <select id="time-slot" name="time-slot" required className={inputClass}>
               <option value="">Select a time slot</option>
-              {partyTimeSlots.map((slot) => (
-                <option key={slot} value={slot}>
-                  {slot}
-                </option>
-              ))}
+              <optgroup label="Small room">
+                {partyTimeSlots.smallRoom.map((slot) => (
+                  <option key={slot} value={`Small room — ${slot}`}>
+                    {slot}
+                  </option>
+                ))}
+              </optgroup>
+              <optgroup label="Large room">
+                {partyTimeSlots.largeRoom.map((slot) => (
+                  <option key={slot} value={`Large room — ${slot}`}>
+                    {slot}
+                  </option>
+                ))}
+              </optgroup>
             </select>
           </div>
         </div>

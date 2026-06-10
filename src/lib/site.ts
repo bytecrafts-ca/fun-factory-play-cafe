@@ -167,12 +167,20 @@ export const partyRoomInfo = {
   largeRoom: "Large room — Supreme Fun Party and Extreme Fun Party time slots",
 } as const;
 
-export const partyTimeSlots = [
-  "Morning",
-  "Early afternoon",
-  "Late afternoon",
-  "Evening",
-] as const;
+export const partyTimeSlots = {
+  smallRoom: [
+    "9:30 AM – 12:00 PM",
+    "12:15 PM – 2:45 PM",
+    "3:00 PM – 5:30 PM",
+    "5:45 PM – 8:15 PM",
+  ],
+  largeRoom: [
+    "10:00 AM – 12:30 PM",
+    "12:45 PM – 3:15 PM",
+    "3:30 PM – 6:00 PM",
+    "6:15 PM – 8:45 PM",
+  ],
+} as const;
 
 export const partyAddOns = [
   "More Pizza",
@@ -222,7 +230,7 @@ export const promoText =
 
 export const cafeMenu = {
   brand: "Littles & Lattés Café",
-  tagline: "Premium iced specialty beverages at Fun Factory Play Café.",
+  tagline: "Coffee. Little moments.",
   info: [
     "Littles & Lattés Café is NOW OPEN!",
     "Located inside Fun Factory Play Café in Pickering.",
@@ -231,29 +239,119 @@ export const cafeMenu = {
     "Please view our café menu for drink selection.",
     "All food must be consumed in designated eating areas.",
   ],
-  drinks: [
-    { name: "Fun Factory Latte", description: "Smooth espresso balanced with oat milk." },
-    { name: "Latte", description: "Smooth espresso balanced with milk." },
-    { name: "Vanilla Latte", description: "Smooth espresso with creamy milk and a touch of vanilla." },
-    { name: "Spanish Latte", description: "Bold espresso with sweetened condensed milk and a hint of cinnamon." },
-    { name: "Chai Latte", description: "Warm spices and black tea blended with milk." },
-    { name: "Caramel Macchiato", description: "Smooth milk and vanilla topped with espresso and a drizzle of rich caramel." },
-    { name: "Littles & Lattés Matcha Latte", description: "Our classic matcha latte, perfectly balanced and made with oat milk." },
-    { name: "Matcha Latte", description: "Smooth and earthy matcha blended with milk." },
-    { name: "Vanilla Matcha Latte", description: "Sweet strawberry goodness paired with our signature matcha latte." },
-    { name: "Strawberry Matcha", description: "Sweet strawberry paired with signature matcha latte." },
+  specialtyLattes: [
+    {
+      name: "Latte",
+      description: "Smooth espresso balanced with milk for a classic, everyday favorite.",
+      image: "/cafe/latte.png",
+      hotPrice: 5,
+      coldPrice: 6,
+    },
+    {
+      name: "Vanilla Latte",
+      description: "Smooth espresso with creamy milk and a touch of vanilla sweetness.",
+      image: "/cafe/vanilla-latte.png",
+      hotPrice: 5.5,
+      coldPrice: 6.5,
+    },
+    {
+      name: "Caramel Macchiato",
+      description: "Smooth milk and vanilla topped with espresso and a drizzle of rich caramel.",
+      image: "/cafe/caramel-macchiato.png",
+      hotPrice: 5.5,
+      coldPrice: 6.5,
+    },
+    {
+      name: "Spanish Latte",
+      description: "Bold espresso with sweetened condensed milk and a hint of cinnamon.",
+      image: "/cafe/spanish-latte.png",
+      hotPrice: 5.5,
+      coldPrice: 6.5,
+    },
+    {
+      name: "Chai Latte",
+      description: "Warm spices and black tea blended with milk for the perfect cozy sip.",
+      image: "/cafe/chai-latte.png",
+      hotPrice: 5.5,
+      coldPrice: 6,
+    },
+    {
+      name: "Fun Factory Latte",
+      description: "Our classic latte made with oat milk. Creamy, smooth, and made for you.",
+      image: "/cafe/fun-factory-latte.png",
+      hotPrice: 5.5,
+      coldPrice: 6.5,
+    },
   ],
-  menuImages: [
-    { src: "/cafe-menu-1.jpg", alt: "Littles & Lattés specialty drinks menu" },
-    { src: "/cafe-3057aea0.jpg", alt: "Littles & Lattés café menu" },
-    { src: "/cafe-46880550.jpg", alt: "Littles & Lattés café menu" },
-    { src: "/cafe-570b81d7.jpg", alt: "Littles & Lattés café menu" },
-    { src: "/cafe-684b9344.jpg", alt: "Littles & Lattés café menu" },
-    { src: "/cafe-7cea6425.jpg", alt: "Littles & Lattés café menu" },
-    { src: "/cafe-7fa43839.jpg", alt: "Littles & Lattés café menu" },
-    { src: "/cafe-ceffce3f.jpg", alt: "Littles & Lattés café menu" },
-    { src: "/cafe-de5d6dcb.jpg", alt: "Littles & Lattés café menu" },
-    { src: "/cafe-e61a4c7a.jpg", alt: "Littles & Lattés café menu" },
+  matchaDrinks: [
+    {
+      name: "Matcha Latte",
+      description: "Smooth and earthy matcha blended with milk. Simple. Pure. Refreshing.",
+      image: "/cafe/matcha-latte.png",
+      hotPrice: 5.5,
+      coldPrice: 6.5,
+    },
+    {
+      name: "Strawberry Matcha Latte",
+      description:
+        "Sweet strawberry goodness paired with our signature strawberry cold foam matcha latte. Fruity, creamy, and oh-so-refreshing!",
+      image: "/cafe/strawberry-matcha.png",
+      hotPrice: 5.5,
+      coldPrice: 6.5,
+    },
+    {
+      name: "Vanilla Matcha Latte",
+      description:
+        "Smooth matcha blended with creamy milk and a touch of vanilla. Light, sweet, and gently comforting.",
+      image: "/cafe/vanilla-matcha-latte.png",
+      hotPrice: 5.5,
+      coldPrice: 6.5,
+    },
+    {
+      name: "Fun Factory Matcha Latte",
+      description:
+        "Our classic matcha latte, perfectly balanced and made with oat milk. Creamy, smooth, and made for you.",
+      image: "/cafe/fun-factory-matcha-latte.png",
+      hotPrice: 5.5,
+      coldPrice: 6.5,
+    },
+  ],
+  espressoBar: [
+    { name: "Espresso", hotPrice: 3.5 },
+    { name: "Cappuccino", hotPrice: 5 },
+    { name: "Cortado", hotPrice: 5 },
+    { name: "Flat White", hotPrice: 5 },
+    { name: "Americano", hotPrice: 4, coldPrice: 4.5 },
+    { name: "Shaken Espresso", coldPrice: 5.5 },
+    { name: "Brown Sugar Shaken Espresso", coldPrice: 6 },
+  ],
+  teas: [
+    { name: "Green Tea", price: 3 },
+    { name: "Black Tea", price: 3 },
+    { name: "Earl Grey", price: 3 },
+    { name: "Peppermint Tea", price: 3 },
+  ],
+  hotChocolate: [{ name: "Hot Chocolate", price: 4 }],
+  addOns: [
+    {
+      name: "Syrups",
+      description: "Vanilla, Caramel, Strawberry",
+      price: 0.5,
+    },
+    {
+      name: "Cold Foam",
+      description: "Vanilla, Caramel, Strawberry, Chocolate",
+      price: 1,
+    },
+    {
+      name: "Oat Milk",
+      price: 0.5,
+    },
+  ],
+  menuBoards: [
+    { src: "/cafe/full-menu.png", alt: "Littles & Lattés full café menu with pricing" },
+    { src: "/cafe/specialty-lattes-menu.png", alt: "Littles & Lattés specialty iced lattes menu" },
+    { src: "/cafe/matcha-menu.png", alt: "Littles & Lattés matcha drinks menu" },
   ],
 } as const;
 
