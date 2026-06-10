@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { HoursWidget } from "@/components/HoursWidget";
+import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { cafeMenu, siteConfig } from "@/lib/site";
+import { cafeMenu, pageHeroes, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Café Menu",
@@ -13,23 +14,13 @@ export const metadata: Metadata = {
 export default function CafePage() {
   return (
     <>
-      <section className="border-b border-peach/40 bg-gradient-to-br from-cream to-peach/20">
-        <div className="container-main py-14 sm:py-20">
-          <p className="text-sm font-bold uppercase tracking-wider text-muted">
-            Fun Factory Play Café
-          </p>
-          <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-charcoal sm:text-5xl">
-            {cafeMenu.brand}
-          </h1>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-muted">
-            {siteConfig.littlesAndLattesText}
-          </p>
-          <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">
-            {cafeMenu.tagline}
-          </p>
-        </div>
-        <div className="palette-bar" aria-hidden />
-      </section>
+      <PageHero
+        title={cafeMenu.brand}
+        subtitle={`${siteConfig.littlesAndLattesText} ${cafeMenu.tagline}`}
+        image={pageHeroes.cafe.src}
+        imageAlt={pageHeroes.cafe.alt}
+        accent="peach"
+      />
 
       <section className="section-pad bg-section-peach">
         <div className="container-main grid gap-10 lg:grid-cols-2 lg:items-start">
