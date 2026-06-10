@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import { PartyCards } from "@/components/PartyCards";
 import { UltimatePartyCard } from "@/components/UltimatePartyCard";
-import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import {
   partyAddOns,
   partyCustomizeText,
   partyExtras,
-  pageHeroes,
   siteConfig,
 } from "@/lib/site";
 
@@ -21,17 +19,26 @@ export const metadata: Metadata = {
 export default function PartiesPage() {
   return (
     <>
-      <PageHero
-        title="Party Packages"
-        subtitle={siteConfig.partyIncludeText}
-        image={pageHeroes.parties.src}
-        imageAlt={pageHeroes.parties.alt}
-        accent="lavender"
-      >
-        <Button href={siteConfig.ovatu.partiesUrl} external variant="lavender" size="lg">
-          Book Your Party
-        </Button>
-      </PageHero>
+      <section className="border-b border-peach/40 bg-gradient-to-br from-cream to-lavender/20">
+        <div className="container-main py-14 sm:py-20">
+          <h1 className="text-4xl font-extrabold tracking-tight text-charcoal sm:text-5xl">
+            Party Packages
+          </h1>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">
+            {siteConfig.partyIncludeText}
+          </p>
+          <div className="mt-8">
+            <Button
+              href={siteConfig.ovatu.partiesUrl}
+              external
+              variant="lavender"
+              size="lg"
+            >
+              Book Your Party
+            </Button>
+          </div>
+        </div>
+      </section>
 
       <section className="section-pad bg-section-lavender">
         <div className="container-main">

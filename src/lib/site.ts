@@ -239,37 +239,6 @@ export const cafeMenu = {
   ],
 } as const;
 
-export const pageHeroes = {
-  home: {
-    src: "/heroes/hero-home.jpg",
-    alt: "Children laughing and playing together at an indoor play café",
-  },
-  play: {
-    src: "/heroes/hero-play.jpg",
-    alt: "Bright, colorful indoor play structure for kids",
-  },
-  parties: {
-    src: "/heroes/hero-parties.jpg",
-    alt: "Kids celebrating a birthday party with balloons and smiles",
-  },
-  cafe: {
-    src: "/heroes/hero-cafe.jpg",
-    alt: "Freshly poured latte at a warm, welcoming café counter",
-  },
-  gallery: {
-    src: "/heroes/hero-gallery.jpg",
-    alt: "Welcoming indoor play café seating area with families",
-  },
-  waiver: {
-    src: "/heroes/hero-waiver.jpg",
-    alt: "Parent and child building and playing together indoors",
-  },
-  contact: {
-    src: "/heroes/hero-contact.jpg",
-    alt: "Friendly team ready to help at the front desk",
-  },
-} as const;
-
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/play", label: "Play" },

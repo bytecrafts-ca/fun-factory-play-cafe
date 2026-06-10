@@ -3,12 +3,11 @@ import Image from "next/image";
 import { AdmissionsTable } from "@/components/AdmissionsTable";
 import { Button } from "@/components/ui/Button";
 import { HoursWidget } from "@/components/HoursWidget";
-import { PageHero } from "@/components/PageHero";
 import { PromoBanner } from "@/components/PromoBanner";
 import { RulesChips } from "@/components/RulesChips";
 import { RulesStrip } from "@/components/RulesStrip";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { pageHeroes, siteConfig } from "@/lib/site";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Play & Admissions",
@@ -19,17 +18,23 @@ export const metadata: Metadata = {
 export default function PlayPage() {
   return (
     <>
-      <PageHero
-        title="Play Rates"
-        subtitle="Drop-in admission for ages 1–17. Socks and a signed waiver are required for every visit."
-        image={pageHeroes.play.src}
-        imageAlt={pageHeroes.play.alt}
-        accent="sky"
-      >
-        <Button href={siteConfig.ovatu.ticketsUrl} external variant="primary" size="lg">
-          Buy Tickets
-        </Button>
-      </PageHero>
+      <section className="border-b border-peach/40 bg-gradient-to-br from-cream to-sky/15">
+        <div className="container-main py-14 sm:py-20">
+          <h1 className="text-4xl font-extrabold tracking-tight text-charcoal sm:text-5xl">
+            Play Rates
+          </h1>
+          <div className="mt-8">
+            <Button
+              href={siteConfig.ovatu.ticketsUrl}
+              external
+              variant="primary"
+              size="lg"
+            >
+              Buy Tickets
+            </Button>
+          </div>
+        </div>
+      </section>
 
       <RulesStrip />
 
