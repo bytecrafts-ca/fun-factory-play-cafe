@@ -45,7 +45,6 @@ export const siteConfig = {
     partiesUrl: process.env.NEXT_PUBLIC_OVATU_PARTIES_URL ?? "#book",
   },
   waiverUrl: process.env.NEXT_PUBLIC_WAIVER_URL ?? "/waiver",
-  cafePublic: process.env.CAFE_PAGE_PUBLIC === "true",
 };
 
 export type DayHours = {
@@ -206,6 +205,14 @@ export const promoText =
 
 export const cafeMenu = {
   brand: "Littles & Lattés",
+  tagline: "Premium iced specialty beverages at Fun Factory Play Café.",
+  info: [
+    "Littles & Lattés is NOW OPEN!",
+    "Located inside Fun Factory Play Café in Pickering.",
+    "Snacks and drinks available for purchase during play hours.",
+    "Outside drinks are not permitted — please view our café menu for drink selection.",
+    "All food must be consumed in designated eating areas.",
+  ],
   drinks: [
     { name: "Fun Factory Latte", description: "Smooth espresso balanced with oat milk." },
     { name: "Latte", description: "Smooth espresso balanced with milk." },
@@ -218,12 +225,25 @@ export const cafeMenu = {
     { name: "Vanilla Matcha Latte", description: "Sweet strawberry goodness paired with our signature matcha latte." },
     { name: "Strawberry Matcha", description: "Sweet strawberry paired with signature matcha latte." },
   ],
+  menuImages: [
+    { src: "/cafe-menu-1.jpg", alt: "Littles & Lattés specialty drinks menu" },
+    { src: "/cafe-3057aea0.jpg", alt: "Littles & Lattés café menu" },
+    { src: "/cafe-46880550.jpg", alt: "Littles & Lattés café menu" },
+    { src: "/cafe-570b81d7.jpg", alt: "Littles & Lattés café menu" },
+    { src: "/cafe-684b9344.jpg", alt: "Littles & Lattés café menu" },
+    { src: "/cafe-7cea6425.jpg", alt: "Littles & Lattés café menu" },
+    { src: "/cafe-7fa43839.jpg", alt: "Littles & Lattés café menu" },
+    { src: "/cafe-ceffce3f.jpg", alt: "Littles & Lattés café menu" },
+    { src: "/cafe-de5d6dcb.jpg", alt: "Littles & Lattés café menu" },
+    { src: "/cafe-e61a4c7a.jpg", alt: "Littles & Lattés café menu" },
+  ],
 } as const;
 
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/play", label: "Play" },
   { href: "/parties", label: "Parties" },
+  { href: "/cafe", label: "Café" },
   { href: "/gallery", label: "Gallery" },
   { href: "/waiver", label: "Waiver" },
   { href: "/contact", label: "Contact" },

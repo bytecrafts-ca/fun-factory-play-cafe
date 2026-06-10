@@ -46,11 +46,6 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link href="/cafe" className="text-sm text-muted transition hover:text-charcoal">
-                  Café Menu
-                </Link>
-              </li>
             </ul>
           </div>
 
