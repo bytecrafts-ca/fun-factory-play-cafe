@@ -4,15 +4,6 @@ import { siteConfig } from "@/lib/site";
 
 type Accent = "bubblegum" | "sky" | "mint" | "lavender" | "peach" | "sunshine";
 
-const accentRing: Record<Accent, string> = {
-  bubblegum: "ring-bubblegum/40",
-  sky: "ring-sky/50",
-  mint: "ring-mint/50",
-  lavender: "ring-lavender/50",
-  peach: "ring-peach/50",
-  sunshine: "ring-sunshine/50",
-};
-
 const accentGradient: Record<Accent, string> = {
   bubblegum: "from-cream via-white to-bubblegum/20",
   sky: "from-cream via-white to-sky/25",
@@ -47,40 +38,37 @@ export function PageHero({
     <section
       className={`relative border-b border-peach/40 bg-gradient-to-br ${accentGradient[accent]}`}
     >
-      <div className="container-main grid items-center gap-10 py-14 sm:py-20 lg:grid-cols-2 lg:gap-14">
-        <div>
+      <div className="container-main py-14 sm:py-20">
+        <div className="max-w-2xl">
           {eyebrow && <div className="mb-5">{eyebrow}</div>}
           <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight text-charcoal sm:text-5xl lg:text-[3.25rem]">
             {title}
           </h1>
           {subtitle && (
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+            <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
               {subtitle}
             </p>
           )}
           {children && <div className="mt-8">{children}</div>}
         </div>
 
-        <div className="space-y-5">
-          <div
-            className={`relative overflow-hidden rounded-[20px] shadow-[0_20px_50px_-12px_rgba(42,42,42,0.18)] ring-4 ${accentRing[accent]}`}
-          >
-            <div className="relative aspect-[5/4] sm:aspect-[4/3]">
-              <Image
-                src={heroImage.src}
-                alt={heroImage.alt}
-                fill
-                priority={priority}
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-              />
-              <div
-                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/10 via-transparent to-transparent"
-                aria-hidden
-              />
-            </div>
+        {aside && <div className="mt-8 max-w-sm">{aside}</div>}
+
+        <div className="relative mt-10 overflow-hidden rounded-[20px] shadow-[0_20px_50px_-12px_rgba(42,42,42,0.15)]">
+          <div className="relative aspect-[21/9] min-h-[180px] sm:min-h-[220px] lg:min-h-[280px]">
+            <Image
+              src={heroImage.src}
+              alt={heroImage.alt}
+              fill
+              priority={priority}
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+            <div
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-charcoal/20 via-transparent to-cream/10"
+              aria-hidden
+            />
           </div>
-          {aside}
         </div>
       </div>
       <div className="palette-bar" aria-hidden />
