@@ -45,6 +45,10 @@ export const siteConfig = {
     partiesUrl: process.env.NEXT_PUBLIC_OVATU_PARTIES_URL ?? "#book",
   },
   waiverUrl: process.env.NEXT_PUBLIC_WAIVER_URL ?? "/waiver",
+  heroImage: {
+    src: "/hero.jpg",
+    alt: "Children having fun with colorful balls in a bright indoor play space",
+  },
 };
 
 export type DayHours = {

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GalleryGrid } from "@/components/GalleryGrid";
+import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
@@ -9,13 +10,21 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
   return (
-    <section className="section-pad bg-section-peach">
-      <div className="container-main">
-        <SectionHeading title="Gallery" accent="peach" />
-        <div className="mt-10">
-          <GalleryGrid />
+    <>
+      <PageHero
+        title="Gallery"
+        subtitle="A peek at the fun inside Fun Factory Play Café. More photos coming soon."
+        accent="bubblegum"
+      />
+
+      <section className="section-pad bg-section-peach">
+        <div className="container-main">
+          <SectionHeading title="Inside the fun" accent="peach" />
+          <div className="mt-10">
+            <GalleryGrid />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
