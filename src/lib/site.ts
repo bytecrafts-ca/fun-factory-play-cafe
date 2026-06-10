@@ -3,10 +3,13 @@ export const siteConfig = {
   shortName: "Fun Factory",
   welcomeText:
     "We are a vibrant play cafe where creativity is brewed daily and every visit is a new adventure!",
-  partyIncludeText:
-    "All parties include 2.5 hours in a private room, playtime, pizza, cake, juice, water, coffee/tea for adults, e-vites, host, and more!",
+  partyIncludeText: [
+    "All parties include 2.5 hours in a private room.",
+    "Playtime, pizza, cake, juice, water, and coffee/tea for adults.",
+    "E-vites, party host, and more!",
+  ],
   littlesAndLattesText:
-    "Littles & Lattés is NOW OPEN! Check out our café menu page to see our premium beverages!",
+    "Littles & Lattés Café is NOW OPEN! Check out our café menu page to see our premium beverages!",
   url: "https://www.funfactoryplay.ca",
   phone: "(647) 824 - 8389",
   phoneHref: "tel:+16478248389",
@@ -35,7 +38,7 @@ export const siteConfig = {
       href: "https://www.instagram.com/littlesandlattess/",
     },
     tiktok: {
-      label: "TikTok — coming soon",
+      label: "TikTok",
       href: null,
     },
   },
@@ -62,29 +65,32 @@ export type DayHours = {
 
 export const hours: DayHours[] = [
   { day: "Monday", hours: "Closed", closed: true },
-  { day: "Tuesday", hours: "3:30 pm – 7:30 pm", promo: "50% off admissions!" },
+  { day: "Tuesday", hours: "3:30 pm – 7:30 pm", promo: "50% off drop-in admissions" },
   { day: "Wednesday", hours: "Closed", closed: true },
-  { day: "Thursday", hours: "3:30 pm – 7:30 pm", promo: "50% off admissions!" },
+  { day: "Thursday", hours: "3:30 pm – 7:30 pm", promo: "50% off drop-in admissions" },
   { day: "Friday", hours: "9:30 am – 8:30 pm" },
   { day: "Saturday", hours: "9:30 am – 8:30 pm" },
   { day: "Sunday", hours: "9:30 am – 8:30 pm" },
 ];
 
 export const admissions = [
-  { ageGroup: "Under 1", price: "Free with paying sibling" },
-  { ageGroup: "Under 1", price: "$5.00 drop-in" },
-  { ageGroup: "1 to 3 years", price: "$10.00" },
-  { ageGroup: "4 to 13 years", price: "$14.00" },
-  { ageGroup: "14 to 17 years", price: "$10.00" },
+  { ageGroup: "Under 1 Year Old", price: "Free With a Paying Sibling" },
+  { ageGroup: "1 to 3 Year Old", price: "$10.00" },
+  { ageGroup: "4 to 13 Year Old", price: "$14.00" },
+  { ageGroup: "14 to 17 Year Old", price: "$10.00" },
 ] as const;
+
+export const playRatesNote =
+  "Enjoy unlimited play time — there is no time limit on your visit.";
 
 export const admissionNotes = [
   "Maximum two (2) adults per family included in the admission",
   "Socks available for purchase at reception — $3.00",
   "All prices are subject to HST",
-  "Socks are required for all of our guests",
-  "A liability waiver must be completed",
-  "No outside drinks allowed. Nut-free food is allowed",
+  "We are a sock only facility",
+  "A signed waiver is required before entry",
+  "No outside drinks allowed",
+  "Nut-free food is allowed",
   "All sales are final",
 ] as const;
 
@@ -140,8 +146,8 @@ export const ultimateParty = {
   name: "Ultimate Fun Party",
   weekdayPrice: 1399,
   weekendPrice: 1999,
-  weekdayNote: "Monday–Thursday (except holidays)",
-  weekendNote: "Friday–Sunday",
+  weekdayNote: "Monday to Thursday (Excluding Holidays)",
+  weekendNote: "Friday to Sunday",
   children: 50,
   adults: 50,
   pizzas: "4 party-size pizzas & 1 large pizza (cheese/pepperoni/veggie — two toppings)",
@@ -153,7 +159,12 @@ export const ultimateParty = {
 
 export const partyExtras = {
   additionalChild: "Additional children $14.99 each",
-  additionalAdult: "Additional adult $4.99",
+  additionalAdult: "Additional adults $4.99 each",
+} as const;
+
+export const partyRoomInfo = {
+  smallRoom: "Small room — Fun Party and Active Fun Party time slots",
+  largeRoom: "Large room — Supreme Fun Party and Extreme Fun Party time slots",
 } as const;
 
 export const partyTimeSlots = [
@@ -197,26 +208,27 @@ export const facilityRules = [
 
 export const importantInfo = [
   "Waiver must be signed before entry",
-  "Socks Required",
+  "We are a sock only facility",
   "Parents must supervise children",
   "Snacks and drinks available for purchase",
   "Free parking available",
 ] as const;
 
 export const socksReminder =
-  "Remember your socks! Fun Factory is a SOCKS-ONLY facility. Socks are required for children AND adults.";
+  "We are a sock only facility — socks are required for children and adults.";
 
 export const promoText =
-  "Tuesdays & Thursdays 3:30 pm - Close — 50% OFF Admissions!";
+  "Visit us every Tuesday and Thursday to enjoy 50% off all drop-in admissions";
 
 export const cafeMenu = {
-  brand: "Littles & Lattés",
+  brand: "Littles & Lattés Café",
   tagline: "Premium iced specialty beverages at Fun Factory Play Café.",
   info: [
-    "Littles & Lattés is NOW OPEN!",
+    "Littles & Lattés Café is NOW OPEN!",
     "Located inside Fun Factory Play Café in Pickering.",
     "Snacks and drinks available for purchase during play hours.",
-    "Outside drinks are not permitted — please view our café menu for drink selection.",
+    "Outside drinks are not permitted.",
+    "Please view our café menu for drink selection.",
     "All food must be consumed in designated eating areas.",
   ],
   drinks: [

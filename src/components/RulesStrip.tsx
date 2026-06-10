@@ -1,7 +1,7 @@
 import { IconClipboard, IconEye, IconShield, IconSocks } from "@/components/Icons";
 
 const items = [
-  { icon: IconSocks, label: "Socks Only Facility", bg: "bg-bubblegum/40" },
+  { icon: IconSocks, label: "Sock Only Facility", bg: "bg-bubblegum/40" },
   { icon: IconClipboard, label: "Waiver Required", bg: "bg-sky/40" },
   { icon: IconEye, label: "Parental Supervision", bg: "bg-mint/40" },
   { icon: IconShield, label: "Nut-Aware Facility", bg: "bg-lavender/40" },

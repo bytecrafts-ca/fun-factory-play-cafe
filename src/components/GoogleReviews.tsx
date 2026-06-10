@@ -13,17 +13,25 @@ function GoogleLogo() {
   );
 }
 
-export function GoogleReviews() {
-  const { googleReviews } = siteConfig;
+type GoogleReviewsProps = {
+  title?: string;
+  subtitle?: string;
+  reviewsUrl?: string;
+  writeReviewUrl?: string;
+  accent?: "lavender" | "peach" | "sky" | "mint" | "bubblegum";
+};
 
+export function GoogleReviews({
+  title = "Google Reviews",
+  subtitle = "See what families are saying on Google.",
+  reviewsUrl = siteConfig.googleReviews.reviewsUrl,
+  writeReviewUrl = siteConfig.googleReviews.writeReviewUrl,
+  accent = "lavender",
+}: GoogleReviewsProps) {
   return (
     <section className="section-pad bg-section-lavender">
       <div className="container-main">
-        <SectionHeading
-          title="Google Reviews"
-          subtitle="See what families are saying on Google."
-          accent="lavender"
-        />
+        <SectionHeading title={title} subtitle={subtitle} accent={accent} />
 
         <div className="mx-auto mt-8 flex max-w-xl flex-col items-center text-center">
           <div className="flex items-center gap-2">
@@ -31,10 +39,10 @@ export function GoogleReviews() {
             <span className="text-sm font-semibold text-charcoal">Google</span>
           </div>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Button href={googleReviews.reviewsUrl} external variant="lavender" size="md">
+            <Button href={reviewsUrl} external variant="lavender" size="md">
               Read Reviews on Google
             </Button>
-            <Button href={googleReviews.writeReviewUrl} external variant="outline" size="md">
+            <Button href={writeReviewUrl} external variant="outline" size="md">
               Leave a Review
             </Button>
           </div>

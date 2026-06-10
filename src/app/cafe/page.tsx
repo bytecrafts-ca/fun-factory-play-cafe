@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { GoogleReviews } from "@/components/GoogleReviews";
 import { HoursWidget } from "@/components/HoursWidget";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -25,7 +26,7 @@ export default function CafePage() {
           <div>
             <SectionHeading
               title="Café Info"
-              subtitle="Everything you need to know about Littles & Lattés."
+              subtitle="Everything you need to know about Littles & Lattés Café."
               centered={false}
               accent="peach"
             />
@@ -85,25 +86,33 @@ export default function CafePage() {
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {cafeMenu.menuImages.map((image) => (
               <div key={image.src} className="card overflow-hidden p-2">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={508}
-                  height={508}
-                  className="h-auto w-full rounded-[12px]"
-                />
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[12px]">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover object-center"
+                  />
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      <GoogleReviews
+        title="Littles & Lattés Café Reviews"
+        subtitle="See what guests are saying on Google."
+        accent="peach"
+      />
+
       <section className="section-pad border-t border-peach/40 bg-cream">
         <div className="container-main text-center">
           <p className="text-sm text-muted">
             Planning a visit?{" "}
             <Link href="/play" className="font-semibold text-charcoal hover:underline">
-              View play rates
+              View Play Rates
             </Link>{" "}
             or{" "}
             <Link href="/contact" className="font-semibold text-charcoal hover:underline">

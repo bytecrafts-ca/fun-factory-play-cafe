@@ -15,7 +15,7 @@ const accentOverlay: Record<Accent, string> = {
 
 type PageHeroProps = {
   title: string;
-  subtitle?: string;
+  subtitle?: ReactNode;
   eyebrow?: ReactNode;
   accent?: Accent;
   children?: ReactNode;

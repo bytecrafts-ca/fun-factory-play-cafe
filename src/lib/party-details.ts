@@ -20,13 +20,13 @@ export function getPartyPackageDetails(pkg: PartyDetailInput): string[] {
     `${pkg.adults} adults`,
     pkg.pizzas,
     pkg.cake,
-    `${pkg.drinks} drinks (juice boxes / water bottles)`,
+    `${pkg.drinks} juices (juice boxes / water bottles)`,
     "Plates, napkins, cutlery",
-    "e-invitations",
+    "Party host, PA announcement, setup & cleanup",
+    "E-invites included",
     `${pkg.returnPasses} free return play pass${pkg.returnPasses > 1 ? "es" : ""}`,
-    "PA announcement, party host, setup & cleanup",
     "Additional children $14.99 each",
-    "Additional adult $4.99",
+    "Additional adults $4.99 each",
   );
 
   return lines;

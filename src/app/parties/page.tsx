@@ -8,11 +8,12 @@ import {
   partyAddOns,
   partyCustomizeText,
   partyExtras,
+  partyRoomInfo,
   siteConfig,
 } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Party Packages",
+  title: "Birthday Party Packages",
   description:
     "Birthday party packages at Fun Factory — from $369. Private room, playtime, pizza, cake, juice, host, and more.",
 };
@@ -21,8 +22,14 @@ export default function PartiesPage() {
   return (
     <>
       <PageHero
-        title="Party Packages"
-        subtitle={siteConfig.partyIncludeText}
+        title="Birthday Party Packages"
+        subtitle={
+          <div className="space-y-2">
+            {siteConfig.partyIncludeText.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
+          </div>
+        }
         accent="lavender"
       >
         <Button href={siteConfig.ovatu.partiesUrl} external variant="lavender" size="lg">
@@ -32,7 +39,11 @@ export default function PartiesPage() {
 
       <section className="section-pad bg-section-lavender">
         <div className="container-main">
-          <SectionHeading title="Choose your package" accent="lavender" />
+          <SectionHeading title="Birthday Party Packages" accent="lavender" />
+          <div className="mt-6 max-w-2xl space-y-2 text-sm text-muted">
+            <p>{partyRoomInfo.smallRoom}</p>
+            <p>{partyRoomInfo.largeRoom}</p>
+          </div>
           <div className="mt-10">
             <PartyCards />
           </div>
@@ -50,15 +61,13 @@ export default function PartiesPage() {
 
       <section className="section-pad bg-section-peach">
         <div className="container-main max-w-2xl">
-          <SectionHeading title="Party add-ons" accent="peach" />
+          <SectionHeading title="Additional Party Options" accent="peach" />
           <ul className="mt-6 space-y-2 text-sm text-muted">
             {partyAddOns.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-          <p className="mt-6 text-sm leading-relaxed text-muted">
-            {partyCustomizeText}
-          </p>
+          <p className="mt-6 text-sm leading-relaxed text-muted">{partyCustomizeText}</p>
           <ul className="mt-4 space-y-1 text-sm text-muted">
             <li>{partyExtras.additionalChild}</li>
             <li>{partyExtras.additionalAdult}</li>

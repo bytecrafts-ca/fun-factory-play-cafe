@@ -13,7 +13,7 @@ type SocialLinksProps = {
 };
 
 export function SocialLinks({ showLabels = false, className = "" }: SocialLinksProps) {
-  const items = [
+  const mainItems = [
     {
       key: "email",
       href: siteConfig.emailHref,
@@ -36,67 +36,71 @@ export function SocialLinks({ showLabels = false, className = "" }: SocialLinksP
       external: true,
     },
     {
-      key: "maps",
-      href: siteConfig.address.mapsUrl,
-      label: "Google Maps",
-      icon: IconGoogleMaps,
-      external: true,
-    },
-    {
       key: "reviews",
       href: siteConfig.googleReviews.reviewsUrl,
       label: "Google Reviews",
       icon: IconGoogleReviews,
       external: true,
     },
-    {
-      key: "tiktok",
-      href: siteConfig.social.tiktok.href,
-      label: siteConfig.social.tiktok.label,
-      icon: IconTikTok,
-      external: false,
-      disabled: true,
-    },
   ] as const;
 
-  return (
-    <div className={`flex flex-wrap items-center gap-3 ${className}`}>
-      {items.map((item) => {
-        const Icon = item.icon;
-        const content = (
-          <>
-            <Icon className="h-5 w-5" />
-            {showLabels && <span className="text-sm font-medium">{item.label}</span>}
-          </>
-        );
+  const tiktok = siteConfig.social.tiktok;
 
-        if ("disabled" in item && item.disabled) {
+  const linkClass =
+    "inline-flex items-center gap-2 rounded-full border border-peach/60 bg-white px-3 py-2 text-charcoal transition hover:border-sky hover:bg-sky/10";
+
+  return (
+    <div className={`space-y-3 ${className}`}>
+      <div className="flex flex-wrap items-center gap-3">
+        {mainItems.map((item) => {
+          const Icon = item.icon;
           return (
-            <span
+            <a
               key={item.key}
+              href={item.href}
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noopener noreferrer" : undefined}
               title={item.label}
-              className="inline-flex items-center gap-2 rounded-full border border-peach/60 bg-white/80 px-3 py-2 text-muted"
+              className={linkClass}
               aria-label={item.label}
             >
-              {content}
-            </span>
+              <Icon className="h-5 w-5" />
+              {showLabels && <span className="text-sm font-medium">{item.label}</span>}
+            </a>
           );
-        }
-
-        return (
+        })}
+        {tiktok.href ? (
           <a
-            key={item.key}
-            href={item.href!}
-            target={item.external ? "_blank" : undefined}
-            rel={item.external ? "noopener noreferrer" : undefined}
-            title={item.label}
-            className="inline-flex items-center gap-2 rounded-full border border-peach/60 bg-white px-3 py-2 text-charcoal transition hover:border-sky hover:bg-sky/10"
-            aria-label={item.label}
+            href={tiktok.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={tiktok.label}
+            className={linkClass}
+            aria-label={tiktok.label}
           >
-            {content}
+            <IconTikTok className="h-5 w-5" />
+            {showLabels && <span className="text-sm font-medium">{tiktok.label}</span>}
           </a>
-        );
-      })}
+        ) : (
+          <span title={tiktok.label} className={linkClass} aria-label={tiktok.label}>
+            <IconTikTok className="h-5 w-5" />
+            {showLabels && <span className="text-sm font-medium">{tiktok.label}</span>}
+          </span>
+        )}
+      </div>
+      <div>
+        <a
+          href={siteConfig.address.mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Google Maps"
+          className={linkClass}
+          aria-label="Google Maps"
+        >
+          <IconGoogleMaps className="h-5 w-5" />
+          {showLabels && <span className="text-sm font-medium">Google Maps</span>}
+        </a>
+      </div>
     </div>
   );
 }

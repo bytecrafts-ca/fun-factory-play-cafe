@@ -23,7 +23,7 @@ export default function HomePage() {
 
       <section className="section-pad bg-section-sky">
         <div className="container-main">
-          <SectionHeading title="Important info" accent="sky" />
+          <SectionHeading title="Important Info" accent="sky" />
           <ul className="mx-auto mt-8 grid max-w-2xl gap-2">
             {importantInfo.map((item) => (
               <li
@@ -38,9 +38,11 @@ export default function HomePage() {
       </section>
 
       <section className="section-pad">
-        <div className="container-main grid gap-10 lg:grid-cols-2 lg:items-start">
-          <SectionHeading title="Play rates" centered={false} accent="mint" />
-          <AdmissionsTable showNotes={false} />
+        <div className="container-main">
+          <SectionHeading title="Play Rates" centered={false} accent="mint" />
+          <div className="mt-6 max-w-xl">
+            <AdmissionsTable showNotes={false} />
+          </div>
         </div>
       </section>
 
@@ -49,9 +51,11 @@ export default function HomePage() {
       <section className="section-pad bg-section-lavender">
         <div className="container-main">
           <SectionHeading title="Birthday Parties" accent="lavender" />
-          <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-muted">
-            {siteConfig.partyIncludeText}
-          </p>
+          <div className="mx-auto mt-4 max-w-2xl space-y-2 text-center text-sm leading-relaxed text-muted">
+            {siteConfig.partyIncludeText.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
+          </div>
           <div className="mt-10">
             <PartyCards />
           </div>
@@ -72,7 +76,7 @@ export default function HomePage() {
 
       <section className="section-pad bg-section-peach">
         <div className="container-main text-center">
-          <SectionHeading title="Littles & Lattés" accent="peach" />
+          <SectionHeading title="Littles & Lattés Café" accent="peach" />
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted">
             {siteConfig.littlesAndLattesText}
           </p>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { siteConfig } from "@/lib/site";
+import { promoText, siteConfig } from "@/lib/site";
 
 export function AnnouncementBar() {
   const isExternal = siteConfig.waiverUrl.startsWith("http");
@@ -17,12 +17,12 @@ export function AnnouncementBar() {
         <span className="hidden text-charcoal/25 sm:inline" aria-hidden>
           |
         </span>
-        <span>Socks required for everyone</span>
+        <span>We are a sock only facility</span>
         <span className="hidden text-charcoal/25 sm:inline" aria-hidden>
           |
         </span>
-        <span className="rounded-md bg-sunshine/80 px-2 py-0.5 font-bold">
-          Tue & Thu — 50% off admissions
+        <span className="rounded-md bg-sunshine/80 px-2 py-0.5 font-bold normal-case tracking-normal">
+          {promoText}
         </span>
       </div>
     </div>

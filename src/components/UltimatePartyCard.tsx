@@ -8,7 +8,7 @@ export function UltimatePartyCard() {
   return (
     <article className="card border-t-4 border-t-sunshine bg-sunshine/15 p-6 md:p-8">
       <h3 className="text-2xl font-bold text-charcoal">{ultimateParty.name}</h3>
-      <div className="mt-3 flex flex-col gap-1 sm:flex-row sm:gap-6">
+      <div className="mt-3 space-y-1">
         <p className="text-lg font-bold text-charcoal">
           {ultimateParty.weekdayNote}: {formatPrice(ultimateParty.weekdayPrice)}
         </p>

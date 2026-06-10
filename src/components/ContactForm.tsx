@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { partyTimeSlots } from "@/lib/site";
+import { partyRoomInfo, partyTimeSlots } from "@/lib/site";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -63,6 +63,12 @@ export function ContactForm() {
           <option>Other</option>
         </select>
       </div>
+      {isPartyInquiry && (
+        <div className="space-y-4 rounded-lg border border-lavender/40 bg-lavender/10 p-4 text-sm text-muted">
+          <p>{partyRoomInfo.smallRoom}</p>
+          <p>{partyRoomInfo.largeRoom}</p>
+        </div>
+      )}
       {isPartyInquiry && (
         <div className="grid gap-5 sm:grid-cols-2">
           <div>

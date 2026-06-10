@@ -13,7 +13,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Play & Admissions",
   description:
-    "Drop-in play rates at Fun Factory. Socks and waiver required. Tuesdays & Thursdays 50% off.",
+    "Drop-in play rates at Fun Factory. We are a sock only facility. Tuesdays & Thursdays 50% off.",
 };
 
 export default function PlayPage() {
@@ -21,7 +21,7 @@ export default function PlayPage() {
     <>
       <PageHero
         title="Play Rates"
-        subtitle="Drop-in admission for ages 1–17. Socks and a signed waiver are required for every visit."
+        subtitle="We are a sock only facility. A signed waiver is required for every visit."
         accent="sky"
       >
         <Button href={siteConfig.ovatu.ticketsUrl} external variant="primary" size="lg">
