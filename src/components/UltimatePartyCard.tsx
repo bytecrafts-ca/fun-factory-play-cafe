@@ -1,23 +1,9 @@
 import { Button } from "@/components/ui/Button";
-import {
-  formatPrice,
-  partyExtras,
-  siteConfig,
-  ultimateParty,
-} from "@/lib/site";
+import { getPartyPackageDetails } from "@/lib/party-details";
+import { formatPrice, siteConfig, ultimateParty } from "@/lib/site";
 
 export function UltimatePartyCard() {
-  const details = [
-    ultimateParty.highlight,
-    `${ultimateParty.children} children · ${ultimateParty.adults} adults included`,
-    ultimateParty.pizzas,
-    ultimateParty.cake,
-    `${ultimateParty.drinks} drinks (juice boxes / water bottles)`,
-    "Plates, napkins, cutlery & e-invitations",
-    `${ultimateParty.returnPasses} free return play passes`,
-    "PA announcement, party host, setup & cleanup",
-    `Additional children ${partyExtras.additionalChild} · adults ${partyExtras.additionalAdult}`,
-  ];
+  const details = getPartyPackageDetails(ultimateParty);
 
   return (
     <article className="card border-t-4 border-t-sunshine bg-sunshine/15 p-6 md:p-8">

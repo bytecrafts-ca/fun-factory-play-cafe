@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import { cafeMenu, siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Littles & Lattés",
   description: siteConfig.littlesAndLattesText,
-  robots: { index: false, follow: false },
 };
 
 export default function CafePage() {
-  if (!siteConfig.cafePublic) {
-    notFound();
-  }
-
   return (
     <>
       <section className="border-b border-peach/40 bg-gradient-to-br from-cream to-peach/20">

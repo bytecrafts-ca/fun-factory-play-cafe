@@ -1,10 +1,6 @@
 import { Button } from "@/components/ui/Button";
-import {
-  formatPrice,
-  partyExtras,
-  partyPackages,
-  siteConfig,
-} from "@/lib/site";
+import { getPartyPackageDetails } from "@/lib/party-details";
+import { formatPrice, partyPackages, siteConfig } from "@/lib/site";
 
 const accentMap = {
   bubblegum: { border: "border-t-bubblegum", bg: "bg-bubblegum/10" },
@@ -12,19 +8,6 @@ const accentMap = {
   lavender: { border: "border-t-lavender", bg: "bg-lavender/10" },
   mint: { border: "border-t-mint", bg: "bg-mint/10" },
 };
-
-function packageDetails(pkg: (typeof partyPackages)[number]) {
-  return [
-    `${pkg.children} children · ${pkg.adults} adults included`,
-    pkg.pizzas,
-    pkg.cake,
-    `${pkg.drinks} drinks (juice boxes / water bottles)`,
-    "Plates, napkins, cutlery & e-invitations",
-    `${pkg.returnPasses} free return play pass${pkg.returnPasses > 1 ? "es" : ""}`,
-    "PA announcement, party host, setup & cleanup",
-    `Additional children ${partyExtras.additionalChild} · adults ${partyExtras.additionalAdult}`,
-  ];
-}
 
 export function PartyCards() {
   return (
@@ -48,7 +31,7 @@ export function PartyCards() {
               {formatPrice(pkg.price)}
             </p>
             <ul className="mt-5 flex-1 space-y-2 text-sm leading-relaxed text-muted">
-              {packageDetails(pkg).map((item) => (
+              {getPartyPackageDetails(pkg).map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>

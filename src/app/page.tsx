@@ -1,12 +1,15 @@
 import { AdmissionsTable } from "@/components/AdmissionsTable";
 import { ContactForm } from "@/components/ContactForm";
 import { GalleryGrid, GalleryLink } from "@/components/GalleryGrid";
+import { GoogleMap } from "@/components/GoogleMap";
 import { Hero } from "@/components/Hero";
 import { PartyCards } from "@/components/PartyCards";
 import { PromoBanner } from "@/components/PromoBanner";
 import { RulesChips } from "@/components/RulesChips";
 import { RulesStrip } from "@/components/RulesStrip";
+import { SocialLinks } from "@/components/SocialLinks";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Button } from "@/components/ui/Button";
 import { UltimatePartyCard } from "@/components/UltimatePartyCard";
 import { WaiverCTA } from "@/components/WaiverCTA";
 import { importantInfo, siteConfig } from "@/lib/site";
@@ -35,11 +38,7 @@ export default function HomePage() {
 
       <section className="section-pad">
         <div className="container-main grid gap-10 lg:grid-cols-2 lg:items-start">
-          <SectionHeading
-            title="Play rates"
-            centered={false}
-            accent="mint"
-          />
+          <SectionHeading title="Play rates" centered={false} accent="mint" />
           <AdmissionsTable showNotes={false} />
         </div>
       </section>
@@ -48,7 +47,7 @@ export default function HomePage() {
 
       <section className="section-pad bg-section-lavender">
         <div className="container-main">
-          <SectionHeading title="Birthday parties" accent="lavender" />
+          <SectionHeading title="Birthday Parties" accent="lavender" />
           <p className="mx-auto mt-4 max-w-2xl text-center text-sm leading-relaxed text-muted">
             {siteConfig.partyIncludeText}
           </p>
@@ -63,7 +62,7 @@ export default function HomePage() {
 
       <section className="section-pad bg-section-mint">
         <div className="container-main">
-          <SectionHeading title="Before you visit" accent="mint" />
+          <SectionHeading title="Before Your Visit!" accent="mint" />
           <div className="mt-10">
             <RulesChips />
           </div>
@@ -76,6 +75,11 @@ export default function HomePage() {
           <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted">
             {siteConfig.littlesAndLattesText}
           </p>
+          <div className="mt-6">
+            <Button href="/cafe" variant="secondary" size="lg">
+              View Café Menu
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -99,7 +103,14 @@ export default function HomePage() {
               <div className="mt-8 space-y-3 text-sm text-muted">
                 <p>
                   <span className="font-semibold text-charcoal">Address:</span>{" "}
-                  {siteConfig.address.full}
+                  <a
+                    href={siteConfig.address.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-charcoal hover:underline"
+                  >
+                    {siteConfig.address.full}
+                  </a>
                 </p>
                 <p>
                   <span className="font-semibold text-charcoal">Phone:</span>{" "}
@@ -107,6 +118,18 @@ export default function HomePage() {
                     {siteConfig.phone}
                   </a>
                 </p>
+                <p>
+                  <span className="font-semibold text-charcoal">Email:</span>{" "}
+                  <a href={siteConfig.emailHref} className="hover:text-charcoal">
+                    {siteConfig.email}
+                  </a>
+                </p>
+              </div>
+              <div className="mt-6">
+                <SocialLinks showLabels />
+              </div>
+              <div className="mt-8">
+                <GoogleMap />
               </div>
             </div>
             <ContactForm />

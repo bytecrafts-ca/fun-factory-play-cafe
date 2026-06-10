@@ -10,8 +10,28 @@ export const siteConfig = {
   url: "https://www.funfactoryplay.ca",
   phone: "(647) 824 - 8389",
   phoneHref: "tel:+16478248389",
+  email: "info@funfactoryplay.ca",
+  emailHref: "mailto:info@funfactoryplay.ca",
   address: {
     full: "1420 Bayly St., Unit 15, Pickering, ON",
+    mapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=1420+Bayly+St+Unit+15+Pickering+ON",
+    mapsEmbedUrl:
+      "https://maps.google.com/maps?q=1420+Bayly+St,+Unit+15,+Pickering,+ON&hl=en&z=15&output=embed",
+  },
+  social: {
+    instagram: {
+      label: "@funfactoryplay",
+      href: "https://www.instagram.com/funfactoryplay/",
+    },
+    littlesInstagram: {
+      label: "@littlesandlattess",
+      href: "https://www.instagram.com/littlesandlattess/",
+    },
+    tiktok: {
+      label: "TikTok — coming soon",
+      href: null,
+    },
   },
   ovatu: {
     bookUrl: process.env.NEXT_PUBLIC_OVATU_BOOK_URL ?? "#book",
@@ -40,7 +60,8 @@ export const hours: DayHours[] = [
 ];
 
 export const admissions = [
-  { ageGroup: "Under 1", price: "Free with paying sibling · $5.00 drop-in" },
+  { ageGroup: "Under 1", price: "Free with paying sibling" },
+  { ageGroup: "Under 1", price: "$5.00 drop-in" },
   { ageGroup: "1 to 3 years", price: "$10.00" },
   { ageGroup: "4 to 13 years", price: "$14.00" },
   { ageGroup: "14 to 17 years", price: "$10.00" },
@@ -62,7 +83,7 @@ export const partyPackages = [
     price: 369,
     children: 10,
     adults: 10,
-    pizzas: "1 party-size pizza (cheese/pepperoni/veggie)",
+    pizzas: "1 party-size pizza (cheese/pepperoni/veggie — two toppings)",
     cake: "Birthday cake (can substitute for a large pizza)",
     drinks: 10,
     returnPasses: 1,
@@ -73,7 +94,7 @@ export const partyPackages = [
     price: 459,
     children: 15,
     adults: 15,
-    pizzas: "1 party-size pizza & 1 large pizza (cheese/pepperoni/veggie)",
+    pizzas: "1 party-size pizza & 1 large pizza (cheese/pepperoni/veggie — two toppings)",
     cake: "Birthday cake (can substitute for a large pizza)",
     drinks: 15,
     returnPasses: 2,
@@ -85,7 +106,7 @@ export const partyPackages = [
     price: 579,
     children: 20,
     adults: 20,
-    pizzas: "2 party-size pizzas (cheese/pepperoni/veggie)",
+    pizzas: "2 party-size pizzas (cheese/pepperoni/veggie — two toppings)",
     cake: "Birthday cake (can substitute for a large pizza)",
     drinks: 20,
     returnPasses: 3,
@@ -96,7 +117,7 @@ export const partyPackages = [
     price: 719,
     children: 30,
     adults: 30,
-    pizzas: "3 party-size pizzas (cheese/pepperoni/veggie)",
+    pizzas: "3 party-size pizzas (cheese/pepperoni/veggie — two toppings)",
     cake: "Birthday cake (can substitute for a large pizza)",
     drinks: 30,
     returnPasses: 4,
@@ -112,7 +133,7 @@ export const ultimateParty = {
   weekendNote: "Friday–Sunday",
   children: 50,
   adults: 50,
-  pizzas: "4 party-size pizzas & 1 large pizza (cheese/pepperoni/veggie)",
+  pizzas: "4 party-size pizzas & 1 large pizza (cheese/pepperoni/veggie — two toppings)",
   cake: "Birthday cake (can substitute for a large pizza)",
   drinks: 50,
   returnPasses: 5,
@@ -120,9 +141,16 @@ export const ultimateParty = {
 } as const;
 
 export const partyExtras = {
-  additionalChild: "$14.99 for each additional child",
-  additionalAdult: "$4.99 for each additional adult",
+  additionalChild: "Additional children $14.99 each",
+  additionalAdult: "Additional adult $4.99",
 } as const;
+
+export const partyTimeSlots = [
+  "Morning",
+  "Early afternoon",
+  "Late afternoon",
+  "Evening",
+] as const;
 
 export const partyAddOns = [
   "More Pizza",

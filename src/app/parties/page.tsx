@@ -69,9 +69,10 @@ export default function PartiesPage() {
           <p className="mt-6 text-sm leading-relaxed text-muted">
             {partyCustomizeText}
           </p>
-          <p className="mt-4 text-sm text-muted">
-            {partyExtras.additionalChild}. {partyExtras.additionalAdult}.
-          </p>
+          <ul className="mt-4 space-y-1 text-sm text-muted">
+            <li>{partyExtras.additionalChild}</li>
+            <li>{partyExtras.additionalAdult}</li>
+          </ul>
         </div>
       </section>
     </>

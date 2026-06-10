@@ -2,9 +2,13 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { partyTimeSlots } from "@/lib/site";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [subject, setSubject] = useState("General Inquiry");
+
+  const isPartyInquiry = subject === "Party Booking Question";
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -45,7 +49,13 @@ export function ContactForm() {
         <label htmlFor="subject" className="block text-sm font-semibold text-charcoal">
           Subject
         </label>
-        <select id="subject" name="subject" className={inputClass}>
+        <select
+          id="subject"
+          name="subject"
+          className={inputClass}
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
+        >
           <option>General Inquiry</option>
           <option>Party Booking Question</option>
           <option>Drop-In Play</option>
@@ -53,6 +63,35 @@ export function ContactForm() {
           <option>Other</option>
         </select>
       </div>
+      {isPartyInquiry && (
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label htmlFor="party-date" className="block text-sm font-semibold text-charcoal">
+              Preferred date
+            </label>
+            <input
+              id="party-date"
+              name="party-date"
+              type="date"
+              required
+              className={inputClass}
+            />
+          </div>
+          <div>
+            <label htmlFor="time-slot" className="block text-sm font-semibold text-charcoal">
+              Preferred time slot
+            </label>
+            <select id="time-slot" name="time-slot" required className={inputClass}>
+              <option value="">Select a time slot</option>
+              {partyTimeSlots.map((slot) => (
+                <option key={slot} value={slot}>
+                  {slot}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+      )}
       <div>
         <label htmlFor="message" className="block text-sm font-semibold text-charcoal">
           Message

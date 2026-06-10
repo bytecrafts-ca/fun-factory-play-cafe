@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { GoogleMap } from "@/components/GoogleMap";
+import { SocialLinks } from "@/components/SocialLinks";
 import { navLinks, siteConfig } from "@/lib/site";
 
 export function Footer() {
@@ -8,7 +10,7 @@ export function Footer() {
     <footer className="border-t border-peach/40 bg-peach/15">
       <div className="palette-bar" aria-hidden />
       <div className="container-main py-12">
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-10 lg:grid-cols-3">
           <div>
             <h3 className="text-lg font-bold text-charcoal">Fun Factory Play Café</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">
@@ -19,6 +21,14 @@ export function Footer() {
                 {siteConfig.phone}
               </a>
             </p>
+            <p className="mt-2 text-sm">
+              <a href={siteConfig.emailHref} className="text-charcoal transition hover:underline">
+                {siteConfig.email}
+              </a>
+            </p>
+            <div className="mt-4">
+              <SocialLinks showLabels />
+            </div>
           </div>
 
           <div>
@@ -36,21 +46,21 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/cafe" className="text-sm text-muted transition hover:text-charcoal">
+                  Café Menu
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider text-charcoal">
-              Visit Us
+              Find Us
             </h4>
-            <address className="mt-4 space-y-2 not-italic text-sm text-muted">
-              <p>{siteConfig.address.full}</p>
-              <p>
-                <a href={siteConfig.phoneHref} className="transition hover:text-charcoal">
-                  {siteConfig.phone}
-                </a>
-              </p>
-            </address>
+            <div className="mt-4">
+              <GoogleMap />
+            </div>
           </div>
         </div>
 

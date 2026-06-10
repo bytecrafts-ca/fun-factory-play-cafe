@@ -65,7 +65,7 @@ export default function PlayPage() {
 
       <section className="section-pad bg-white">
         <div className="container-main">
-          <SectionHeading title="Before you arrive" accent="mint" />
+          <SectionHeading title="Before Your Visit!" accent="mint" />
           <div className="mt-10">
             <RulesChips />
           </div>

@@ -75,3 +75,39 @@ export function IconBuilding({ className = "h-6 w-6" }: IconProps) {
     </svg>
   );
 }
+
+export function IconInstagram({ className = "h-5 w-5" }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function IconEmail({ className = "h-5 w-5" }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M3 7l9 6 9-6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function IconGoogleMaps({ className = "h-5 w-5" }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
+      <path d="M12 21s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="12" cy="11" r="2.5" />
+    </svg>
+  );
+}
+
+export function IconTikTok({ className = "h-5 w-5" }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M16.5 5.5c.8 1.2 2 2 3.5 2.1V11c-1.3 0-2.5-.4-3.5-1v5.8c0 3-2.4 5.2-5.5 5.2S5.5 18.8 5.5 15.8 7.9 10.6 11 10.6c.4 0 .8 0 1.2.1v3.1c-.3-.1-.7-.2-1.2-.2-1.5 0-2.7 1.2-2.7 2.7s1.2 2.7 2.7 2.7 2.7-1.2 2.7-2.7V3h3.3c.1 1 .5 1.9 1.3 2.5z" />
+    </svg>
+  );
+}
