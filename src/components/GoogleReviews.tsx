@@ -2,28 +2,6 @@ import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { siteConfig } from "@/lib/site";
 
-function StarRating({ rating }: { rating: number }) {
-  return (
-    <div className="flex items-center gap-0.5" aria-label={`${rating} out of 5 stars`}>
-      {Array.from({ length: 5 }, (_, i) => {
-        const filled = i < Math.floor(rating);
-        const partial = !filled && i < rating;
-        return (
-          <svg
-            key={i}
-            className={`h-5 w-5 ${filled || partial ? "text-sunshine" : "text-peach/50"}`}
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden
-          >
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.967a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.287 3.966c.3.922-.755 1.688-1.538 1.118l-3.37-2.448a1 1 0 00-1.176 0l-3.37 2.448c-.783.57-1.838-.196-1.538-1.118l1.287-3.966a1 1 0 00-.364-1.118L2.263 9.394c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.967z" />
-          </svg>
-        );
-      })}
-    </div>
-  );
-}
-
 function GoogleLogo() {
   return (
     <svg className="h-5 w-5" viewBox="0 0 24 24" aria-hidden>
@@ -41,47 +19,25 @@ export function GoogleReviews() {
   return (
     <section className="section-pad bg-section-lavender">
       <div className="container-main">
-        <SectionHeading title="Google Reviews" accent="lavender" />
+        <SectionHeading
+          title="Google Reviews"
+          subtitle="See what families are saying on Google."
+          accent="lavender"
+        />
 
         <div className="mx-auto mt-8 flex max-w-xl flex-col items-center text-center">
           <div className="flex items-center gap-2">
             <GoogleLogo />
             <span className="text-sm font-semibold text-charcoal">Google</span>
           </div>
-          <div className="mt-3 flex items-center gap-3">
-            <span className="text-4xl font-extrabold text-charcoal">
-              {googleReviews.rating}
-            </span>
-            <div className="text-left">
-              <StarRating rating={googleReviews.rating} />
-              <p className="mt-1 text-sm text-muted">
-                {googleReviews.count.toLocaleString("en-CA")} reviews
-              </p>
-            </div>
-          </div>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Button href={googleReviews.reviewsUrl} external variant="lavender" size="md">
-              Read All Reviews
+              Read Reviews on Google
             </Button>
             <Button href={googleReviews.writeReviewUrl} external variant="outline" size="md">
               Leave a Review
             </Button>
           </div>
-        </div>
-
-        <div className="mt-10 grid gap-5 sm:grid-cols-2">
-          {googleReviews.featured.map((review) => (
-            <article key={review.author} className="card p-5">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="font-bold text-charcoal">{review.author}</p>
-                  <p className="text-xs text-muted">{review.date}</p>
-                </div>
-                <StarRating rating={review.rating} />
-              </div>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{review.text}</p>
-            </article>
-          ))}
         </div>
       </div>
     </section>

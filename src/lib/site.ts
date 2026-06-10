@@ -20,38 +20,10 @@ export const siteConfig = {
       "https://maps.google.com/maps?q=1420+Bayly+St,+Unit+15,+Pickering,+ON&hl=en&z=15&output=embed",
   },
   googleReviews: {
-    rating: 4.3,
-    count: 667,
     reviewsUrl:
       "https://www.google.com/maps/place/Fun+Factory+Play+Cafe+-+Pickering/@43.83115,-79.0812758,17z/data=!4m8!3m7!1s0x89d4dee5c535f85d:0x47037b445f1e60ff!8m2!3d43.83115!4d-79.0812758!9m1!1b1!16s%2Fg%2F11bztvy394",
     writeReviewUrl:
       "https://www.google.com/maps/place/Fun+Factory+Play+Cafe+-+Pickering/@43.83115,-79.0812758,17z/data=!4m8!3m7!1s0x89d4dee5c535f85d:0x47037b445f1e60ff!8m2!3d43.83115!4d-79.0812758!9m1!1b1!16s%2Fg%2F11bztvy394",
-    featured: [
-      {
-        author: "Luksume Sarvananda",
-        rating: 5,
-        date: "6 months ago",
-        text: "Took our toddler here and had an amazing time! The space is clean, safe, and full of fun activities that kept our little one entertained for hours.",
-      },
-      {
-        author: "Mina Ulfat",
-        rating: 5,
-        date: "4 months ago",
-        text: "I absolutely love this place for my 4 year old! We visit almost every week. It is so easy and fast to get in. You are also able to sit on chairs and have access to a table very close to the play area.",
-      },
-      {
-        author: "nikita nair",
-        rating: 5,
-        date: "3 months ago",
-        text: "Excellent experience! My toddler had so much fun, she didn't want to come back! Its super safe, fun & economical too! Highly recommended!",
-      },
-      {
-        author: "SONIC NICOP",
-        rating: 5,
-        date: "1 week ago",
-        text: "Such an amazing and fun place for kids and toddlers. Also great for birthday parties and mums date.",
-      },
-    ],
   },
   social: {
     instagram: {
