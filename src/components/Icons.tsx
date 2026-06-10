@@ -95,6 +95,24 @@ export function IconEmail({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
+export function IconGoogleReviews({ className = "h-5 w-5" }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path fill="#4285F4" d="M11 2h6.5a1.5 1.5 0 011.5 1.5V11H11V2z" />
+      <path fill="#34A853" d="M11 11h8.5V20.5A1.5 1.5 0 0118 22H11V11z" />
+      <path fill="#FBBC05" d="M4 11h7v11H5.5A1.5 1.5 0 014 20.5V11z" />
+      <path fill="#EA4335" d="M4 3.5A1.5 1.5 0 015.5 2H11v9H4V3.5z" />
+      <path
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="0.5"
+        d="M8.2 14.8l1.1 2.2 2.4.3-1.7 1.7.4 2.4-2.2-1.2-2.2 1.2.4-2.4-1.7-1.7 2.4-.3 1.1-2.2z"
+        className="text-sunshine"
+      />
+    </svg>
+  );
+}
+
 export function IconGoogleMaps({ className = "h-5 w-5" }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>

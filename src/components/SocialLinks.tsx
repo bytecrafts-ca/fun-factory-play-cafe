@@ -2,6 +2,7 @@ import { siteConfig } from "@/lib/site";
 import {
   IconEmail,
   IconGoogleMaps,
+  IconGoogleReviews,
   IconInstagram,
   IconTikTok,
 } from "@/components/Icons";
@@ -39,6 +40,13 @@ export function SocialLinks({ showLabels = false, className = "" }: SocialLinksP
       href: siteConfig.address.mapsUrl,
       label: "Google Maps",
       icon: IconGoogleMaps,
+      external: true,
+    },
+    {
+      key: "reviews",
+      href: siteConfig.googleReviews.reviewsUrl,
+      label: "Google Reviews",
+      icon: IconGoogleReviews,
       external: true,
     },
     {

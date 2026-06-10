@@ -2,6 +2,7 @@ import { AdmissionsTable } from "@/components/AdmissionsTable";
 import { ContactForm } from "@/components/ContactForm";
 import { GalleryGrid, GalleryLink } from "@/components/GalleryGrid";
 import { GoogleMap } from "@/components/GoogleMap";
+import { GoogleReviews } from "@/components/GoogleReviews";
 import { Hero } from "@/components/Hero";
 import { PartyCards } from "@/components/PartyCards";
 import { PromoBanner } from "@/components/PromoBanner";
@@ -94,6 +95,8 @@ export default function HomePage() {
       </section>
 
       <WaiverCTA />
+
+      <GoogleReviews />
 
       <section className="section-pad bg-section-sky">
         <div className="container-main">
