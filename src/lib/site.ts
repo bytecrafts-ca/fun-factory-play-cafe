@@ -44,7 +44,9 @@ export const siteConfig = {
     ticketsUrl: process.env.NEXT_PUBLIC_OVATU_TICKETS_URL ?? "#book",
     partiesUrl: process.env.NEXT_PUBLIC_OVATU_PARTIES_URL ?? "#book",
   },
-  waiverUrl: process.env.NEXT_PUBLIC_WAIVER_URL ?? "/waiver",
+  waiverUrl:
+    process.env.NEXT_PUBLIC_WAIVER_URL ??
+    "https://form.jotform.com/261257549756066",
   heroImage: {
     src: "/hero.jpg",
     alt: "Children having fun with colorful balls in a bright indoor play space",

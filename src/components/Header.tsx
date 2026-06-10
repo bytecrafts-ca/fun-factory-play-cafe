@@ -45,7 +45,7 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <Button href="/waiver" variant="outline" size="sm">
+          <Button href={siteConfig.waiverUrl} external variant="outline" size="sm">
             Waiver
           </Button>
           <Button
@@ -99,7 +99,7 @@ export function Header() {
               </Link>
             ))}
             <div className="mt-3 flex flex-col gap-2 border-t border-peach/40 pt-3">
-              <Button href="/waiver" variant="outline" size="md">
+              <Button href={siteConfig.waiverUrl} external variant="outline" size="md">
                 Sign Waiver
               </Button>
               <Button
