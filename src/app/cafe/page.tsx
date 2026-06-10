@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { CafeDrinkCard } from "@/components/CafeDrinkCard";
+import { CafeMenuBoards } from "@/components/CafeMenuBoards";
 import { CafeMenuList } from "@/components/CafeMenuList";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { HoursWidget } from "@/components/HoursWidget";
@@ -137,21 +137,7 @@ export default function CafePage() {
             subtitle="Browse our café menu boards."
             accent="sky"
           />
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {cafeMenu.menuBoards.map((image) => (
-              <div key={image.src} className="card overflow-hidden p-2">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[12px]">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover object-center"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+          <CafeMenuBoards boards={cafeMenu.menuBoards} />
         </div>
       </section>
 
