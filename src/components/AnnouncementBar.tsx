@@ -18,10 +18,9 @@ export function AnnouncementBar() {
           |
         </span>
         <span>We are a sock only facility</span>
-        <span className="hidden text-charcoal/25 sm:inline" aria-hidden>
-          |
-        </span>
-        <span className="rounded-md bg-sunshine/80 px-2 py-0.5 font-bold normal-case tracking-normal">
+      </div>
+      <div className="container-main border-t border-charcoal/5 pb-2.5 pt-2 text-center">
+        <span className="inline-block rounded-md bg-sunshine/80 px-2 py-0.5 text-xs font-bold normal-case tracking-normal text-charcoal sm:text-sm">
           {promoText}
         </span>
       </div>

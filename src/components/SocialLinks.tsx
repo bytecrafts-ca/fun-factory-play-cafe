@@ -47,59 +47,54 @@ export function SocialLinks({ showLabels = false, className = "" }: SocialLinksP
   const tiktok = siteConfig.social.tiktok;
 
   const linkClass =
-    "inline-flex items-center gap-2 rounded-full border border-peach/60 bg-white px-3 py-2 text-charcoal transition hover:border-sky hover:bg-sky/10";
+    "inline-flex items-center gap-2 rounded-full border border-peach/60 bg-white px-3 py-2 text-sm font-medium text-charcoal transition hover:border-sky hover:bg-sky/10";
+
+  function renderLink(
+    href: string,
+    label: string,
+    Icon: typeof IconEmail,
+    external: boolean,
+    key: string,
+  ) {
+    return (
+      <a
+        key={key}
+        href={href}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+        title={label}
+        className={linkClass}
+        aria-label={label}
+      >
+        <Icon className="h-5 w-5 shrink-0" />
+        {showLabels && <span>{label}</span>}
+      </a>
+    );
+  }
 
   return (
     <div className={`space-y-3 ${className}`}>
       <div className="flex flex-wrap items-center gap-3">
-        {mainItems.map((item) => {
-          const Icon = item.icon;
-          return (
-            <a
-              key={item.key}
-              href={item.href}
-              target={item.external ? "_blank" : undefined}
-              rel={item.external ? "noopener noreferrer" : undefined}
-              title={item.label}
-              className={linkClass}
-              aria-label={item.label}
-            >
-              <Icon className="h-5 w-5" />
-              {showLabels && <span className="text-sm font-medium">{item.label}</span>}
-            </a>
-          );
-        })}
+        {mainItems.map((item) => renderLink(item.href, item.label, item.icon, item.external, item.key))}
+      </div>
+      <div>
         {tiktok.href ? (
-          <a
-            href={tiktok.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={tiktok.label}
-            className={linkClass}
-            aria-label={tiktok.label}
-          >
-            <IconTikTok className="h-5 w-5" />
-            {showLabels && <span className="text-sm font-medium">{tiktok.label}</span>}
-          </a>
+          renderLink(tiktok.href, tiktok.label, IconTikTok, true, "tiktok")
         ) : (
           <span title={tiktok.label} className={linkClass} aria-label={tiktok.label}>
-            <IconTikTok className="h-5 w-5" />
-            {showLabels && <span className="text-sm font-medium">{tiktok.label}</span>}
+            <IconTikTok className="h-5 w-5 shrink-0" />
+            {showLabels && <span>{tiktok.label}</span>}
           </span>
         )}
       </div>
       <div>
-        <a
-          href={siteConfig.address.mapsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Google Maps"
-          className={linkClass}
-          aria-label="Google Maps"
-        >
-          <IconGoogleMaps className="h-5 w-5" />
-          {showLabels && <span className="text-sm font-medium">Google Maps</span>}
-        </a>
+        {renderLink(
+          siteConfig.address.mapsUrl,
+          "Google Maps",
+          IconGoogleMaps,
+          true,
+          "maps",
+        )}
       </div>
     </div>
   );

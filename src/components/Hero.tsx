@@ -1,22 +1,28 @@
 import { Button } from "@/components/ui/Button";
 import { HoursWidget } from "@/components/HoursWidget";
 import { PageHero } from "@/components/PageHero";
-import { isOpenNow, siteConfig } from "@/lib/site";
+import { getOpenStatusMessage, isOpenNow, siteConfig } from "@/lib/site";
 
 export function Hero() {
   const open = isOpenNow();
+  const statusMessage = getOpenStatusMessage();
 
   return (
     <PageHero
       title="Welcome to Fun Factory Play Café"
       subtitle={siteConfig.welcomeText}
       eyebrow={
-        open ? (
-          <div className="inline-flex items-center gap-2 rounded-full border border-mint/60 bg-mint/30 px-3 py-1.5 text-xs font-semibold text-charcoal">
-            <span className="h-2 w-2 rounded-full bg-mint" aria-hidden />
-            Open now
-          </div>
-        ) : undefined
+        <div
+          className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold text-charcoal ${
+            open ? "border-mint/60 bg-mint/30" : "border-peach/60 bg-peach/30"
+          }`}
+        >
+          <span
+            className={`h-2 w-2 rounded-full ${open ? "bg-mint" : "bg-peach"}`}
+            aria-hidden
+          />
+          {statusMessage}
+        </div>
       }
       accent="peach"
       priority

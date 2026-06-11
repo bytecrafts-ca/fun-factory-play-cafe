@@ -1,18 +1,24 @@
-import { hours } from "@/lib/site";
+import { getOpenStatusMessage, hours, isOpenNow } from "@/lib/site";
 
 export function HoursWidget({ compact = false }: { compact?: boolean }) {
   const today = new Date().toLocaleDateString("en-CA", { weekday: "long" });
 
   if (compact) {
     const todayHours = hours.find((h) => h.day === today);
+    const open = isOpenNow();
+    const statusMessage = getOpenStatusMessage();
+
     return (
       <div className="card border-l-4 border-l-sky p-5">
         <p className="text-xs font-bold uppercase tracking-wider text-muted">
           Today — {today}
         </p>
         <p className="mt-2 text-2xl font-extrabold text-charcoal">
-          {todayHours?.hours ?? "Closed"}
+          {open ? "Open now" : (todayHours?.hours ?? "Closed")}
         </p>
+        {!open && (
+          <p className="mt-1 text-sm font-semibold text-charcoal">{statusMessage}</p>
+        )}
         {todayHours?.promo && (
           <p className="mt-2 inline-block rounded-md bg-sunshine px-2.5 py-1 text-xs font-bold text-charcoal">
             {todayHours.promo}

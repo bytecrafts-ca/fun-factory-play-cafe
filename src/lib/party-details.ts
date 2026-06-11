@@ -9,13 +9,7 @@ type PartyDetailInput = {
 };
 
 export function getPartyPackageDetails(pkg: PartyDetailInput): string[] {
-  const lines: string[] = [];
-
-  if (pkg.highlight) {
-    lines.push(pkg.highlight);
-  }
-
-  lines.push(
+  const lines = [
     `${pkg.children} kids`,
     `${pkg.adults} adults`,
     pkg.pizzas,
@@ -27,7 +21,11 @@ export function getPartyPackageDetails(pkg: PartyDetailInput): string[] {
     `${pkg.returnPasses} free return play pass${pkg.returnPasses > 1 ? "es" : ""}`,
     "Additional children $14.99 each",
     "Additional adults $4.99 each",
-  );
+  ];
+
+  if (pkg.highlight) {
+    lines.push(pkg.highlight);
+  }
 
   return lines;
 }

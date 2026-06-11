@@ -40,13 +40,13 @@ export function CafeMenuBoards({ boards }: { boards: readonly MenuBoard[] }) {
             className="card group cursor-zoom-in overflow-hidden p-2 text-left transition hover:ring-2 hover:ring-sky/50"
             aria-label={`View full size: ${image.alt}`}
           >
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[12px] bg-peach/10">
+            <div className="relative flex min-h-[280px] items-center justify-center overflow-hidden rounded-[12px] bg-peach/10 p-2 sm:min-h-[320px]">
               <Image
                 src={image.src}
                 alt={image.alt}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover object-center transition group-hover:scale-[1.02]"
+                width={600}
+                height={800}
+                className="h-auto max-h-[300px] w-full object-contain transition group-hover:scale-[1.01] sm:max-h-[360px]"
               />
             </div>
             <p className="mt-2 text-center text-xs font-semibold text-muted group-hover:text-charcoal">

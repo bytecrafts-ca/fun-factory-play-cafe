@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Fun Factory Play Café",
   shortName: "Fun Factory",
   welcomeText:
-    "We are a vibrant play cafe where creativity is brewed daily and every visit is a new adventure!",
+    "A destination where children can play, climb, and explore in a safe indoor environment. Featuring a cozy café serving fresh coffee, drinks, and delicious snacks for the entire family.",
   partyIncludeText: [
     "All parties include 2.5 hours in a private room.",
     "Playtime, pizza, cake, juice, water, and coffee/tea for adults.",
@@ -27,6 +27,14 @@ export const siteConfig = {
       "https://www.google.com/maps/place/Fun+Factory+Play+Cafe+-+Pickering/@43.83115,-79.0812758,17z/data=!4m8!3m7!1s0x89d4dee5c535f85d:0x47037b445f1e60ff!8m2!3d43.83115!4d-79.0812758!9m1!1b1!16s%2Fg%2F11bztvy394",
     writeReviewUrl:
       "https://www.google.com/maps/place/Fun+Factory+Play+Cafe+-+Pickering/@43.83115,-79.0812758,17z/data=!4m8!3m7!1s0x89d4dee5c535f85d:0x47037b445f1e60ff!8m2!3d43.83115!4d-79.0812758!9m1!1b1!16s%2Fg%2F11bztvy394",
+  },
+  littlesGoogleReviews: {
+    reviewsUrl:
+      process.env.NEXT_PUBLIC_LITTLES_GOOGLE_REVIEWS_URL ??
+      "https://www.google.com/maps/search/Littles+%26+Latt%C3%A9s+Caf%C3%A9+Pickering",
+    writeReviewUrl:
+      process.env.NEXT_PUBLIC_LITTLES_GOOGLE_WRITE_REVIEW_URL ??
+      "https://www.google.com/maps/search/Littles+%26+Latt%C3%A9s+Caf%C3%A9+Pickering",
   },
   social: {
     instagram: {
@@ -75,6 +83,7 @@ export const hours: DayHours[] = [
 
 export const admissions = [
   { ageGroup: "Under 1 Year Old", price: "Free With a Paying Sibling" },
+  { ageGroup: "Under 1 Year Old", price: "$5.00" },
   { ageGroup: "1 to 3 Year Old", price: "$10.00" },
   { ageGroup: "4 to 13 Year Old", price: "$14.00" },
   { ageGroup: "14 to 17 Year Old", price: "$10.00" },
@@ -371,28 +380,52 @@ export function getTodayHours(): DayHours | null {
   return hours[hoursIndex[dayIndex]] ?? null;
 }
 
+function getOpenCloseMinutes(day: number): { open: number; close: number } | null {
+  if (day === 2 || day === 4) return { open: 15 * 60 + 30, close: 19 * 60 + 30 };
+  if (day >= 5 || day === 0) return { open: 9 * 60 + 30, close: 20 * 60 + 30 };
+  return null;
+}
+
+function getOpeningTimeLabel(hoursStr: string): string {
+  const match = hoursStr.match(/^(.+?)\s*[–-]/);
+  return match ? match[1].trim() : hoursStr;
+}
+
 export function isOpenNow(): boolean {
   const today = getTodayHours();
   if (!today || today.closed) return false;
 
+  const schedule = getOpenCloseMinutes(new Date().getDay());
+  if (!schedule) return false;
+
+  const current = new Date().getHours() * 60 + new Date().getMinutes();
+  return current >= schedule.open && current < schedule.close;
+}
+
+export function getOpenStatusMessage(): string {
+  if (isOpenNow()) return "Open now";
+
   const now = new Date();
-  const day = now.getDay();
+  const dayIndex = now.getDay();
+  const hoursIndex = [6, 0, 1, 2, 3, 4, 5];
+  const today = hours[hoursIndex[dayIndex]];
+  const schedule = getOpenCloseMinutes(dayIndex);
+  const current = now.getHours() * 60 + now.getMinutes();
 
-  if (day === 2 || day === 4) {
-    const open = 15 * 60 + 30;
-    const close = 19 * 60 + 30;
-    const current = now.getHours() * 60 + now.getMinutes();
-    return current >= open && current < close;
+  if (today && !today.closed && schedule && current < schedule.open) {
+    return `Opens today at ${getOpeningTimeLabel(today.hours)}`;
   }
 
-  if (day >= 5 || day === 0) {
-    const open = 9 * 60 + 30;
-    const close = 20 * 60 + 30;
-    const current = now.getHours() * 60 + now.getMinutes();
-    return current >= open && current < close;
+  for (let offset = 1; offset <= 7; offset++) {
+    const nextDayIndex = (dayIndex + offset) % 7;
+    const nextHours = hours[hoursIndex[nextDayIndex]];
+    if (!nextHours || nextHours.closed) continue;
+
+    const dayLabel = offset === 1 ? "tomorrow" : `on ${nextHours.day}`;
+    return `Opens ${dayLabel} at ${getOpeningTimeLabel(nextHours.hours)}`;
   }
 
-  return false;
+  return "Closed";
 }
 
 export function formatPrice(amount: number): string {

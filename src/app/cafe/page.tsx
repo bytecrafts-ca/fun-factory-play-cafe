@@ -4,7 +4,6 @@ import { CafeDrinkCard } from "@/components/CafeDrinkCard";
 import { CafeMenuBoards } from "@/components/CafeMenuBoards";
 import { CafeMenuList } from "@/components/CafeMenuList";
 import { GoogleReviews } from "@/components/GoogleReviews";
-import { HoursWidget } from "@/components/HoursWidget";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { cafeMenu, siteConfig } from "@/lib/site";
@@ -24,37 +23,33 @@ export default function CafePage() {
       />
 
       <section className="section-pad bg-section-peach">
-        <div className="container-main grid gap-10 lg:grid-cols-2 lg:items-start">
-          <div>
-            <SectionHeading
-              title="Café Info"
-              subtitle="Everything you need to know about Littles & Lattés Café."
-              centered={false}
-              accent="peach"
-            />
-            <ul className="mt-8 space-y-3">
-              {cafeMenu.info.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-lg border border-border bg-white px-4 py-3 text-sm leading-relaxed text-muted"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-sm text-muted">
-              Follow us on Instagram{" "}
-              <a
-                href={siteConfig.social.littlesInstagram.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-charcoal hover:underline"
+        <div className="container-main mx-auto max-w-2xl text-center">
+          <SectionHeading
+            title="Café Info"
+            subtitle="Everything you need to know about Littles & Lattés Café."
+            accent="peach"
+          />
+          <ul className="mt-8 space-y-3 text-left">
+            {cafeMenu.info.map((item) => (
+              <li
+                key={item}
+                className="rounded-lg border border-border bg-white px-4 py-3 text-sm leading-relaxed text-muted"
               >
-                {siteConfig.social.littlesInstagram.label}
-              </a>
-            </p>
-          </div>
-          <HoursWidget />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm text-muted">
+            Follow us on Instagram{" "}
+            <a
+              href={siteConfig.social.littlesInstagram.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-charcoal hover:underline"
+            >
+              {siteConfig.social.littlesInstagram.label}
+            </a>
+          </p>
         </div>
       </section>
 
@@ -62,7 +57,7 @@ export default function CafePage() {
         <div className="container-main">
           <SectionHeading
             title="Specialty Lattes"
-            subtitle="Our signature iced lattes — hot and cold available."
+            subtitle="Our signature iced lattes — hot and iced available."
             accent="lavender"
           />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -77,7 +72,7 @@ export default function CafePage() {
         <div className="container-main">
           <SectionHeading
             title="Matcha"
-            subtitle="Made with real matcha — hot and cold available."
+            subtitle="Made with real matcha — hot and iced available."
             accent="mint"
           />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -145,6 +140,8 @@ export default function CafePage() {
         title="Littles & Lattés Café Reviews"
         subtitle="See what guests are saying on Google."
         accent="peach"
+        reviewsUrl={siteConfig.littlesGoogleReviews.reviewsUrl}
+        writeReviewUrl={siteConfig.littlesGoogleReviews.writeReviewUrl}
       />
 
       <section className="section-pad border-t border-peach/40 bg-cream">

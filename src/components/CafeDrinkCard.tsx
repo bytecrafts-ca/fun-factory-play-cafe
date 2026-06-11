@@ -21,7 +21,7 @@ function PriceLabel({ hotPrice, coldPrice, price }: Pick<CafeDrinkCardProps, "ho
   if (hotPrice !== undefined && coldPrice !== undefined) {
     return (
       <p className="mt-3 text-sm font-bold text-charcoal">
-        Hot {formatPrice(hotPrice)} · Cold {formatPrice(coldPrice)}
+        Hot {formatPrice(hotPrice)} · Iced {formatPrice(coldPrice)}
       </p>
     );
   }
@@ -31,7 +31,7 @@ function PriceLabel({ hotPrice, coldPrice, price }: Pick<CafeDrinkCardProps, "ho
   }
 
   if (coldPrice !== undefined) {
-    return <p className="mt-3 text-sm font-bold text-charcoal">Cold {formatPrice(coldPrice)}</p>;
+    return <p className="mt-3 text-sm font-bold text-charcoal">Iced {formatPrice(coldPrice)}</p>;
   }
 
   return null;

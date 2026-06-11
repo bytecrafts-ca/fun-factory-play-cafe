@@ -29,29 +29,38 @@ export function ContactForm() {
   const inputClass =
     "mt-1.5 w-full rounded-[var(--radius-btn)] border border-peach/60 bg-white px-4 py-3 text-charcoal transition focus:border-sky focus:outline-none focus:ring-2 focus:ring-sky/30";
 
+  const labelClass = "block text-sm font-semibold text-charcoal";
+
   return (
     <form onSubmit={handleSubmit} className="card border-l-4 border-l-sky space-y-5 p-6 sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="block text-sm font-semibold text-charcoal">
-            Name
+          <label htmlFor="name" className={labelClass}>
+            Name <span className="text-muted">*</span>
           </label>
           <input id="name" name="name" type="text" required className={inputClass} />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-semibold text-charcoal">
-            Email
+          <label htmlFor="email" className={labelClass}>
+            Email <span className="text-muted">*</span>
           </label>
           <input id="email" name="email" type="email" required className={inputClass} />
         </div>
       </div>
       <div>
-        <label htmlFor="subject" className="block text-sm font-semibold text-charcoal">
-          Subject
+        <label htmlFor="phone" className={labelClass}>
+          Phone <span className="text-muted">*</span>
+        </label>
+        <input id="phone" name="phone" type="tel" required className={inputClass} />
+      </div>
+      <div>
+        <label htmlFor="subject" className={labelClass}>
+          Subject <span className="text-muted">*</span>
         </label>
         <select
           id="subject"
           name="subject"
+          required
           className={inputClass}
           value={subject}
           onChange={(e) => setSubject(e.target.value)}
@@ -72,8 +81,8 @@ export function ContactForm() {
       {isPartyInquiry && (
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
-            <label htmlFor="party-date" className="block text-sm font-semibold text-charcoal">
-              Preferred date
+            <label htmlFor="party-date" className={labelClass}>
+              Preferred date <span className="text-muted">*</span>
             </label>
             <input
               id="party-date"
@@ -84,8 +93,8 @@ export function ContactForm() {
             />
           </div>
           <div>
-            <label htmlFor="time-slot" className="block text-sm font-semibold text-charcoal">
-              Preferred time slot
+            <label htmlFor="time-slot" className={labelClass}>
+              Preferred time slot <span className="text-muted">*</span>
             </label>
             <select id="time-slot" name="time-slot" required className={inputClass}>
               <option value="">Select a time slot</option>
@@ -108,8 +117,8 @@ export function ContactForm() {
         </div>
       )}
       <div>
-        <label htmlFor="message" className="block text-sm font-semibold text-charcoal">
-          Message
+        <label htmlFor="message" className={labelClass}>
+          Message <span className="text-muted">*</span>
         </label>
         <textarea
           id="message"

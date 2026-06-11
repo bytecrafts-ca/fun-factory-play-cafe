@@ -20,17 +20,17 @@ function ItemPrice({ item }: { item: MenuItem }) {
       <span className="shrink-0 text-right text-sm font-bold text-charcoal">
         Hot {formatPrice(item.hotPrice)}
         <br />
-        Cold {formatPrice(item.coldPrice)}
+        Iced {formatPrice(item.coldPrice)}
       </span>
     );
   }
 
   if (item.hotPrice !== undefined) {
-    return <span className="shrink-0 font-bold text-charcoal">{formatPrice(item.hotPrice)}</span>;
+    return <span className="shrink-0 font-bold text-charcoal">Hot {formatPrice(item.hotPrice)}</span>;
   }
 
   if (item.coldPrice !== undefined) {
-    return <span className="shrink-0 font-bold text-charcoal">{formatPrice(item.coldPrice)}</span>;
+    return <span className="shrink-0 font-bold text-charcoal">Iced {formatPrice(item.coldPrice)}</span>;
   }
 
   return null;

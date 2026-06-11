@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ContactDetails } from "@/components/ContactDetails";
 import { ContactForm } from "@/components/ContactForm";
 import { GoogleMap } from "@/components/GoogleMap";
 import { HoursWidget } from "@/components/HoursWidget";
@@ -26,38 +27,18 @@ export default function ContactPage() {
             <div className="space-y-4">
               <div className="card p-5">
                 <h3 className="text-sm font-bold uppercase tracking-wider text-charcoal">
-                  Address
+                  Contact
                 </h3>
-                <p className="mt-2 text-sm text-muted">{siteConfig.address.full}</p>
+                <div className="mt-3">
+                  <ContactDetails />
+                </div>
                 <a
                   href={siteConfig.address.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-block text-sm font-semibold text-charcoal hover:underline"
+                  className="mt-3 inline-block text-sm font-medium text-charcoal hover:underline"
                 >
                   Open in Google Maps
-                </a>
-              </div>
-              <div className="card p-5">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-charcoal">
-                  Phone
-                </h3>
-                <a
-                  href={siteConfig.phoneHref}
-                  className="mt-2 block text-sm font-semibold text-charcoal hover:underline"
-                >
-                  {siteConfig.phone}
-                </a>
-              </div>
-              <div className="card p-5">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-charcoal">
-                  Email
-                </h3>
-                <a
-                  href={siteConfig.emailHref}
-                  className="mt-2 block text-sm font-semibold text-charcoal hover:underline"
-                >
-                  {siteConfig.email}
                 </a>
               </div>
               <div className="card p-5">

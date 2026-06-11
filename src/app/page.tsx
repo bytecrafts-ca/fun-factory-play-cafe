@@ -13,6 +13,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { UltimatePartyCard } from "@/components/UltimatePartyCard";
 import { WaiverCTA } from "@/components/WaiverCTA";
+import { ContactDetails } from "@/components/ContactDetails";
 import { importantInfo, siteConfig } from "@/lib/site";
 
 export default function HomePage() {
@@ -107,30 +108,8 @@ export default function HomePage() {
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
               <SectionHeading title="Contact us" centered={false} accent="sky" />
-              <div className="mt-8 space-y-3 text-sm text-muted">
-                <p>
-                  <span className="font-semibold text-charcoal">Address:</span>{" "}
-                  <a
-                    href={siteConfig.address.mapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-charcoal hover:underline"
-                  >
-                    {siteConfig.address.full}
-                  </a>
-                </p>
-                <p>
-                  <span className="font-semibold text-charcoal">Phone:</span>{" "}
-                  <a href={siteConfig.phoneHref} className="hover:text-charcoal">
-                    {siteConfig.phone}
-                  </a>
-                </p>
-                <p>
-                  <span className="font-semibold text-charcoal">Email:</span>{" "}
-                  <a href={siteConfig.emailHref} className="hover:text-charcoal">
-                    {siteConfig.email}
-                  </a>
-                </p>
+              <div className="mt-8">
+                <ContactDetails />
               </div>
               <div className="mt-6">
                 <SocialLinks showLabels />
