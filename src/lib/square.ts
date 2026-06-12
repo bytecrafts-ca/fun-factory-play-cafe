@@ -110,26 +110,82 @@ export async function findLoyaltyAccountByPhone(
   return result.data?.loyalty_accounts?.[0] ?? null;
 }
 
-export async function createSquareCustomer(input: {
+export function normalizeCanadianPostalCode(raw: string): string | null {
+  const compact = raw.trim().toUpperCase().replace(/\s+/g, "");
+  if (!/^[A-Z]\d[A-Z]\d[A-Z]\d$/.test(compact)) {
+    return null;
+  }
+
+  return `${compact.slice(0, 3)} ${compact.slice(3)}`;
+}
+
+type SquareCustomer = {
+  id?: string;
+};
+
+async function findCustomerByPhone(phoneE164: string): Promise<SquareCustomer | null> {
+  const result = await squareFetch<{ customers?: SquareCustomer[] }>("/v2/customers/search", {
+    method: "POST",
+    body: {
+      query: {
+        filter: {
+          phone_number: {
+            exact: phoneE164,
+          },
+        },
+      },
+    },
+  });
+
+  return result.data?.customers?.[0] ?? null;
+}
+
+async function upsertSquareCustomer(input: {
   phoneE164: string;
+  email: string;
+  postalCode: string;
   givenName?: string;
   familyName?: string;
 }): Promise<void> {
-  const idempotencyKey = crypto.randomUUID();
+  const existing = await findCustomerByPhone(input.phoneE164);
+
+  if (existing?.id) {
+    await squareFetch(`/v2/customers/${existing.id}`, {
+      method: "PUT",
+      body: {
+        given_name: input.givenName || undefined,
+        family_name: input.familyName || undefined,
+        phone_number: input.phoneE164,
+        email_address: input.email,
+        address: {
+          postal_code: input.postalCode,
+          country: "CA",
+        },
+      },
+    });
+    return;
+  }
 
   await squareFetch("/v2/customers", {
     method: "POST",
     body: {
-      idempotency_key: idempotencyKey,
+      idempotency_key: crypto.randomUUID(),
       given_name: input.givenName || undefined,
       family_name: input.familyName || undefined,
       phone_number: input.phoneE164,
+      email_address: input.email,
+      address: {
+        postal_code: input.postalCode,
+        country: "CA",
+      },
     },
   });
 }
 
 export async function enrollLoyaltyAccount(input: {
   phoneE164: string;
+  email: string;
+  postalCode: string;
   givenName?: string;
   familyName?: string;
 }): Promise<
@@ -147,6 +203,7 @@ export async function enrollLoyaltyAccount(input: {
 
   const existing = await findLoyaltyAccountByPhone(input.phoneE164);
   if (existing) {
+    await upsertSquareCustomer(input);
     return {
       status: "already_enrolled",
       balance: existing.balance ?? 0,
@@ -161,9 +218,7 @@ export async function enrollLoyaltyAccount(input: {
     };
   }
 
-  if (input.givenName || input.familyName) {
-    await createSquareCustomer(input);
-  }
+  await upsertSquareCustomer(input);
 
   const idempotencyKey = crypto.randomUUID();
   const result = await squareFetch<{ loyalty_account?: LoyaltyAccount }>(

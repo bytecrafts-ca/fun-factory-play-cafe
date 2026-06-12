@@ -8,7 +8,7 @@ import { loyaltyProgram, siteRoutes } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Loyalty Program",
   description:
-    "Earn 10 points per visit at Fun Factory. Reach 100 points for a free drop-in admission. Join online with your phone number.",
+    "Earn 10 points per regular drop-in visit at Fun Factory. Tuesday & Thursday 50% off visits do not earn points. Reach 100 points for a free admission.",
 };
 
 export default function LoyaltyPage() {

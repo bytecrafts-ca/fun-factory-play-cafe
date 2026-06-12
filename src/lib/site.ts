@@ -275,12 +275,14 @@ export const loyaltyProgram = {
   pointsPerVisit: 10,
   freeVisitAt: 100,
   summary:
-    "Earn points every time you drop in. After enough visits, your next admission is on us.",
+    "Earn points on regular drop-in visits. After enough visits, your next admission is on us. Party packages include separate free return passes — that's not the same as loyalty points.",
   enrollNote:
-    "Sign up below with your mobile number — or ask staff to enroll you at the front desk on your first visit. Points are tracked through Square when you pay.",
+    "Sign up below with your phone, email, and postal code — or ask staff to enroll you at the front desk on your first visit. Points are tracked through Square when you pay at regular drop-in rates.",
   rules: [
-    "Earn 10 loyalty points with each drop-in visit.",
+    "Earn 10 loyalty points with each regular drop-in visit paid at full admission price.",
     "Reach 100 points to redeem one free drop-in admission.",
+    "Tuesday and Thursday 50% off drop-in visits do not earn loyalty points — those are discounted admissions only.",
+    "Party packages include free return play passes when the package is paid in full (1–5 passes depending on package). Those passes are separate from loyalty points.",
     "Points are tracked through Square when you pay at the front desk.",
     "Use the same phone number online and at the desk so your points stay linked.",
     "Ask staff to look up or redeem your points any time you visit.",

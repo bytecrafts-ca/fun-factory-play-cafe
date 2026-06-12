@@ -11,6 +11,8 @@ type EnrollState =
 
 export function LoyaltyEnrollForm() {
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [postalCode, setPostalCode] = useState("");
   const [givenName, setGivenName] = useState("");
   const [familyName, setFamilyName] = useState("");
   const [state, setState] = useState<EnrollState>({ type: "idle" });
@@ -23,7 +25,7 @@ export function LoyaltyEnrollForm() {
       const response = await fetch("/api/loyalty/enroll", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone, givenName, familyName }),
+        body: JSON.stringify({ phone, email, postalCode, givenName, familyName }),
       });
 
       const data = (await response.json()) as {
@@ -85,6 +87,40 @@ export function LoyaltyEnrollForm() {
           value={phone}
           onChange={(event) => setPhone(event.target.value)}
           placeholder="(647) 555-1234"
+          className="mt-2 w-full rounded-[var(--radius-btn)] border border-border bg-white px-4 py-3 text-charcoal placeholder:text-muted/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender/50"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="loyalty-email" className="block text-sm font-semibold text-charcoal">
+          Email <span className="text-bubblegum">*</span>
+        </label>
+        <input
+          id="loyalty-email"
+          name="email"
+          type="email"
+          autoComplete="email"
+          required
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          placeholder="you@example.com"
+          className="mt-2 w-full rounded-[var(--radius-btn)] border border-border bg-white px-4 py-3 text-charcoal placeholder:text-muted/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender/50"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="loyalty-postal-code" className="block text-sm font-semibold text-charcoal">
+          Postal code <span className="text-bubblegum">*</span>
+        </label>
+        <input
+          id="loyalty-postal-code"
+          name="postalCode"
+          type="text"
+          autoComplete="postal-code"
+          required
+          value={postalCode}
+          onChange={(event) => setPostalCode(event.target.value.toUpperCase())}
+          placeholder="L1W 3R4"
           className="mt-2 w-full rounded-[var(--radius-btn)] border border-border bg-white px-4 py-3 text-charcoal placeholder:text-muted/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lavender/50"
         />
       </div>
