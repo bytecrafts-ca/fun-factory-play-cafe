@@ -52,13 +52,14 @@ export const siteConfig = {
   },
   ovatu: {
     bookUrl:
-      process.env.NEXT_PUBLIC_OVATU_BOOK_URL ?? "https://the-fun-factory.book.app",
+      process.env.NEXT_PUBLIC_OVATU_BOOK_URL ??
+      "https://the-fun-factory.book.app/book-now",
     ticketsUrl:
       process.env.NEXT_PUBLIC_OVATU_TICKETS_URL ??
       "https://the-fun-factory.book.app/timetable",
     partiesUrl:
       process.env.NEXT_PUBLIC_OVATU_PARTIES_URL ??
-      "https://the-fun-factory.book.app",
+      "https://the-fun-factory.book.app/book-now",
   },
   waiverUrl:
     process.env.NEXT_PUBLIC_WAIVER_URL ??
