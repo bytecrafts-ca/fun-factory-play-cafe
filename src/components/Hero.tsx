@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { HoursWidget } from "@/components/HoursWidget";
 import { PageHero } from "@/components/PageHero";
-import { getOpenStatusMessage, isOpenNow, siteConfig } from "@/lib/site";
+import { getOpenStatusMessage, isOpenNow, siteConfig, siteRoutes } from "@/lib/site";
 
 export function Hero() {
   const open = isOpenNow();
@@ -29,8 +29,8 @@ export function Hero() {
       aside={<HoursWidget compact />}
     >
       <div className="flex flex-col gap-3 sm:flex-row">
-        <Button href={siteConfig.ovatu.ticketsUrl} external variant="primary" size="lg">
-          Buy Tickets
+        <Button href={siteRoutes.play} variant="primary" size="lg">
+          Drop-In Play
         </Button>
         <Button href={siteConfig.ovatu.partiesUrl} external variant="secondary" size="lg">
           Book a Party

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/Button";
-import { promoText, siteConfig } from "@/lib/site";
+import { promoText, siteRoutes } from "@/lib/site";
 
 export function PromoBanner() {
   return (
@@ -8,13 +8,8 @@ export function PromoBanner() {
         <h2 className="text-xl font-extrabold text-charcoal sm:text-2xl">
           {promoText}
         </h2>
-        <Button
-          href={siteConfig.ovatu.ticketsUrl}
-          external
-          variant="primary"
-          size="lg"
-        >
-          Get Tickets
+        <Button href={siteRoutes.play} variant="primary" size="lg">
+          View Play Rates
         </Button>
       </div>
     </section>

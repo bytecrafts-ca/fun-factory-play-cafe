@@ -243,6 +243,50 @@ export const socksReminder =
 export const promoText =
   "Visit us every Tuesday and Thursday to enjoy 50% off all drop-in admissions";
 
+export const siteRoutes = {
+  play: "/play",
+  loyalty: "/loyalty",
+} as const;
+
+export const dropInVisitSteps = [
+  {
+    title: "Sign the waiver",
+    description:
+      "Every child needs a signed waiver before play. Complete it online before you arrive to save time at the desk.",
+  },
+  {
+    title: "Check our hours",
+    description:
+      "We're open Fri–Sun 9:30 am–8:30 pm and Tue & Thu 3:30 pm–7:30 pm. Mon & Wed are closed.",
+  },
+  {
+    title: "Pay at the front desk",
+    description:
+      "Drop-in admissions are paid when you arrive. No online ticket purchase — just show up, pay per child, and play.",
+  },
+  {
+    title: "Wear socks",
+    description:
+      "We're a socks-only facility. Bring socks for kids and adults, or buy them at reception for $3.",
+  },
+] as const;
+
+export const loyaltyProgram = {
+  pointsPerVisit: 10,
+  freeVisitAt: 100,
+  summary:
+    "Earn points every time you drop in. After enough visits, your next admission is on us.",
+  enrollNote:
+    "Sign up below with your mobile number — or ask staff to enroll you at the front desk on your first visit. Points are tracked through Square when you pay.",
+  rules: [
+    "Earn 10 loyalty points with each drop-in visit.",
+    "Reach 100 points to redeem one free drop-in admission.",
+    "Points are tracked through Square when you pay at the front desk.",
+    "Use the same phone number online and at the desk so your points stay linked.",
+    "Ask staff to look up or redeem your points any time you visit.",
+  ],
+} as const;
+
 export const cafeMenu = {
   brand: "Littles & Lattés Café",
   tagline: "Coffee. Little moments.",
@@ -374,6 +418,7 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/play", label: "Play" },
   { href: "/parties", label: "Parties" },
+  { href: "/loyalty", label: "Loyalty" },
   { href: "/cafe", label: "Café" },
   { href: "/gallery", label: "Gallery" },
   { href: "/waiver", label: "Waiver" },
