@@ -1,18 +1,22 @@
-import type { Metadata } from "next";
 import { ContactDetails } from "@/components/ContactDetails";
 import { ContactForm } from "@/components/ContactForm";
 import { HoursWidget } from "@/components/HoursWidget";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { SocialLinks } from "@/components/SocialLinks";
+import { createPageMetadata, getBreadcrumbSchema, pageSeo } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Contact Fun Factory Play Café in Pickering — phone, email, and contact form.",
-};
+export const metadata = createPageMetadata(pageSeo.contact);
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd
+        data={getBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ])}
+      />
       <PageHero
         title="Contact Us"
         subtitle="Questions about play, parties, or the café? Reach out — we'd love to hear from you."

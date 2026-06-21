@@ -1,21 +1,24 @@
-import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { RulesStrip } from "@/components/RulesStrip";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { createPageMetadata, getBreadcrumbSchema, pageSeo } from "@/lib/seo";
 import { facilityRules, siteConfig, waiverText } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Waiver & Rules",
-  description:
-    "Sign the Fun Factory waiver and review facility rules before your visit.",
-};
+export const metadata = createPageMetadata(pageSeo.waiver);
 
 export default function WaiverPage() {
   const isExternal = siteConfig.waiverUrl.startsWith("http");
 
   return (
     <>
+      <JsonLd
+        data={getBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Waiver & Rules", path: "/waiver" },
+        ])}
+      />
       <PageHero
         title="Waiver & Rules"
         subtitle={waiverText}

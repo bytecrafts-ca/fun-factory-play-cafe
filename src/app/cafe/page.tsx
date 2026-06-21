@@ -1,20 +1,24 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { CafeDrinkCard } from "@/components/CafeDrinkCard";
 import { CafeMenuBoards } from "@/components/CafeMenuBoards";
 import { CafeMenuList } from "@/components/CafeMenuList";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { createPageMetadata, getBreadcrumbSchema, pageSeo } from "@/lib/seo";
 import { cafeMenu, siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Café Menu",
-  description: `${cafeMenu.brand} at Fun Factory Play Café — ${cafeMenu.tagline}`,
-};
+export const metadata = createPageMetadata(pageSeo.cafe);
 
 export default function CafePage() {
   return (
     <>
+      <JsonLd
+        data={getBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Café Menu", path: "/cafe" },
+        ])}
+      />
       <PageHero
         title={cafeMenu.brand}
         subtitle={`${siteConfig.littlesAndLattesText} ${cafeMenu.tagline}`}

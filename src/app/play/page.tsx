@@ -1,12 +1,18 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { AdmissionsTable } from "@/components/AdmissionsTable";
 import { Button } from "@/components/ui/Button";
 import { HoursWidget } from "@/components/HoursWidget";
+import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { PromoBanner } from "@/components/PromoBanner";
 import { RulesChips } from "@/components/RulesChips";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import {
+  createPageMetadata,
+  getBreadcrumbSchema,
+  getFAQSchema,
+  pageSeo,
+} from "@/lib/seo";
 import {
   dropInVisitSteps,
   getOpenStatusMessage,
@@ -15,11 +21,23 @@ import {
   siteRoutes,
 } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Play & Drop-In Admissions",
-  description:
-    "Fun Factory drop-in play rates and visit info. Pay per person at the front desk when you arrive. Tuesdays & Thursdays 50% off.",
-};
+export const metadata = createPageMetadata(pageSeo.play);
+
+const playFaqs = [
+  {
+    question: "How much does drop-in play cost at Fun Factory?",
+    answer:
+      "Under 1: $5.00 (free with paying sibling). Ages 1–3: $10. Ages 4–13: $14. Ages 14–17: $10. Pay at the front desk when you arrive.",
+  },
+  {
+    question: "Is there a time limit on drop-in play?",
+    answer: "No. Fun Factory offers unlimited play time on drop-in visits.",
+  },
+  {
+    question: "When is the 50% off drop-in discount?",
+    answer: "Every Tuesday and Thursday from 3:30 to 7:30 pm.",
+  },
+] as const;
 
 export default function PlayPage() {
   const open = isOpenNow();
@@ -27,6 +45,15 @@ export default function PlayPage() {
 
   return (
     <>
+      <JsonLd
+        data={[
+          getBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Drop-In Play", path: "/play" },
+          ]),
+          getFAQSchema(playFaqs),
+        ]}
+      />
       <PageHero
         title="Drop-In Play"
         subtitle="See our rates below and pay when you arrive. No online ticket purchase — just sign your waiver, check our hours, and come play."

@@ -1,19 +1,22 @@
-import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
+import { JsonLd } from "@/components/JsonLd";
 import { LoyaltyEnrollForm } from "@/components/LoyaltyEnrollForm";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { createPageMetadata, getBreadcrumbSchema, pageSeo } from "@/lib/seo";
 import { loyaltyProgram, siteRoutes } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Loyalty Program",
-  description:
-    "Earn 10 points per regular drop-in visit at Fun Factory. Tuesday & Thursday 50% off visits do not earn points. Reach 100 points for a free admission.",
-};
+export const metadata = createPageMetadata(pageSeo.loyalty);
 
 export default function LoyaltyPage() {
   return (
     <>
+      <JsonLd
+        data={getBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Loyalty Program", path: "/loyalty" },
+        ])}
+      />
       <PageHero
         title="Loyalty Program"
         subtitle={loyaltyProgram.summary}

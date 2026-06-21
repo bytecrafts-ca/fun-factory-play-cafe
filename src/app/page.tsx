@@ -1,7 +1,9 @@
+import { FaqSection } from "@/components/FaqSection";
 import { AdmissionsTable } from "@/components/AdmissionsTable";
 import { GalleryGrid, GalleryLink } from "@/components/GalleryGrid";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { Hero } from "@/components/Hero";
+import { JsonLd } from "@/components/JsonLd";
 import { PartyCards } from "@/components/PartyCards";
 import { PromoBanner } from "@/components/PromoBanner";
 import { RulesChips } from "@/components/RulesChips";
@@ -9,11 +11,13 @@ import { RulesStrip } from "@/components/RulesStrip";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { UltimatePartyCard } from "@/components/UltimatePartyCard";
+import { getFAQSchema } from "@/lib/seo";
 import { importantInfo, siteConfig } from "@/lib/site";
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={getFAQSchema()} />
       <Hero />
       <RulesStrip />
 
@@ -93,6 +97,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <FaqSection />
 
       <GoogleReviews />
     </>

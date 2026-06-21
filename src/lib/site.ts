@@ -10,7 +10,7 @@ export const siteConfig = {
   ],
   littlesAndLattesText:
     "Littles & Lattés Café is NOW OPEN! Check out our café menu page to see our premium beverages!",
-  url: "https://www.funfactoryplay.ca",
+  url: "https://funfactoryplay.ca",
   phone: "(647) 824 - 8389",
   phoneHref: "tel:+16478248389",
   email: "info@funfactoryplay.ca",

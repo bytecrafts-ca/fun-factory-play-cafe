@@ -3,8 +3,9 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { JsonLd } from "@/components/JsonLd";
 import { TopBar } from "@/components/TopBar";
-import { siteConfig } from "@/lib/site";
+import { createPageMetadata, getGlobalSchemas, pageSeo, seoConfig } from "@/lib/seo";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -13,21 +14,30 @@ const jakarta = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700", "800"],
 });
 
+const baseMetadata = createPageMetadata(pageSeo.home);
+
 export const metadata: Metadata = {
+  ...baseMetadata,
+  metadataBase: new URL(seoConfig.siteUrl),
   title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.shortName}`,
+    default: pageSeo.home.title,
+    template: `%s | ${seoConfig.shortName}`,
   },
-  description: siteConfig.welcomeText,
-  metadataBase: new URL(siteConfig.url),
-  openGraph: {
-    title: siteConfig.name,
-    description: siteConfig.welcomeText,
-    url: siteConfig.url,
-    siteName: siteConfig.shortName,
-    locale: "en_CA",
-    type: "website",
-    images: [{ url: "/logo.png", width: 800, height: 400, alt: siteConfig.name }],
+  applicationName: seoConfig.siteName,
+  authors: [{ name: seoConfig.siteName, url: seoConfig.siteUrl }],
+  creator: seoConfig.siteName,
+  publisher: seoConfig.siteName,
+  category: "entertainment",
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
+  },
+  other: {
+    "geo.region": "CA-ON",
+    "geo.placename": "Pickering",
+    "geo.position": "43.83115;-79.0812758",
+    ICBM: "43.83115, -79.0812758",
   },
 };
 
@@ -37,12 +47,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-CA">
+      <head>
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM site summary" />
+      </head>
       <body className={jakarta.variable}>
+        <JsonLd data={getGlobalSchemas()} />
         <TopBar />
         <AnnouncementBar />
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>

@@ -1,9 +1,15 @@
-import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
 import { PartyCards } from "@/components/PartyCards";
 import { UltimatePartyCard } from "@/components/UltimatePartyCard";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
+import {
+  createPageMetadata,
+  getBreadcrumbSchema,
+  getPartyOffersSchema,
+  pageSeo,
+} from "@/lib/seo";
 import {
   partyAddOns,
   partyCustomizeText,
@@ -12,15 +18,20 @@ import {
   siteConfig,
 } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Birthday Party Packages",
-  description:
-    "Birthday party packages at Fun Factory — from $369. Private room, playtime, pizza, cake, juice, host, and more.",
-};
+export const metadata = createPageMetadata(pageSeo.parties);
 
 export default function PartiesPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          getBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Birthday Parties", path: "/parties" },
+          ]),
+          getPartyOffersSchema(),
+        ]}
+      />
       <PageHero
         title="Birthday Party Packages"
         subtitle={
