@@ -1,19 +1,14 @@
 import { AdmissionsTable } from "@/components/AdmissionsTable";
-import { ContactForm } from "@/components/ContactForm";
 import { GalleryGrid, GalleryLink } from "@/components/GalleryGrid";
-import { GoogleMap } from "@/components/GoogleMap";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { Hero } from "@/components/Hero";
 import { PartyCards } from "@/components/PartyCards";
 import { PromoBanner } from "@/components/PromoBanner";
 import { RulesChips } from "@/components/RulesChips";
 import { RulesStrip } from "@/components/RulesStrip";
-import { SocialLinks } from "@/components/SocialLinks";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { UltimatePartyCard } from "@/components/UltimatePartyCard";
-import { WaiverCTA } from "@/components/WaiverCTA";
-import { ContactDetails } from "@/components/ContactDetails";
 import { importantInfo, siteConfig } from "@/lib/site";
 
 export default function HomePage() {
@@ -93,35 +88,13 @@ export default function HomePage() {
         <div className="container-main">
           <SectionHeading title="Gallery" accent="bubblegum" />
           <div className="mt-10">
-            <GalleryGrid limit={3} />
+            <GalleryGrid limit={6} />
             <GalleryLink />
           </div>
         </div>
       </section>
 
-      <WaiverCTA />
-
       <GoogleReviews />
-
-      <section className="section-pad bg-section-sky">
-        <div className="container-main">
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div>
-              <SectionHeading title="Contact us" centered={false} accent="sky" />
-              <div className="mt-8">
-                <ContactDetails />
-              </div>
-              <div className="mt-6">
-                <SocialLinks showLabels />
-              </div>
-              <div className="mt-8">
-                <GoogleMap />
-              </div>
-            </div>
-            <ContactForm />
-          </div>
-        </div>
-      </section>
     </>
   );
 }

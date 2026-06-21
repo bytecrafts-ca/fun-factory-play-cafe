@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { GoogleMap } from "@/components/GoogleMap";
 import { SocialLinks } from "@/components/SocialLinks";
 import { navLinks, siteConfig } from "@/lib/site";
 
@@ -10,7 +9,7 @@ export function Footer() {
     <footer className="border-t border-peach/40 bg-peach/15">
       <div className="palette-bar" aria-hidden />
       <div className="container-main py-12">
-        <div className="grid gap-10 lg:grid-cols-3">
+        <div className="grid gap-10 lg:grid-cols-2">
           <div>
             <h3 className="text-lg font-bold text-charcoal">Fun Factory Play Café</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">
@@ -47,15 +46,6 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-charcoal">
-              Find Us
-            </h4>
-            <div className="mt-4">
-              <GoogleMap />
-            </div>
           </div>
         </div>
 

@@ -13,7 +13,7 @@ export default function GalleryPage() {
     <>
       <PageHero
         title="Gallery"
-        subtitle="A peek at the fun inside Fun Factory Play Café. More photos coming soon."
+        subtitle="Photos from inside Fun Factory Play Café in Pickering."
         accent="bubblegum"
       />
 

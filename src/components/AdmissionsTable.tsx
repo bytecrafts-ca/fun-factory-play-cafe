@@ -19,7 +19,7 @@ export function AdmissionsTable({ showNotes = true }: { showNotes?: boolean }) {
           <tbody>
             {admissions.map((row) => (
               <tr
-                key={`${row.ageGroup}-${row.price}`}
+                key={row.ageGroup}
                 className="border-b border-border last:border-0"
               >
                 <td className="px-5 py-4 font-medium text-charcoal">{row.ageGroup}</td>

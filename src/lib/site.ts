@@ -88,8 +88,7 @@ export const hours: DayHours[] = [
 ];
 
 export const admissions = [
-  { ageGroup: "Under 1 Year Old", price: "Free With a Paying Sibling" },
-  { ageGroup: "Under 1 Year Old", price: "$5.00" },
+  { ageGroup: "Under 1 Year Old", price: "$5.00 (free with paying sibling)" },
   { ageGroup: "1 to 3 Year Old", price: "$10.00" },
   { ageGroup: "4 to 13 Year Old", price: "$14.00" },
   { ageGroup: "14 to 17 Year Old", price: "$10.00" },
@@ -102,7 +101,7 @@ export const admissionNotes = [
   "Maximum two (2) adults per family included in the admission",
   "Socks available for purchase at reception — $3.00",
   "All prices are subject to HST",
-  "We are a sock only facility",
+  "We are a socks only facility",
   "A signed waiver is required before entry",
   "No outside drinks allowed",
   "Nut-free food is allowed",
@@ -201,6 +200,8 @@ export const partyAddOns = [
   "More Pizza",
   "Decorations",
   "Additional Time",
+  "Littles and Lattés drinks",
+  "Popcorn machine",
   "So much more!",
 ] as const;
 
@@ -231,17 +232,54 @@ export const facilityRules = [
 
 export const importantInfo = [
   "Waiver must be signed before entry",
-  "We are a sock only facility",
+  "We are a socks only facility",
   "Parents must supervise children",
   "Snacks and drinks available for purchase",
   "Free parking available",
 ] as const;
 
 export const socksReminder =
-  "We are a sock only facility — socks are required for children and adults.";
+  "We are a socks only facility — socks are required for children and adults.";
 
 export const promoText =
-  "Visit us every Tuesday and Thursday to enjoy 50% off all drop-in admissions";
+  "Visit us every Tuesday and Thursday from 3:30 to 7:30 pm to enjoy 50% off all drop-in admissions";
+
+export const galleryImages = [
+  { src: "/gallery/983118_f5a0ca75c22e492ab979b0f4b000189c.jpg", alt: "Fun Factory indoor play area overview" },
+  { src: "/gallery/983118_66e7b3ab9ec748a1aa9caf01e60107b1.jpg", alt: "Children playing at Fun Factory" },
+  { src: "/gallery/983118_cb46c217bbb74a97be39261b89e247cb.jpg", alt: "Kids climbing at Fun Factory Play Café" },
+  { src: "/gallery/983118_75b4ad293ad54530b071fe06b4158899.jpg", alt: "Fun Factory play structure" },
+  { src: "/gallery/983118_aaed791026f04d1ba184e6a34577343b.jpg", alt: "Family fun at Fun Factory" },
+  { src: "/gallery/983118_c70fa047733943c9b84ab2536f83c6e4.jpg", alt: "Indoor playground at Fun Factory" },
+  { src: "/gallery/983118_9ae15cdd100442ada3435cfc3f8096c1.jpg", alt: "Birthday party fun at Fun Factory" },
+  { src: "/gallery/983118_378b69ec4f34415196c6192e1f53fd10.jpg", alt: "Toddler play area at Fun Factory" },
+  { src: "/gallery/983118_5aa1582ef3cb4e3284c2d117c317d4a0.jpg", alt: "Kids enjoying Fun Factory Play Café" },
+  { src: "/gallery/983118_caab0d74017047989359910f8c80d651.jpg", alt: "Play time at Fun Factory Pickering" },
+] as const;
+
+export const googleReviewsSummary = {
+  rating: 4.3,
+  totalReviews: 600,
+  placeId: process.env.GOOGLE_PLACE_ID ?? "ChIJW8V8K9bV1IkR8KqGxqJxJZQ",
+} as const;
+
+export const googleReviewsFallback = [
+  {
+    author: "Local visitor",
+    rating: 5,
+    text: "Place is good for young kids to come play. Staff are nice and friendly, and they also have a Tuesday special — 50% off.",
+  },
+  {
+    author: "Local visitor",
+    rating: 5,
+    text: "Our kids had a blast exploring the play areas. The facility is vibrant, well-designed, and great for burning off energy.",
+  },
+  {
+    author: "Local visitor",
+    rating: 4,
+    text: "We've been bringing our kids here regularly. It's a welcoming spot for families and the party packages are a great value.",
+  },
+] as const;
 
 export const siteRoutes = {
   play: "/play",
@@ -427,8 +465,44 @@ export const navLinks = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
+const TORONTO_TZ = "America/Toronto";
+
+const weekdayToIndex: Record<string, number> = {
+  Sunday: 0,
+  Monday: 1,
+  Tuesday: 2,
+  Wednesday: 3,
+  Thursday: 4,
+  Friday: 5,
+  Saturday: 6,
+};
+
+export function getTorontoWeekday(): string {
+  return new Intl.DateTimeFormat("en-CA", {
+    weekday: "long",
+    timeZone: TORONTO_TZ,
+  }).format(new Date());
+}
+
+function getTorontoDayIndex(): number {
+  return weekdayToIndex[getTorontoWeekday()] ?? new Date().getDay();
+}
+
+function getTorontoTimeMinutes(): number {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: TORONTO_TZ,
+    hour: "numeric",
+    minute: "numeric",
+    hour12: false,
+  }).formatToParts(new Date());
+
+  const hour = Number(parts.find((part) => part.type === "hour")?.value ?? 0);
+  const minute = Number(parts.find((part) => part.type === "minute")?.value ?? 0);
+  return hour * 60 + minute;
+}
+
 export function getTodayHours(): DayHours | null {
-  const dayIndex = new Date().getDay();
+  const dayIndex = getTorontoDayIndex();
   const hoursIndex = [6, 0, 1, 2, 3, 4, 5];
   return hours[hoursIndex[dayIndex]] ?? null;
 }
@@ -448,22 +522,21 @@ export function isOpenNow(): boolean {
   const today = getTodayHours();
   if (!today || today.closed) return false;
 
-  const schedule = getOpenCloseMinutes(new Date().getDay());
+  const schedule = getOpenCloseMinutes(getTorontoDayIndex());
   if (!schedule) return false;
 
-  const current = new Date().getHours() * 60 + new Date().getMinutes();
+  const current = getTorontoTimeMinutes();
   return current >= schedule.open && current < schedule.close;
 }
 
 export function getOpenStatusMessage(): string {
   if (isOpenNow()) return "Open now";
 
-  const now = new Date();
-  const dayIndex = now.getDay();
+  const dayIndex = getTorontoDayIndex();
   const hoursIndex = [6, 0, 1, 2, 3, 4, 5];
   const today = hours[hoursIndex[dayIndex]];
   const schedule = getOpenCloseMinutes(dayIndex);
-  const current = now.getHours() * 60 + now.getMinutes();
+  const current = getTorontoTimeMinutes();
 
   if (today && !today.closed && schedule && current < schedule.open) {
     return `Opens today at ${getOpeningTimeLabel(today.hours)}`;

@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { ContactDetails } from "@/components/ContactDetails";
 import { ContactForm } from "@/components/ContactForm";
-import { GoogleMap } from "@/components/GoogleMap";
 import { HoursWidget } from "@/components/HoursWidget";
 import { PageHero } from "@/components/PageHero";
 import { SocialLinks } from "@/components/SocialLinks";
-import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -32,14 +30,6 @@ export default function ContactPage() {
                 <div className="mt-3">
                   <ContactDetails />
                 </div>
-                <a
-                  href={siteConfig.address.mapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 inline-block text-sm font-medium text-charcoal hover:underline"
-                >
-                  Open in Google Maps
-                </a>
               </div>
               <div className="card p-5">
                 <h3 className="text-sm font-bold uppercase tracking-wider text-charcoal">
@@ -49,8 +39,7 @@ export default function ContactPage() {
                   <SocialLinks showLabels />
                 </div>
               </div>
-              <HoursWidget compact />
-              <GoogleMap />
+              <HoursWidget />
             </div>
             <ContactForm />
           </div>

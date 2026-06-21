@@ -1,22 +1,23 @@
+import Image from "next/image";
 import Link from "next/link";
-
-const placeholderCount = 6;
+import { galleryImages } from "@/lib/site";
 
 export function GalleryGrid({ limit }: { limit?: number }) {
-  const count = limit ?? placeholderCount;
+  const images = limit ? galleryImages.slice(0, limit) : galleryImages;
 
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {Array.from({ length: count }, (_, i) => (
-        <div
-          key={i}
-          className="card flex aspect-[4/3] items-center justify-center bg-peach/20"
-          aria-hidden
-        />
+      {images.map((image) => (
+        <div key={image.src} className="card overflow-hidden">
+          <Image
+            src={image.src}
+            alt={image.alt}
+            width={800}
+            height={600}
+            className="aspect-[4/3] h-full w-full object-cover"
+          />
+        </div>
       ))}
-      <p className="col-span-full text-center text-sm text-muted">
-        Photos coming soon.
-      </p>
     </div>
   );
 }

@@ -10,8 +10,7 @@ type PartyDetailInput = {
 
 export function getPartyPackageDetails(pkg: PartyDetailInput): string[] {
   const lines = [
-    `${pkg.children} kids`,
-    `${pkg.adults} adults`,
+    `${pkg.children} kids and ${pkg.adults} adults`,
     pkg.pizzas,
     pkg.cake,
     `${pkg.drinks} juices (juice boxes / water bottles)`,

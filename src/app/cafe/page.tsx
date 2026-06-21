@@ -3,7 +3,6 @@ import Link from "next/link";
 import { CafeDrinkCard } from "@/components/CafeDrinkCard";
 import { CafeMenuBoards } from "@/components/CafeMenuBoards";
 import { CafeMenuList } from "@/components/CafeMenuList";
-import { GoogleReviews } from "@/components/GoogleReviews";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { cafeMenu, siteConfig } from "@/lib/site";
@@ -136,13 +135,6 @@ export default function CafePage() {
         </div>
       </section>
 
-      <GoogleReviews
-        title="Littles & Lattés Café Reviews"
-        subtitle="See what guests are saying on Google."
-        accent="peach"
-        reviewsUrl={siteConfig.littlesGoogleReviews.reviewsUrl}
-        writeReviewUrl={siteConfig.littlesGoogleReviews.writeReviewUrl}
-      />
 
       <section className="section-pad border-t border-peach/40 bg-cream">
         <div className="container-main text-center">
