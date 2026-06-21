@@ -259,25 +259,28 @@ export const galleryImages = [
 
 export const googleReviewsSummary = {
   rating: 4.3,
-  totalReviews: 600,
+  totalReviews: 680,
   placeId: process.env.GOOGLE_PLACE_ID ?? "ChIJW8V8K9bV1IkR8KqGxqJxJZQ",
 } as const;
 
 export const googleReviewsFallback = [
   {
-    author: "Local visitor",
+    author: "G & N Johnson",
     rating: 5,
-    text: "Place is good for young kids to come play. Staff are nice and friendly, and they also have a Tuesday special — 50% off.",
+    relativeTime: "4 weeks ago",
+    text: "We had an amazing experience at Fun Factory Pickering! The prices are fantastic, and one of the best things is that there's no time limit, so the kids can play and enjoy themselves without feeling rushed. The facility is very clean, family-friendly, and welcoming. I highly recommend Fun Factory Pickering to any family looking for a fun, affordable outing.",
   },
   {
-    author: "Local visitor",
+    author: "Luksume Sarvananda",
     rating: 5,
-    text: "Our kids had a blast exploring the play areas. The facility is vibrant, well-designed, and great for burning off energy.",
+    relativeTime: "7 months ago",
+    text: "Took our toddler here and had an amazing time! The space is clean, safe, and full of fun activities that kept our little one entertained for hours. Really loved that I could keep an eye on my little the entire time they were playing. Highly recommend for a fun family outing!",
   },
   {
-    author: "Local visitor",
-    rating: 4,
-    text: "We've been bringing our kids here regularly. It's a welcoming spot for families and the party packages are a great value.",
+    author: "SONIC NICOP",
+    rating: 5,
+    relativeTime: "3 weeks ago",
+    text: "Such an amazing and fun place for kids and toddlers. Also great for birthday parties and mums date.",
   },
 ] as const;
 
