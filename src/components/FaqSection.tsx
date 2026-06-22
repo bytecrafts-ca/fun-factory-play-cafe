@@ -1,5 +1,41 @@
+import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { faqItems } from "@/lib/seo";
+import { faqItems, type FaqSegment } from "@/lib/seo";
+
+const linkClassName =
+  "font-semibold text-charcoal underline decoration-sky decoration-2 underline-offset-4 transition hover:decoration-bubblegum";
+
+function FaqAnswer({ segments }: { segments: FaqSegment[] }) {
+  return (
+    <p className="mt-3 text-sm leading-relaxed text-muted">
+      {segments.map((segment, index) => {
+        if (segment.type === "text") {
+          return <span key={index}>{segment.value}</span>;
+        }
+
+        if (segment.external || segment.href.startsWith("http")) {
+          return (
+            <a
+              key={index}
+              href={segment.href}
+              className={linkClassName}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {segment.label}
+            </a>
+          );
+        }
+
+        return (
+          <Link key={index} href={segment.href} className={linkClassName}>
+            {segment.label}
+          </Link>
+        );
+      })}
+    </p>
+  );
+}
 
 export function FaqSection() {
   return (
@@ -24,7 +60,7 @@ export function FaqSection() {
                   </span>
                 </span>
               </summary>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{item.answer}</p>
+              <FaqAnswer segments={item.segments} />
             </details>
           ))}
         </div>

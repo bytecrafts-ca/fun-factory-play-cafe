@@ -167,44 +167,122 @@ export function getOpeningHoursSpecification() {
     .filter(Boolean);
 }
 
-export const faqItems = [
+export type FaqLinkSegment = {
+  type: "link";
+  href: string;
+  label: string;
+  external?: boolean;
+};
+
+export type FaqTextSegment = {
+  type: "text";
+  value: string;
+};
+
+export type FaqSegment = FaqTextSegment | FaqLinkSegment;
+
+export type FaqItem = {
+  question: string;
+  segments: FaqSegment[];
+};
+
+export function faqSegmentsToText(segments: FaqSegment[]): string {
+  return segments
+    .map((segment) => (segment.type === "text" ? segment.value : segment.href))
+    .join("");
+}
+
+export const faqItems: FaqItem[] = [
   {
     question: "Where is Fun Factory Play Café located?",
-    answer: `Fun Factory Play Café is at ${siteConfig.address.full}. We are an indoor playground and party centre in Pickering, Ontario, serving families across Durham Region and the east GTA.`,
+    segments: [
+      {
+        type: "text",
+        value: `Fun Factory Play Café is at ${siteConfig.address.full}. We are an indoor playground and party centre in Pickering, Ontario, serving families across Durham Region and the east GTA.`,
+      },
+    ],
   },
   {
     question: "What are the drop-in play admission prices?",
-    answer: `Under 1 year old: ${admissions[0].price}. Ages 1–3: ${admissions[1].price}. Ages 4–13: ${admissions[2].price}. Ages 14–17: ${admissions[3].price}. Pay at the front desk when you arrive. Enjoy unlimited play time with no time limit.`,
+    segments: [
+      {
+        type: "text",
+        value: `Under 1 year old: ${admissions[0].price}. Ages 1–3: ${admissions[1].price}. Ages 4–13: ${admissions[2].price}. Ages 14–17: ${admissions[3].price}. Pay at the front desk when you arrive. Enjoy unlimited play time with no time limit.`,
+      },
+    ],
   },
   {
     question: "What are Fun Factory's hours?",
-    answer:
-      "Open Friday–Sunday 9:30 am–8:30 pm and Tuesday & Thursday 3:30 pm–7:30 pm. Closed Monday and Wednesday.",
+    segments: [
+      {
+        type: "text",
+        value:
+          "Open Friday–Sunday 9:30 am–8:30 pm and Tuesday & Thursday 3:30 pm–7:30 pm. Closed Monday and Wednesday.",
+      },
+    ],
   },
   {
     question: "Is there a discount on Tuesdays and Thursdays?",
-    answer:
-      "Yes. Visit every Tuesday and Thursday from 3:30 to 7:30 pm for 50% off all drop-in admissions.",
+    segments: [
+      {
+        type: "text",
+        value:
+          "Yes. Visit every Tuesday and Thursday from 3:30 to 7:30 pm for 50% off all drop-in admissions.",
+      },
+    ],
   },
   {
     question: "Do children and adults need to wear socks?",
-    answer:
-      "Yes. Fun Factory is a socks-only facility. Socks are required for children and adults at all times. Socks are available for purchase at reception for $3.00.",
+    segments: [
+      {
+        type: "text",
+        value:
+          "Yes. Fun Factory is a socks-only facility. Socks are required for children and adults at all times. Socks are available for purchase at reception for $3.00.",
+      },
+    ],
   },
   {
     question: "How do I book a birthday party at Fun Factory?",
-    answer: `Book online at ${siteConfig.ovatu.partiesUrl}. Party packages start at $${partyPackages[0].price} and include a private room, playtime, pizza, cake, juice, e-vites, and a party host.`,
+    segments: [
+      { type: "text", value: "Book online at " },
+      {
+        type: "link",
+        href: siteConfig.ovatu.partiesUrl,
+        label: "our party booking page",
+        external: true,
+      },
+      {
+        type: "text",
+        value: `. Party packages start at $${partyPackages[0].price} and include a private room, playtime, pizza, cake, juice, e-vites, and a party host. See all `,
+      },
+      { type: "link", href: "/parties", label: "birthday party packages" },
+      { type: "text", value: " for details." },
+    ],
   },
   {
     question: "Is there a café at Fun Factory?",
-    answer:
-      "Yes. Littles & Lattés Café is on site, serving premium coffee, iced drinks, and snacks for parents and families. View the full menu on the café page.",
+    segments: [
+      {
+        type: "text",
+        value:
+          "Yes. Littles & Lattés Café is on site, serving premium coffee, iced drinks, and snacks for parents and families. View the full menu on the ",
+      },
+      { type: "link", href: "/cafe", label: "café page" },
+      { type: "text", value: "." },
+    ],
   },
   {
     question: "Do I need to sign a waiver before playing?",
-    answer: `Yes. Every child needs a signed waiver before entry. Complete the waiver online at ${siteConfig.waiverUrl} before you arrive to save time at the desk.`,
+    segments: [
+      {
+        type: "text",
+        value: "Yes. Every child needs a signed waiver before entry. ",
+      },
+      { type: "link", href: siteConfig.waiverUrl, label: "Sign the waiver online", external: true },
+      { type: "text", value: " before you arrive to save time at the desk." },
+    ],
   },
-] as const;
+];
 
 export function getOrganizationSchema() {
   return {
@@ -308,7 +386,7 @@ export function getLocalBusinessSchema() {
   };
 }
 
-export function getFAQSchema(items: readonly { question: string; answer: string }[] = faqItems) {
+export function getFAQSchema(items: FaqItem[] = faqItems) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -317,7 +395,7 @@ export function getFAQSchema(items: readonly { question: string; answer: string 
       name: item.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.answer,
+        text: faqSegmentsToText(item.segments),
       },
     })),
   };

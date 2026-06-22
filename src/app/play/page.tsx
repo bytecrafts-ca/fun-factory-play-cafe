@@ -12,6 +12,7 @@ import {
   getBreadcrumbSchema,
   getFAQSchema,
   pageSeo,
+  type FaqItem,
 } from "@/lib/seo";
 import {
   dropInVisitSteps,
@@ -23,21 +24,28 @@ import {
 
 export const metadata = createPageMetadata(pageSeo.play);
 
-const playFaqs = [
+const playFaqs: FaqItem[] = [
   {
     question: "How much does drop-in play cost at Fun Factory?",
-    answer:
-      "Under 1: $5.00 (free with paying sibling). Ages 1–3: $10. Ages 4–13: $14. Ages 14–17: $10. Pay at the front desk when you arrive.",
+    segments: [
+      {
+        type: "text",
+        value:
+          "Under 1: $5.00 (free with paying sibling). Ages 1–3: $10. Ages 4–13: $14. Ages 14–17: $10. Pay at the front desk when you arrive.",
+      },
+    ],
   },
   {
     question: "Is there a time limit on drop-in play?",
-    answer: "No. Fun Factory offers unlimited play time on drop-in visits.",
+    segments: [{ type: "text", value: "No. Fun Factory offers unlimited play time on drop-in visits." }],
   },
   {
     question: "When is the 50% off drop-in discount?",
-    answer: "Every Tuesday and Thursday from 3:30 to 7:30 pm.",
+    segments: [
+      { type: "text", value: "Every Tuesday and Thursday from 3:30 to 7:30 pm." },
+    ],
   },
-] as const;
+];
 
 export default function PlayPage() {
   const open = isOpenNow();
