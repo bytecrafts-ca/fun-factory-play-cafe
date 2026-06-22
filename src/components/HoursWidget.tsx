@@ -1,8 +1,6 @@
-import { getTorontoWeekday, hours } from "@/lib/site";
+import { hours } from "@/lib/site";
 
 export function HoursWidget({ compact = false }: { compact?: boolean }) {
-  const today = getTorontoWeekday();
-
   return (
     <div className={`card border-l-4 border-l-sky ${compact ? "p-5" : "p-6"}`}>
       <h3 className={`font-bold text-charcoal ${compact ? "text-base" : "text-lg"}`}>
@@ -10,13 +8,10 @@ export function HoursWidget({ compact = false }: { compact?: boolean }) {
       </h3>
       <ul className={`space-y-1 ${compact ? "mt-3" : "mt-4"}`}>
         {hours.map((item) => {
-          const isToday = item.day === today;
           return (
             <li
               key={item.day}
-              className={`flex items-center justify-between rounded-lg px-3 py-2 text-sm ${
-                isToday ? "bg-mint/35 font-semibold" : ""
-              }`}
+              className="flex items-center justify-between rounded-lg px-3 py-2 text-sm"
             >
               <span className={item.closed ? "text-muted" : "text-charcoal"}>
                 {item.day}

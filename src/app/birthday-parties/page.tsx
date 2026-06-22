@@ -61,7 +61,7 @@ export default function BirthdayPartiesPage() {
       </section>
 
       <section className="section-pad bg-section-peach">
-        <div className="container-main max-w-2xl">
+        <div className="container-main mx-auto max-w-2xl text-center">
           <SectionHeading title="Additional Party Options" accent="peach" />
           <ul className="mt-6 space-y-2 text-sm text-muted">
             {partyAddOns.map((item) => (

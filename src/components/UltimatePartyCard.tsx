@@ -16,7 +16,7 @@ export function UltimatePartyCard() {
           {ultimateParty.weekendNote}: {formatPrice(ultimateParty.weekendPrice)}
         </p>
       </div>
-      <ul className="mt-6 grid gap-2 text-sm leading-relaxed text-muted sm:grid-cols-2">
+      <ul className="mt-6 space-y-2 text-sm leading-relaxed text-muted">
         {details.map((item) => (
           <li key={item}>{item}</li>
         ))}
