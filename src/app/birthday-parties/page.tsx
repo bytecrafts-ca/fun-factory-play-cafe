@@ -10,24 +10,18 @@ import {
   getPartyOffersSchema,
   pageSeo,
 } from "@/lib/seo";
-import {
-  partyAddOns,
-  partyCustomizeText,
-  partyExtras,
-  partyRoomInfo,
-  siteConfig,
-} from "@/lib/site";
+import { partyAddOns, partyCustomizeText, partyExtras, siteConfig } from "@/lib/site";
 
 export const metadata = createPageMetadata(pageSeo.parties);
 
-export default function PartiesPage() {
+export default function BirthdayPartiesPage() {
   return (
     <>
       <JsonLd
         data={[
           getBreadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Birthday Parties", path: "/parties" },
+            { name: "Birthday Parties", path: "/birthday-parties" },
           ]),
           getPartyOffersSchema(),
         ]}
@@ -51,10 +45,6 @@ export default function PartiesPage() {
       <section className="section-pad bg-section-lavender">
         <div className="container-main">
           <SectionHeading title="Birthday Party Packages" accent="lavender" />
-          <div className="mt-6 max-w-2xl space-y-2 text-sm text-muted">
-            <p>{partyRoomInfo.smallRoom}</p>
-            <p>{partyRoomInfo.largeRoom}</p>
-          </div>
           <div className="mt-10">
             <PartyCards />
           </div>

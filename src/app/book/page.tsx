@@ -15,5 +15,5 @@ export default function BookPage() {
   if (url.startsWith("http")) {
     redirect(url);
   }
-  redirect("/parties");
+  redirect("/birthday-parties");
 }

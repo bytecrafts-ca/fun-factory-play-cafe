@@ -460,7 +460,7 @@ export const cafeMenu = {
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/play", label: "Play" },
-  { href: "/parties", label: "Parties" },
+  { href: "/birthday-parties", label: "Parties" },
   { href: "/loyalty", label: "Loyalty" },
   { href: "/cafe", label: "Café" },
   { href: "/gallery", label: "Gallery" },

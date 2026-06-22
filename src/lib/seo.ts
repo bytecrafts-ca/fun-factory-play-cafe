@@ -255,7 +255,7 @@ export const faqItems: FaqItem[] = [
         type: "text",
         value: `. Party packages start at $${partyPackages[0].price} and include a private room, playtime, pizza, cake, juice, e-vites, and a party host. See all `,
       },
-      { type: "link", href: "/parties", label: "birthday party packages" },
+      { type: "link", href: "/birthday-parties", label: "birthday party packages" },
       { type: "text", value: " for details." },
     ],
   },
@@ -428,7 +428,7 @@ export function getPartyOffersSchema() {
         price: pkg.price,
         priceCurrency: "CAD",
         availability: "https://schema.org/InStock",
-        url: absoluteUrl("/parties"),
+        url: absoluteUrl("/birthday-parties"),
         seller: { "@id": `${seoConfig.siteUrl}/#localbusiness` },
         description: `${pkg.name} — ${pkg.children} kids and ${pkg.adults} adults, private party room, playtime, pizza, cake, juice, e-vites, and party host.`,
       },
@@ -454,7 +454,7 @@ export const pageSeo = {
     title: "Birthday Party Packages Pickering | Fun Factory Play Café",
     description:
       "Book a kids birthday party at Fun Factory Pickering. Packages from $369 with private room, playtime, pizza, cake, juice, e-vites & host. Fun, Active Fun, Supreme & Extreme packages available.",
-    path: "/parties",
+    path: "/birthday-parties",
     keywords: ["birthday party packages Pickering", "kids party venue Durham"],
   },
   cafe: {
