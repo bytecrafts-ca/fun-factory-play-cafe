@@ -398,7 +398,6 @@ export const cafeMenu = {
       description:
         "Sweet strawberry goodness paired with our signature strawberry cold foam matcha latte. Fruity, creamy, and oh-so-refreshing!",
       image: "/cafe/strawberry-matcha.png",
-      hotPrice: 5.5,
       coldPrice: 6.5,
     },
     {

@@ -75,7 +75,7 @@ export default function CafePage() {
         <div className="container-main">
           <SectionHeading
             title="Matcha"
-            subtitle="Made with real matcha — hot and iced available."
+            subtitle="Made with real matcha — most drinks available hot or iced. Strawberry Matcha is iced only."
             accent="mint"
           />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
