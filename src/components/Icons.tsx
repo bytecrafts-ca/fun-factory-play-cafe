@@ -60,6 +60,16 @@ export function IconUsers({ className = "h-6 w-6" }: IconProps) {
   );
 }
 
+export function IconParking({ className = "h-5 w-5" }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
+      <rect x="4" y="4" width="16" height="16" rx="2" />
+      <path d="M10 8h3a2.5 2.5 0 010 5h-3V8z" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M10 13v3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export function IconShield({ className = "h-5 w-5" }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>

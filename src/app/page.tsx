@@ -6,13 +6,12 @@ import { Hero } from "@/components/Hero";
 import { JsonLd } from "@/components/JsonLd";
 import { PartyCards } from "@/components/PartyCards";
 import { PromoBanner } from "@/components/PromoBanner";
-import { RulesChips } from "@/components/RulesChips";
 import { RulesStrip } from "@/components/RulesStrip";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { UltimatePartyCard } from "@/components/UltimatePartyCard";
 import { getFAQSchema } from "@/lib/seo";
-import { importantInfo, siteConfig } from "@/lib/site";
+import { siteConfig } from "@/lib/site";
 
 export default function HomePage() {
   return (
@@ -20,22 +19,6 @@ export default function HomePage() {
       <JsonLd data={getFAQSchema()} />
       <Hero />
       <RulesStrip />
-
-      <section className="section-pad bg-section-sky">
-        <div className="container-main">
-          <SectionHeading title="Important Info" accent="sky" />
-          <ul className="mx-auto mt-8 grid max-w-2xl gap-2">
-            {importantInfo.map((item) => (
-              <li
-                key={item}
-                className="rounded-lg border border-border bg-white px-4 py-3 text-sm text-muted"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
 
       <section className="section-pad">
         <div className="container-main">
@@ -61,15 +44,6 @@ export default function HomePage() {
           </div>
           <div className="mt-8">
             <UltimatePartyCard />
-          </div>
-        </div>
-      </section>
-
-      <section className="section-pad bg-section-mint">
-        <div className="container-main">
-          <SectionHeading title="Before Your Visit!" accent="mint" />
-          <div className="mt-10">
-            <RulesChips />
           </div>
         </div>
       </section>

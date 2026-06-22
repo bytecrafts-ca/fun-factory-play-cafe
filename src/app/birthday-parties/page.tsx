@@ -48,12 +48,6 @@ export default function BirthdayPartiesPage() {
           <div className="mt-10">
             <PartyCards />
           </div>
-        </div>
-      </section>
-
-      <section className="section-pad">
-        <div className="container-main">
-          <SectionHeading title="Ultimate Fun Party" accent="sunshine" />
           <div className="mt-8">
             <UltimatePartyCard />
           </div>
