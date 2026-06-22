@@ -25,37 +25,6 @@ export default function CafePage() {
         accent="peach"
       />
 
-      <section className="section-pad bg-section-peach">
-        <div className="container-main mx-auto max-w-2xl text-center">
-          <SectionHeading
-            title="Café Info"
-            subtitle="Everything you need to know about Littles & Lattés Café."
-            accent="peach"
-          />
-          <ul className="mt-8 space-y-3 text-left">
-            {cafeMenu.info.map((item) => (
-              <li
-                key={item}
-                className="rounded-lg border border-border bg-white px-4 py-3 text-sm leading-relaxed text-muted"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 text-sm text-muted">
-            Follow us on Instagram{" "}
-            <a
-              href={siteConfig.social.littlesInstagram.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-charcoal hover:underline"
-            >
-              {siteConfig.social.littlesInstagram.label}
-            </a>
-          </p>
-        </div>
-      </section>
-
       <section className="section-pad">
         <div className="container-main">
           <SectionHeading
@@ -128,7 +97,7 @@ export default function CafePage() {
         </div>
       </section>
 
-      <section className="section-pad bg-section-sky">
+      <section id="full-menu" className="section-pad bg-section-sky">
         <div className="container-main">
           <SectionHeading
             title="Full Menu"
@@ -143,7 +112,16 @@ export default function CafePage() {
       <section className="section-pad border-t border-peach/40 bg-cream">
         <div className="container-main text-center">
           <p className="text-sm text-muted">
-            Planning a visit?{" "}
+            Follow us on Instagram{" "}
+            <a
+              href={siteConfig.social.littlesInstagram.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-charcoal hover:underline"
+            >
+              {siteConfig.social.littlesInstagram.label}
+            </a>
+            . Planning a visit?{" "}
             <Link href="/play" className="font-semibold text-charcoal hover:underline">
               View Play Rates
             </Link>{" "}

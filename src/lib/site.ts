@@ -235,7 +235,6 @@ export const importantInfo = [
   "We are a socks only facility",
   "Parents must supervise children",
   "Snacks and drinks available for purchase",
-  "Free parking available",
 ] as const;
 
 export const socksReminder =
@@ -245,16 +244,54 @@ export const promoText =
   "Visit us every Tuesday and Thursday from 3:30 to 7:30 pm to enjoy 50% off all drop-in admissions";
 
 export const galleryImages = [
-  { src: "/gallery/983118_f5a0ca75c22e492ab979b0f4b000189c.jpg", alt: "Fun Factory indoor play area overview" },
-  { src: "/gallery/983118_66e7b3ab9ec748a1aa9caf01e60107b1.jpg", alt: "Children playing at Fun Factory" },
-  { src: "/gallery/983118_cb46c217bbb74a97be39261b89e247cb.jpg", alt: "Kids climbing at Fun Factory Play Café" },
-  { src: "/gallery/983118_75b4ad293ad54530b071fe06b4158899.jpg", alt: "Fun Factory play structure" },
-  { src: "/gallery/983118_aaed791026f04d1ba184e6a34577343b.jpg", alt: "Family fun at Fun Factory" },
-  { src: "/gallery/983118_c70fa047733943c9b84ab2536f83c6e4.jpg", alt: "Indoor playground at Fun Factory" },
-  { src: "/gallery/983118_9ae15cdd100442ada3435cfc3f8096c1.jpg", alt: "Birthday party fun at Fun Factory" },
-  { src: "/gallery/983118_378b69ec4f34415196c6192e1f53fd10.jpg", alt: "Toddler play area at Fun Factory" },
-  { src: "/gallery/983118_5aa1582ef3cb4e3284c2d117c317d4a0.jpg", alt: "Kids enjoying Fun Factory Play Café" },
-  { src: "/gallery/983118_caab0d74017047989359910f8c80d651.jpg", alt: "Play time at Fun Factory Pickering" },
+  {
+    src: "/gallery/fun-factory-storefront.jpg",
+    alt: "Fun Factory Play Café storefront in Pickering with Littles & Lattés Café signage",
+  },
+  {
+    src: "/gallery/play-structure-overview.jpg",
+    alt: "Multi-level indoor play structure at Fun Factory Play Café",
+  },
+  {
+    src: "/gallery/multi-level-play-area.jpg",
+    alt: "Large indoor playground with slides and climbing areas at Fun Factory",
+  },
+  {
+    src: "/gallery/indoor-playground-slides.jpg",
+    alt: "Blue slides and padded play structure inside Fun Factory Pickering",
+  },
+  {
+    src: "/gallery/ball-pit.jpg",
+    alt: "Colorful ball pit and climbing structure at Fun Factory Play Café",
+  },
+  {
+    src: "/gallery/sports-court.jpg",
+    alt: "Indoor sports court with basketball hoop at Fun Factory Play Café",
+  },
+  {
+    src: "/gallery/colorful-play-tunnel.jpg",
+    alt: "Colorful crawl-through play tunnel at Fun Factory",
+  },
+  {
+    src: "/gallery/candy-walkway.jpg",
+    alt: "Candy-themed play walkway with stepping stones at Fun Factory",
+  },
+  {
+    src: "/gallery/climbing-structure.jpg",
+    alt: "Themed climbing structure with slides at Fun Factory Play Café",
+  },
+  {
+    src: "/gallery/ball-pit-tunnel.jpg",
+    alt: "Play tunnel leading to the ball pit at Fun Factory",
+  },
+  {
+    src: "/gallery/obstacle-course.jpg",
+    alt: "Indoor obstacle course with rainbow padded columns at Fun Factory",
+  },
+  {
+    src: "/gallery/play-tunnel-walkway.jpg",
+    alt: "Elevated play tunnel walkway inside Fun Factory Play Café",
+  },
 ] as const;
 
 export const googleReviewsSummary = {
@@ -450,9 +487,24 @@ export const cafeMenu = {
     },
   ],
   menuBoards: [
-    { src: "/cafe/full-menu.png", alt: "Littles & Lattés full café menu with pricing" },
-    { src: "/cafe/specialty-lattes-menu.png", alt: "Littles & Lattés specialty iced lattes menu" },
-    { src: "/cafe/matcha-menu.png", alt: "Littles & Lattés matcha drinks menu" },
+    {
+      src: "/cafe/full-menu.png",
+      alt: "Littles & Lattés full café menu with pricing",
+      width: 1024,
+      height: 576,
+    },
+    {
+      src: "/cafe/specialty-lattes-menu.png",
+      alt: "Littles & Lattés specialty iced lattes menu",
+      width: 1024,
+      height: 768,
+    },
+    {
+      src: "/cafe/matcha-menu.png",
+      alt: "Littles & Lattés matcha drinks menu",
+      width: 1024,
+      height: 819,
+    },
   ],
 } as const;
 

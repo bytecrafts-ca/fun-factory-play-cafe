@@ -1,6 +1,5 @@
 import { JsonLd } from "@/components/JsonLd";
 import { PartyCards } from "@/components/PartyCards";
-import { UltimatePartyCard } from "@/components/UltimatePartyCard";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
@@ -47,9 +46,6 @@ export default function BirthdayPartiesPage() {
           <SectionHeading title="Birthday Party Packages" accent="lavender" />
           <div className="mt-10">
             <PartyCards />
-          </div>
-          <div className="mt-8">
-            <UltimatePartyCard />
           </div>
         </div>
       </section>

@@ -5,7 +5,6 @@ import { HoursWidget } from "@/components/HoursWidget";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { PromoBanner } from "@/components/PromoBanner";
-import { RulesChips } from "@/components/RulesChips";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import {
   createPageMetadata,
@@ -158,15 +157,6 @@ export default function PlayPage() {
       </section>
 
       <PromoBanner />
-
-      <section className="section-pad">
-        <div className="container-main">
-          <SectionHeading title="Good to Know" accent="mint" />
-          <div className="mt-10">
-            <RulesChips />
-          </div>
-        </div>
-      </section>
     </>
   );
 }

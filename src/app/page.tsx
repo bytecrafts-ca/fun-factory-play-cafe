@@ -9,7 +9,6 @@ import { PromoBanner } from "@/components/PromoBanner";
 import { RulesStrip } from "@/components/RulesStrip";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
-import { UltimatePartyCard } from "@/components/UltimatePartyCard";
 import { getFAQSchema } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
@@ -41,9 +40,6 @@ export default function HomePage() {
           </div>
           <div className="mt-10">
             <PartyCards />
-          </div>
-          <div className="mt-8">
-            <UltimatePartyCard />
           </div>
         </div>
       </section>

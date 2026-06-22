@@ -6,6 +6,8 @@ import { useCallback, useEffect, useState } from "react";
 type MenuBoard = {
   src: string;
   alt: string;
+  width: number;
+  height: number;
 };
 
 export function CafeMenuBoards({ boards }: { boards: readonly MenuBoard[] }) {
@@ -31,22 +33,23 @@ export function CafeMenuBoards({ boards }: { boards: readonly MenuBoard[] }) {
 
   return (
     <>
-      <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {boards.map((image) => (
           <button
             key={image.src}
             type="button"
             onClick={() => setActive(image)}
-            className="card group cursor-zoom-in overflow-hidden p-2 text-left transition hover:ring-2 hover:ring-sky/50"
+            className="card group cursor-zoom-in p-2 text-left transition hover:ring-2 hover:ring-sky/50"
             aria-label={`View full size: ${image.alt}`}
           >
-            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[12px] bg-peach/10">
+            <div className="rounded-[12px] bg-peach/10 p-3">
               <Image
                 src={image.src}
                 alt={image.alt}
-                fill
+                width={image.width}
+                height={image.height}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-contain p-3 transition group-hover:scale-[1.01]"
+                className="h-auto w-full object-contain transition duration-300 group-hover:opacity-95"
               />
             </div>
             <p className="mt-2 text-center text-xs font-semibold text-muted group-hover:text-charcoal">
@@ -79,8 +82,8 @@ export function CafeMenuBoards({ boards }: { boards: readonly MenuBoard[] }) {
             <Image
               src={active.src}
               alt={active.alt}
-              width={1200}
-              height={1600}
+              width={active.width}
+              height={active.height}
               className="max-h-[90vh] w-auto max-w-[min(90vw,900px)] object-contain"
               priority
             />
