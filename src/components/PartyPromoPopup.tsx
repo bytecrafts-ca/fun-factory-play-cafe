@@ -36,22 +36,22 @@ export function PartyPromoPopup() {
       aria-modal="true"
       aria-labelledby="party-promo-title"
     >
-      <div className="relative w-full max-w-md overflow-hidden rounded-[20px] border border-peach/60 bg-gradient-to-br from-peach/30 via-white to-lavender/25 p-6 shadow-xl sm:p-8">
+      <div className="relative w-full max-w-md overflow-visible rounded-[20px] border border-peach/60 bg-gradient-to-br from-peach/30 via-white to-lavender/25 p-6 pb-24 shadow-xl sm:p-8 sm:pb-28">
         <button
           type="button"
           onClick={dismiss}
-          className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-lg font-bold text-charcoal shadow-sm transition hover:bg-white"
+          className="absolute left-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-lg font-bold text-charcoal shadow-sm transition hover:bg-white"
           aria-label="Close promotion"
         >
           ×
         </button>
 
-        <div className="pointer-events-none absolute -right-2 top-8 animate-float opacity-90">
+        <div className="pointer-events-none absolute bottom-3 right-3 animate-float sm:bottom-4 sm:right-4">
           <Image
             src="/logo.png"
             alt=""
-            width={88}
-            height={88}
+            width={80}
+            height={80}
             className="drop-shadow-md"
             aria-hidden
           />
@@ -60,7 +60,7 @@ export function PartyPromoPopup() {
         <p className="text-center text-2xl" aria-hidden>
           ✨
         </p>
-        <h2 id="party-promo-title" className="mt-2 pr-10 text-center text-xl font-extrabold leading-snug text-charcoal sm:text-2xl">
+        <h2 id="party-promo-title" className="mt-2 text-center text-xl font-extrabold leading-snug text-charcoal sm:text-2xl">
           {partyBookingPromo.headline}
         </h2>
         <p className="mt-2 text-center text-sm font-semibold text-charcoal/80">
