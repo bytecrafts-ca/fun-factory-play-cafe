@@ -4,6 +4,7 @@ import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
+import { PartyPromoPopup } from "@/components/PartyPromoPopup";
 import { TopBar } from "@/components/TopBar";
 import { createPageMetadata, getGlobalSchemas, pageSeo, seoConfig } from "@/lib/seo";
 import "./globals.css";
@@ -57,6 +58,7 @@ export default function RootLayout({
         <AnnouncementBar />
         <Header />
         <main id="main-content">{children}</main>
+        <PartyPromoPopup />
         <Footer />
       </body>
     </html>

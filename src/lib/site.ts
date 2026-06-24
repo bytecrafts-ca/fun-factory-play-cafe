@@ -97,6 +97,20 @@ export const admissions = [
 export const playRatesNote =
   "Enjoy unlimited play time — there is no time limit on your visit.";
 
+export const partyBookingPromo = {
+  startDate: "2026-06-15",
+  endDate: "2026-08-31",
+  headline: "Enjoy 15% OFF all NEW party bookings",
+  period: "June 15 – August 31, 2026",
+  disclaimer: "Party date must be between the promotional period.",
+} as const;
+
+export function isPartyBookingPromoActive(now = new Date()) {
+  const start = new Date(`${partyBookingPromo.startDate}T00:00:00`);
+  const end = new Date(`${partyBookingPromo.endDate}T23:59:59`);
+  return now >= start && now <= end;
+}
+
 export const admissionNotes = [
   "Maximum two (2) adults per family included in the admission",
   "Socks available for purchase at reception — $3.00",
@@ -291,6 +305,54 @@ export const galleryImages = [
   {
     src: "/gallery/play-tunnel-walkway.jpg",
     alt: "Elevated play tunnel walkway inside Fun Factory Play Café",
+  },
+  {
+    src: "/gallery/play-structure-wide.jpg",
+    alt: "Wide view of the indoor play structure at Fun Factory Pickering",
+  },
+  {
+    src: "/gallery/indoor-playground-wide.jpg",
+    alt: "Indoor playground with slides and climbing nets at Fun Factory",
+  },
+  {
+    src: "/gallery/purple-play-zone.jpg",
+    alt: "Purple padded play zone with slides at Fun Factory Play Café",
+  },
+  {
+    src: "/gallery/play-structure-tubes.jpg",
+    alt: "Tube slides and play structure at Fun Factory Play Café",
+  },
+  {
+    src: "/gallery/pink-play-walkway.jpg",
+    alt: "Pink padded play walkway inside Fun Factory",
+  },
+  {
+    src: "/gallery/heart-stepping-walkway.jpg",
+    alt: "Heart-themed stepping stone walkway at Fun Factory",
+  },
+  {
+    src: "/gallery/climbing-web-walkway.jpg",
+    alt: "Climbing web walkway with colorful steps at Fun Factory",
+  },
+  {
+    src: "/gallery/elevated-play-bridge.jpg",
+    alt: "Elevated play bridge with safety netting at Fun Factory",
+  },
+  {
+    src: "/gallery/padded-roller-bridge.jpg",
+    alt: "Padded roller obstacle bridge at Fun Factory Play Café",
+  },
+  {
+    src: "/gallery/roller-obstacle-bridge.jpg",
+    alt: "Roller obstacles on an elevated play bridge at Fun Factory",
+  },
+  {
+    src: "/gallery/striped-tunnel-play-area.jpg",
+    alt: "Striped tunnel play area inside Fun Factory Play Café",
+  },
+  {
+    src: "/gallery/play-area-corridor.jpg",
+    alt: "Colorful play area corridor at Fun Factory Pickering",
   },
 ] as const;
 

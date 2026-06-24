@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { AdmissionsTable } from "@/components/AdmissionsTable";
 import { Button } from "@/components/ui/Button";
 import { HoursWidget } from "@/components/HoursWidget";
@@ -108,26 +107,17 @@ export default function PlayPage() {
       </section>
 
       <section className="section-pad">
-        <div className="container-main grid gap-10 lg:grid-cols-2">
+        <div className="container-main grid gap-10 lg:grid-cols-2 lg:items-start">
           <div>
             <SectionHeading title="Per-Person Rates" centered={false} accent="sky" />
             <div className="mt-6">
               <AdmissionsTable />
             </div>
           </div>
-          <div className="space-y-6">
+          <div>
             <SectionHeading title="Hours" centered={false} accent="mint" />
             <div className="mt-6">
               <HoursWidget />
-            </div>
-            <div className="card overflow-hidden p-2">
-              <Image
-                src="/play-rates.jpg"
-                alt="Fun Factory admissions pricing chart"
-                width={869}
-                height={491}
-                className="h-auto w-full rounded-[12px]"
-              />
             </div>
           </div>
         </div>

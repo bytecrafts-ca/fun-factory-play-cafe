@@ -6,8 +6,6 @@ export function AdmissionsTable({ showNotes = true }: { showNotes?: boolean }) {
 
   return (
     <div>
-      <p className="mb-4 text-sm leading-relaxed text-muted">{playRatesNote}</p>
-
       <div className="card overflow-hidden">
         <table className="w-full text-left text-sm">
           <thead>
@@ -29,6 +27,8 @@ export function AdmissionsTable({ showNotes = true }: { showNotes?: boolean }) {
           </tbody>
         </table>
       </div>
+
+      <p className="mt-4 text-sm leading-relaxed text-muted">{playRatesNote}</p>
 
       {showNotes && (
         <ul className="mt-6 space-y-2 text-sm text-muted">
