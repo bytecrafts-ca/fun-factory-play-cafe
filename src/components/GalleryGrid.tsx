@@ -54,33 +54,43 @@ export function GalleryGrid({ limit }: { limit?: number }) {
 
       {active && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-charcoal/90 p-4 sm:p-8"
+          className="fixed inset-0 z-[100] flex flex-col bg-charcoal/90"
           role="dialog"
           aria-modal="true"
           aria-label={active.alt}
-          onClick={close}
         >
+          <div className="flex shrink-0 justify-end px-3 pb-2 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-4">
+            <button
+              type="button"
+              onClick={close}
+              className="rounded-full bg-white/10 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-white/20"
+              aria-label="Close full screen photo"
+            >
+              Close
+            </button>
+          </div>
+
           <button
             type="button"
+            className="flex min-h-0 flex-1 items-center justify-center px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-6"
             onClick={close}
-            className="absolute right-4 top-4 z-10 rounded-full bg-white/10 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-white/20"
             aria-label="Close full screen photo"
           >
-            Close
+            <div
+              className="relative flex max-h-full max-w-full items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={active.src}
+                alt={active.alt}
+                width={1600}
+                height={1200}
+                sizes="100vw"
+                className="mx-auto block h-auto max-h-[calc(100dvh-5rem)] w-auto max-w-[calc(100vw-1.5rem)] object-contain sm:max-h-[calc(100dvh-6rem)] sm:max-w-[min(95vw,1200px)]"
+                priority
+              />
+            </div>
           </button>
-          <div
-            className="relative max-h-full max-w-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={active.src}
-              alt={active.alt}
-              width={1600}
-              height={1200}
-              className="max-h-[90vh] w-auto max-w-[min(95vw,1200px)] object-contain"
-              priority
-            />
-          </div>
         </div>
       )}
     </>
