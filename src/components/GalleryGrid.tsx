@@ -70,14 +70,12 @@ export function GalleryGrid({ limit }: { limit?: number }) {
             </button>
           </div>
 
-          <button
-            type="button"
-            className="flex min-h-0 flex-1 items-center justify-center px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-6"
+          <div
+            className="flex w-full min-h-0 flex-1 items-center justify-center px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-6"
             onClick={close}
-            aria-label="Close full screen photo"
           >
             <div
-              className="relative flex max-h-full max-w-full items-center justify-center"
+              className="flex w-full max-w-full items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               <Image
@@ -86,11 +84,12 @@ export function GalleryGrid({ limit }: { limit?: number }) {
                 width={1600}
                 height={1200}
                 sizes="100vw"
-                className="mx-auto block h-auto max-h-[calc(100dvh-5rem)] w-auto max-w-[calc(100vw-1.5rem)] object-contain sm:max-h-[calc(100dvh-6rem)] sm:max-w-[min(95vw,1200px)]"
+                className="!relative !h-auto !w-auto max-h-[calc(100dvh-5rem)] max-w-full object-contain sm:max-h-[calc(100dvh-6rem)]"
+                style={{ width: "auto", height: "auto" }}
                 priority
               />
             </div>
-          </button>
+          </div>
         </div>
       )}
     </>
