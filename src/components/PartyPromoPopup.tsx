@@ -5,7 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { isPartyBookingPromoActive, partyBookingPromo, siteConfig } from "@/lib/site";
+import {
+  getPartyBookingUrl,
+  isPartyBookingPromoActive,
+  partyBookingPromo,
+} from "@/lib/site";
 
 const DISMISS_KEY = "fun-factory-party-promo-dismissed";
 
@@ -48,7 +52,7 @@ export function PartyPromoPopup() {
 
         <div className="pointer-events-none absolute bottom-3 right-3 animate-float sm:bottom-4 sm:right-4">
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt=""
             width={80}
             height={80}
@@ -70,8 +74,26 @@ export function PartyPromoPopup() {
           {partyBookingPromo.disclaimer} 🎉
         </p>
 
+        {partyBookingPromo.ovatuPromoCode ? (
+          <div className="mt-4 rounded-xl border border-lavender/40 bg-white/90 px-4 py-3 text-center">
+            <p className="text-xs font-semibold uppercase tracking-wide text-muted">
+              Promo code at checkout
+            </p>
+            <p className="mt-1 font-mono text-xl font-extrabold tracking-wide text-charcoal">
+              {partyBookingPromo.ovatuPromoCode}
+            </p>
+            <p className="mt-1 text-xs text-muted">
+              Enter in the Voucher/Gift Card field when you book
+            </p>
+          </div>
+        ) : partyBookingPromo.ovatuPromoUrl ? (
+          <p className="mt-4 text-center text-sm font-semibold text-charcoal/80">
+            15% discount applied automatically when you book below
+          </p>
+        ) : null}
+
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
-          <Button href={siteConfig.ovatu.partiesUrl} external variant="lavender" size="md">
+          <Button href={getPartyBookingUrl()} external variant="lavender" size="md">
             Book a Party
           </Button>
           <Link

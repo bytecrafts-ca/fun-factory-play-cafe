@@ -65,7 +65,7 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_WAIVER_URL ??
     "https://form.jotform.com/261257549756066",
   heroImage: {
-    src: "/hero.jpg",
+    src: "/hero.webp",
     alt: "Children having fun with colorful balls in a bright indoor play space",
   },
 };
@@ -103,12 +103,24 @@ export const partyBookingPromo = {
   headline: "Enjoy 15% OFF all NEW party bookings",
   period: "June 15 – August 31, 2026",
   disclaimer: "Party date must be between the promotional period.",
+  /** Ovatu marketing link — discount auto-applies when customers use this URL */
+  ovatuPromoUrl: process.env.NEXT_PUBLIC_OVATU_PARTY_PROMO_URL ?? "",
+  /** Code customers enter in Ovatu’s Voucher/Gift Card field at checkout */
+  ovatuPromoCode: process.env.NEXT_PUBLIC_OVATU_PARTY_PROMO_CODE ?? "",
 } as const;
 
 export function isPartyBookingPromoActive(now = new Date()) {
   const start = new Date(`${partyBookingPromo.startDate}T00:00:00`);
   const end = new Date(`${partyBookingPromo.endDate}T23:59:59`);
   return now >= start && now <= end;
+}
+
+/** Party booking URL — uses Ovatu promo link during the active promo window when configured */
+export function getPartyBookingUrl(now = new Date()) {
+  if (isPartyBookingPromoActive(now) && partyBookingPromo.ovatuPromoUrl) {
+    return partyBookingPromo.ovatuPromoUrl;
+  }
+  return siteConfig.ovatu.partiesUrl;
 }
 
 export const admissionNotes = [
@@ -259,99 +271,99 @@ export const promoText =
 
 export const galleryImages = [
   {
-    src: "/gallery/fun-factory-storefront.jpg",
+    src: "/gallery/fun-factory-storefront.webp",
     alt: "Fun Factory Play Café storefront in Pickering with Littles & Lattés Café signage",
   },
   {
-    src: "/gallery/play-structure-overview.jpg",
+    src: "/gallery/play-structure-overview.webp",
     alt: "Multi-level indoor play structure at Fun Factory Play Café",
   },
   {
-    src: "/gallery/multi-level-play-area.jpg",
+    src: "/gallery/multi-level-play-area.webp",
     alt: "Large indoor playground with slides and climbing areas at Fun Factory",
   },
   {
-    src: "/gallery/indoor-playground-slides.jpg",
+    src: "/gallery/indoor-playground-slides.webp",
     alt: "Blue slides and padded play structure inside Fun Factory Pickering",
   },
   {
-    src: "/gallery/ball-pit.jpg",
+    src: "/gallery/ball-pit.webp",
     alt: "Colorful ball pit and climbing structure at Fun Factory Play Café",
   },
   {
-    src: "/gallery/sports-court.jpg",
+    src: "/gallery/sports-court.webp",
     alt: "Indoor sports court with basketball hoop at Fun Factory Play Café",
   },
   {
-    src: "/gallery/colorful-play-tunnel.jpg",
+    src: "/gallery/colorful-play-tunnel.webp",
     alt: "Colorful crawl-through play tunnel at Fun Factory",
   },
   {
-    src: "/gallery/candy-walkway.jpg",
+    src: "/gallery/candy-walkway.webp",
     alt: "Candy-themed play walkway with stepping stones at Fun Factory",
   },
   {
-    src: "/gallery/climbing-structure.jpg",
+    src: "/gallery/climbing-structure.webp",
     alt: "Themed climbing structure with slides at Fun Factory Play Café",
   },
   {
-    src: "/gallery/ball-pit-tunnel.jpg",
+    src: "/gallery/ball-pit-tunnel.webp",
     alt: "Play tunnel leading to the ball pit at Fun Factory",
   },
   {
-    src: "/gallery/obstacle-course.jpg",
+    src: "/gallery/obstacle-course.webp",
     alt: "Indoor obstacle course with rainbow padded columns at Fun Factory",
   },
   {
-    src: "/gallery/play-tunnel-walkway.jpg",
+    src: "/gallery/play-tunnel-walkway.webp",
     alt: "Elevated play tunnel walkway inside Fun Factory Play Café",
   },
   {
-    src: "/gallery/play-structure-wide.jpg",
+    src: "/gallery/play-structure-wide.webp",
     alt: "Wide view of the indoor play structure at Fun Factory Pickering",
   },
   {
-    src: "/gallery/indoor-playground-wide.jpg",
+    src: "/gallery/indoor-playground-wide.webp",
     alt: "Indoor playground with slides and climbing nets at Fun Factory",
   },
   {
-    src: "/gallery/purple-play-zone.jpg",
+    src: "/gallery/purple-play-zone.webp",
     alt: "Purple padded play zone with slides at Fun Factory Play Café",
   },
   {
-    src: "/gallery/play-structure-tubes.jpg",
+    src: "/gallery/play-structure-tubes.webp",
     alt: "Tube slides and play structure at Fun Factory Play Café",
   },
   {
-    src: "/gallery/pink-play-walkway.jpg",
+    src: "/gallery/pink-play-walkway.webp",
     alt: "Pink padded play walkway inside Fun Factory",
   },
   {
-    src: "/gallery/heart-stepping-walkway.jpg",
+    src: "/gallery/heart-stepping-walkway.webp",
     alt: "Heart-themed stepping stone walkway at Fun Factory",
   },
   {
-    src: "/gallery/climbing-web-walkway.jpg",
+    src: "/gallery/climbing-web-walkway.webp",
     alt: "Climbing web walkway with colorful steps at Fun Factory",
   },
   {
-    src: "/gallery/elevated-play-bridge.jpg",
+    src: "/gallery/elevated-play-bridge.webp",
     alt: "Elevated play bridge with safety netting at Fun Factory",
   },
   {
-    src: "/gallery/padded-roller-bridge.jpg",
+    src: "/gallery/padded-roller-bridge.webp",
     alt: "Padded roller obstacle bridge at Fun Factory Play Café",
   },
   {
-    src: "/gallery/roller-obstacle-bridge.jpg",
+    src: "/gallery/roller-obstacle-bridge.webp",
     alt: "Roller obstacles on an elevated play bridge at Fun Factory",
   },
   {
-    src: "/gallery/striped-tunnel-play-area.jpg",
+    src: "/gallery/striped-tunnel-play-area.webp",
     alt: "Striped tunnel play area inside Fun Factory Play Café",
   },
   {
-    src: "/gallery/play-area-corridor.jpg",
+    src: "/gallery/play-area-corridor.webp",
     alt: "Colorful play area corridor at Fun Factory Pickering",
   },
 ] as const;
@@ -444,42 +456,42 @@ export const cafeMenu = {
     {
       name: "Latte",
       description: "Smooth espresso balanced with milk for a classic, everyday favorite.",
-      image: "/cafe/latte.png",
+      image: "/cafe/latte.webp",
       hotPrice: 5,
       coldPrice: 6,
     },
     {
       name: "Vanilla Latte",
       description: "Smooth espresso with creamy milk and a touch of vanilla sweetness.",
-      image: "/cafe/vanilla-latte.png",
+      image: "/cafe/vanilla-latte.webp",
       hotPrice: 5.5,
       coldPrice: 6.5,
     },
     {
       name: "Caramel Macchiato",
       description: "Smooth milk and vanilla topped with espresso and a drizzle of rich caramel.",
-      image: "/cafe/caramel-macchiato.png",
+      image: "/cafe/caramel-macchiato.webp",
       hotPrice: 5.5,
       coldPrice: 6.5,
     },
     {
       name: "Spanish Latte",
       description: "Bold espresso with sweetened condensed milk and a hint of cinnamon.",
-      image: "/cafe/spanish-latte.png",
+      image: "/cafe/spanish-latte.webp",
       hotPrice: 5.5,
       coldPrice: 6.5,
     },
     {
       name: "Chai Latte",
       description: "Warm spices and black tea blended with milk for the perfect cozy sip.",
-      image: "/cafe/chai-latte.png",
+      image: "/cafe/chai-latte.webp",
       hotPrice: 5.5,
       coldPrice: 6,
     },
     {
       name: "Fun Factory Latte",
       description: "Our classic latte made with oat milk. Creamy, smooth, and made for you.",
-      image: "/cafe/fun-factory-latte.png",
+      image: "/cafe/fun-factory-latte.webp",
       hotPrice: 5.5,
       coldPrice: 6.5,
     },
@@ -488,7 +500,7 @@ export const cafeMenu = {
     {
       name: "Matcha Latte",
       description: "Smooth and earthy matcha blended with milk. Simple. Pure. Refreshing.",
-      image: "/cafe/matcha-latte.png",
+      image: "/cafe/matcha-latte.webp",
       hotPrice: 5.5,
       coldPrice: 6.5,
     },
@@ -496,14 +508,14 @@ export const cafeMenu = {
       name: "Strawberry Matcha Latte",
       description:
         "Sweet strawberry goodness paired with our signature strawberry cold foam matcha latte. Fruity, creamy, and oh-so-refreshing!",
-      image: "/cafe/strawberry-matcha.png",
+      image: "/cafe/strawberry-matcha.webp",
       coldPrice: 6.5,
     },
     {
       name: "Vanilla Matcha Latte",
       description:
         "Smooth matcha blended with creamy milk and a touch of vanilla. Light, sweet, and gently comforting.",
-      image: "/cafe/vanilla-matcha-latte.png",
+      image: "/cafe/vanilla-matcha-latte.webp",
       hotPrice: 5.5,
       coldPrice: 6.5,
     },
@@ -511,7 +523,7 @@ export const cafeMenu = {
       name: "Fun Factory Matcha Latte",
       description:
         "Our classic matcha latte, perfectly balanced and made with oat milk. Creamy, smooth, and made for you.",
-      image: "/cafe/fun-factory-matcha-latte.png",
+      image: "/cafe/fun-factory-matcha-latte.webp",
       hotPrice: 5.5,
       coldPrice: 6.5,
     },
@@ -550,19 +562,19 @@ export const cafeMenu = {
   ],
   menuBoards: [
     {
-      src: "/cafe/full-menu.png",
+      src: "/cafe/full-menu.webp",
       alt: "Littles & Lattés full café menu with pricing",
       width: 1024,
       height: 576,
     },
     {
-      src: "/cafe/specialty-lattes-menu.png",
+      src: "/cafe/specialty-lattes-menu.webp",
       alt: "Littles & Lattés specialty iced lattes menu",
       width: 1024,
       height: 768,
     },
     {
-      src: "/cafe/matcha-menu.png",
+      src: "/cafe/matcha-menu.webp",
       alt: "Littles & Lattés matcha drinks menu",
       width: 1024,
       height: 819,

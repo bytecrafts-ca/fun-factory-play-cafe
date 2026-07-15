@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {
   admissions,
+  getPartyBookingUrl,
   googleReviewsFallback,
   googleReviewsSummary,
   hours,
@@ -247,7 +248,7 @@ export const faqItems: FaqItem[] = [
       { type: "text", value: "Book online at " },
       {
         type: "link",
-        href: siteConfig.ovatu.partiesUrl,
+        href: getPartyBookingUrl(),
         label: "our party booking page",
         external: true,
       },
@@ -291,7 +292,7 @@ export function getOrganizationSchema() {
     "@id": `${seoConfig.siteUrl}/#organization`,
     name: seoConfig.siteName,
     url: seoConfig.siteUrl,
-    logo: absoluteUrl("/logo.png"),
+    logo: absoluteUrl("/logo.webp"),
     email: siteConfig.email,
     telephone: siteConfig.phone,
     sameAs: [
@@ -326,8 +327,8 @@ export function getLocalBusinessSchema() {
     url: seoConfig.siteUrl,
     telephone: siteConfig.phone,
     email: siteConfig.email,
-    image: [absoluteUrl(siteConfig.heroImage.src), absoluteUrl("/logo.png")],
-    logo: absoluteUrl("/logo.png"),
+    image: [absoluteUrl(siteConfig.heroImage.src), absoluteUrl("/logo.webp")],
+    logo: absoluteUrl("/logo.webp"),
     priceRange: seoConfig.priceRange,
     currenciesAccepted: "CAD",
     paymentAccepted: "Cash, Credit Card, Debit Card",

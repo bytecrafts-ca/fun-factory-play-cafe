@@ -14,9 +14,9 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ["entertainment", "kids", "food"],
     icons: [
       {
-        src: "/logo.png",
+        src: "/logo.webp",
         sizes: "512x512",
-        type: "image/png",
+        type: "image/webp",
       },
     ],
   };

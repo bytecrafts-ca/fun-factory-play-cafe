@@ -16,7 +16,7 @@ export function Header() {
       <div className="container-main flex items-center justify-between gap-6 py-3">
         <Link href="/" className="shrink-0" onClick={() => setOpen(false)}>
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="Fun Factory Play Café"
             width={180}
             height={72}

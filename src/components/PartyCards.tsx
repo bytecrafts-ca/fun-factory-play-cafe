@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { getPartyPackageDetails } from "@/lib/party-details";
-import { formatPrice, partyPackages, siteConfig, ultimateParty } from "@/lib/site";
+import { formatPrice, getPartyBookingUrl, partyPackages, ultimateParty } from "@/lib/site";
 
 const accentMap = {
   bubblegum: { border: "border-t-bubblegum", bg: "bg-bubblegum/10" },
@@ -40,7 +40,7 @@ export function PartyCards() {
             </ul>
             <div className="mt-5">
               <Button
-                href={siteConfig.ovatu.partiesUrl}
+                href={getPartyBookingUrl()}
                 external
                 variant="lavender"
                 size="md"
@@ -75,7 +75,7 @@ export function PartyCards() {
         </ul>
         <div className="mt-5">
           <Button
-            href={siteConfig.ovatu.partiesUrl}
+            href={getPartyBookingUrl()}
             external
             variant="primary"
             size="md"

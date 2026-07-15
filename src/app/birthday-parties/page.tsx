@@ -9,7 +9,7 @@ import {
   getPartyOffersSchema,
   pageSeo,
 } from "@/lib/seo";
-import { partyAddOns, partyCustomizeText, partyExtras, siteConfig } from "@/lib/site";
+import { partyAddOns, partyCustomizeText, partyExtras, getPartyBookingUrl, siteConfig } from "@/lib/site";
 
 export const metadata = createPageMetadata(pageSeo.parties);
 
@@ -36,7 +36,7 @@ export default function BirthdayPartiesPage() {
         }
         accent="lavender"
       >
-        <Button href={siteConfig.ovatu.partiesUrl} external variant="lavender" size="lg">
+        <Button href={getPartyBookingUrl()} external variant="lavender" size="lg">
           Book Your Party
         </Button>
       </PageHero>
