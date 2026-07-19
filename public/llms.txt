@@ -18,7 +18,7 @@ Families visit for unlimited drop-in play (pay at the front desk), multi-level p
 
 ## Hours
 - Friday–Sunday: 9:30 am – 8:30 pm
-- Tuesday & Thursday: 3:30 pm – 7:30 pm (50% off drop-in admissions)
+- Tuesday & Thursday: 12:00 pm – 7:30 pm (50% off drop-in admissions)
 - Closed Monday and Wednesday
 
 ## Drop-in admissions (pay at desk, unlimited play time)
@@ -61,3 +61,6 @@ JSON-LD LocalBusiness, FAQ, and Organization schemas are embedded on https://fun
 
 ## Sitemap
 https://funfactoryplay.ca/sitemap.xml
+
+## Website design & development
+Designed and built by Sutrel — https://sutrel.ca (solo web studio, Toronto/Durham GTA)

@@ -16,7 +16,7 @@ export const seoConfig = {
   locale: "en_CA",
   defaultTitle: `${siteConfig.name} | Indoor Playground & Birthday Parties in Pickering, ON`,
   defaultDescription:
-    "Fun Factory Play Café in Pickering, Ontario — indoor playground, unlimited drop-in play, birthday party packages, and Littles & Lattés café. Socks-only facility. Tue & Thu 50% off admissions 3:30–7:30 pm.",
+    "Fun Factory Play Café in Pickering, Ontario — indoor playground, unlimited drop-in play, birthday party packages, and Littles & Lattés café. Socks-only facility. Tue & Thu 50% off admissions 12:00–7:30 pm.",
   defaultKeywords: [
     "Fun Factory Play Café",
     "indoor playground Pickering",
@@ -218,7 +218,7 @@ export const faqItems: FaqItem[] = [
       {
         type: "text",
         value:
-          "Open Friday–Sunday 9:30 am–8:30 pm and Tuesday & Thursday 3:30 pm–7:30 pm. Closed Monday and Wednesday.",
+          "Open Friday–Sunday 9:30 am–8:30 pm and Tuesday & Thursday 12:00 pm–7:30 pm. Closed Monday and Wednesday.",
       },
     ],
   },
@@ -228,7 +228,7 @@ export const faqItems: FaqItem[] = [
       {
         type: "text",
         value:
-          "Yes. Visit every Tuesday and Thursday from 3:30 to 7:30 pm for 50% off all drop-in admissions.",
+          "Yes. Visit every Tuesday and Thursday from 12:00 to 7:30 pm for 50% off all drop-in admissions.",
       },
     ],
   },
@@ -313,6 +313,12 @@ export function getWebSiteSchema() {
     description: seoConfig.defaultDescription,
     inLanguage: "en-CA",
     publisher: { "@id": `${seoConfig.siteUrl}/#organization` },
+    creator: {
+      "@type": "Organization",
+      name: "Sutrel",
+      url: "https://sutrel.ca",
+      email: "inquire@sutrel.ca",
+    },
   };
 }
 
@@ -447,7 +453,7 @@ export const pageSeo = {
   play: {
     title: "Drop-In Play & Admissions | Fun Factory Pickering",
     description:
-      "Drop-in indoor play at Fun Factory Pickering. Unlimited play time, pay at the desk. Rates for toddlers to teens. Tue & Thu 50% off 3:30–7:30 pm. Sign waiver online before you arrive.",
+      "Drop-in indoor play at Fun Factory Pickering. Unlimited play time, pay at the desk. Rates for toddlers to teens. Tue & Thu 50% off 12:00–7:30 pm. Sign waiver online before you arrive.",
     path: "/play",
     keywords: ["drop-in play rates", "indoor play admission Pickering", "pay at desk"],
   },

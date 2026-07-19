@@ -79,9 +79,9 @@ export type DayHours = {
 
 export const hours: DayHours[] = [
   { day: "Monday", hours: "Closed", closed: true },
-  { day: "Tuesday", hours: "3:30 pm – 7:30 pm", promo: "50% off drop-in admissions" },
+  { day: "Tuesday", hours: "12:00 pm – 7:30 pm", promo: "50% off drop-in admissions" },
   { day: "Wednesday", hours: "Closed", closed: true },
-  { day: "Thursday", hours: "3:30 pm – 7:30 pm", promo: "50% off drop-in admissions" },
+  { day: "Thursday", hours: "12:00 pm – 7:30 pm", promo: "50% off drop-in admissions" },
   { day: "Friday", hours: "9:30 am – 8:30 pm" },
   { day: "Saturday", hours: "9:30 am – 8:30 pm" },
   { day: "Sunday", hours: "9:30 am – 8:30 pm" },
@@ -267,7 +267,7 @@ export const socksReminder =
   "We are a socks only facility — socks are required for children and adults.";
 
 export const promoText =
-  "Visit us every Tuesday and Thursday from 3:30 to 7:30 pm to enjoy 50% off all drop-in admissions";
+  "Visit us every Tuesday and Thursday from 12:00 to 7:30 pm to enjoy 50% off all drop-in admissions";
 
 export const galleryImages = [
   {
@@ -409,7 +409,7 @@ export const dropInVisitSteps = [
   {
     title: "Check our hours",
     description:
-      "We're open Fri–Sun 9:30 am–8:30 pm and Tue & Thu 3:30 pm–7:30 pm. Mon & Wed are closed.",
+      "We're open Fri–Sun 9:30 am–8:30 pm and Tue & Thu 12:00 pm–7:30 pm. Mon & Wed are closed.",
   },
   {
     title: "Pay at the front desk",
