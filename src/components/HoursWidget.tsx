@@ -11,21 +11,19 @@ export function HoursWidget({ compact = false }: { compact?: boolean }) {
           return (
             <li
               key={item.day}
-              className="flex items-center justify-between rounded-lg px-3 py-2 text-sm"
+              className="rounded-lg px-3 py-2 text-sm"
             >
-              <span className={item.closed ? "text-muted" : "text-charcoal"}>
-                {item.day}
-              </span>
-              <span className="text-right">
+              <div className="flex items-center justify-between">
+                <span className={item.closed ? "text-muted" : "text-charcoal"}>
+                  {item.day}
+                </span>
                 <span className={item.closed ? "text-muted" : "text-charcoal"}>
                   {item.hours}
                 </span>
-                {item.promo && (
-                  <span className="ml-2 rounded bg-sunshine/70 px-1.5 py-0.5 text-xs font-bold text-charcoal">
-                    50% OFF
-                  </span>
-                )}
-              </span>
+              </div>
+              {item.promo && (
+                <p className="mt-0.5 text-right text-xs text-muted">{item.promo}</p>
+              )}
             </li>
           );
         })}

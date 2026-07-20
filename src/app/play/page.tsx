@@ -40,7 +40,7 @@ const playFaqs: FaqItem[] = [
   {
     question: "When is the 50% off drop-in discount?",
     segments: [
-      { type: "text", value: "Every Tuesday and Thursday from 12:00 to 7:30 pm." },
+      { type: "text", value: "Every Tuesday and Thursday from 3:30 to 7:30 pm (we're open from 12:00 pm)." },
     ],
   },
 ];
