@@ -5,7 +5,6 @@ import { GoogleReviews } from "@/components/GoogleReviews";
 import { Hero } from "@/components/Hero";
 import { JsonLd } from "@/components/JsonLd";
 import { PartyCards } from "@/components/PartyCards";
-import { PromoBanner } from "@/components/PromoBanner";
 import { RulesStrip } from "@/components/RulesStrip";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
@@ -27,8 +26,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <PromoBanner />
 
       <section className="section-pad bg-section-lavender">
         <div className="container-main">

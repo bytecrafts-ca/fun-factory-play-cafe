@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/Button";
 import { HoursWidget } from "@/components/HoursWidget";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
-import { PromoBanner } from "@/components/PromoBanner";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import {
   createPageMetadata,
@@ -145,8 +144,6 @@ export default function PlayPage() {
           </ol>
         </div>
       </section>
-
-      <PromoBanner />
     </>
   );
 }
