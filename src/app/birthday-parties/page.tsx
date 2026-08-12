@@ -29,7 +29,13 @@ export default function BirthdayPartiesPage() {
         title="Birthday Party Packages"
         subtitle={
           <div className="space-y-2">
-            {siteConfig.partyIncludeText.map((line) => (
+            <p>{siteConfig.partyIncludeText[0]}</p>
+            {siteConfig.partyPromoOffers.map((line) => (
+              <p key={line} className="font-semibold text-charcoal">
+                {line}
+              </p>
+            ))}
+            {siteConfig.partyIncludeText.slice(1).map((line) => (
               <p key={line}>{line}</p>
             ))}
           </div>

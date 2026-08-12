@@ -8,6 +8,10 @@ export const siteConfig = {
     "Playtime, pizza, cake, juice, water, and coffee/tea for adults.",
     "E-vites, party host, and more!",
   ],
+  partyPromoOffers: [
+    "Book a birthday package Monday to Thursday and save $50! Not valid with other offers (whichever discount is higher applies)",
+    "Book more birthdays and receive 10% off each additional package",
+  ],
   littlesAndLattesText:
     "Littles & Lattés Café is NOW OPEN! Check out our café menu page to see our premium beverages!",
   url: "https://funfactoryplay.ca",
