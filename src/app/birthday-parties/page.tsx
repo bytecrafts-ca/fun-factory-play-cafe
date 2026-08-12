@@ -29,15 +29,13 @@ export default function BirthdayPartiesPage() {
         title="Birthday Party Packages"
         subtitle={
           <div className="space-y-2">
-            <p>{siteConfig.partyIncludeText[0]}</p>
-            {siteConfig.partyPromoOffers.map((line) => (
-              <p key={line} className="font-semibold text-charcoal">
-                {line}
-              </p>
-            ))}
-            {siteConfig.partyIncludeText.slice(1).map((line) => (
+            {siteConfig.partyIncludeText.map((line) => (
               <p key={line}>{line}</p>
             ))}
+            {siteConfig.partyPromoOffers.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
+            <p className="text-sm italic text-muted">{siteConfig.partyPromoDisclaimer}</p>
           </div>
         }
         accent="lavender"

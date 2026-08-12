@@ -9,9 +9,11 @@ export const siteConfig = {
     "E-vites, party host, and more!",
   ],
   partyPromoOffers: [
-    "Book a birthday package Monday to Thursday and save $50! Not valid with other offers (whichever discount is higher applies)",
-    "Book more birthdays and receive 10% off each additional package",
+    "Book a birthday package Monday to Thursday and save $50!",
+    "Book more birthdays and receive 10% off each additional birthday package",
   ],
+  partyPromoDisclaimer:
+    "Offers cannot be combined; whichever discount is greater will apply",
   littlesAndLattesText:
     "Littles & Lattés Café is NOW OPEN! Check out our café menu page to see our premium beverages!",
   url: "https://funfactoryplay.ca",
