@@ -589,8 +589,8 @@ export const cafeMenu = {
     {
       src: "/cafe/matcha-menu.webp",
       alt: "Littles & Lattés matcha drinks menu",
-      width: 1024,
-      height: 819,
+      width: 713,
+      height: 560,
     },
   ],
 } as const;
