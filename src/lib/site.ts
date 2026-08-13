@@ -115,10 +115,22 @@ export const partyBookingPromo = {
   ovatuPromoCode: process.env.NEXT_PUBLIC_OVATU_PARTY_PROMO_CODE ?? "",
 } as const;
 
+/** YYYY-MM-DD in America/Toronto — promo is active through end of that calendar day */
+function getTorontoCalendarDate(now = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Toronto",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(now);
+  const get = (type: string) => parts.find((p) => p.type === type)?.value ?? "";
+  return `${get("year")}-${get("month")}-${get("day")}`;
+}
+
+/** Active from startDate through endDate inclusive, midnight Toronto (off at Sep 1 00:00 ET) */
 export function isPartyBookingPromoActive(now = new Date()) {
-  const start = new Date(`${partyBookingPromo.startDate}T00:00:00`);
-  const end = new Date(`${partyBookingPromo.endDate}T23:59:59`);
-  return now >= start && now <= end;
+  const today = getTorontoCalendarDate(now);
+  return today >= partyBookingPromo.startDate && today <= partyBookingPromo.endDate;
 }
 
 /** Party booking URL — uses Ovatu promo link during the active promo window when configured */
