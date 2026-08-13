@@ -7,7 +7,6 @@ type CafeDrinkCardProps = {
   hotPrice?: number;
   coldPrice?: number;
   price?: number;
-  compact?: boolean;
 };
 
 function formatPrice(amount: number): string {

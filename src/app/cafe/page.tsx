@@ -47,11 +47,9 @@ export default function CafePage() {
             subtitle="Made with real matcha — most drinks available hot or iced. Strawberry Matcha and Mango Matcha are iced only."
             accent="mint"
           />
-          <div className="mt-10 grid grid-cols-1 gap-3 md:grid-cols-5 md:gap-3">
-            {cafeMenu.matchaDrinks.map((drink) => (
-              <CafeDrinkCard key={drink.name} compact {...drink} />
-            ))}
-          </div>
+          <CafeMenuBoards
+            boards={cafeMenu.menuBoards.filter((board) => board.src.includes("matcha-menu"))}
+          />
         </div>
       </section>
 

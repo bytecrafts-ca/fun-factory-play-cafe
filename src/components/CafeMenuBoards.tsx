@@ -33,7 +33,7 @@ export function CafeMenuBoards({ boards }: { boards: readonly MenuBoard[] }) {
 
   return (
     <>
-      <div className="mt-10 grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className={`mt-10 grid items-start gap-5 ${boards.length === 1 ? "mx-auto max-w-4xl" : "sm:grid-cols-2 lg:grid-cols-3"}`}>
         {boards.map((image) => (
           <button
             key={image.src}
@@ -48,7 +48,7 @@ export function CafeMenuBoards({ boards }: { boards: readonly MenuBoard[] }) {
                 alt={image.alt}
                 width={image.width}
                 height={image.height}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes={boards.length === 1 ? "(max-width: 896px) 100vw, 896px" : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"}
                 className="h-auto w-full object-contain transition duration-300 group-hover:opacity-95"
               />
             </div>
