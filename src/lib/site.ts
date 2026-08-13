@@ -518,6 +518,13 @@ export const cafeMenu = {
       coldPrice: 6.5,
     },
     {
+      name: "Mango Matcha Latte",
+      description:
+        "Tropical mango meets smooth matcha and milk for a vibrant, creamy blend that's as sunny as it is satisfying.",
+      image: "/cafe/mango-matcha-latte.webp",
+      coldPrice: 6.5,
+    },
+    {
       name: "Vanilla Matcha Latte",
       description:
         "Smooth matcha blended with creamy milk and a touch of vanilla. Light, sweet, and gently comforting.",
