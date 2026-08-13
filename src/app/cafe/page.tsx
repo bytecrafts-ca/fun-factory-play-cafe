@@ -56,11 +56,17 @@ export default function CafePage() {
       </section>
 
       <section className="section-pad">
-        <div className="container-main grid gap-8 lg:grid-cols-3">
+        <div className="container-main grid gap-8 md:grid-cols-2 xl:grid-cols-4">
           <div className="card border-t-4 border-t-peach/60 p-6">
             <h2 className="text-lg font-bold text-charcoal">Espresso Bar</h2>
             <div className="mt-4">
               <CafeMenuList items={cafeMenu.espressoBar} />
+            </div>
+          </div>
+          <div className="card border-t-4 border-t-mint/80 p-6">
+            <h2 className="text-lg font-bold text-charcoal">Matcha</h2>
+            <div className="mt-4">
+              <CafeMenuList items={cafeMenu.matchaDrinks} />
             </div>
           </div>
           <div className="card border-t-4 border-t-sky/60 p-6">
