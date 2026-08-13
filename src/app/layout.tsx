@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     template: `%s | ${seoConfig.shortName}`,
   },
   applicationName: seoConfig.siteName,
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png", sizes: "512x512" }],
+    apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" }],
+    shortcut: "/favicon.png",
+  },
   authors: [{ name: seoConfig.siteName, url: seoConfig.siteUrl }],
   creator: seoConfig.siteName,
   publisher: seoConfig.siteName,
