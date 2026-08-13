@@ -41,15 +41,17 @@ export default function CafePage() {
       </section>
 
       <section className="section-pad bg-section-mint">
-        <div className="container-main">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <SectionHeading
             title="Matcha"
             subtitle="Made with real matcha — most drinks available hot or iced. Strawberry Matcha and Mango Matcha are iced only."
             accent="mint"
           />
-          <CafeMenuBoards
-            boards={cafeMenu.menuBoards.filter((board) => board.src.includes("matcha-menu"))}
-          />
+          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-5">
+            {cafeMenu.matchaDrinks.map((drink) => (
+              <CafeDrinkCard key={drink.name} {...drink} />
+            ))}
+          </div>
         </div>
       </section>
 
