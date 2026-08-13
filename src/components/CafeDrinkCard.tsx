@@ -7,6 +7,7 @@ type CafeDrinkCardProps = {
   hotPrice?: number;
   coldPrice?: number;
   price?: number;
+  compact?: boolean;
 };
 
 function formatPrice(amount: number): string {
@@ -44,6 +45,7 @@ export function CafeDrinkCard({
   hotPrice,
   coldPrice,
   price,
+  compact = false,
 }: CafeDrinkCardProps) {
   return (
     <article className="card overflow-hidden border-t-4 border-t-lavender/60">
@@ -52,13 +54,21 @@ export function CafeDrinkCard({
           src={image}
           alt={name}
           fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes={
+            compact
+              ? "(max-width: 768px) 100vw, 20vw"
+              : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          }
           className="object-cover object-center"
         />
       </div>
-      <div className="p-5">
-        <h2 className="font-bold text-charcoal">{name}</h2>
-        <p className="mt-2 text-sm leading-relaxed text-muted">{description}</p>
+      <div className={compact ? "p-3 xl:p-4" : "p-5"}>
+        <h2 className={`font-bold text-charcoal ${compact ? "text-sm leading-tight xl:text-base" : ""}`}>
+          {name}
+        </h2>
+        <p className={`mt-2 leading-relaxed text-muted ${compact ? "text-xs xl:text-sm" : "text-sm"}`}>
+          {description}
+        </p>
         <PriceLabel hotPrice={hotPrice} coldPrice={coldPrice} price={price} />
       </div>
     </article>
