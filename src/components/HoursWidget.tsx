@@ -1,6 +1,12 @@
-import { hours } from "@/lib/site";
+import {
+  formatSpecialHoursDate,
+  getUpcomingSpecialHours,
+  hours,
+} from "@/lib/site";
 
 export function HoursWidget({ compact = false }: { compact?: boolean }) {
+  const upcomingSpecialHours = getUpcomingSpecialHours();
+
   return (
     <div className={`card border-l-4 border-l-sky ${compact ? "p-5" : "p-6"}`}>
       <h3 className={`font-bold text-charcoal ${compact ? "text-base" : "text-lg"}`}>
@@ -9,10 +15,7 @@ export function HoursWidget({ compact = false }: { compact?: boolean }) {
       <ul className={`space-y-1 ${compact ? "mt-3" : "mt-4"}`}>
         {hours.map((item) => {
           return (
-            <li
-              key={item.day}
-              className="rounded-lg px-3 py-2 text-sm"
-            >
+            <li key={item.day} className="rounded-lg px-3 py-2 text-sm">
               <div className="flex items-center justify-between">
                 <span className={item.closed ? "text-muted" : "text-charcoal"}>
                   {item.day}
@@ -28,6 +31,32 @@ export function HoursWidget({ compact = false }: { compact?: boolean }) {
           );
         })}
       </ul>
+
+      {upcomingSpecialHours.length > 0 && (
+        <div className={compact ? "mt-5" : "mt-6"}>
+          <h4
+            className={`font-bold text-charcoal ${compact ? "text-sm" : "text-base"}`}
+          >
+            Special Hours
+          </h4>
+          <ul className={`space-y-1 ${compact ? "mt-2" : "mt-3"}`}>
+            {upcomingSpecialHours.map((item) => (
+              <li key={item.date} className="rounded-lg px-3 py-2 text-sm">
+                <div className="flex items-start justify-between gap-3">
+                  <span className="text-charcoal">
+                    {formatSpecialHoursDate(item.date, item.label)}
+                  </span>
+                  <span
+                    className={`shrink-0 text-right ${item.closed ? "text-muted" : "text-charcoal"}`}
+                  >
+                    {item.closed ? "Closed" : item.hours}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

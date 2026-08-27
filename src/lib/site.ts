@@ -93,6 +93,32 @@ export const hours: DayHours[] = [
   { day: "Sunday", hours: "9:30 am – 8:30 pm" },
 ];
 
+export type SpecialHours = {
+  /** YYYY-MM-DD in America/Toronto */
+  date: string;
+  hours: string;
+  closed?: boolean;
+  label?: string;
+};
+
+/** One-off date overrides — checked before the regular weekly schedule */
+export const specialHours: SpecialHours[] = [
+  { date: "2026-07-29", hours: "12:00 pm – 8:00 pm" },
+  { date: "2026-08-03", hours: "9:30 am – 7:30 pm" },
+  { date: "2026-08-15", hours: "9:30 am – 2:30 pm, 5:30 pm – 8:30 pm" },
+  { date: "2026-08-23", hours: "9:30 am – 1:00 pm" },
+  { date: "2026-08-24", hours: "12:00 pm – 8:00 pm" },
+  { date: "2026-08-25", hours: "12:00 pm – 8:30 pm" },
+  { date: "2026-08-31", hours: "12:00 pm – 7:30 pm" },
+  { date: "2026-09-07", hours: "Closed", closed: true, label: "Labour Day" },
+  { date: "2026-09-14", hours: "12:00 pm – 8:30 pm" },
+  {
+    date: "2026-09-30",
+    hours: "9:00 am – 5:00 pm",
+    label: "National Day for Truth and Reconciliation",
+  },
+];
+
 export const admissions = [
   { ageGroup: "Under 1 Year Old", price: "$5.00 (free with paying sibling)" },
   { ageGroup: "1 to 3 Year Old", price: "$10.00" },
@@ -115,8 +141,8 @@ export const partyBookingPromo = {
   ovatuPromoCode: process.env.NEXT_PUBLIC_OVATU_PARTY_PROMO_CODE ?? "",
 } as const;
 
-/** YYYY-MM-DD in America/Toronto — promo is active through end of that calendar day */
-function getTorontoCalendarDate(now = new Date()) {
+/** YYYY-MM-DD in America/Toronto */
+export function getTorontoCalendarDate(now = new Date()) {
   const parts = new Intl.DateTimeFormat("en-CA", {
     timeZone: "America/Toronto",
     year: "numeric",
@@ -141,7 +167,11 @@ export function getPartyBookingUrl(now = new Date()) {
   return siteConfig.ovatu.partiesUrl;
 }
 
+export const accessTwoDiscountNote =
+  "Access 2 Card holders get $2 off drop-in admission rates";
+
 export const admissionNotes = [
+  accessTwoDiscountNote,
   "Maximum two (2) adults per family included in the admission",
   "Socks available for purchase at reception — $3.00",
   "All prices are subject to HST",
@@ -654,54 +684,146 @@ function getTorontoTimeMinutes(): number {
   return hour * 60 + minute;
 }
 
+function addTorontoDays(dateStr: string, offset: number): string {
+  const [year, month, day] = dateStr.split("-").map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day + offset, 12, 0, 0));
+  return getTorontoCalendarDate(date);
+}
+
+function parseTimeToMinutes(time: string): number | null {
+  const match = time.trim().match(/^(\d{1,2}):(\d{2})\s*(am|pm)$/i);
+  if (!match) return null;
+  let hour = Number.parseInt(match[1], 10);
+  const minute = Number.parseInt(match[2], 10);
+  const period = match[3].toLowerCase();
+  if (period === "pm" && hour !== 12) hour += 12;
+  if (period === "am" && hour === 12) hour = 0;
+  return hour * 60 + minute;
+}
+
+function parseHoursRanges(hoursStr: string): { open: number; close: number }[] | null {
+  if (!hoursStr || hoursStr.toLowerCase() === "closed") return null;
+
+  const ranges: { open: number; close: number }[] = [];
+  for (const segment of hoursStr.split(",")) {
+    const parts = segment.trim().split(/[–-]/);
+    if (parts.length !== 2) continue;
+    const open = parseTimeToMinutes(parts[0]);
+    const close = parseTimeToMinutes(parts[1]);
+    if (open === null || close === null) continue;
+    ranges.push({ open, close });
+  }
+
+  return ranges.length ? ranges : null;
+}
+
+function minutesToTimeLabel(minutes: number): string {
+  const hour24 = Math.floor(minutes / 60);
+  const minute = minutes % 60;
+  const period = hour24 >= 12 ? "pm" : "am";
+  const hour12 = hour24 % 12 || 12;
+  return `${hour12}:${minute.toString().padStart(2, "0")} ${period}`;
+}
+
+export type EffectiveHours = {
+  hours: string;
+  closed: boolean;
+  label?: string;
+  isSpecial: boolean;
+};
+
+export function getHoursForDate(dateStr: string): EffectiveHours {
+  const special = specialHours.find((entry) => entry.date === dateStr);
+  if (special) {
+    return {
+      hours: special.hours,
+      closed: !!special.closed,
+      label: special.label,
+      isSpecial: true,
+    };
+  }
+
+  const weekday = new Intl.DateTimeFormat("en-CA", {
+    weekday: "long",
+    timeZone: TORONTO_TZ,
+  }).format(new Date(`${dateStr}T12:00:00`));
+
+  const regular = hours.find((entry) => entry.day === weekday);
+  if (!regular) {
+    return { hours: "Closed", closed: true, isSpecial: false };
+  }
+
+  return {
+    hours: regular.hours,
+    closed: !!regular.closed,
+    isSpecial: false,
+  };
+}
+
 export function getTodayHours(): DayHours | null {
   const dayIndex = getTorontoDayIndex();
   const hoursIndex = [6, 0, 1, 2, 3, 4, 5];
   return hours[hoursIndex[dayIndex]] ?? null;
 }
 
-function getOpenCloseMinutes(day: number): { open: number; close: number } | null {
-  if (day === 2 || day === 4) return { open: 15 * 60 + 30, close: 19 * 60 + 30 };
-  if (day >= 5 || day === 0) return { open: 9 * 60 + 30, close: 20 * 60 + 30 };
-  return null;
+export function formatSpecialHoursDate(dateStr: string, label?: string): string {
+  const formatted = new Intl.DateTimeFormat("en-CA", {
+    weekday: "long",
+    month: "short",
+    day: "numeric",
+    timeZone: TORONTO_TZ,
+  }).format(new Date(`${dateStr}T12:00:00`));
+
+  return label ? `${formatted} (${label})` : formatted;
 }
 
-function getOpeningTimeLabel(hoursStr: string): string {
-  const match = hoursStr.match(/^(.+?)\s*[–-]/);
-  return match ? match[1].trim() : hoursStr;
+export function getUpcomingSpecialHours(now = new Date()): SpecialHours[] {
+  const today = getTorontoCalendarDate(now);
+  return specialHours
+    .filter((entry) => entry.date >= today)
+    .sort((a, b) => a.date.localeCompare(b.date));
 }
 
 export function isOpenNow(): boolean {
-  const today = getTodayHours();
-  if (!today || today.closed) return false;
+  const effective = getHoursForDate(getTorontoCalendarDate());
+  if (effective.closed) return false;
 
-  const schedule = getOpenCloseMinutes(getTorontoDayIndex());
-  if (!schedule) return false;
+  const ranges = parseHoursRanges(effective.hours);
+  if (!ranges) return false;
 
   const current = getTorontoTimeMinutes();
-  return current >= schedule.open && current < schedule.close;
+  return ranges.some((range) => current >= range.open && current < range.close);
 }
 
 export function getOpenStatusMessage(): string {
-  if (isOpenNow()) return "Open now";
-
-  const dayIndex = getTorontoDayIndex();
-  const hoursIndex = [6, 0, 1, 2, 3, 4, 5];
-  const today = hours[hoursIndex[dayIndex]];
-  const schedule = getOpenCloseMinutes(dayIndex);
+  const todayDate = getTorontoCalendarDate();
+  const effective = getHoursForDate(todayDate);
+  const ranges = effective.closed ? null : parseHoursRanges(effective.hours);
   const current = getTorontoTimeMinutes();
 
-  if (today && !today.closed && schedule && current < schedule.open) {
-    return `Opens today at ${getOpeningTimeLabel(today.hours)}`;
+  if (ranges) {
+    if (ranges.some((range) => current >= range.open && current < range.close)) {
+      return "Open now";
+    }
+
+    for (const range of ranges) {
+      if (current < range.open) {
+        return `Opens today at ${minutesToTimeLabel(range.open)}`;
+      }
+    }
   }
 
-  for (let offset = 1; offset <= 7; offset++) {
-    const nextDayIndex = (dayIndex + offset) % 7;
-    const nextHours = hours[hoursIndex[nextDayIndex]];
-    if (!nextHours || nextHours.closed) continue;
+  for (let offset = 1; offset <= 30; offset++) {
+    const nextDate = addTorontoDays(todayDate, offset);
+    const next = getHoursForDate(nextDate);
+    if (next.closed) continue;
 
-    const dayLabel = offset === 1 ? "tomorrow" : `on ${nextHours.day}`;
-    return `Opens ${dayLabel} at ${getOpeningTimeLabel(nextHours.hours)}`;
+    const nextRanges = parseHoursRanges(next.hours);
+    if (!nextRanges) continue;
+
+    const dayLabel =
+      offset === 1 ? "tomorrow" : `on ${formatSpecialHoursDate(nextDate, next.label)}`;
+    return `Opens ${dayLabel} at ${minutesToTimeLabel(nextRanges[0].open)}`;
   }
 
   return "Closed";
