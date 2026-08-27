@@ -110,7 +110,6 @@ export const specialHours: SpecialHours[] = [
   { date: "2026-08-24", hours: "12:00 pm – 8:00 pm" },
   { date: "2026-08-25", hours: "12:00 pm – 8:30 pm" },
   { date: "2026-08-31", hours: "12:00 pm – 7:30 pm" },
-  { date: "2026-09-07", hours: "Closed", closed: true, label: "Labour Day" },
   { date: "2026-09-14", hours: "12:00 pm – 8:30 pm" },
   {
     date: "2026-09-30",
