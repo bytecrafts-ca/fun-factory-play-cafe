@@ -1,11 +1,17 @@
+"use client";
+
 import {
   formatSpecialHoursDate,
+  getTorontoCalendarDate,
   getUpcomingSpecialHours,
-  hours,
+  getWeeklyHours,
+  hoursScheduleChangeDate,
 } from "@/lib/site";
 
 export function HoursWidget({ compact = false }: { compact?: boolean }) {
+  const weeklyHours = getWeeklyHours();
   const upcomingSpecialHours = getUpcomingSpecialHours();
+  const showScheduleNotice = getTorontoCalendarDate() < hoursScheduleChangeDate;
 
   return (
     <div className={`card border-l-4 border-l-sky ${compact ? "p-5" : "p-6"}`}>
@@ -13,7 +19,7 @@ export function HoursWidget({ compact = false }: { compact?: boolean }) {
         Public Play Hours
       </h3>
       <ul className={`space-y-1 ${compact ? "mt-3" : "mt-4"}`}>
-        {hours.map((item) => {
+        {weeklyHours.map((item) => {
           return (
             <li key={item.day} className="rounded-lg px-3 py-2 text-sm">
               <div className="flex items-center justify-between">
@@ -31,6 +37,12 @@ export function HoursWidget({ compact = false }: { compact?: boolean }) {
           );
         })}
       </ul>
+
+      {showScheduleNotice && (
+        <p className={`text-xs leading-relaxed text-muted ${compact ? "mt-3" : "mt-4"}`}>
+          Updated hours effective Monday, September 8.
+        </p>
+      )}
 
       {upcomingSpecialHours.length > 0 && (
         <div className={compact ? "mt-5" : "mt-6"}>

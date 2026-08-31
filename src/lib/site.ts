@@ -83,7 +83,9 @@ export type DayHours = {
   promo?: string;
 };
 
-export const hours: DayHours[] = [
+export const hoursScheduleChangeDate = "2026-09-08";
+
+const weeklyHoursBeforeSept8: DayHours[] = [
   { day: "Monday", hours: "Closed", closed: true },
   { day: "Tuesday", hours: "12:00 pm – 7:30 pm", promo: "50% off admissions 3:30–7:30 pm" },
   { day: "Wednesday", hours: "Closed", closed: true },
@@ -92,6 +94,27 @@ export const hours: DayHours[] = [
   { day: "Saturday", hours: "9:30 am – 8:30 pm" },
   { day: "Sunday", hours: "9:30 am – 8:30 pm" },
 ];
+
+const weeklyHoursFromSept8: DayHours[] = [
+  { day: "Monday", hours: "9:30 am – 2:30 pm" },
+  { day: "Tuesday", hours: "12:00 pm – 7:30 pm", promo: "50% off admissions after 3:30 pm" },
+  { day: "Wednesday", hours: "9:30 am – 2:30 pm" },
+  { day: "Thursday", hours: "12:00 pm – 7:30 pm", promo: "50% off admissions after 3:30 pm" },
+  { day: "Friday", hours: "9:30 am – 8:30 pm" },
+  { day: "Saturday", hours: "9:30 am – 8:30 pm" },
+  { day: "Sunday", hours: "9:30 am – 8:30 pm" },
+];
+
+/** @deprecated Use getWeeklyHours() — kept for imports that need the Sept 8+ schedule */
+export const hours = weeklyHoursFromSept8;
+
+export function getWeeklyHoursForDate(dateStr: string): DayHours[] {
+  return dateStr >= hoursScheduleChangeDate ? weeklyHoursFromSept8 : weeklyHoursBeforeSept8;
+}
+
+export function getWeeklyHours(now = new Date()): DayHours[] {
+  return getWeeklyHoursForDate(getTorontoCalendarDate(now));
+}
 
 export type SpecialHours = {
   /** YYYY-MM-DD in America/Toronto */
@@ -184,7 +207,7 @@ export const admissionNotes = [
 export const partyPackages = [
   {
     name: "Fun Party",
-    price: 369,
+    price: 399,
     children: 10,
     adults: 10,
     pizzas: "1 party-size pizza (cheese/pepperoni/veggie — two toppings)",
@@ -195,7 +218,7 @@ export const partyPackages = [
   },
   {
     name: "Active Fun Party",
-    price: 459,
+    price: 499,
     children: 15,
     adults: 15,
     pizzas: "1 party-size pizza & 1 large pizza (cheese/pepperoni/veggie — two toppings)",
@@ -207,7 +230,7 @@ export const partyPackages = [
   },
   {
     name: "Supreme Fun Party",
-    price: 579,
+    price: 599,
     children: 20,
     adults: 20,
     pizzas: "2 party-size pizzas (cheese/pepperoni/veggie — two toppings)",
@@ -218,7 +241,7 @@ export const partyPackages = [
   },
   {
     name: "Extreme Fun Party",
-    price: 719,
+    price: 699,
     children: 30,
     adults: 30,
     pizzas: "3 party-size pizzas (cheese/pepperoni/veggie — two toppings)",
@@ -231,8 +254,8 @@ export const partyPackages = [
 
 export const ultimateParty = {
   name: "Ultimate Fun Party",
-  weekdayPrice: 1399,
-  weekendPrice: 1999,
+  weekdayPrice: 999,
+  weekendPrice: 1499,
   weekdayNote: "Monday to Thursday (Excluding Holidays)",
   weekendNote: "Friday to Sunday",
   children: 50,
@@ -456,7 +479,7 @@ export const dropInVisitSteps = [
   {
     title: "Check our hours",
     description:
-      "We're open Fri–Sun 9:30 am–8:30 pm and Tue & Thu 12:00 pm–7:30 pm. Mon & Wed are closed.",
+      "See our current public play hours on this page before you visit.",
   },
   {
     title: "Pay at the front desk",
@@ -747,7 +770,7 @@ export function getHoursForDate(dateStr: string): EffectiveHours {
     timeZone: TORONTO_TZ,
   }).format(new Date(`${dateStr}T12:00:00`));
 
-  const regular = hours.find((entry) => entry.day === weekday);
+  const regular = getWeeklyHoursForDate(dateStr).find((entry) => entry.day === weekday);
   if (!regular) {
     return { hours: "Closed", closed: true, isSpecial: false };
   }
@@ -762,7 +785,15 @@ export function getHoursForDate(dateStr: string): EffectiveHours {
 export function getTodayHours(): DayHours | null {
   const dayIndex = getTorontoDayIndex();
   const hoursIndex = [6, 0, 1, 2, 3, 4, 5];
-  return hours[hoursIndex[dayIndex]] ?? null;
+  return getWeeklyHours()[hoursIndex[dayIndex]] ?? null;
+}
+
+export function getDropInHoursSummary(now = new Date()): string {
+  const today = getTorontoCalendarDate(now);
+  if (today >= hoursScheduleChangeDate) {
+    return "We're open Mon & Wed 9:30 am–2:30 pm, Tue & Thu 12:00 pm–7:30 pm, and Fri–Sun 9:30 am–8:30 pm.";
+  }
+  return "We're open Fri–Sun 9:30 am–8:30 pm and Tue & Thu 12:00 pm–7:30 pm. Mon & Wed are closed.";
 }
 
 export function formatSpecialHoursDate(dateStr: string, label?: string): string {

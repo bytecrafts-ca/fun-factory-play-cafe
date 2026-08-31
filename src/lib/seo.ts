@@ -6,6 +6,7 @@ import {
   googleReviewsFallback,
   googleReviewsSummary,
   hours,
+  getWeeklyHours,
   partyPackages,
   siteConfig,
 } from "@/lib/site";
@@ -154,7 +155,7 @@ function parseHoursRange(range: string): { opens: string; closes: string } | nul
 }
 
 export function getOpeningHoursSpecification() {
-  return hours
+  return getWeeklyHours()
     .filter((entry) => !entry.closed)
     .map((entry) => {
       const parsed = parseHoursRange(entry.hours);
@@ -219,7 +220,7 @@ export const faqItems: FaqItem[] = [
       {
         type: "text",
         value:
-          "Open Friday–Sunday 9:30 am–8:30 pm and Tuesday & Thursday 12:00 pm–7:30 pm. Closed Monday and Wednesday.",
+          "Open Monday and Wednesday 9:30 am–2:30 pm, Tuesday and Thursday 12:00 pm–7:30 pm, and Friday–Sunday 9:30 am–8:30 pm.",
       },
     ],
   },
@@ -229,7 +230,7 @@ export const faqItems: FaqItem[] = [
       {
         type: "text",
         value:
-          "Yes. Visit every Tuesday and Thursday from 3:30 to 7:30 pm for 50% off all drop-in admissions.",
+          "Yes. Visit every Tuesday and Thursday from 3:30 pm for 50% off all drop-in admissions. We're open from 12:00 pm on those days.",
       },
     ],
   },
@@ -471,7 +472,7 @@ export const pageSeo = {
   play: {
     title: "Drop-In Play & Admissions | Fun Factory Pickering",
     description:
-      "Drop-in indoor play at Fun Factory Pickering. Unlimited play time, pay at the desk. Rates for toddlers to teens. Tue & Thu 50% off 3:30–7:30 pm. Sign waiver online before you arrive.",
+      "Drop-in indoor play at Fun Factory Pickering. Unlimited play time, pay at the desk. Rates for toddlers to teens. Tue & Thu open 12–7:30 pm; 50% off 3:30–7:30 pm. Sign waiver online before you arrive.",
     path: "/play",
     keywords: ["drop-in play rates", "indoor play admission Pickering", "pay at desk"],
   },

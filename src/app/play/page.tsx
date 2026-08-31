@@ -13,12 +13,15 @@ import {
 } from "@/lib/seo";
 import {
   dropInVisitSteps,
+  getDropInHoursSummary,
   getOpenStatusMessage,
   isOpenNow,
   siteConfig,
   siteRoutes,
   accessTwoCardUrl,
 } from "@/lib/site";
+
+export const revalidate = 3600;
 
 export const metadata = createPageMetadata(pageSeo.play);
 
@@ -155,7 +158,9 @@ export default function PlayPage() {
                 </span>
                 <h3 className="mt-4 font-bold text-charcoal">{step.title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
-                  {step.description}
+                  {step.title === "Check our hours"
+                    ? getDropInHoursSummary()
+                    : step.description}
                 </p>
               </li>
             ))}

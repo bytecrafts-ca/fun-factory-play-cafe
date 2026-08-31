@@ -23,8 +23,6 @@ export function getPartyPackageDetails(pkg: PartyDetailInput): string[] {
     "Party host, PA announcement, setup & cleanup",
     "E-invites included",
     `${pkg.returnPasses} free return play pass${pkg.returnPasses > 1 ? "es" : ""}`,
-    "Additional children $14.99 each",
-    "Additional adults $4.99 each",
   );
 
   return lines;
