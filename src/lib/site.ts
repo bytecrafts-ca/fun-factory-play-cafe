@@ -810,7 +810,7 @@ export function formatSpecialHoursDate(dateStr: string, label?: string): string 
 export function getUpcomingSpecialHours(now = new Date()): SpecialHours[] {
   const today = getTorontoCalendarDate(now);
   return specialHours
-    .filter((entry) => entry.date >= today)
+    .filter((entry) => entry.date >= today && !entry.closed)
     .sort((a, b) => a.date.localeCompare(b.date));
 }
 
