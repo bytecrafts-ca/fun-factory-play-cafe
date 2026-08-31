@@ -113,7 +113,8 @@ export const specialHours: SpecialHours[] = [
   { date: "2026-09-14", hours: "12:00 pm – 8:30 pm" },
   {
     date: "2026-09-30",
-    hours: "9:00 am – 5:00 pm",
+    hours: "Closed",
+    closed: true,
     label: "National Day for Truth and Reconciliation",
   },
 ];
