@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AccessTwoCallout } from "@/components/AccessTwoCallout";
 import { admissions, admissionNotes, playRatesNote, siteConfig } from "@/lib/site";
 
 export function AdmissionsTable({ showNotes = true }: { showNotes?: boolean }) {
@@ -26,6 +27,10 @@ export function AdmissionsTable({ showNotes = true }: { showNotes?: boolean }) {
             ))}
           </tbody>
         </table>
+      </div>
+
+      <div className="mt-4">
+        <AccessTwoCallout />
       </div>
 
       <p className="mt-4 text-sm leading-relaxed text-muted">{playRatesNote}</p>

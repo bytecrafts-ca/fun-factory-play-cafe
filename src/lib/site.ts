@@ -166,11 +166,10 @@ export function getPartyBookingUrl(now = new Date()) {
   return siteConfig.ovatu.partiesUrl;
 }
 
-export const accessTwoDiscountNote =
-  "Access 2 Card holders get $2 off drop-in admission rates";
+export const accessTwoCardUrl =
+  "https://access2card.ca/participating-venues/?province=4";
 
 export const admissionNotes = [
-  accessTwoDiscountNote,
   "Maximum two (2) adults per family included in the admission",
   "Socks available for purchase at reception — $3.00",
   "All prices are subject to HST",
@@ -461,7 +460,7 @@ export const dropInVisitSteps = [
   {
     title: "Pay at the front desk",
     description:
-      "Drop-in admissions are paid when you arrive. No online ticket purchase — just show up, pay per child, and play.",
+      "Drop-in admissions are paid when you arrive. Access 2 Card holders save $2 — show your card at the desk. No online ticket purchase.",
   },
   {
     title: "Wear socks",

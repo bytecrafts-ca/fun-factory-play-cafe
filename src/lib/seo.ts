@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import {
+  accessTwoCardUrl,
   admissions,
   getPartyBookingUrl,
   googleReviewsFallback,
@@ -228,7 +229,24 @@ export const faqItems: FaqItem[] = [
       {
         type: "text",
         value:
-          "Yes. Visit every Tuesday and Thursday from 3:30 to 7:30 pm for 50% off all drop-in admissions. We're open from 12:00 pm on those days.",
+          "Yes. Visit every Tuesday and Thursday from 3:30 to 7:30 pm for 50% off all drop-in admissions.",
+      },
+    ],
+  },
+  {
+    question: "Do you accept Access 2 Card?",
+    segments: [
+      { type: "text", value: "Yes. " },
+      {
+        type: "link",
+        href: accessTwoCardUrl,
+        label: "Access 2 Card",
+        external: true,
+      },
+      {
+        type: "text",
+        value:
+          " holders get $2 off drop-in admission rates. Show your card at the front desk when you pay.",
       },
     ],
   },
@@ -453,7 +471,7 @@ export const pageSeo = {
   play: {
     title: "Drop-In Play & Admissions | Fun Factory Pickering",
     description:
-      "Drop-in indoor play at Fun Factory Pickering. Unlimited play time, pay at the desk. Rates for toddlers to teens. Tue & Thu open 12–7:30 pm; 50% off 3:30–7:30 pm. Sign waiver online before you arrive.",
+      "Drop-in indoor play at Fun Factory Pickering. Unlimited play time, pay at the desk. Rates for toddlers to teens. Tue & Thu 50% off 3:30–7:30 pm. Sign waiver online before you arrive.",
     path: "/play",
     keywords: ["drop-in play rates", "indoor play admission Pickering", "pay at desk"],
   },

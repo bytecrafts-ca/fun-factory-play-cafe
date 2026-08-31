@@ -17,6 +17,7 @@ import {
   isOpenNow,
   siteConfig,
   siteRoutes,
+  accessTwoCardUrl,
 } from "@/lib/site";
 
 export const metadata = createPageMetadata(pageSeo.play);
@@ -40,6 +41,23 @@ const playFaqs: FaqItem[] = [
     question: "When is the 50% off drop-in discount?",
     segments: [
       { type: "text", value: "Every Tuesday and Thursday from 3:30 to 7:30 pm (we're open from 12:00 pm)." },
+    ],
+  },
+  {
+    question: "Do you accept Access 2 Card?",
+    segments: [
+      { type: "text", value: "Yes. " },
+      {
+        type: "link",
+        href: accessTwoCardUrl,
+        label: "Access 2 Card",
+        external: true,
+      },
+      {
+        type: "text",
+        value:
+          " holders get $2 off drop-in admission rates. Show your card at the front desk when you pay.",
+      },
     ],
   },
 ];
