@@ -77,7 +77,7 @@ export function PartyCards() {
           <Button
             href={getPartyBookingUrl()}
             external
-            variant="primary"
+            variant="lavender"
             size="md"
             className="w-full text-sm"
           >
