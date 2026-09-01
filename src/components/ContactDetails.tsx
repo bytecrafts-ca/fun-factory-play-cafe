@@ -1,7 +1,7 @@
 import { siteConfig } from "@/lib/site";
 
-const linkClass = "text-sm font-medium text-charcoal transition hover:underline";
-const labelClass = "text-sm font-semibold text-charcoal";
+const linkClass = "text-sm font-normal text-muted transition hover:text-charcoal hover:underline";
+const labelClass = "text-sm font-bold text-charcoal";
 
 export function ContactDetails() {
   return (
@@ -14,7 +14,7 @@ export function ContactDetails() {
           rel="noopener noreferrer"
           className={linkClass}
         >
-          {siteConfig.address.full}
+          {siteConfig.address.full}, L1W 3R4
         </a>
       </p>
       <p className="text-sm text-muted">

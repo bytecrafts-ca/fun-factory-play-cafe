@@ -21,7 +21,7 @@ export default function ContactPage() {
       />
       <PageHero
         title="Contact Fun Factory Play Café"
-        subtitle="1420 Bayly St., Unit 15, Pickering, ON L1W 3R4. Free parking in the Bayly Street plaza."
+        subtitle="1420 Bayly St. Unit 15. Pickering, ON. L1W 3R4. Find us in the back of the plaza with free parking available!"
         accent="sky"
       />
 
@@ -31,7 +31,7 @@ export default function ContactPage() {
             <div className="space-y-4">
               <div className="card p-5">
                 <h3 className="text-sm font-bold uppercase tracking-wider text-charcoal">
-                  Contact (NAP)
+                  Contact
                 </h3>
                 <div className="mt-3">
                   <ContactDetails />
@@ -39,7 +39,7 @@ export default function ContactPage() {
                 <p className="mt-4 text-sm leading-relaxed text-muted">
                   Fun Factory Play Café and Littles &amp; Lattés Café share this Pickering location.
                   Call{" "}
-                  <a href={siteConfig.phoneHref} className="font-semibold text-charcoal hover:underline">
+                  <a href={siteConfig.phoneHref} className="text-muted hover:text-charcoal hover:underline">
                     {siteConfig.phone}
                   </a>{" "}
                   for play, party, or café questions.
