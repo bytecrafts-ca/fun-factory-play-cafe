@@ -56,6 +56,7 @@ export default function RootLayout({
     <html lang="en-CA">
       <head>
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM site summary" />
+        <link rel="preload" href="/hero.webp" as="image" type="image/webp" fetchPriority="high" />
       </head>
       <body className={jakarta.variable}>
         <JsonLd data={getGlobalSchemas()} />

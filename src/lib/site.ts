@@ -22,7 +22,12 @@ export const siteConfig = {
   email: "info@funfactoryplay.ca",
   emailHref: "mailto:info@funfactoryplay.ca",
   address: {
-    full: "1420 Bayly St., Unit 15, Pickering, ON",
+    full: "1420 Bayly St., Unit 15, Pickering, ON L1W 3R4",
+    street: "1420 Bayly St., Unit 15",
+    locality: "Pickering",
+    region: "ON",
+    postalCode: "L1W 3R4",
+    country: "CA",
     mapsUrl:
       "https://www.google.com/maps/place/Fun+Factory+Play+Cafe+-+Pickering/@43.83115,-79.0812758,17z/data=!3m1!4b1!4m6!3m5!1s0x89d4dee5c535f85d:0x47037b445f1e60ff!8m2!3d43.83115!4d-79.0812758!16s%2Fg%2F11bztvy394",
     mapsEmbedUrl:

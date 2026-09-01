@@ -3,11 +3,14 @@ import { Button } from "@/components/ui/Button";
 import { HoursWidget } from "@/components/HoursWidget";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { ReviewBanner } from "@/components/ReviewBanner";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import {
   createPageMetadata,
   getBreadcrumbSchema,
+  getDropInServiceSchema,
   getFAQSchema,
+  getTueThuPromoEventSchema,
   pageSeo,
   type FaqItem,
 } from "@/lib/seo";
@@ -78,10 +81,12 @@ export default function PlayPage() {
             { name: "Drop-In Play", path: "/play" },
           ]),
           getFAQSchema(playFaqs),
+          getDropInServiceSchema(),
+          getTueThuPromoEventSchema(),
         ]}
       />
       <PageHero
-        title="Drop-In Play"
+        title="Indoor Playground Drop-In Play"
         subtitle="See our rates below and pay when you arrive. No online ticket purchase — just sign your waiver, check our hours, and come play."
         accent="sky"
         eyebrow={
@@ -167,6 +172,45 @@ export default function PlayPage() {
           </ol>
         </div>
       </section>
+
+      <section className="section-pad bg-section-sky">
+        <div className="container-main mx-auto max-w-3xl">
+          <SectionHeading title="Drop-In Play FAQ" centered accent="sky" />
+          <div className="mt-8 divide-y divide-border">
+            {playFaqs.map((item) => (
+              <details key={item.question} className="group py-5">
+                <summary className="cursor-pointer list-none text-base font-bold text-charcoal marker:content-none [&::-webkit-details-marker]:hidden">
+                  <span className="flex items-start justify-between gap-4">
+                    {item.question}
+                    <span className="mt-1 shrink-0 text-muted transition group-open:rotate-45" aria-hidden>
+                      +
+                    </span>
+                  </span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  {item.segments.map((segment, index) =>
+                    segment.type === "text" ? (
+                      <span key={index}>{segment.value}</span>
+                    ) : (
+                      <a
+                        key={index}
+                        href={segment.href}
+                        className="font-semibold text-charcoal hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {segment.label}
+                      </a>
+                    ),
+                  )}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ReviewBanner />
     </>
   );
 }

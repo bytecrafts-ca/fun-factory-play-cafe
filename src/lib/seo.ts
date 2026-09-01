@@ -2,23 +2,26 @@ import type { Metadata } from "next";
 import {
   accessTwoCardUrl,
   admissions,
+  cafeMenu,
   getPartyBookingUrl,
   googleReviewsFallback,
   googleReviewsSummary,
-  hours,
   getWeeklyHours,
   partyPackages,
   siteConfig,
+  ultimateParty,
 } from "@/lib/site";
+import { landingPages } from "@/lib/landing-pages";
+import { guides } from "@/lib/guides";
 
 export const seoConfig = {
   siteUrl: "https://funfactoryplay.ca",
   siteName: siteConfig.name,
   shortName: siteConfig.shortName,
   locale: "en_CA",
-  defaultTitle: `${siteConfig.name} | Indoor Playground & Birthday Parties in Pickering, ON`,
+  defaultTitle: "Indoor Playground & Birthday Parties Pickering ON | Fun Factory Play Café",
   defaultDescription:
-    "Fun Factory Play Café in Pickering, Ontario — indoor playground, unlimited drop-in play, birthday party packages, and Littles & Lattés café. Socks-only facility. Tue & Thu open 12–7:30 pm; 50% off admissions 3:30–7:30 pm.",
+    "Fun Factory Play Café: Pickering's indoor playground & birthday party venue on Bayly St. Drop-in play, party packages from $399, Littles & Lattés café. (647) 824-8389.",
   defaultKeywords: [
     "Fun Factory Play Café",
     "indoor playground Pickering",
@@ -344,13 +347,17 @@ export function getWebSiteSchema() {
 export function getLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "AmusementCenter", "CafeOrCoffeeShop"],
+    "@type": ["LocalBusiness", "AmusementCenter"],
     "@id": `${seoConfig.siteUrl}/#localbusiness`,
     name: seoConfig.siteName,
-    alternateName: "The Fun Factory Indoor Playground and Party Centre",
+    alternateName: [
+      "The Fun Factory",
+      "Fun Factory Indoor Playground",
+      "The Fun Factory Indoor Playground and Party Centre",
+    ],
     description: seoConfig.defaultDescription,
     url: seoConfig.siteUrl,
-    telephone: siteConfig.phone,
+    telephone: "+16478248389",
     email: siteConfig.email,
     image: [absoluteUrl(siteConfig.heroImage.src), absoluteUrl("/logo.webp")],
     logo: absoluteUrl("/logo.webp"),
@@ -359,11 +366,11 @@ export function getLocalBusinessSchema() {
     paymentAccepted: "Cash, Credit Card, Debit Card",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "1420 Bayly St., Unit 15",
-      addressLocality: "Pickering",
-      addressRegion: "ON",
-      postalCode: "L1W 3R4",
-      addressCountry: "CA",
+      streetAddress: siteConfig.address.street,
+      addressLocality: siteConfig.address.locality,
+      addressRegion: siteConfig.address.region,
+      postalCode: siteConfig.address.postalCode,
+      addressCountry: siteConfig.address.country,
     },
     geo: {
       "@type": "GeoCoordinates",
@@ -376,6 +383,14 @@ export function getLocalBusinessSchema() {
       "@type": "City",
       name,
     })),
+    department: {
+      "@type": "CafeOrCoffeeShop",
+      "@id": `${seoConfig.siteUrl}/#littles-lattes`,
+      name: cafeMenu.brand,
+      url: absoluteUrl("/cafe"),
+      description:
+        "On-site play café serving premium coffee, matcha, iced lattes, and snacks for parents while children play.",
+    },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: googleReviewsSummary.rating,
@@ -441,24 +456,117 @@ export function getBreadcrumbSchema(items: { name: string; path: string }[]) {
 }
 
 export function getPartyOffersSchema() {
+  const standardOffers = partyPackages.map((pkg, index) => ({
+    "@type": "ListItem" as const,
+    position: index + 1,
+    item: {
+      "@type": "Offer" as const,
+      name: pkg.name,
+      price: pkg.price,
+      priceCurrency: "CAD",
+      availability: "https://schema.org/InStock",
+      url: absoluteUrl("/birthday-parties"),
+      seller: { "@id": `${seoConfig.siteUrl}/#localbusiness` },
+      description: `${pkg.name} — ${pkg.children} kids and ${pkg.adults} adults, private party room, playtime, pizza, cake, juice, e-vites, and party host.`,
+    },
+  }));
+
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Birthday Party Packages at Fun Factory Play Café",
-    itemListElement: partyPackages.map((pkg, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Offer",
-        name: pkg.name,
-        price: pkg.price,
-        priceCurrency: "CAD",
-        availability: "https://schema.org/InStock",
-        url: absoluteUrl("/birthday-parties"),
-        seller: { "@id": `${seoConfig.siteUrl}/#localbusiness` },
-        description: `${pkg.name} — ${pkg.children} kids and ${pkg.adults} adults, private party room, playtime, pizza, cake, juice, e-vites, and party host.`,
+    itemListElement: [
+      ...standardOffers,
+      {
+        "@type": "ListItem",
+        position: standardOffers.length + 1,
+        item: {
+          "@type": "Offer",
+          name: ultimateParty.name,
+          price: ultimateParty.weekdayPrice,
+          priceCurrency: "CAD",
+          availability: "https://schema.org/InStock",
+          url: absoluteUrl("/birthday-parties"),
+          seller: { "@id": `${seoConfig.siteUrl}/#localbusiness` },
+          description: `${ultimateParty.name} — up to ${ultimateParty.children} kids, private facility use, weekday and weekend pricing available.`,
+        },
       },
-    })),
+    ],
+  };
+}
+
+export function getDropInServiceSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Drop-In Indoor Play",
+    provider: { "@id": `${seoConfig.siteUrl}/#localbusiness` },
+    areaServed: seoConfig.areaServed,
+    url: absoluteUrl("/play"),
+    offers: [
+      { "@type": "Offer", name: "Under 1 Year Old", price: "5.00", priceCurrency: "CAD" },
+      { "@type": "Offer", name: "Ages 1 to 3", price: "10.00", priceCurrency: "CAD" },
+      { "@type": "Offer", name: "Ages 4 to 13", price: "14.00", priceCurrency: "CAD" },
+      { "@type": "Offer", name: "Ages 14 to 17", price: "10.00", priceCurrency: "CAD" },
+    ],
+  };
+}
+
+export function getCafeMenuSchema() {
+  type PricedItem = { name: string; hotPrice?: number; coldPrice?: number; price?: number };
+
+  const toPrice = (item: PricedItem) => item.hotPrice ?? item.coldPrice ?? item.price ?? 0;
+
+  const menuItems = [
+    ...cafeMenu.espressoBar.map((item) => ({ name: item.name, price: toPrice(item) })),
+    ...cafeMenu.matchaDrinks.map((item) => ({ name: item.name, price: toPrice(item) })),
+    ...cafeMenu.teas,
+    ...cafeMenu.hotChocolate,
+  ];
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    name: `${cafeMenu.brand} Menu`,
+    url: absoluteUrl("/cafe"),
+    hasMenuSection: {
+      "@type": "MenuSection",
+      name: "Drinks",
+      hasMenuItem: menuItems.map((item) => ({
+        "@type": "MenuItem",
+        name: item.name,
+        offers: {
+          "@type": "Offer",
+          price: item.price,
+          priceCurrency: "CAD",
+        },
+      })),
+    },
+  };
+}
+
+export function getTueThuPromoEventSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: "50% Off Drop-In Admissions",
+    description:
+      "Every Tuesday and Thursday, drop-in admissions are 50% off after 3:30 pm at Fun Factory Play Café in Pickering.",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    location: {
+      "@type": "Place",
+      name: seoConfig.siteName,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: siteConfig.address.street,
+        addressLocality: siteConfig.address.locality,
+        addressRegion: siteConfig.address.region,
+        postalCode: siteConfig.address.postalCode,
+        addressCountry: siteConfig.address.country,
+      },
+    },
+    organizer: { "@id": `${seoConfig.siteUrl}/#localbusiness` },
   };
 }
 
@@ -470,25 +578,26 @@ export const pageSeo = {
     keywords: ["indoor playground near me", "kids activities Pickering"],
   },
   play: {
-    title: "Drop-In Play & Admissions | Fun Factory Pickering",
+    title: "Indoor Playground Pickering | Drop-In Play & Admissions",
     description:
-      "Drop-in indoor play at Fun Factory Pickering. Unlimited play time, pay at the desk. Rates for toddlers to teens. Tue & Thu open 12–7:30 pm; 50% off 3:30–7:30 pm. Sign waiver online before you arrive.",
+      "Drop-in indoor play at Fun Factory Pickering on Bayly St. Unlimited play, toddler zone, pay at desk. Tue & Thu 50% off after 3:30 pm. Sign waiver online.",
     path: "/play",
-    keywords: ["drop-in play rates", "indoor play admission Pickering", "pay at desk"],
+    keywords: ["indoor playground Pickering", "drop-in play rates", "toddler play Pickering"],
   },
   parties: {
-    title: "Birthday Party Packages Pickering | Fun Factory Play Café",
+    title: "Kids Birthday Party Pickering | Party Packages from $399",
     description:
-      "Book a kids birthday party at Fun Factory Pickering. Packages from $369 with private room, playtime, pizza, cake, juice, e-vites & host. Fun, Active Fun, Supreme & Extreme packages available.",
+      "Book a kids birthday party in Pickering at Fun Factory. Packages from $399 with private room, playtime, pizza, cake, juice, e-vites & host. Ultimate from $999.",
     path: "/birthday-parties",
-    keywords: ["birthday party packages Pickering", "kids party venue Durham"],
+    keywords: ["kids birthday party Pickering", "birthday party venue Durham Region", "party packages Pickering"],
   },
   cafe: {
-    title: "Littles & Lattés Café Menu | Fun Factory Pickering",
+    title: "Littles & Lattés Café Pickering | Coffee at Fun Factory",
     description:
-      "Littles & Lattés Café at Fun Factory — premium coffee, iced drinks, smoothies, and snacks for parents while kids play. View the full menu and pricing.",
+      "Littles & Lattés Café in Pickering at Fun Factory Play Café. Premium coffee, matcha, iced lattes & snacks while kids play. View full menu & prices.",
     path: "/cafe",
-    keywords: ["play café menu", "coffee shop indoor playground Pickering"],
+    keywords: ["Littles and Lattes Pickering", "play café Pickering", "coffee indoor playground Pickering"],
+    ogImage: "/cafe/matcha-menu.webp",
   },
   gallery: {
     title: "Photo Gallery | Fun Factory Indoor Playground Pickering",
@@ -518,7 +627,28 @@ export const pageSeo = {
     path: "/loyalty",
     keywords: ["play centre loyalty program Pickering"],
   },
+  guides: {
+    title: "Parent Guides | Indoor Play & Parties in Pickering",
+    description:
+      "Planning guides for Fun Factory Play Café: birthday parties, drop-in play, toddler activities, and family outings in Pickering and Durham Region.",
+    path: "/guides",
+    keywords: ["indoor play guide Pickering", "birthday party planning Durham"],
+  },
+  resources: {
+    title: "Resources for Parents | Fun Factory Pickering",
+    description:
+      "Helpful links for families visiting Fun Factory Play Café: play rates, party packages, Littles & Lattés menu, local guides, and Google reviews.",
+    path: "/resources",
+    keywords: ["Fun Factory resources", "Pickering family guides"],
+  },
 } as const satisfies Record<string, PageSeoInput>;
+
+/** All indexable pages including landing pages and guides */
+export function getAllSitemapEntries(): PageSeoInput[] {
+  const landingSeo = landingPages.map((page) => page.seo);
+  const guideSeo = guides.map((guide) => guide.seo);
+  return [...Object.values(pageSeo), ...landingSeo, ...guideSeo];
+}
 
 export function getGlobalSchemas() {
   return [getOrganizationSchema(), getWebSiteSchema(), getLocalBusinessSchema()];

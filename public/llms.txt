@@ -1,66 +1,63 @@
-# Fun Factory Play Café
+# Fun Factory Play Café — LLM site summary
+# https://funfactoryplay.ca
 
-> Indoor playground, birthday party venue, and family café in Pickering, Ontario, Canada.
+> Fun Factory Play Café is an indoor playground and birthday party centre in Pickering, Ontario, with on-site Littles & Lattés Café. Unlimited drop-in play, private party packages, and a toddler-friendly play floor at 1420 Bayly St., Unit 15, Pickering, ON L1W 3R4.
 
-## Canonical website
-https://funfactoryplay.ca
-
-## Business summary
-Fun Factory Play Café (also known as The Fun Factory Indoor Playground and Party Centre) is a socks-only indoor play facility for children and families at 1420 Bayly St., Unit 15, Pickering, ON L1W 3R4, Canada.
-
-Families visit for unlimited drop-in play (pay at the front desk), multi-level play structures, a dedicated toddler area, birthday party packages with private party rooms, and Littles & Lattés Café for coffee and snacks.
-
-## Contact
+## Contact (NAP)
+- Name: Fun Factory Play Café
+- Address: 1420 Bayly St., Unit 15, Pickering, ON L1W 3R4, Canada
 - Phone: (647) 824-8389
 - Email: info@funfactoryplay.ca
-- Instagram: https://www.instagram.com/funfactoryplay/
-- Littles & Lattés Instagram: https://www.instagram.com/littlesandlattess/
+- Website: https://funfactoryplay.ca
+- Café brand: Littles & Lattés Café (same location)
 
-## Hours
+## Hours (effective September 8, 2026)
+- Monday & Wednesday: 9:30 am – 2:30 pm
+- Tuesday & Thursday: 12:00 pm – 7:30 pm (50% off drop-in admissions after 3:30 pm)
 - Friday–Sunday: 9:30 am – 8:30 pm
-- Tuesday & Thursday: 12:00 pm – 7:30 pm (50% off drop-in admissions 3:30–7:30 pm only)
-- Closed Monday and Wednesday
 
 ## Drop-in admissions (pay at desk, unlimited play time)
-- Under 1 year old: $5.00 (free with paying sibling)
+- Under 1: $5.00 (free with paying sibling)
 - Ages 1–3: $10.00
 - Ages 4–13: $14.00
 - Ages 14–17: $10.00
+- Access 2 Card holders: $2 off drop-in admission rates
+
+## Party packages (September 2026 pricing)
+- Fun Party: $399 (10 kids, 10 adults)
+- Active Fun Party: $499 (15 kids, 15 adults)
+- Supreme Fun Party: $599 (20 kids, 20 adults)
+- Extreme Fun Party: $699 (30 kids, 30 adults)
+- Ultimate Fun Party: $999 Mon–Thu / $1,499 Fri–Sun (up to 50 kids, private facility)
 
 ## Key pages
 - Home: https://funfactoryplay.ca/
-- Drop-in play & rates: https://funfactoryplay.ca/play
+- Drop-in play: https://funfactoryplay.ca/play
 - Birthday parties: https://funfactoryplay.ca/birthday-parties
-- Book a party (Ovatu): https://the-fun-factory.book.app/book-now
-- Café menu: https://funfactoryplay.ca/cafe
-- Sign waiver: https://form.jotform.com/261257549756066
-- Loyalty program: https://funfactoryplay.ca/loyalty
+- Littles & Lattés café: https://funfactoryplay.ca/cafe
 - Contact: https://funfactoryplay.ca/contact
-- Gallery: https://funfactoryplay.ca/gallery
+- Guides: https://funfactoryplay.ca/guides
+- Resources: https://funfactoryplay.ca/resources
+- Leave a review: https://funfactoryplay.ca/review
 
-## Party packages (starting prices, CAD)
-- Fun Party: $369 (10 kids, 10 adults)
-- Active Fun Party: $459 (15 kids, 15 adults)
-- Supreme Fun Party: $579 (20 kids, 20 adults)
-- Extreme Fun Party: $719 (30 kids, 30 adults)
-- Ultimate Fun Party: from $1,399 weekday / $1,999 weekend
+## Local landing pages
+- https://funfactoryplay.ca/pickering-indoor-playground
+- https://funfactoryplay.ca/kids-birthday-parties-pickering
+- https://funfactoryplay.ca/durham-region-birthday-parties
+- https://funfactoryplay.ca/ajax-indoor-play
+- https://funfactoryplay.ca/whitby-kids-parties
 
-## Important policies
-- Socks required for children and adults (socks-only facility)
-- Waiver required before entry
-- Parent supervision required at all times
+## Policies
+- Socks required for children and adults ($3 at reception)
+- Signed waiver required before entry
+- Parent supervision required
 - Nut-free outside food allowed; no outside drinks
-- Tuesday/Thursday 50% off drop-in visits do not earn loyalty points
+- Tue/Thu discount visits do not earn loyalty points
 
 ## Google reviews
-- Rating: 4.3 stars (~680 reviews)
-- Google Maps: https://www.google.com/maps/place/Fun+Factory+Play+Cafe+-+Pickering/
-
-## Structured data
-JSON-LD LocalBusiness, FAQ, and Organization schemas are embedded on https://funfactoryplay.ca
+- Approximately 4.3 stars, ~680 reviews
 
 ## Sitemap
-https://funfactoryplay.ca/sitemap.xml
+- https://funfactoryplay.ca/sitemap.xml
 
-## Website design & development
-Designed and built by Sutrel — https://sutrel.ca (solo web studio, Toronto/Durham GTA)
+Built by Sutrel (https://sutrel.ca)

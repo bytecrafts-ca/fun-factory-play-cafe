@@ -5,7 +5,7 @@ import { CafeMenuList } from "@/components/CafeMenuList";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { createPageMetadata, getBreadcrumbSchema, pageSeo } from "@/lib/seo";
+import { createPageMetadata, getBreadcrumbSchema, getCafeMenuSchema, pageSeo } from "@/lib/seo";
 import { cafeMenu, siteConfig } from "@/lib/site";
 
 export const metadata = createPageMetadata(pageSeo.cafe);
@@ -14,16 +14,45 @@ export default function CafePage() {
   return (
     <>
       <JsonLd
-        data={getBreadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "Café Menu", path: "/cafe" },
-        ])}
+        data={[
+          getBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Littles & Lattés Café", path: "/cafe" },
+          ]),
+          getCafeMenuSchema(),
+        ]}
       />
       <PageHero
-        title={cafeMenu.brand}
-        subtitle={`${siteConfig.littlesAndLattesText} ${cafeMenu.tagline}`}
+        title="Littles & Lattés Café"
+        subtitle={`Pickering's play café inside Fun Factory. ${cafeMenu.tagline} Premium coffee and matcha while kids play, with parent seating and clear sight lines to the play floor.`}
         accent="peach"
       />
+
+      <section className="section-pad bg-section-peach">
+        <div className="container-main mx-auto max-w-3xl text-center">
+          <p className="text-sm leading-relaxed text-muted sm:text-base">
+            Littles &amp; Lattés is the on-site café at Fun Factory Play Café on Bayly Street in
+            Pickering. Grab coffee, matcha, or an iced latte while your children play. It is a
+            popular playdate spot for parents who want quality drinks without leaving the building.
+          </p>
+          <p className="mt-4 text-sm text-muted">
+            Read our{" "}
+            <a
+              href="https://bytecrafts-ca.github.io/littles-lattes-pickering-cafe/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-charcoal hover:underline"
+            >
+              Littles &amp; Lattés Pickering café guide
+            </a>
+            {" "}or{" "}
+            <Link href="/play" className="font-semibold text-charcoal hover:underline">
+              view drop-in play rates
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
 
       <section className="section-pad">
         <div className="container-main">

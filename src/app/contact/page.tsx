@@ -1,10 +1,12 @@
 import { ContactDetails } from "@/components/ContactDetails";
 import { ContactForm } from "@/components/ContactForm";
+import { GoogleMap } from "@/components/GoogleMap";
 import { HoursWidget } from "@/components/HoursWidget";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { SocialLinks } from "@/components/SocialLinks";
 import { createPageMetadata, getBreadcrumbSchema, pageSeo } from "@/lib/seo";
+import { siteConfig } from "@/lib/site";
 
 export const metadata = createPageMetadata(pageSeo.contact);
 
@@ -18,8 +20,8 @@ export default function ContactPage() {
         ])}
       />
       <PageHero
-        title="Contact Us"
-        subtitle="Questions about play, parties, or the café? Reach out — we'd love to hear from you."
+        title="Contact Fun Factory Play Café"
+        subtitle="1420 Bayly St., Unit 15, Pickering, ON L1W 3R4. Free parking in the Bayly Street plaza."
         accent="sky"
       />
 
@@ -29,11 +31,19 @@ export default function ContactPage() {
             <div className="space-y-4">
               <div className="card p-5">
                 <h3 className="text-sm font-bold uppercase tracking-wider text-charcoal">
-                  Contact
+                  Contact (NAP)
                 </h3>
                 <div className="mt-3">
                   <ContactDetails />
                 </div>
+                <p className="mt-4 text-sm leading-relaxed text-muted">
+                  Fun Factory Play Café and Littles &amp; Lattés Café share this Pickering location.
+                  Call{" "}
+                  <a href={siteConfig.phoneHref} className="font-semibold text-charcoal hover:underline">
+                    {siteConfig.phone}
+                  </a>{" "}
+                  for play, party, or café questions.
+                </p>
               </div>
               <div className="card p-5">
                 <h3 className="text-sm font-bold uppercase tracking-wider text-charcoal">
@@ -46,6 +56,9 @@ export default function ContactPage() {
               <HoursWidget />
             </div>
             <ContactForm />
+          </div>
+          <div className="mt-10">
+            <GoogleMap />
           </div>
         </div>
       </section>
