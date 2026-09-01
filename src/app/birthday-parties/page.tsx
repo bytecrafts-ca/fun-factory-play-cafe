@@ -95,9 +95,6 @@ export default function BirthdayPartiesPage() {
       <section className="section-pad bg-section-lavender">
         <div className="container-main">
           <SectionHeading title="Birthday Party Packages" accent="lavender" />
-          <p className="mx-auto mt-2 max-w-2xl text-center text-xs text-muted">
-            Pricing updated September 2026 · Weekends often book 4–6 weeks out
-          </p>
           <div className="mt-10">
             <PartyCards />
           </div>

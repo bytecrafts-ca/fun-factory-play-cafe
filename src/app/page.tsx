@@ -24,7 +24,6 @@ export default function HomePage() {
       <section className="section-pad">
         <div className="container-main">
           <SectionHeading title="Play Rates" centered={false} accent="mint" />
-          <p className="mt-2 text-xs text-muted">Pricing updated September 2026</p>
           <div className="mt-6 max-w-xl">
             <AdmissionsTable showNotes={false} />
           </div>
@@ -34,9 +33,6 @@ export default function HomePage() {
       <section className="section-pad bg-section-lavender">
         <div className="container-main">
           <SectionHeading title="Birthday Parties" accent="lavender" />
-          <p className="mx-auto mt-2 max-w-2xl text-center text-xs text-muted">
-            Package pricing updated September 2026 · Weekends often book 4–6 weeks out
-          </p>
           <div className="mx-auto mt-4 max-w-2xl space-y-2 text-center text-sm leading-relaxed text-muted">
             {siteConfig.partyIncludeText.map((line) => (
               <p key={line}>{line}</p>

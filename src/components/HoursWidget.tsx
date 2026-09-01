@@ -2,18 +2,13 @@
 
 import {
   formatSpecialHoursDate,
-  getTorontoCalendarDate,
   getUpcomingSpecialHours,
   getWeeklyHours,
-  getWeeklyHoursForDate,
-  hoursScheduleChangeDate,
 } from "@/lib/site";
 
 export function HoursWidget({ compact = false }: { compact?: boolean }) {
   const weeklyHours = getWeeklyHours();
-  const upcomingWeeklyHours = getWeeklyHoursForDate(hoursScheduleChangeDate);
   const upcomingSpecialHours = getUpcomingSpecialHours();
-  const showScheduleNotice = getTorontoCalendarDate() < hoursScheduleChangeDate;
 
   return (
     <div className={`card border-l-4 border-l-sky ${compact ? "p-5" : "p-6"}`}>
@@ -39,22 +34,6 @@ export function HoursWidget({ compact = false }: { compact?: boolean }) {
           );
         })}
       </ul>
-
-      {showScheduleNotice && (
-        <div className={`rounded-lg border border-sky/40 bg-sky/10 px-3 py-3 ${compact ? "mt-3" : "mt-4"}`}>
-          <p className="text-xs font-bold uppercase tracking-wider text-charcoal/70">
-            Starting Monday, September 8
-          </p>
-          <ul className="mt-2 space-y-1">
-            {upcomingWeeklyHours.map((item) => (
-              <li key={item.day} className="flex justify-between text-xs text-charcoal">
-                <span>{item.day}</span>
-                <span className="text-right">{item.hours}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
 
       {upcomingSpecialHours.length > 0 && (
         <div className={compact ? "mt-5" : "mt-6"}>
