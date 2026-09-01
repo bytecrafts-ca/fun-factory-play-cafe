@@ -15,7 +15,7 @@ export function AccessTwoCallout() {
         >
           Access 2 Card
         </a>
-        {" holders get $2 off drop-in admission rates. Show your card at the front desk when you pay."}
+        {" holders get $2 off drop-in admission rates. Show your card when you check-in."}
       </p>
     </div>
   );

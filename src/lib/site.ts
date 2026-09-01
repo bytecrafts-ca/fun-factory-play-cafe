@@ -480,7 +480,7 @@ export const dropInVisitSteps = [
   {
     title: "Sign the waiver",
     description:
-      "Every child needs a signed waiver before play. Complete it online before you arrive to save time at the desk.",
+      "Every child needs a signed waiver before play. Complete it online before you arrive to save time when you check in.",
   },
   {
     title: "Check our hours",
@@ -490,12 +490,12 @@ export const dropInVisitSteps = [
   {
     title: "Pay at the front desk",
     description:
-      "Drop-in admissions are paid when you arrive. Access 2 Card holders save $2 — show your card at the desk. No online ticket purchase.",
+      "Drop-in admissions are paid when you arrive. Access 2 Card holders save $2 — show your card when you check-in.",
   },
   {
     title: "Wear socks",
     description:
-      "We're a socks-only facility. Bring socks for kids and adults, or buy them at reception for $3.",
+      "We're a socks-only facility. Bring socks for kids and adults, or buy them when you check-in for $3.",
   },
 ] as const;
 
@@ -799,7 +799,7 @@ export function getDropInHoursSummary(now = new Date()): string {
   if (today >= hoursScheduleChangeDate) {
     return "We're open Mon & Wed 9:30 am–2:00 pm, Tue & Thu 12:00 pm–7:30 pm, and Fri–Sun 9:30 am–8:30 pm.";
   }
-  return "We're open Fri–Sun 9:30 am–8:30 pm and Tue & Thu 12:00 pm–7:30 pm. Mon & Wed are closed.";
+  return "We're open Fri–Sun 9:30 am–8:30 pm and Tue & Thu 12:00 pm–7:30 pm. Mon & Wed are closed. Starting Monday, September 8, Mon & Wed open 9:30 am–2:00 pm.";
 }
 
 export function formatSpecialHoursDate(dateStr: string, label?: string): string {

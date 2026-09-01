@@ -250,7 +250,7 @@ export const faqItems: FaqItem[] = [
       {
         type: "text",
         value:
-          " holders get $2 off drop-in admission rates. Show your card at the front desk when you pay.",
+          " holders get $2 off drop-in admission rates. Show your card when you check-in.",
       },
     ],
   },
@@ -302,7 +302,7 @@ export const faqItems: FaqItem[] = [
         value: "Yes. Every child needs a signed waiver before entry. ",
       },
       { type: "link", href: siteConfig.waiverUrl, label: "Sign the waiver online", external: true },
-      { type: "text", value: " before you arrive to save time at the desk." },
+      { type: "text", value: " before you arrive to save time when you check in." },
     ],
   },
 ];

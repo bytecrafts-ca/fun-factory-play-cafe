@@ -62,7 +62,7 @@ const playFaqs: FaqItem[] = [
       {
         type: "text",
         value:
-          " holders get $2 off drop-in admission rates. Show your card at the front desk when you pay.",
+          " holders get $2 off drop-in admission rates. Show your card when you check-in.",
       },
     ],
   },
@@ -87,7 +87,7 @@ export default function PlayPage() {
       />
       <PageHero
         title="Indoor Playground Drop-In Play"
-        subtitle="See our rates below and pay when you arrive. No online ticket purchase — just sign your waiver, check our hours, and come play."
+        subtitle="See our rates below and pay when you arrive. Sign your waiver, check our hours, and come play."
         accent="sky"
         eyebrow={
           <div
