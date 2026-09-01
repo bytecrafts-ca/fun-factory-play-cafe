@@ -129,7 +129,7 @@ export const guides: Guide[] = [
         paragraphs: [
           "A smooth indoor playground visit starts at home. Every child needs a signed waiver before they can play. At Fun Factory you can complete the waiver online so the front desk line moves faster when you arrive at 1420 Bayly St., Unit 15 in Pickering.",
           "Pack socks for every child and every adult. We are a socks-only facility. Reception sells socks for $3 if you need a pair. Leave outside drinks at home. Nut-free snacks from outside are welcome if you want something specific for picky eaters.",
-          "Check hours before you go. From September 8, 2026, we are open Monday and Wednesday 9:30 am to 2:30 pm, Tuesday and Thursday 12:00 pm to 7:30 pm with 50% off drop-in admissions after 3:30 pm, and Friday through Sunday 9:30 am to 8:30 pm.",
+          "Check hours before you go. From September 8, 2026, we are open Monday and Wednesday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm with 50% off drop-in admissions after 3:30 pm, and Friday through Sunday 9:30 am to 8:30 pm.",
         ],
       },
       {
@@ -224,7 +224,7 @@ export const guides: Guide[] = [
       {
         heading: "Making the most of a toddler visit",
         paragraphs: [
-          "Go early on Monday, Wednesday, or weekend mornings when the crowd skews younger. From September 8, 2026, Monday and Wednesday hours run 9:30 am to 2:30 pm, which fits nap schedules well if you arrive at opening.",
+          "Go early on Monday, Wednesday, or weekend mornings when the crowd skews younger. From September 8, 2026, Monday and Wednesday hours run 9:30 am to 2:00 pm, which fits nap schedules well if you arrive at opening.",
           "Sign the waiver online before you leave home. Pack socks for everyone. Toddlers touch everything and our facility requires socks for children and adults at all times.",
           "Bring nut-free snacks if your child has favourites we do not carry. Outside drinks are not allowed, but you can order from Littles & Lattés Café for yourself and pick up kid-friendly options on site.",
           "Stay near the toddler zone for the first twenty minutes even if your child seems confident. New spaces are exciting and sometimes overwhelming. A short warm-up before exploring the wider play floor helps.",
@@ -426,7 +426,7 @@ export const guides: Guide[] = [
           "Address: 1420 Bayly St., Unit 15, Pickering, ON L1W 3R4. Free parking in the plaza. Enter through the main Fun Factory doors and head to the front desk for drop-in or party check-in.",
           "Bring socks, signed waivers, and payment for admission. We accept cash, credit, and debit. Access 2 Card holders get $2 off drop-in rates.",
           "Maximum two adults per family are included with child admission. Supervision is required at all times. Play structures are designed for active kids, so stay within sight even when you are seated.",
-          "Hours from September 8, 2026: Monday and Wednesday 9:30 am to 2:30 pm, Tuesday and Thursday 12:00 pm to 7:30 pm (50% off admissions after 3:30 pm), Friday to Sunday 9:30 am to 8:30 pm. Check our contact page for holiday exceptions.",
+          "Hours from September 8, 2026: Monday and Wednesday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm (50% off admissions after 3:30 pm), Friday to Sunday 9:30 am to 8:30 pm. Check our contact page for holiday exceptions.",
           "Strollers can usually stay near seating areas. Lock valuables in your car and keep phones in pockets while supervising active climbers.",
         ],
       },
@@ -783,7 +783,7 @@ export const guides: Guide[] = [
         paragraphs: [
           "School breaks turn weekdays into Saturdays. Parents still work. Camps book up. Weather is unpredictable. Indoor play centres absorb that demand with open hours and drop-in admission.",
           "Fun Factory sees spikes during March break, summer weeks, and the December holidays. Plan around opening time if you want a quieter first hour, or use Tuesday and Thursday half-price afternoons after 3:30 pm when older kids are tired and toddlers thrive.",
-          "From September 8, 2026, expanded hours help break-week planning: Monday and Wednesday 9:30 am to 2:30 pm, Tuesday and Thursday 12:00 pm to 7:30 pm, and Friday to Sunday 9:30 am to 8:30 pm.",
+          "From September 8, 2026, expanded hours help break-week planning: Monday and Wednesday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm, and Friday to Sunday 9:30 am to 8:30 pm.",
         ],
       },
       {

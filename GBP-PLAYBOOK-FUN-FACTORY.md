@@ -9,7 +9,7 @@ Fun Factory Play Café · 1420 Bayly St., Unit 15 · Pickering, ON L1W 3R4 · (6
 Primary: Indoor playground. Secondary: Birthday party service, Café, Playground.
 
 ## Description (750 chars)
-Fun Factory Play Café is Pickering's indoor playground and birthday party centre on Bayly Street. Drop-in play with unlimited time. Party packages from $399 include private room, pizza, cake, and host. Littles & Lattés Café on site. Mon/Wed 9:30-2:30, Tue/Thu 12-7:30 (50% off after 3:30 pm), Fri-Sun 9:30-8:30. Socks required. Serving Pickering, Ajax, Whitby, Durham Region.
+Fun Factory Play Café is Pickering's indoor playground and birthday party centre on Bayly Street. Drop-in play with unlimited time. Party packages from $399 include private room, pizza, cake, and host. Littles & Lattés Café on site. Mon/Wed 9:30-2:00, Tue/Thu 12-7:30 (50% off after 3:30 pm), Fri-Sun 9:30-8:30. Socks required. Serving Pickering, Ajax, Whitby, Durham Region.
 
 ## Review goal
 5 new Google reviews per week. Use /review QR in-store.

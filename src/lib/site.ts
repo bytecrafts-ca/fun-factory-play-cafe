@@ -101,9 +101,9 @@ const weeklyHoursBeforeSept8: DayHours[] = [
 ];
 
 const weeklyHoursFromSept8: DayHours[] = [
-  { day: "Monday", hours: "9:30 am – 2:30 pm" },
+  { day: "Monday", hours: "9:30 am – 2:00 pm" },
   { day: "Tuesday", hours: "12:00 pm – 7:30 pm", promo: "50% off admissions after 3:30 pm" },
-  { day: "Wednesday", hours: "9:30 am – 2:30 pm" },
+  { day: "Wednesday", hours: "9:30 am – 2:00 pm" },
   { day: "Thursday", hours: "12:00 pm – 7:30 pm", promo: "50% off admissions after 3:30 pm" },
   { day: "Friday", hours: "9:30 am – 8:30 pm" },
   { day: "Saturday", hours: "9:30 am – 8:30 pm" },
@@ -139,6 +139,7 @@ export const specialHours: SpecialHours[] = [
   { date: "2026-08-25", hours: "12:00 pm – 8:30 pm" },
   { date: "2026-08-31", hours: "12:00 pm – 7:30 pm" },
   { date: "2026-09-14", hours: "12:00 pm – 8:30 pm" },
+  { date: "2026-09-07", hours: "Closed", closed: true, label: "Labour Day" },
   {
     date: "2026-09-30",
     hours: "Closed",
@@ -796,7 +797,7 @@ export function getTodayHours(): DayHours | null {
 export function getDropInHoursSummary(now = new Date()): string {
   const today = getTorontoCalendarDate(now);
   if (today >= hoursScheduleChangeDate) {
-    return "We're open Mon & Wed 9:30 am–2:30 pm, Tue & Thu 12:00 pm–7:30 pm, and Fri–Sun 9:30 am–8:30 pm.";
+    return "We're open Mon & Wed 9:30 am–2:00 pm, Tue & Thu 12:00 pm–7:30 pm, and Fri–Sun 9:30 am–8:30 pm.";
   }
   return "We're open Fri–Sun 9:30 am–8:30 pm and Tue & Thu 12:00 pm–7:30 pm. Mon & Wed are closed.";
 }
@@ -815,7 +816,7 @@ export function formatSpecialHoursDate(dateStr: string, label?: string): string 
 export function getUpcomingSpecialHours(now = new Date()): SpecialHours[] {
   const today = getTorontoCalendarDate(now);
   return specialHours
-    .filter((entry) => entry.date >= today && !entry.closed)
+    .filter((entry) => entry.date >= today && (!entry.closed || entry.label))
     .sort((a, b) => a.date.localeCompare(b.date));
 }
 
