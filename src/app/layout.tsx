@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { Footer } from "@/components/Footer";
+import { GoogleAds } from "@/components/GoogleAds";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { PartyPromoPopup } from "@/components/PartyPromoPopup";
@@ -59,6 +60,7 @@ export default function RootLayout({
         <link rel="preload" href="/hero.webp" as="image" type="image/webp" fetchPriority="high" />
       </head>
       <body className={jakarta.variable}>
+        <GoogleAds />
         <JsonLd data={getGlobalSchemas()} />
         <TopBar />
         <AnnouncementBar />
