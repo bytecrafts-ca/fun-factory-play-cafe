@@ -6,6 +6,11 @@ export const googleAdsPurchaseConversion =
   process.env.NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION ??
   "AW-18425793193/PAR9CJmT3uwcEKmVjdJE";
 
+/** Contact conversion — Littles & Lattés (phone, email, café inquiry) */
+export const googleAdsContactConversion =
+  process.env.NEXT_PUBLIC_GOOGLE_ADS_CONTACT_CONVERSION ??
+  "AW-18425793193/u82bCN3-zu0cEKmVjdJE";
+
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
@@ -26,4 +31,30 @@ export function trackGoogleAdsPurchaseConversion(options?: {
     currency: options?.currency ?? "CAD",
     transaction_id: options?.transactionId ?? "",
   });
+}
+
+/**
+ * Google Ads Contact conversion (Littles & Lattés).
+ * Matches Google's gtag_report_conversion snippet: fires conversion, then navigates.
+ * Return false from onclick so the browser waits for the callback.
+ */
+export function trackGoogleAdsContactConversion(url?: string): boolean {
+  const navigate = () => {
+    if (typeof url !== "undefined" && url) {
+      window.location.href = url;
+    }
+  };
+
+  if (typeof window === "undefined" || typeof window.gtag !== "function") {
+    navigate();
+    return false;
+  }
+
+  window.gtag("event", "conversion", {
+    send_to: googleAdsContactConversion,
+    event_callback: navigate,
+    event_timeout: 2000,
+  });
+
+  return false;
 }

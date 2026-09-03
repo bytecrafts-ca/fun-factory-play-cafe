@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CafeDrinkCard } from "@/components/CafeDrinkCard";
 import { CafeMenuBoards } from "@/components/CafeMenuBoards";
 import { CafeMenuList } from "@/components/CafeMenuList";
+import { ConversionLink } from "@/components/ConversionLink";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -148,23 +149,41 @@ export default function CafePage() {
         <div className="container-main text-center">
           <p className="text-sm text-muted">
             Follow us on Instagram{" "}
-            <a
+            <ConversionLink
               href={siteConfig.social.littlesInstagram.href}
+              external
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold text-charcoal hover:underline"
             >
               {siteConfig.social.littlesInstagram.label}
-            </a>
-            . Planning a visit?{" "}
+            </ConversionLink>
+            . Questions? Call{" "}
+            <ConversionLink
+              href={siteConfig.phoneHref}
+              className="font-semibold text-charcoal hover:underline"
+            >
+              {siteConfig.phone}
+            </ConversionLink>
+            , email{" "}
+            <ConversionLink
+              href={siteConfig.emailHref}
+              className="font-semibold text-charcoal hover:underline"
+            >
+              {siteConfig.email}
+            </ConversionLink>
+            , or{" "}
+            <ConversionLink
+              href="/contact"
+              className="font-semibold text-charcoal hover:underline"
+            >
+              contact us
+            </ConversionLink>
+            .{" "}
             <Link href="/play" className="font-semibold text-charcoal hover:underline">
               View Play Rates
-            </Link>{" "}
-            or{" "}
-            <Link href="/contact" className="font-semibold text-charcoal hover:underline">
-              contact us
-            </Link>{" "}
-            with any questions.
+            </Link>
+            .
           </p>
         </div>
       </section>

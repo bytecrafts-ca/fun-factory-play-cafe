@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { trackGoogleAdsContactConversion } from "@/lib/google-ads";
 import { partyRoomInfo, partyTimeSlots } from "@/lib/site";
 
 export function ContactForm() {
@@ -12,6 +13,10 @@ export function ContactForm() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    // Littles & Lattés Contact conversion
+    if (subject === "Café Menu") {
+      trackGoogleAdsContactConversion();
+    }
     setSubmitted(true);
   }
 
