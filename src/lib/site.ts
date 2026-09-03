@@ -347,100 +347,60 @@ export const promoText =
 
 export const galleryImages = [
   {
-    src: "/gallery/fun-factory-storefront.webp",
-    alt: "Fun Factory Play Café storefront in Pickering with Littles & Lattés Café signage",
+    src: "/gallery/play-structure-exterior.webp",
+    alt: "Multi-level indoor play structure with slides and tunnels at Fun Factory Play Café Pickering",
   },
   {
-    src: "/gallery/play-structure-overview.webp",
-    alt: "Multi-level indoor play structure at Fun Factory Play Café",
+    src: "/gallery/birthday-party-pink-table.webp",
+    alt: "Pink themed birthday party table setup with balloons and decorations at Fun Factory",
   },
   {
-    src: "/gallery/multi-level-play-area.webp",
-    alt: "Large indoor playground with slides and climbing areas at Fun Factory",
+    src: "/gallery/littles-and-lattes-drinks.webp",
+    alt: "Iced drinks from Littles & Lattés Café inside Fun Factory Play Café",
   },
   {
-    src: "/gallery/indoor-playground-slides.webp",
-    alt: "Blue slides and padded play structure inside Fun Factory Pickering",
+    src: "/gallery/ball-pit-colorful.webp",
+    alt: "Colorful ball pit at Fun Factory indoor playground in Pickering",
   },
   {
-    src: "/gallery/ball-pit.webp",
-    alt: "Colorful ball pit and climbing structure at Fun Factory Play Café",
+    src: "/gallery/birthday-party-winnie.webp",
+    alt: "Winnie the Pooh themed birthday party room at Fun Factory Play Café",
   },
   {
-    src: "/gallery/sports-court.webp",
-    alt: "Indoor sports court with basketball hoop at Fun Factory Play Café",
+    src: "/gallery/parent-seating-area.webp",
+    alt: "Parent seating area with view of the play structure at Fun Factory",
   },
   {
-    src: "/gallery/colorful-play-tunnel.webp",
-    alt: "Colorful crawl-through play tunnel at Fun Factory",
+    src: "/gallery/littles-and-lattes-latte.webp",
+    alt: "Iced latte from Littles & Lattés Café at Fun Factory Pickering",
   },
   {
-    src: "/gallery/candy-walkway.webp",
-    alt: "Candy-themed play walkway with stepping stones at Fun Factory",
+    src: "/gallery/birthday-dessert-table.webp",
+    alt: "Birthday dessert table with balloon arch and cake at Fun Factory",
   },
   {
-    src: "/gallery/climbing-structure.webp",
-    alt: "Themed climbing structure with slides at Fun Factory Play Café",
-  },
-  {
-    src: "/gallery/ball-pit-tunnel.webp",
-    alt: "Play tunnel leading to the ball pit at Fun Factory",
-  },
-  {
-    src: "/gallery/obstacle-course.webp",
-    alt: "Indoor obstacle course with rainbow padded columns at Fun Factory",
-  },
-  {
-    src: "/gallery/play-tunnel-walkway.webp",
-    alt: "Elevated play tunnel walkway inside Fun Factory Play Café",
+    src: "/gallery/padded-roller-bridge.webp",
+    alt: "Ride-on cars and toddler play area at Fun Factory Play Café",
   },
   {
     src: "/gallery/play-structure-wide.webp",
     alt: "Wide view of the indoor play structure at Fun Factory Pickering",
   },
   {
-    src: "/gallery/indoor-playground-wide.webp",
-    alt: "Indoor playground with slides and climbing nets at Fun Factory",
+    src: "/gallery/obstacle-course.webp",
+    alt: "Candy-themed obstacle course inside the play structure at Fun Factory",
   },
   {
-    src: "/gallery/purple-play-zone.webp",
-    alt: "Purple padded play zone with slides at Fun Factory Play Café",
+    src: "/gallery/candy-walkway.webp",
+    alt: "Pink play corridor with stepping stones at Fun Factory",
   },
   {
-    src: "/gallery/play-structure-tubes.webp",
-    alt: "Tube slides and play structure at Fun Factory Play Café",
+    src: "/gallery/play-structure-overview.webp",
+    alt: "Fun Factory Play Café front entrance in Pickering with Littles & Lattés signage",
   },
   {
-    src: "/gallery/pink-play-walkway.webp",
-    alt: "Pink padded play walkway inside Fun Factory",
-  },
-  {
-    src: "/gallery/heart-stepping-walkway.webp",
-    alt: "Heart-themed stepping stone walkway at Fun Factory",
-  },
-  {
-    src: "/gallery/climbing-web-walkway.webp",
-    alt: "Climbing web walkway with colorful steps at Fun Factory",
-  },
-  {
-    src: "/gallery/elevated-play-bridge.webp",
-    alt: "Elevated play bridge with safety netting at Fun Factory",
-  },
-  {
-    src: "/gallery/padded-roller-bridge.webp",
-    alt: "Padded roller obstacle bridge at Fun Factory Play Café",
-  },
-  {
-    src: "/gallery/roller-obstacle-bridge.webp",
-    alt: "Roller obstacles on an elevated play bridge at Fun Factory",
-  },
-  {
-    src: "/gallery/striped-tunnel-play-area.webp",
-    alt: "Striped tunnel play area inside Fun Factory Play Café",
-  },
-  {
-    src: "/gallery/play-area-corridor.webp",
-    alt: "Colorful play area corridor at Fun Factory Pickering",
+    src: "/gallery/climbing-structure.webp",
+    alt: "Pink and blue climbing structure with robot theme at Fun Factory",
   },
 ] as const;
 
