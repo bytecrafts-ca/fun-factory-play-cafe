@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ConversionLink } from "@/components/ConversionLink";
 import { GoogleMap } from "@/components/GoogleMap";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
@@ -85,9 +86,12 @@ export function LocalLandingPage({ page }: Props) {
           <GoogleMap />
           <p className="mt-4 text-center text-sm text-muted">
             {siteConfig.address.full}, Pickering, ON L1W 3R4 ·{" "}
-            <a href={siteConfig.phoneHref} className="font-semibold text-charcoal hover:underline">
+            <ConversionLink
+              href={siteConfig.phoneHref}
+              className="font-semibold text-charcoal hover:underline"
+            >
               {siteConfig.phone}
-            </a>
+            </ConversionLink>
           </p>
           <p className="mt-6 text-center text-sm text-muted">
             <Link href="/resources" className="font-semibold text-charcoal hover:underline">

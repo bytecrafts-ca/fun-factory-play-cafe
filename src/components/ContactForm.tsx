@@ -13,10 +13,8 @@ export function ContactForm() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Littles & Lattés Contact conversion
-    if (subject === "Café Menu") {
-      trackGoogleAdsContactConversion();
-    }
+    // Google Ads Contact conversion (any inquiry form submit)
+    trackGoogleAdsContactConversion();
     setSubmitted(true);
   }
 

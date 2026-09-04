@@ -1,5 +1,6 @@
-import { siteConfig } from "@/lib/site";
+import { ConversionLink } from "@/components/ConversionLink";
 import { IconEmail, IconInstagram } from "@/components/Icons";
+import { siteConfig } from "@/lib/site";
 
 type SocialLinksProps = {
   showLabels?: boolean;
@@ -14,6 +15,7 @@ export function SocialLinks({ showLabels = false, className = "" }: SocialLinksP
       label: siteConfig.email,
       icon: IconEmail,
       external: false,
+      trackContact: true,
     },
     {
       key: "instagram",
@@ -21,6 +23,7 @@ export function SocialLinks({ showLabels = false, className = "" }: SocialLinksP
       label: siteConfig.social.instagram.label,
       icon: IconInstagram,
       external: true,
+      trackContact: false,
     },
     {
       key: "littles",
@@ -28,6 +31,7 @@ export function SocialLinks({ showLabels = false, className = "" }: SocialLinksP
       label: siteConfig.social.littlesInstagram.label,
       icon: IconInstagram,
       external: true,
+      trackContact: true,
     },
   ] as const;
 
@@ -36,20 +40,45 @@ export function SocialLinks({ showLabels = false, className = "" }: SocialLinksP
 
   return (
     <div className={`flex flex-wrap items-center gap-3 ${className}`}>
-      {items.map((item) => (
-        <a
-          key={item.key}
-          href={item.href}
-          target={item.external ? "_blank" : undefined}
-          rel={item.external ? "noopener noreferrer" : undefined}
-          title={item.label}
-          className={linkClass}
-          aria-label={item.label}
-        >
-          <item.icon className="h-5 w-5 shrink-0" />
-          {showLabels && <span>{item.label}</span>}
-        </a>
-      ))}
+      {items.map((item) => {
+        const content = (
+          <>
+            <item.icon className="h-5 w-5 shrink-0" />
+            {showLabels && <span>{item.label}</span>}
+          </>
+        );
+
+        if (item.trackContact) {
+          return (
+            <ConversionLink
+              key={item.key}
+              href={item.href}
+              external={item.external}
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noopener noreferrer" : undefined}
+              className={linkClass}
+              title={item.label}
+              aria-label={item.label}
+            >
+              {content}
+            </ConversionLink>
+          );
+        }
+
+        return (
+          <a
+            key={item.key}
+            href={item.href}
+            target={item.external ? "_blank" : undefined}
+            rel={item.external ? "noopener noreferrer" : undefined}
+            title={item.label}
+            className={linkClass}
+            aria-label={item.label}
+          >
+            {content}
+          </a>
+        );
+      })}
     </div>
   );
 }

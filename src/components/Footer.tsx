@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ConversionLink } from "@/components/ConversionLink";
 import { SocialLinks } from "@/components/SocialLinks";
 import { localGuides } from "@/data/local-guides";
 import { navLinks, siteConfig } from "@/lib/site";
@@ -17,14 +18,17 @@ export function Footer() {
               {siteConfig.address.full}
             </p>
             <p className="mt-2 text-sm">
-              <a href={siteConfig.phoneHref} className="font-semibold text-charcoal">
+              <ConversionLink href={siteConfig.phoneHref} className="font-semibold text-charcoal">
                 {siteConfig.phone}
-              </a>
+              </ConversionLink>
             </p>
             <p className="mt-2 text-sm">
-              <a href={siteConfig.emailHref} className="text-charcoal transition hover:underline">
+              <ConversionLink
+                href={siteConfig.emailHref}
+                className="text-charcoal transition hover:underline"
+              >
                 {siteConfig.email}
-              </a>
+              </ConversionLink>
             </p>
             <div className="mt-4">
               <SocialLinks showLabels />

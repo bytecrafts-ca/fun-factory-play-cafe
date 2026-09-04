@@ -12,12 +12,13 @@ type ConversionLinkProps = {
   external?: boolean;
   target?: string;
   rel?: string;
+  title?: string;
+  "aria-label"?: string;
 };
 
 /**
- * Link that reports the Google Ads Contact conversion (Littles & Lattés) on click.
- * For tel:/mailto:/http(s) destinations, navigation waits for gtag's callback.
- * For internal paths, conversion fires and Next.js Link navigates normally.
+ * Link that reports the Google Ads Contact conversion on click
+ * (same as Google's onclick="return gtag_report_conversion(url)").
  */
 export function ConversionLink({
   href,
@@ -26,6 +27,8 @@ export function ConversionLink({
   external,
   target,
   rel,
+  title,
+  "aria-label": ariaLabel,
 }: ConversionLinkProps) {
   const isInternal = href.startsWith("/") && !href.startsWith("//");
 
@@ -41,7 +44,13 @@ export function ConversionLink({
 
   if (isInternal && !external) {
     return (
-      <Link href={href} className={className} onClick={handleClick}>
+      <Link
+        href={href}
+        className={className}
+        onClick={handleClick}
+        title={title}
+        aria-label={ariaLabel}
+      >
         {children}
       </Link>
     );
@@ -54,6 +63,8 @@ export function ConversionLink({
       onClick={handleClick}
       target={target}
       rel={rel}
+      title={title}
+      aria-label={ariaLabel}
     >
       {children}
     </a>

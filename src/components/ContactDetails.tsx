@@ -1,3 +1,4 @@
+import { ConversionLink } from "@/components/ConversionLink";
 import { siteConfig } from "@/lib/site";
 
 const linkClass = "text-sm font-normal text-muted transition hover:text-charcoal hover:underline";
@@ -19,15 +20,15 @@ export function ContactDetails() {
       </p>
       <p className="text-sm text-muted">
         <span className={labelClass}>Phone:</span>{" "}
-        <a href={siteConfig.phoneHref} className={linkClass}>
+        <ConversionLink href={siteConfig.phoneHref} className={linkClass}>
           {siteConfig.phone}
-        </a>
+        </ConversionLink>
       </p>
       <p className="text-sm text-muted">
         <span className={labelClass}>Email:</span>{" "}
-        <a href={siteConfig.emailHref} className={linkClass}>
+        <ConversionLink href={siteConfig.emailHref} className={linkClass}>
           {siteConfig.email}
-        </a>
+        </ConversionLink>
       </p>
     </div>
   );

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { localGuides } from "@/data/local-guides";
+import { ConversionLink } from "@/components/ConversionLink";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { createPageMetadata, getBreadcrumbSchema, pageSeo } from "@/lib/seo";
@@ -83,13 +84,19 @@ export default function ResourcesPage() {
           <p className="mt-3 text-sm leading-relaxed text-muted">
             {siteConfig.address.full}, Pickering, ON L1W 3R4
             <br />
-            <a href={siteConfig.phoneHref} className="font-semibold text-charcoal hover:underline">
+            <ConversionLink
+              href={siteConfig.phoneHref}
+              className="font-semibold text-charcoal hover:underline"
+            >
               {siteConfig.phone}
-            </a>
+            </ConversionLink>
             {" · "}
-            <a href={siteConfig.emailHref} className="font-semibold text-charcoal hover:underline">
+            <ConversionLink
+              href={siteConfig.emailHref}
+              className="font-semibold text-charcoal hover:underline"
+            >
               {siteConfig.email}
-            </a>
+            </ConversionLink>
           </p>
         </div>
       </section>

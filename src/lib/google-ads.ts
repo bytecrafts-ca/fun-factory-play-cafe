@@ -6,7 +6,7 @@ export const googleAdsPurchaseConversion =
   process.env.NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION ??
   "AW-18425793193/PAR9CJmT3uwcEKmVjdJE";
 
-/** Contact conversion — Littles & Lattés (phone, email, café inquiry) */
+/** Contact conversion — phone / email / café inquiry clicks */
 export const googleAdsContactConversion =
   process.env.NEXT_PUBLIC_GOOGLE_ADS_CONTACT_CONVERSION ??
   "AW-18425793193/u82bCN3-zu0cEKmVjdJE";
@@ -14,6 +14,7 @@ export const googleAdsContactConversion =
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
+    gtag_report_conversion?: (url?: string) => boolean;
   }
 }
 
@@ -34,18 +35,23 @@ export function trackGoogleAdsPurchaseConversion(options?: {
 }
 
 /**
- * Google Ads Contact conversion (Littles & Lattés).
- * Matches Google's gtag_report_conversion snippet: fires conversion, then navigates.
- * Return false from onclick so the browser waits for the callback.
+ * Google Ads Contact conversion.
+ * Prefer the global gtag_report_conversion from the page snippet (Google's exact API).
  */
 export function trackGoogleAdsContactConversion(url?: string): boolean {
+  if (typeof window === "undefined") return false;
+
+  if (typeof window.gtag_report_conversion === "function") {
+    return window.gtag_report_conversion(url);
+  }
+
   const navigate = () => {
     if (typeof url !== "undefined" && url) {
       window.location.href = url;
     }
   };
 
-  if (typeof window === "undefined" || typeof window.gtag !== "function") {
+  if (typeof window.gtag !== "function") {
     navigate();
     return false;
   }

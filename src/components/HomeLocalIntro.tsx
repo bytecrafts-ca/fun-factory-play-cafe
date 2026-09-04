@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ContactDetails } from "@/components/ContactDetails";
+import { ConversionLink } from "@/components/ConversionLink";
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/lib/site";
 
@@ -69,9 +70,12 @@ export function HomeLocalIntro() {
             </div>
             <p className="mt-4 text-sm leading-relaxed text-muted">
               Free parking in the Bayly Street plaza. Call{" "}
-              <a href={siteConfig.phoneHref} className="font-semibold text-charcoal hover:underline">
+              <ConversionLink
+                href={siteConfig.phoneHref}
+                className="font-semibold text-charcoal hover:underline"
+              >
                 {siteConfig.phone}
-              </a>{" "}
+              </ConversionLink>{" "}
               or{" "}
               <Link href="/contact" className="font-semibold text-charcoal hover:underline">
                 contact us online

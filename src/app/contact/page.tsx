@@ -1,5 +1,6 @@
 import { ContactDetails } from "@/components/ContactDetails";
 import { ContactForm } from "@/components/ContactForm";
+import { ConversionLink } from "@/components/ConversionLink";
 import { GoogleMap } from "@/components/GoogleMap";
 import { HoursWidget } from "@/components/HoursWidget";
 import { JsonLd } from "@/components/JsonLd";
@@ -39,9 +40,12 @@ export default function ContactPage() {
                 <p className="mt-4 text-sm leading-relaxed text-muted">
                   Fun Factory Play Café and Littles &amp; Lattés Café share this Pickering location.
                   Call{" "}
-                  <a href={siteConfig.phoneHref} className="text-muted hover:text-charcoal hover:underline">
+                  <ConversionLink
+                    href={siteConfig.phoneHref}
+                    className="text-muted hover:text-charcoal hover:underline"
+                  >
                     {siteConfig.phone}
-                  </a>{" "}
+                  </ConversionLink>{" "}
                   for play, party, or café questions.
                 </p>
               </div>
