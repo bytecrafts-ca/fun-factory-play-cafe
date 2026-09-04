@@ -405,7 +405,7 @@ export const galleryImages = [
 ] as const;
 
 export const googleReviewsSummary = {
-  rating: 4.3,
+  rating: 4.4,
   totalReviews: 680,
   placeId: process.env.GOOGLE_PLACE_ID ?? "ChIJW8V8K9bV1IkR8KqGxqJxJZQ",
 } as const;
