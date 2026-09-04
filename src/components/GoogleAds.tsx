@@ -6,7 +6,8 @@ import {
 
 /**
  * Sitewide Google Ads tag + Contact conversion helper.
- * Matches Google's emailed snippets so Tag Assistant can verify Contact.
+ * gtag_report_conversion stays available for Google Tag Assistant verification.
+ * Site links fire conversion without hijacking tel:/mailto:/Instagram navigation.
  */
 export function GoogleAds() {
   return (
@@ -24,18 +25,18 @@ export function GoogleAds() {
           gtag('config', '${googleAdsId}');
         `}
       </Script>
-      {/* Event snippet for Contact conversion — call gtag_report_conversion on click */}
       <Script id="google-ads-contact-conversion" strategy="afterInteractive">
         {`
           function gtag_report_conversion(url) {
             var callback = function () {
-              if (typeof(url) != 'undefined') {
+              if (typeof(url) != 'undefined' && url) {
                 window.location = url;
               }
             };
             gtag('event', 'conversion', {
               'send_to': '${googleAdsContactConversion}',
-              'event_callback': callback
+              'event_callback': callback,
+              'event_timeout': 2000
             });
             return false;
           }

@@ -8,7 +8,7 @@ type ConversionLinkProps = {
   href: string;
   children: ReactNode;
   className?: string;
-  /** Use for tel:/mailto:/external URLs that should navigate after the conversion fires */
+  /** Use for Instagram / other http(s) links that open in a new tab */
   external?: boolean;
   target?: string;
   rel?: string;
@@ -17,8 +17,8 @@ type ConversionLinkProps = {
 };
 
 /**
- * Link that reports the Google Ads Contact conversion on click
- * (same as Google's onclick="return gtag_report_conversion(url)").
+ * Link that reports the Google Ads Contact conversion on click.
+ * Does NOT hijack navigation — tel:/mailto:/Instagram must work normally.
  */
 export function ConversionLink({
   href,
@@ -32,14 +32,9 @@ export function ConversionLink({
 }: ConversionLinkProps) {
   const isInternal = href.startsWith("/") && !href.startsWith("//");
 
-  function handleClick(e: MouseEvent<HTMLAnchorElement>) {
-    if (isInternal && !external) {
-      trackGoogleAdsContactConversion();
-      return;
-    }
-
-    e.preventDefault();
-    trackGoogleAdsContactConversion(href);
+  function handleClick(_e: MouseEvent<HTMLAnchorElement>) {
+    // Fire-and-forget. Never preventDefault — that breaks phone, email, and IG.
+    trackGoogleAdsContactConversion();
   }
 
   if (isInternal && !external) {

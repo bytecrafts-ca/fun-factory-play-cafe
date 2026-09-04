@@ -35,32 +35,15 @@ export function trackGoogleAdsPurchaseConversion(options?: {
 }
 
 /**
- * Google Ads Contact conversion.
- * Prefer the global gtag_report_conversion from the page snippet (Google's exact API).
+ * Google Ads Contact conversion (fire-and-forget).
+ * Does not navigate — let the browser handle tel:/mailto:/target=_blank.
  */
-export function trackGoogleAdsContactConversion(url?: string): boolean {
-  if (typeof window === "undefined") return false;
+export function trackGoogleAdsContactConversion(): void {
+  if (typeof window === "undefined") return;
 
-  if (typeof window.gtag_report_conversion === "function") {
-    return window.gtag_report_conversion(url);
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "conversion", {
+      send_to: googleAdsContactConversion,
+    });
   }
-
-  const navigate = () => {
-    if (typeof url !== "undefined" && url) {
-      window.location.href = url;
-    }
-  };
-
-  if (typeof window.gtag !== "function") {
-    navigate();
-    return false;
-  }
-
-  window.gtag("event", "conversion", {
-    send_to: googleAdsContactConversion,
-    event_callback: navigate,
-    event_timeout: 2000,
-  });
-
-  return false;
 }
