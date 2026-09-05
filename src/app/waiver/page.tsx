@@ -38,7 +38,7 @@ export default function WaiverPage() {
 
       <section className="section-pad">
         <div className="container-main">
-          <SectionHeading title="Facility rules" accent="mint" />
+          <SectionHeading title="Facility Rules" accent="mint" />
           <ol className="mx-auto mt-10 max-w-3xl list-decimal space-y-4 pl-5 text-sm leading-relaxed text-muted">
             {facilityRules.map((rule) => (
               <li key={rule}>{rule}</li>

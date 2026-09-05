@@ -244,6 +244,7 @@ export const partyPackages = [
     drinks: 20,
     returnPasses: 3,
     color: "lavender" as const,
+    featured: true,
   },
   {
     name: "Extreme Fun Party",

@@ -85,7 +85,7 @@ export function LocalLandingPage({ page }: Props) {
         <div className="container-main">
           <GoogleMap />
           <p className="mt-4 text-center text-sm text-muted">
-            {siteConfig.address.full}, Pickering, ON L1W 3R4 ·{" "}
+            {siteConfig.address.full} ·{" "}
             <ConversionLink
               href={siteConfig.phoneHref}
               className="font-semibold text-charcoal hover:underline"

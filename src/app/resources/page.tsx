@@ -82,7 +82,7 @@ export default function ResourcesPage() {
 
           <h2 className="mt-10 text-xl font-extrabold text-charcoal">Contact</h2>
           <p className="mt-3 text-sm leading-relaxed text-muted">
-            {siteConfig.address.full}, Pickering, ON L1W 3R4
+            {siteConfig.address.full}
             <br />
             <ConversionLink
               href={siteConfig.phoneHref}

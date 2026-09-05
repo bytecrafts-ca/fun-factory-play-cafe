@@ -15,7 +15,7 @@ export function ContactDetails() {
           rel="noopener noreferrer"
           className={linkClass}
         >
-          {siteConfig.address.full}, L1W 3R4
+          {siteConfig.address.full}
         </a>
       </p>
       <p className="text-sm text-muted">

@@ -18,8 +18,15 @@ export function HomeLocalIntro() {
               <strong className="font-semibold text-charcoal">indoor playground</strong> fun,
               {" "}<strong className="font-semibold text-charcoal">kids birthday parties</strong>,
               and parent-friendly café time at{" "}
-              <strong className="font-semibold text-charcoal">{siteConfig.address.full}</strong>,
-              {" "}L1W 3R4. Families from{" "}
+              <strong className="font-semibold text-charcoal">{siteConfig.address.full}</strong>.
+              {" "}Families in{" "}
+              <Link
+                href="/pickering-indoor-playground"
+                className="font-semibold text-charcoal hover:underline"
+              >
+                Pickering
+              </Link>
+              ,{" "}
               <Link href="/ajax-indoor-play" className="font-semibold text-charcoal hover:underline">
                 Ajax
               </Link>
@@ -78,7 +85,7 @@ export function HomeLocalIntro() {
               </ConversionLink>{" "}
               or{" "}
               <Link href="/contact" className="font-semibold text-charcoal hover:underline">
-                contact us online
+                contact us
               </Link>
               .
             </p>
