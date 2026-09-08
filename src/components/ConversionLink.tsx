@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { type MouseEvent, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { trackGoogleAdsContactConversion } from "@/lib/google-ads";
 
 type ConversionLinkProps = {
@@ -32,7 +32,7 @@ export function ConversionLink({
 }: ConversionLinkProps) {
   const isInternal = href.startsWith("/") && !href.startsWith("//");
 
-  function handleClick(_e: MouseEvent<HTMLAnchorElement>) {
+  function handleClick() {
     // Fire-and-forget. Never preventDefault — that breaks phone, email, and IG.
     trackGoogleAdsContactConversion();
   }

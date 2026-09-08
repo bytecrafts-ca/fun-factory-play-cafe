@@ -299,6 +299,123 @@ export const partyTimeSlots = {
   ],
 } as const;
 
+export type PartyTimelineSlot = {
+  slot: string;
+  timeRange: string;
+  begins: string;
+  pizza: string;
+  cake: string;
+  ends: string;
+  note?: string;
+};
+
+export type PartyRoomTimeline = {
+  id: "small" | "large";
+  roomName: string;
+  packageNames: string;
+  capacityText: string;
+  description: string;
+  slots: readonly PartyTimelineSlot[];
+};
+
+export const partyTimelines: readonly PartyRoomTimeline[] = [
+  {
+    id: "small",
+    roomName: "Small Party Room",
+    packageNames: "Fun Party ($399) & Active Fun Party ($499)",
+    capacityText: "10 to 15 children",
+    description:
+      "Used for Fun Party (10 kids, 10 adults) and Active Fun Party (15 kids, 15 adults). 2.5 hours total time in the room.",
+    slots: [
+      {
+        slot: "SLOT 1",
+        timeRange: "9:30 am to 12:00 pm",
+        begins: "9:30 am",
+        pizza: "11:15 am",
+        cake: "11:45 am",
+        ends: "12:00 pm",
+        note: "Pizza at 11:15 am (Pizza Pizza opens at 11:00 am)",
+      },
+      {
+        slot: "SLOT 2",
+        timeRange: "12:15 pm to 2:45 pm",
+        begins: "12:15 pm",
+        pizza: "1:00 pm",
+        cake: "1:30 pm",
+        ends: "2:45 pm",
+      },
+      {
+        slot: "SLOT 3",
+        timeRange: "3:00 pm to 5:30 pm",
+        begins: "3:00 pm",
+        pizza: "4:00 pm",
+        cake: "4:30 pm",
+        ends: "5:30 pm",
+      },
+      {
+        slot: "SLOT 4",
+        timeRange: "5:45 pm to 8:15 pm",
+        begins: "5:45 pm",
+        pizza: "6:30 pm",
+        cake: "7:00 pm",
+        ends: "8:15 pm",
+      },
+    ],
+  },
+  {
+    id: "large",
+    roomName: "Large Party Room",
+    packageNames: "Supreme Fun Party ($599) & Extreme Fun Party ($699)",
+    capacityText: "20 to 30 children",
+    description:
+      "Used for Supreme Fun Party (20 kids, 20 adults) and Extreme Fun Party (30 kids, 30 adults). 2.5 hours total time in the room.",
+    slots: [
+      {
+        slot: "SLOT 1",
+        timeRange: "10:00 am to 12:30 pm",
+        begins: "10:00 am",
+        pizza: "11:15 am",
+        cake: "11:45 am",
+        ends: "12:30 pm",
+        note: "Pizza at 11:15 am (Pizza Pizza opens at 11:00 am)",
+      },
+      {
+        slot: "SLOT 2",
+        timeRange: "12:45 pm to 3:15 pm",
+        begins: "12:45 pm",
+        pizza: "1:30 pm",
+        cake: "2:00 pm",
+        ends: "3:15 pm",
+      },
+      {
+        slot: "SLOT 3",
+        timeRange: "3:30 pm to 6:00 pm",
+        begins: "3:30 pm",
+        pizza: "4:30 pm",
+        cake: "5:00 pm",
+        ends: "6:00 pm",
+      },
+      {
+        slot: "SLOT 4",
+        timeRange: "6:15 pm to 8:45 pm",
+        begins: "6:15 pm",
+        pizza: "7:00 pm",
+        cake: "7:30 pm",
+        ends: "8:45 pm",
+      },
+    ],
+  },
+] as const;
+
+export const partyTimelineNotes = {
+  pizzaRule:
+    "Pizza is served 1 hour after the party starts, except for the 9:30 am and 10:00 am slots where pizza is served at 11:15 am when Pizza Pizza opens. Cake is served 30 minutes after pizza.",
+  vacateRoomRule:
+    "PLEASE NOTE: The party room must be vacated at the designated end time. After the party is over, all guests including the host must exit the party room. No exceptions.",
+  depositRule:
+    "*Non-refundable deposit of $100 + HST is required to confirm your booking. Full payment is required upon the completion of the party.",
+} as const;
+
 export const partyAddOns = [
   "More Pizza",
   "Decorations",
@@ -755,7 +872,7 @@ export function getTodayHours(): DayHours | null {
   return getWeeklyHours()[hoursIndex[dayIndex]] ?? null;
 }
 
-export function getDropInHoursSummary(now = new Date()): string {
+export function getDropInHoursSummary(): string {
   return "We're open Mon & Wed 9:30 am–2:00 pm, Tue & Thu 12:00 pm–7:30 pm, and Fri–Sun 9:30 am–8:30 pm.";
 }
 

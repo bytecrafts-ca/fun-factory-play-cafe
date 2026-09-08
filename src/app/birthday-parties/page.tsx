@@ -1,5 +1,6 @@
 import { JsonLd } from "@/components/JsonLd";
 import { PartyCards } from "@/components/PartyCards";
+import { PartyTimelines } from "@/components/PartyTimelines";
 import { PageHero } from "@/components/PageHero";
 import { ReviewBanner } from "@/components/ReviewBanner";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -57,6 +58,16 @@ const partyFaqs: FaqItem[] = [
       },
     ],
   },
+  {
+    question: "What are the party time slots and how does the timeline work?",
+    segments: [
+      {
+        type: "text",
+        value:
+          "Parties run for 2.5 hours with four slots daily per room. Pizza is served 1 hour into the party (or 11:15 am for morning slots once Pizza Pizza opens), and cake is served 30 minutes after pizza. See the party timelines section above for the full schedule.",
+      },
+    ],
+  },
 ];
 
 export default function BirthdayPartiesPage() {
@@ -98,6 +109,12 @@ export default function BirthdayPartiesPage() {
           <div className="mt-10">
             <PartyCards />
           </div>
+        </div>
+      </section>
+
+      <section id="timelines" className="section-pad bg-white">
+        <div className="container-main">
+          <PartyTimelines />
         </div>
       </section>
 
