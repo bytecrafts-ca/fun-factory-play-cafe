@@ -88,13 +88,13 @@ export type DayHours = {
   promo?: string;
 };
 
-export const hoursScheduleChangeDate = "2026-09-08";
+export const hoursScheduleChangeDate = "2026-09-01";
 
 const weeklyHoursBeforeSept8: DayHours[] = [
-  { day: "Monday", hours: "Closed", closed: true },
-  { day: "Tuesday", hours: "12:00 pm – 7:30 pm", promo: "50% off admissions 3:30–7:30 pm" },
-  { day: "Wednesday", hours: "Closed", closed: true },
-  { day: "Thursday", hours: "12:00 pm – 7:30 pm", promo: "50% off admissions 3:30–7:30 pm" },
+  { day: "Monday", hours: "9:30 am – 2:00 pm" },
+  { day: "Tuesday", hours: "12:00 pm – 7:30 pm", promo: "50% off admissions after 3:30 pm" },
+  { day: "Wednesday", hours: "9:30 am – 2:00 pm" },
+  { day: "Thursday", hours: "12:00 pm – 7:30 pm", promo: "50% off admissions after 3:30 pm" },
   { day: "Friday", hours: "9:30 am – 8:30 pm" },
   { day: "Saturday", hours: "9:30 am – 8:30 pm" },
   { day: "Sunday", hours: "9:30 am – 8:30 pm" },
@@ -138,7 +138,7 @@ export const specialHours: SpecialHours[] = [
   { date: "2026-08-24", hours: "12:00 pm – 8:00 pm" },
   { date: "2026-08-25", hours: "12:00 pm – 8:30 pm" },
   { date: "2026-08-31", hours: "12:00 pm – 7:30 pm" },
-  { date: "2026-09-14", hours: "12:00 pm – 8:30 pm" },
+  { date: "2026-09-14", hours: "9:30 am – 8:30 pm" },
   { date: "2026-09-07", hours: "Closed", closed: true, label: "Labour Day" },
   {
     date: "2026-09-30",
@@ -756,11 +756,7 @@ export function getTodayHours(): DayHours | null {
 }
 
 export function getDropInHoursSummary(now = new Date()): string {
-  const today = getTorontoCalendarDate(now);
-  if (today >= hoursScheduleChangeDate) {
-    return "We're open Mon & Wed 9:30 am–2:00 pm, Tue & Thu 12:00 pm–7:30 pm, and Fri–Sun 9:30 am–8:30 pm.";
-  }
-  return "We're open Fri–Sun 9:30 am–8:30 pm and Tue & Thu 12:00 pm–7:30 pm. Mon & Wed are closed. Starting Monday, September 8, Mon & Wed open 9:30 am–2:00 pm.";
+  return "We're open Mon & Wed 9:30 am–2:00 pm, Tue & Thu 12:00 pm–7:30 pm, and Fri–Sun 9:30 am–8:30 pm.";
 }
 
 export function formatSpecialHoursDate(dateStr: string, label?: string): string {

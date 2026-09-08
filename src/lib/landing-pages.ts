@@ -224,7 +224,7 @@ export const landingPages: LandingPage[] = [
     },
     ctas: [
       { label: "Compare Party Packages", href: "/birthday-parties" },
-      { label: "Book a Party", href: "https://the-fun-factory.book.app/book-now", external: true, variant: "lavender" },
+      { label: "Book Online", href: "https://the-fun-factory.book.app/book-now", external: true, variant: "lavender" },
     ],
     sections: [
       {

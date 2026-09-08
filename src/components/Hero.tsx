@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { HoursWidget } from "@/components/HoursWidget";
 import { PageHero } from "@/components/PageHero";
-import { getPartyBookingUrl, siteConfig, siteRoutes } from "@/lib/site";
+import { siteConfig, siteRoutes } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -21,9 +21,6 @@ export function Hero() {
         </Button>
         <Button href="/cafe" variant="secondary" size="lg">
           Café Menu
-        </Button>
-        <Button href={getPartyBookingUrl()} external variant="secondary" size="lg">
-          Book a Party
         </Button>
       </div>
     </PageHero>
