@@ -334,7 +334,6 @@ export const partyTimelines: readonly PartyRoomTimeline[] = [
         pizza: "11:15 am",
         cake: "11:45 am",
         ends: "12:00 pm",
-        note: "Pizza at 11:15 am (Pizza Pizza opens at 11:00 am)",
       },
       {
         slot: "SLOT 2",
@@ -377,7 +376,6 @@ export const partyTimelines: readonly PartyRoomTimeline[] = [
         pizza: "11:15 am",
         cake: "11:45 am",
         ends: "12:30 pm",
-        note: "Pizza at 11:15 am (Pizza Pizza opens at 11:00 am)",
       },
       {
         slot: "SLOT 2",
@@ -409,7 +407,7 @@ export const partyTimelines: readonly PartyRoomTimeline[] = [
 
 export const partyTimelineNotes = {
   pizzaRule:
-    "Pizza is served 1 hour after the party starts, except for the 9:30 am and 10:00 am slots where pizza is served at 11:15 am when Pizza Pizza opens. Cake is served 30 minutes after pizza.",
+    "Pizza is served 1 hour after the party starts. Cake is served 30 minutes after pizza.",
   vacateRoomRule:
     "PLEASE NOTE: The party room must be vacated at the designated end time. After the party is over, all guests including the host must exit the party room. No exceptions.",
   depositRule:

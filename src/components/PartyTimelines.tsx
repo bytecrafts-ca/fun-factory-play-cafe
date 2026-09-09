@@ -9,34 +9,39 @@ import {
   type PartyRoomTimeline,
 } from "@/lib/site";
 
+/** Pastel brand colors matching Fun Factory logo palette */
 const rowStyles = [
   {
-    bg: "bg-[#d81b60]",
-    border: "border-[#c2185b]",
-    badgeBg: "bg-white/25 text-white",
-    cardBorder: "border-[#d81b60]/40",
-    pillColor: "bg-[#d81b60]",
+    bg: "bg-bubblegum",
+    border: "border-bubblegum/60",
+    badgeBg: "bg-white/70 text-charcoal",
+    cellBorder: "border-charcoal/10",
+    muted: "text-charcoal/70",
+    pill: "bg-white/50",
   },
   {
-    bg: "bg-[#2e7d32]",
-    border: "border-[#1b5e20]",
-    badgeBg: "bg-white/25 text-white",
-    cardBorder: "border-[#2e7d32]/40",
-    pillColor: "bg-[#2e7d32]",
+    bg: "bg-mint",
+    border: "border-mint/60",
+    badgeBg: "bg-white/70 text-charcoal",
+    cellBorder: "border-charcoal/10",
+    muted: "text-charcoal/70",
+    pill: "bg-white/50",
   },
   {
-    bg: "bg-[#e65100]",
-    border: "border-[#bf360c]",
-    badgeBg: "bg-white/25 text-white",
-    cardBorder: "border-[#e65100]/40",
-    pillColor: "bg-[#e65100]",
+    bg: "bg-peach",
+    border: "border-peach/60",
+    badgeBg: "bg-white/70 text-charcoal",
+    cellBorder: "border-charcoal/10",
+    muted: "text-charcoal/70",
+    pill: "bg-white/50",
   },
   {
-    bg: "bg-[#283593]",
-    border: "border-[#1a237e]",
-    badgeBg: "bg-white/25 text-white",
-    cardBorder: "border-[#283593]/40",
-    pillColor: "bg-[#283593]",
+    bg: "bg-sky",
+    border: "border-sky/60",
+    badgeBg: "bg-white/70 text-charcoal",
+    cellBorder: "border-charcoal/10",
+    muted: "text-charcoal/70",
+    pill: "bg-white/50",
   },
 ];
 
@@ -48,7 +53,6 @@ export function PartyTimelines() {
 
   return (
     <div className="mx-auto max-w-5xl">
-      {/* Header */}
       <div className="text-center">
         <span className="inline-block rounded-full bg-lavender/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-charcoal">
           Room Schedules
@@ -62,12 +66,11 @@ export function PartyTimelines() {
         </p>
       </div>
 
-      {/* Room Toggle Tabs */}
       <div className="mt-8 flex justify-center">
         <div
           role="tablist"
           aria-label="Party Rooms"
-          className="inline-flex rounded-full border border-peach/70 bg-cream p-1.5 shadow-xs"
+          className="inline-flex rounded-full border border-peach/70 bg-cream p-1.5"
         >
           {partyTimelines.map((room) => {
             const active = room.id === selectedRoomId;
@@ -80,8 +83,8 @@ export function PartyTimelines() {
                 onClick={() => setSelectedRoomId(room.id)}
                 className={`rounded-full px-4 py-2 text-xs font-bold transition sm:px-6 sm:text-sm ${
                   active
-                    ? "bg-charcoal text-white shadow-xs"
-                    : "text-charcoal/80 hover:text-charcoal hover:bg-peach/30"
+                    ? "bg-charcoal text-white"
+                    : "text-charcoal/80 hover:bg-peach/30 hover:text-charcoal"
                 }`}
               >
                 {room.roomName}
@@ -91,7 +94,6 @@ export function PartyTimelines() {
         </div>
       </div>
 
-      {/* Selected Room Summary */}
       <div className="mt-5 rounded-2xl border border-peach/50 bg-peach/15 px-5 py-4 text-center">
         <p className="text-sm font-semibold text-charcoal sm:text-base">
           <span className="font-extrabold">{currentRoom.roomName}:</span> {currentRoom.packageNames}
@@ -104,7 +106,6 @@ export function PartyTimelines() {
       {/* Desktop / Tablet Timeline Table */}
       <div className="mt-8 hidden md:block">
         <div className="overflow-hidden rounded-2xl border border-charcoal/10 bg-white shadow-sm">
-          {/* Table Top Banner */}
           <div className="border-b border-charcoal/10 bg-gradient-to-r from-lavender/30 via-cream to-peach/30 px-6 py-3.5 text-center">
             <h3 className="text-sm font-extrabold uppercase tracking-wider text-charcoal">
               {currentRoom.roomName.toUpperCase()} · 4 DAILY TIME SLOTS
@@ -112,7 +113,7 @@ export function PartyTimelines() {
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[700px] border-collapse text-white">
+            <table className="w-full min-w-[700px] border-collapse text-charcoal">
               <thead>
                 <tr className="border-b border-charcoal/10 bg-cream text-left text-xs font-bold uppercase tracking-wider text-charcoal">
                   <th scope="col" className="w-[26%] px-5 py-3">
@@ -132,47 +133,44 @@ export function PartyTimelines() {
                   </th>
                 </tr>
               </thead>
-              <tbody className="space-y-1 p-2">
+              <tbody>
                 {currentRoom.slots.map((item, index) => {
                   const style = rowStyles[index % rowStyles.length];
                   return (
                     <tr
                       key={item.slot}
-                      className={`${style.bg} border-b border-white/10 last:border-b-0 transition hover:brightness-105`}
+                      className={`${style.bg} border-b border-charcoal/5 last:border-b-0 transition hover:brightness-[0.98]`}
                     >
-                      <td className="border-r border-white/20 px-5 py-4.5">
+                      <td className={`border-r ${style.cellBorder} px-5 py-4.5`}>
                         <span
                           className={`inline-block rounded-md px-2 py-0.5 text-[11px] font-extrabold uppercase tracking-wider ${style.badgeBg}`}
                         >
                           {item.slot}
                         </span>
-                        <p className="mt-1 text-sm font-bold tracking-tight text-white">
+                        <p className="mt-1 text-sm font-bold tracking-tight text-charcoal">
                           {item.timeRange}
                         </p>
-                        <p className="text-[11px] text-white/80">2.5 hours total</p>
+                        <p className={`text-[11px] ${style.muted}`}>2.5 hours total</p>
                       </td>
 
-                      <td className="border-r border-white/20 px-4 py-4.5 text-center">
-                        <p className="text-base font-extrabold text-white">{item.begins}</p>
-                        <p className="text-xs font-medium text-white/85">Party Begins</p>
+                      <td className={`border-r ${style.cellBorder} px-4 py-4.5 text-center`}>
+                        <p className="text-base font-extrabold text-charcoal">{item.begins}</p>
+                        <p className={`text-xs font-medium ${style.muted}`}>Party Begins</p>
                       </td>
 
-                      <td className="border-r border-white/20 px-4 py-4.5 text-center">
-                        <p className="text-base font-extrabold text-white">{item.pizza}</p>
-                        <p className="text-xs font-medium text-white/85">Pizza Time</p>
-                        {item.note && (
-                          <p className="mt-0.5 text-[10px] text-white/85">Pizza Pizza opens 11 am</p>
-                        )}
+                      <td className={`border-r ${style.cellBorder} px-4 py-4.5 text-center`}>
+                        <p className="text-base font-extrabold text-charcoal">{item.pizza}</p>
+                        <p className={`text-xs font-medium ${style.muted}`}>Pizza Time</p>
                       </td>
 
-                      <td className="border-r border-white/20 px-4 py-4.5 text-center">
-                        <p className="text-base font-extrabold text-white">{item.cake}</p>
-                        <p className="text-xs font-medium text-white/85">Cake Time</p>
+                      <td className={`border-r ${style.cellBorder} px-4 py-4.5 text-center`}>
+                        <p className="text-base font-extrabold text-charcoal">{item.cake}</p>
+                        <p className={`text-xs font-medium ${style.muted}`}>Cake Time</p>
                       </td>
 
                       <td className="px-4 py-4.5 text-center">
-                        <p className="text-base font-extrabold text-white">{item.ends}</p>
-                        <p className="text-xs font-medium text-white/85">Party Ends</p>
+                        <p className="text-base font-extrabold text-charcoal">{item.ends}</p>
+                        <p className={`text-xs font-medium ${style.muted}`}>Party Ends</p>
                       </td>
                     </tr>
                   );
@@ -183,48 +181,43 @@ export function PartyTimelines() {
         </div>
       </div>
 
-      {/* Mobile Card Timeline View (< md) */}
+      {/* Mobile Card Timeline View */}
       <div className="mt-6 space-y-3.5 md:hidden">
         {currentRoom.slots.map((item, index) => {
           const style = rowStyles[index % rowStyles.length];
           return (
             <div
               key={item.slot}
-              className={`rounded-2xl p-4.5 text-white shadow-sm ${style.bg}`}
+              className={`rounded-2xl border ${style.border} p-4.5 text-charcoal shadow-sm ${style.bg}`}
             >
-              {/* Card Header */}
-              <div className="flex items-center justify-between border-b border-white/20 pb-3">
+              <div className={`flex items-center justify-between border-b ${style.cellBorder} pb-3`}>
                 <span
                   className={`rounded-md px-2.5 py-0.5 text-xs font-extrabold uppercase tracking-wider ${style.badgeBg}`}
                 >
                   {item.slot}
                 </span>
-                <span className="text-sm font-bold text-white">{item.timeRange}</span>
+                <span className="text-sm font-bold text-charcoal">{item.timeRange}</span>
               </div>
 
-              {/* Milestones Grid */}
               <div className="mt-3.5 grid grid-cols-2 gap-3 text-center sm:grid-cols-4">
-                <div className="rounded-xl bg-black/10 p-2.5">
-                  <p className="text-sm font-extrabold text-white">{item.begins}</p>
-                  <p className="text-[11px] font-medium text-white/85">Party Begins</p>
+                <div className={`rounded-xl ${style.pill} p-2.5`}>
+                  <p className="text-sm font-extrabold text-charcoal">{item.begins}</p>
+                  <p className={`text-[11px] font-medium ${style.muted}`}>Party Begins</p>
                 </div>
 
-                <div className="rounded-xl bg-black/10 p-2.5">
-                  <p className="text-sm font-extrabold text-white">{item.pizza}</p>
-                  <p className="text-[11px] font-medium text-white/85">Pizza Time</p>
-                  {item.note && (
-                    <p className="mt-0.5 text-[9px] text-white/80">Opens 11 am</p>
-                  )}
+                <div className={`rounded-xl ${style.pill} p-2.5`}>
+                  <p className="text-sm font-extrabold text-charcoal">{item.pizza}</p>
+                  <p className={`text-[11px] font-medium ${style.muted}`}>Pizza Time</p>
                 </div>
 
-                <div className="rounded-xl bg-black/10 p-2.5">
-                  <p className="text-sm font-extrabold text-white">{item.cake}</p>
-                  <p className="text-[11px] font-medium text-white/85">Cake Time</p>
+                <div className={`rounded-xl ${style.pill} p-2.5`}>
+                  <p className="text-sm font-extrabold text-charcoal">{item.cake}</p>
+                  <p className={`text-[11px] font-medium ${style.muted}`}>Cake Time</p>
                 </div>
 
-                <div className="rounded-xl bg-black/10 p-2.5">
-                  <p className="text-sm font-extrabold text-white">{item.ends}</p>
-                  <p className="text-[11px] font-medium text-white/85">Party Ends</p>
+                <div className={`rounded-xl ${style.pill} p-2.5`}>
+                  <p className="text-sm font-extrabold text-charcoal">{item.ends}</p>
+                  <p className={`text-[11px] font-medium ${style.muted}`}>Party Ends</p>
                 </div>
               </div>
             </div>
@@ -232,8 +225,7 @@ export function PartyTimelines() {
         })}
       </div>
 
-      {/* Policy and Timing Notes Box (Requested by Zak) */}
-      <div className="mt-8 space-y-3 rounded-2xl border border-charcoal/15 bg-white p-5 sm:p-6 shadow-xs">
+      <div className="mt-8 space-y-3 rounded-2xl border border-charcoal/15 bg-white p-5 sm:p-6">
         <div className="flex items-start gap-3">
           <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-peach text-xs font-bold text-charcoal">
             i
@@ -263,14 +255,8 @@ export function PartyTimelines() {
         </div>
       </div>
 
-      {/* Action Button */}
       <div className="mt-8 text-center">
-        <Button
-          href={getPartyBookingUrl()}
-          external
-          variant="lavender"
-          size="lg"
-        >
+        <Button href={getPartyBookingUrl()} external variant="lavender" size="lg">
           Book Your Party Slot
         </Button>
       </div>
