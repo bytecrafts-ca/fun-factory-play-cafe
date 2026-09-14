@@ -246,6 +246,16 @@ export function PartyTimelines() {
         </div>
 
         <div className="flex items-start gap-3 border-t border-border pt-3">
+          <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-lavender text-xs font-bold text-charcoal">
+            +
+          </span>
+          <p className="text-xs leading-relaxed text-charcoal sm:text-sm">
+            <strong className="font-bold">Pancake Parties:</strong>{" "}
+            {partyTimelineNotes.pancakeParties}
+          </p>
+        </div>
+
+        <div className="flex items-start gap-3 border-t border-border pt-3">
           <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint text-xs font-bold text-charcoal">
             $
           </span>

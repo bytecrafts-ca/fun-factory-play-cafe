@@ -64,7 +64,7 @@ const partyFaqs: FaqItem[] = [
       {
         type: "text",
         value:
-          "Parties run for 2.5 hours with four slots daily per room. Pizza is served 1 hour into the party, and cake is served 30 minutes after pizza. See the party timelines section above for the full schedule.",
+          "Parties run for 2.5 hours with four slots daily per room. Pizza is served 1 hour after the party starts, except for morning parties where pizza is served after 11:00 am. Cake is served 30 minutes after pizza. See the party timelines section above for the full schedule.",
       },
     ],
   },
