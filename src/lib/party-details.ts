@@ -18,7 +18,7 @@ export function getPartyPackageDetails(pkg: PartyDetailInput): string[] {
   lines.push(
     pkg.pizzas,
     pkg.cake,
-    `${pkg.drinks} juices (juice boxes / water bottles)`,
+    `${pkg.drinks} juices and water bottles`,
     "Plates, napkins, cutlery",
     "Party host, PA announcement, setup & cleanup",
     "E-invites included",

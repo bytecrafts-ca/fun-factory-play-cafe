@@ -150,6 +150,7 @@ export const specialHours: SpecialHours[] = [
     hours: "9:30 am – 12:30 pm, 4:30 pm – 8:30 pm",
     label: "Closed 1:00–4:00 pm for facility booking",
   },
+  { date: "2026-10-24", hours: "12:30 pm – 8:30 pm" },
 ];
 
 export const admissions = [
@@ -412,10 +413,11 @@ export const partyTimelines: readonly PartyRoomTimeline[] = [
 export const partyTimelineNotes = {
   pizzaRule:
     "Pizza is served 1 hour after the party starts, except for morning parties where pizza is served after 11:00 am (11:15 am). Cake is served 30 minutes after pizza.",
-  vacateRoomRule:
-    "PLEASE NOTE: The party room must be vacated at the designated end time. After the party is over, all guests including the host must exit the party room. No exceptions.",
-  depositRule:
-    "*Non-refundable deposit of $100 + HST is required to confirm your booking. Full payment is required upon the completion of the party.",
+  vacateRoomBody:
+    "The party room must be vacated at the designated end time. After the party is over, all guests including the host must exit the party room. No exceptions.",
+  depositBold: "Non-refundable deposit of $100 + HST",
+  depositRest:
+    " is required to confirm your booking. Full payment is required upon the completion of the party.",
   pancakeParties: "Pancake parties are available. Ask us when you book.",
 } as const;
 

@@ -123,10 +123,10 @@ export function PartyTimelines() {
                     Party Begins
                   </th>
                   <th scope="col" className="w-[18.5%] px-4 py-3 text-center">
-                    Pizza Time
+                    Pizza
                   </th>
                   <th scope="col" className="w-[18.5%] px-4 py-3 text-center">
-                    Cake Time
+                    Cake
                   </th>
                   <th scope="col" className="w-[18.5%] px-4 py-3 text-center">
                     Party Ends
@@ -155,22 +155,18 @@ export function PartyTimelines() {
 
                       <td className={`border-r ${style.cellBorder} px-4 py-4.5 text-center`}>
                         <p className="text-base font-extrabold text-charcoal">{item.begins}</p>
-                        <p className={`text-xs font-medium ${style.muted}`}>Party Begins</p>
                       </td>
 
                       <td className={`border-r ${style.cellBorder} px-4 py-4.5 text-center`}>
                         <p className="text-base font-extrabold text-charcoal">{item.pizza}</p>
-                        <p className={`text-xs font-medium ${style.muted}`}>Pizza Time</p>
                       </td>
 
                       <td className={`border-r ${style.cellBorder} px-4 py-4.5 text-center`}>
                         <p className="text-base font-extrabold text-charcoal">{item.cake}</p>
-                        <p className={`text-xs font-medium ${style.muted}`}>Cake Time</p>
                       </td>
 
                       <td className="px-4 py-4.5 text-center">
                         <p className="text-base font-extrabold text-charcoal">{item.ends}</p>
-                        <p className={`text-xs font-medium ${style.muted}`}>Party Ends</p>
                       </td>
                     </tr>
                   );
@@ -201,23 +197,31 @@ export function PartyTimelines() {
 
               <div className="mt-3.5 grid grid-cols-2 gap-3 text-center sm:grid-cols-4">
                 <div className={`rounded-xl ${style.pill} p-2.5`}>
+                  <p className="text-[10px] font-semibold uppercase tracking-wide text-charcoal/60">
+                    Begins
+                  </p>
                   <p className="text-sm font-extrabold text-charcoal">{item.begins}</p>
-                  <p className={`text-[11px] font-medium ${style.muted}`}>Party Begins</p>
                 </div>
 
                 <div className={`rounded-xl ${style.pill} p-2.5`}>
+                  <p className="text-[10px] font-semibold uppercase tracking-wide text-charcoal/60">
+                    Pizza
+                  </p>
                   <p className="text-sm font-extrabold text-charcoal">{item.pizza}</p>
-                  <p className={`text-[11px] font-medium ${style.muted}`}>Pizza Time</p>
                 </div>
 
                 <div className={`rounded-xl ${style.pill} p-2.5`}>
+                  <p className="text-[10px] font-semibold uppercase tracking-wide text-charcoal/60">
+                    Cake
+                  </p>
                   <p className="text-sm font-extrabold text-charcoal">{item.cake}</p>
-                  <p className={`text-[11px] font-medium ${style.muted}`}>Cake Time</p>
                 </div>
 
                 <div className={`rounded-xl ${style.pill} p-2.5`}>
+                  <p className="text-[10px] font-semibold uppercase tracking-wide text-charcoal/60">
+                    Ends
+                  </p>
                   <p className="text-sm font-extrabold text-charcoal">{item.ends}</p>
-                  <p className={`text-[11px] font-medium ${style.muted}`}>Party Ends</p>
                 </div>
               </div>
             </div>
@@ -240,8 +244,9 @@ export function PartyTimelines() {
           <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sunshine text-xs font-bold text-charcoal">
             !
           </span>
-          <p className="text-xs font-bold leading-relaxed text-charcoal sm:text-sm">
-            {partyTimelineNotes.vacateRoomRule}
+          <p className="text-xs leading-relaxed text-charcoal sm:text-sm">
+            <strong className="font-bold">Please Note:</strong>{" "}
+            {partyTimelineNotes.vacateRoomBody}
           </p>
         </div>
 
@@ -259,8 +264,9 @@ export function PartyTimelines() {
           <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint text-xs font-bold text-charcoal">
             $
           </span>
-          <p className="text-xs leading-relaxed text-muted sm:text-sm">
-            {partyTimelineNotes.depositRule}
+          <p className="text-xs leading-relaxed text-charcoal sm:text-sm">
+            <strong className="font-bold">{partyTimelineNotes.depositBold}</strong>
+            {partyTimelineNotes.depositRest}
           </p>
         </div>
       </div>
