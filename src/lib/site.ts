@@ -644,7 +644,7 @@ export const cafeMenu = {
       name: "Chai Latte",
       description: "Warm spices and black tea blended with milk for the perfect cozy sip.",
       image: "/cafe/chai-latte.webp",
-      hotPrice: 5.5,
+      hotPrice: 5,
       coldPrice: 6,
     },
     {
@@ -666,7 +666,7 @@ export const cafeMenu = {
     {
       name: "Strawberry Matcha Latte",
       description:
-        "Sweet strawberry goodness paired with our signature strawberry cold foam matcha latte. Fruity, creamy, and oh-so-refreshing!",
+        "Sweet strawberry goodness paired with our signature matcha latte. Fruity, creamy, and oh-so-refreshing!",
       image: "/cafe/strawberry-matcha.webp",
       coldPrice: 6.5,
     },
@@ -708,22 +708,35 @@ export const cafeMenu = {
     { name: "Black Tea", price: 3 },
     { name: "Earl Grey", price: 3 },
     { name: "Peppermint Tea", price: 3 },
+    { name: "Chamomile", price: 3 },
+    { name: "London Fog", price: 4.5 },
   ],
-  hotChocolate: [{ name: "Hot Chocolate", price: 4 }],
+  hotChocolate: [
+    { name: "Hot Chocolate", price: 4 },
+    { name: "White Hot Chocolate", price: 4.5 },
+  ],
   addOns: [
     {
       name: "Syrups",
-      description: "Vanilla, Caramel, Strawberry",
+      description: "Vanilla, Caramel, Strawberry, Hazelnut, Brown Sugar, Maple, Mocha, White Chocolate",
       price: 0.5,
     },
     {
       name: "Cold Foam",
-      description: "Vanilla, Caramel, Strawberry, Chocolate",
+      description: "Vanilla, Caramel, Strawberry, Chocolate, Brown Sugar, Matcha, Salted Caramel",
       price: 1,
     },
     {
       name: "Oat Milk",
       price: 0.5,
+    },
+    {
+      name: "Whipped Cream",
+      price: 0.5,
+    },
+    {
+      name: "Extra Shot",
+      price: 1,
     },
   ],
   menuBoards: [
@@ -731,19 +744,19 @@ export const cafeMenu = {
       src: "/cafe/full-menu.webp",
       alt: "Littles & Lattés full café menu with pricing",
       width: 1024,
-      height: 1024,
+      height: 768,
     },
     {
       src: "/cafe/specialty-lattes-menu.webp",
       alt: "Littles & Lattés specialty iced lattes menu",
       width: 1024,
-      height: 1024,
+      height: 768,
     },
     {
       src: "/cafe/matcha-menu.webp",
       alt: "Littles & Lattés matcha drinks menu",
       width: 1024,
-      height: 1024,
+      height: 768,
     },
   ],
 } as const;

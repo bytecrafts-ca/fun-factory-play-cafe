@@ -42,7 +42,7 @@ export function CafeMenuBoards({ boards }: { boards: readonly MenuBoard[] }) {
             className="card group cursor-zoom-in p-2 text-left transition hover:ring-2 hover:ring-sky/50"
             aria-label={`View full size: ${image.alt}`}
           >
-            <div className="aspect-square rounded-[12px] bg-peach/10 p-3">
+            <div className="aspect-[4/3] rounded-[12px] bg-peach/10 p-3">
               <Image
                 src={image.src}
                 alt={image.alt}
