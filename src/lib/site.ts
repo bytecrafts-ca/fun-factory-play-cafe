@@ -412,7 +412,7 @@ export const partyTimelines: readonly PartyRoomTimeline[] = [
 
 export const partyTimelineNotes = {
   pizzaRule:
-    "Pizza is served 1 hour after the party starts, except for morning parties where pizza is served after 11:00 am (11:15 am). Cake is served 30 minutes after pizza.",
+    "Pizza is served 30 minutes after the party starts, except for morning parties where pizza is served at 11:15 am. Cake is served 30 minutes after pizza.",
   vacateRoomBody:
     "The party room must be vacated at the designated end time. After the party is over, all guests including the host must exit the party room. No exceptions.",
   depositBold: "Non-refundable deposit of $100 + HST",
@@ -731,19 +731,19 @@ export const cafeMenu = {
       src: "/cafe/full-menu.webp",
       alt: "Littles & Lattés full café menu with pricing",
       width: 1024,
-      height: 576,
+      height: 1024,
     },
     {
       src: "/cafe/specialty-lattes-menu.webp",
       alt: "Littles & Lattés specialty iced lattes menu",
       width: 1024,
-      height: 768,
+      height: 1024,
     },
     {
       src: "/cafe/matcha-menu.webp",
       alt: "Littles & Lattés matcha drinks menu",
       width: 1024,
-      height: 819,
+      height: 1024,
     },
   ],
 } as const;
