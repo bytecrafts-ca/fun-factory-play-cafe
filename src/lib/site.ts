@@ -149,7 +149,6 @@ export const specialHours: SpecialHours[] = [
   {
     date: "2026-12-11",
     hours: "9:30 am – 12:30 pm, 4:30 pm – 8:30 pm",
-    label: "Closed 1:00–4:00 pm for facility booking",
   },
   { date: "2026-10-24", hours: "12:30 pm – 8:30 pm" },
 ];
