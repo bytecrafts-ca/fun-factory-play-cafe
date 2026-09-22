@@ -14,11 +14,8 @@ export function HomeLocalIntro() {
         <div className="mt-6 grid gap-8 lg:grid-cols-2 lg:items-start">
           <div className="space-y-4 text-sm leading-relaxed text-muted sm:text-base">
             <p>
-              Fun Factory Play Café is Pickering&apos;s destination for{" "}
-              <strong className="font-semibold text-charcoal">indoor playground</strong> fun,
-              {" "}<strong className="font-semibold text-charcoal">kids birthday parties</strong>,
-              and parent-friendly café time at{" "}
-              <strong className="font-semibold text-charcoal">{siteConfig.address.full}</strong>.
+              Fun Factory Play Café is Pickering&apos;s destination for indoor playground fun,
+              kids birthday parties, and parent-friendly café time at {siteConfig.address.full}.
               {" "}Families in{" "}
               <Link
                 href="/pickering-indoor-playground"
@@ -34,7 +31,18 @@ export function HomeLocalIntro() {
               <Link href="/whitby-kids-parties" className="font-semibold text-charcoal hover:underline">
                 Whitby
               </Link>
-              , Oshawa, Scarborough, and across{" "}
+              ,{" "}
+              <Link
+                href="/durham-region-birthday-parties"
+                className="font-semibold text-charcoal hover:underline"
+              >
+                Oshawa
+              </Link>
+              ,{" "}
+              <Link href="/ajax-indoor-play" className="font-semibold text-charcoal hover:underline">
+                Scarborough
+              </Link>
+              , and across{" "}
               <Link
                 href="/durham-region-birthday-parties"
                 className="font-semibold text-charcoal hover:underline"

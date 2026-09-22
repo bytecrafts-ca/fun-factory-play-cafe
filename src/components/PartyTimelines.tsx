@@ -273,7 +273,7 @@ export function PartyTimelines() {
 
       <div className="mt-8 text-center">
         <Button href={getPartyBookingUrl()} external variant="lavender" size="lg">
-          Book Your Party Slot
+          Book Now
         </Button>
       </div>
     </div>

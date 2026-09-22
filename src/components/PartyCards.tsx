@@ -46,7 +46,7 @@ export function PartyCards() {
                 size="md"
                 className="w-full text-sm"
               >
-                Book This Party
+                Book Now
               </Button>
             </div>
           </article>
@@ -81,7 +81,7 @@ export function PartyCards() {
             size="md"
             className="w-full text-sm"
           >
-            Book This Party
+            Book Now
           </Button>
         </div>
       </article>

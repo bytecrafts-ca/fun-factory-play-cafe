@@ -8,13 +8,9 @@ export function PartyDecor() {
     <div className="mx-auto max-w-6xl">
       <SectionHeading
         title="Party Decor"
-        subtitle="Let's style your party. Single backdrop decor packages available for celebrations booked at Fun Factory."
+        subtitle={partyDecorPartner.intro}
         accent="peach"
       />
-
-      <p className="mx-auto mt-6 max-w-3xl text-center text-sm leading-relaxed text-muted sm:text-base">
-        {partyDecorPartner.intro}
-      </p>
 
       <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {partyDecorPackages.map((pkg) => (
@@ -47,21 +43,17 @@ export function PartyDecor() {
       </div>
 
       <div className="mt-10 rounded-2xl border border-peach/50 bg-peach/15 px-5 py-6 text-center sm:px-8">
-        <p className="text-sm font-semibold text-charcoal sm:text-base">
-          {partyDecorPartner.ctaHeading}
-        </p>
-        <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-          {partyDecorPartner.ctaBody}
+        <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+          {partyDecorPartner.note}
         </p>
         <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
           <Button href={partyDecorPartner.instagramHref} external variant="lavender" size="md">
             Instagram {partyDecorPartner.instagramLabel}
           </Button>
           <Button href={partyDecorPartner.phoneHref} variant="outline" size="md">
-            Text {partyDecorPartner.phone}
+            Call {partyDecorPartner.phone}
           </Button>
         </div>
-        <p className="mt-5 text-xs leading-relaxed text-muted">{partyDecorPartner.footnote}</p>
       </div>
     </div>
   );

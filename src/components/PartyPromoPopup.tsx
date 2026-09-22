@@ -94,7 +94,7 @@ export function PartyPromoPopup() {
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
           <Button href={getPartyBookingUrl()} external variant="lavender" size="md">
-            Book a Party
+            Book Now
           </Button>
           <Link
             href="/birthday-parties"

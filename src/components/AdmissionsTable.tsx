@@ -33,12 +33,11 @@ export function AdmissionsTable({ showNotes = true }: { showNotes?: boolean }) {
         <AccessTwoCallout />
       </div>
 
-      <p className="mt-4 text-sm leading-relaxed text-muted">{playRatesNote}</p>
-
-      {showNotes && (
-        <ul className="mt-6 space-y-2 text-sm text-muted">
-          {admissionNotes.map((note) => (
-            <li key={note} className="leading-relaxed">
+      <ul className="mt-4 space-y-2 text-sm leading-relaxed text-muted">
+        <li>{playRatesNote}</li>
+        {showNotes &&
+          admissionNotes.map((note) => (
+            <li key={note}>
               {note === "A signed waiver is required before entry" ? (
                 <>
                   A signed{" "}
@@ -58,8 +57,7 @@ export function AdmissionsTable({ showNotes = true }: { showNotes?: boolean }) {
               )}
             </li>
           ))}
-        </ul>
-      )}
+      </ul>
     </div>
   );
 }

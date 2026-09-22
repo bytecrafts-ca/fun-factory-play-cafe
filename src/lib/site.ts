@@ -139,13 +139,7 @@ export const specialHours: SpecialHours[] = [
   { date: "2026-08-25", hours: "12:00 pm – 8:30 pm" },
   { date: "2026-08-31", hours: "12:00 pm – 7:30 pm" },
   { date: "2026-09-14", hours: "9:30 am – 8:30 pm" },
-  { date: "2026-09-24", hours: "12:00 pm – 8:15 pm" },
   { date: "2026-09-07", hours: "Closed", closed: true, label: "Labour Day" },
-  {
-    date: "2026-09-30",
-    hours: "9:30 am – 2:00 pm",
-    label: "National Day for Truth and Reconciliation",
-  },
   {
     date: "2026-12-11",
     hours: "9:30 am – 12:30 pm, 4:30 pm – 8:30 pm",
@@ -428,12 +422,8 @@ export const partyDecorPartner = {
   phone: "647-895-1876",
   phoneHref: "tel:+16478951876",
   intro:
-    "We work with Pop & Petal Parties to style your celebration at Fun Factory. Here are four single-backdrop styles. Other styles are available too. Contact Pop & Petal directly, and mention Fun Factory for partner pricing.",
-  ctaHeading: "Contact Pop & Petal for pricing",
-  ctaBody:
-    "Other styles are available beyond these four. Reach out to Pop & Petal Parties directly and mention Fun Factory for partner pricing.",
-  footnote:
-    "Theme and balloon colours are customized for your celebration. Package images are examples. Final design is customized to your theme and selected colours.",
+    "Decorate your party your way! Fun Factory x Pop & Petal Parties offers preferred pricing on all decor packages, including free delivery! Please see below for samples.",
+  note: "Note: all decor packages are customizable to your theme and celebration. Please contact Pop & Petal directly.",
 } as const;
 
 export const partyDecorPackages = [

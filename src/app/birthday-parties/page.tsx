@@ -100,7 +100,7 @@ export default function BirthdayPartiesPage() {
         accent="lavender"
       >
         <Button href={getPartyBookingUrl()} external variant="lavender" size="lg">
-          Book Your Party
+          Book Now
         </Button>
       </PageHero>
 

@@ -24,7 +24,7 @@ export function AnnouncementBar() {
           {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
           className="ml-0 mt-1 inline-block rounded-md bg-white/90 px-3 py-1 text-xs font-bold text-charcoal shadow-sm transition hover:bg-white sm:ml-3 sm:mt-0 sm:text-sm"
         >
-          Book a Party →
+          Book Now →
         </Link>
       </div>
     </div>
