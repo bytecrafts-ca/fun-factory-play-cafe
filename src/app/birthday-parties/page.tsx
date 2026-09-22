@@ -1,5 +1,6 @@
 import { JsonLd } from "@/components/JsonLd";
 import { PartyCards } from "@/components/PartyCards";
+import { PartyDecor } from "@/components/PartyDecor";
 import { PartyTimelines } from "@/components/PartyTimelines";
 import { PageHero } from "@/components/PageHero";
 import { ReviewBanner } from "@/components/ReviewBanner";
@@ -109,6 +110,12 @@ export default function BirthdayPartiesPage() {
           <div className="mt-10">
             <PartyCards />
           </div>
+        </div>
+      </section>
+
+      <section id="party-decor" className="section-pad bg-section-peach">
+        <div className="container-main">
+          <PartyDecor />
         </div>
       </section>
 

@@ -421,6 +421,63 @@ export const partyTimelineNotes = {
   pancakeParties: "Pancake parties are available. Ask us when you book.",
 } as const;
 
+export const partyDecorPartner = {
+  name: "Pop & Petal Parties",
+  instagramLabel: "@popandpetalparties",
+  instagramHref: "https://www.instagram.com/popandpetalparties/",
+  phone: "647-895-1876",
+  phoneHref: "tel:+16478951876",
+  inquiryMailto:
+    "mailto:info@funfactoryplay.ca?subject=Party%20Decor%20Inquiry%20%E2%80%93%20Fun%20Factory%20%26%20Pop%20%26%20Petal",
+  intro:
+    "We work with Pop & Petal Parties to style your celebration at Fun Factory. Here are four single-backdrop styles. Other styles are available too. Contact Pop & Petal directly, and mention Fun Factory for partner pricing.",
+  footnote:
+    "Theme and balloon colours are customized for your celebration. Package images are examples. Final design is customized to your theme and selected colours.",
+} as const;
+
+export const partyDecorPackages = [
+  {
+    name: "Package 1",
+    image: "/party-decor/package-1.webp",
+    alt: "Single backdrop with organic balloon garland and Happy Birthday neon sign",
+    includes: [
+      "1 single backdrop panel",
+      "1 full organic balloon garland",
+      "Custom vinyl wording included",
+    ],
+  },
+  {
+    name: "Package 2",
+    image: "/party-decor/package-2.webp",
+    alt: "Single backdrop with balloon garland, vinyl, and themed cutout",
+    includes: [
+      "1 single backdrop panel",
+      "1 full balloon garland + vinyl",
+      "1 themed cutout included",
+    ],
+  },
+  {
+    name: "Package 3",
+    image: "/party-decor/package-3.webp",
+    alt: "Single backdrop with full and half balloon garlands plus themed cutout",
+    includes: [
+      "1 single backdrop panel",
+      "1 full + 1 half garland + vinyl",
+      "1 themed cutout included",
+    ],
+  },
+  {
+    name: "Package 4",
+    image: "/party-decor/package-4.webp",
+    alt: "Single backdrop with two full balloon garlands and themed cutouts",
+    includes: [
+      "1 single backdrop panel",
+      "2 full garlands + custom vinyl",
+      "2 themed cutouts included",
+    ],
+  },
+] as const;
+
 export const partyAddOns = [
   "More Pizza",
   "Decorations",
