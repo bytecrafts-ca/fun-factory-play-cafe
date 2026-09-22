@@ -48,17 +48,13 @@ export function PartyDecor() {
 
       <div className="mt-10 rounded-2xl border border-peach/50 bg-peach/15 px-5 py-6 text-center sm:px-8">
         <p className="text-sm font-semibold text-charcoal sm:text-base">
-          Inquire for Fun Factory partner pricing
+          {partyDecorPartner.ctaHeading}
         </p>
         <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-          Other styles are available beyond these four. Reach out to {partyDecorPartner.name}{" "}
-          directly, or email Fun Factory and ask about partner pricing for your party date.
+          {partyDecorPartner.ctaBody}
         </p>
         <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
-          <Button href={partyDecorPartner.inquiryMailto} variant="lavender" size="md">
-            Inquire About Decor Pricing
-          </Button>
-          <Button href={partyDecorPartner.instagramHref} external variant="outline" size="md">
+          <Button href={partyDecorPartner.instagramHref} external variant="lavender" size="md">
             Instagram {partyDecorPartner.instagramLabel}
           </Button>
           <Button href={partyDecorPartner.phoneHref} variant="outline" size="md">

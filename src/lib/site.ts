@@ -427,10 +427,11 @@ export const partyDecorPartner = {
   instagramHref: "https://www.instagram.com/popandpetalparties/",
   phone: "647-895-1876",
   phoneHref: "tel:+16478951876",
-  inquiryMailto:
-    "mailto:info@funfactoryplay.ca?subject=Party%20Decor%20Inquiry%20%E2%80%93%20Fun%20Factory%20%26%20Pop%20%26%20Petal",
   intro:
     "We work with Pop & Petal Parties to style your celebration at Fun Factory. Here are four single-backdrop styles. Other styles are available too. Contact Pop & Petal directly, and mention Fun Factory for partner pricing.",
+  ctaHeading: "Contact Pop & Petal for pricing",
+  ctaBody:
+    "Other styles are available beyond these four. Reach out to Pop & Petal Parties directly and mention Fun Factory for partner pricing.",
   footnote:
     "Theme and balloon colours are customized for your celebration. Package images are examples. Final design is customized to your theme and selected colours.",
 } as const;
