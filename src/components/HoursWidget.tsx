@@ -6,6 +6,22 @@ import {
   getWeeklyHours,
 } from "@/lib/site";
 
+function HoursLine({ hours }: { hours: string }) {
+  const parts = hours.split(/\s*[–-]\s*/).map((part) => part.trim()).filter(Boolean);
+
+  if (parts.length !== 2) {
+    return <span className="block tabular-nums">{hours}</span>;
+  }
+
+  return (
+    <span className="grid grid-cols-[1fr_auto_1fr] items-baseline gap-x-1.5 tabular-nums">
+      <span className="text-right">{parts[0]}</span>
+      <span aria-hidden>–</span>
+      <span className="text-left">{parts[1]}</span>
+    </span>
+  );
+}
+
 export function HoursWidget({ compact = false }: { compact?: boolean }) {
   const weeklyHours = getWeeklyHours();
   const upcomingSpecialHours = getUpcomingSpecialHours();
@@ -19,12 +35,18 @@ export function HoursWidget({ compact = false }: { compact?: boolean }) {
         {weeklyHours.map((item) => {
           return (
             <li key={item.day} className="rounded-lg px-3 py-2 text-sm">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between gap-3">
                 <span className={item.closed ? "text-muted" : "text-charcoal"}>
                   {item.day}
                 </span>
-                <span className={item.closed ? "text-muted" : "text-charcoal"}>
-                  {item.hours}
+                <span
+                  className={`min-w-[11.5rem] ${item.closed ? "text-muted" : "text-charcoal"}`}
+                >
+                  {item.closed ? (
+                    <span className="block text-right">{item.hours}</span>
+                  ) : (
+                    <HoursLine hours={item.hours} />
+                  )}
                 </span>
               </div>
               {item.promo && (
@@ -55,13 +77,13 @@ export function HoursWidget({ compact = false }: { compact?: boolean }) {
                       {formatSpecialHoursDate(item.date, item.label)}
                     </span>
                     <span
-                      className={`min-w-0 text-right ${item.closed ? "text-muted" : "text-charcoal"}`}
+                      className={`min-w-[11.5rem] ${item.closed ? "text-muted" : "text-charcoal"}`}
                     >
-                      {timeLines.map((line) => (
-                        <span key={line} className="block">
-                          {line}
-                        </span>
-                      ))}
+                      {item.closed ? (
+                        <span className="block text-right">Closed</span>
+                      ) : (
+                        timeLines.map((line) => <HoursLine key={line} hours={line} />)
+                      )}
                     </span>
                   </div>
                 </li>

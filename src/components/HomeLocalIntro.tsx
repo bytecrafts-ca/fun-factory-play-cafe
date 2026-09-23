@@ -19,38 +19,47 @@ export function HomeLocalIntro() {
               {" "}Families in{" "}
               <Link
                 href="/pickering-indoor-playground"
-                className="font-semibold text-charcoal hover:underline"
+                className="text-charcoal underline-offset-2 hover:underline"
               >
                 Pickering
               </Link>
               ,{" "}
-              <Link href="/ajax-indoor-play" className="font-semibold text-charcoal hover:underline">
+              <Link
+                href="/ajax-indoor-play"
+                className="text-charcoal underline-offset-2 hover:underline"
+              >
                 Ajax
               </Link>
               ,{" "}
-              <Link href="/whitby-kids-parties" className="font-semibold text-charcoal hover:underline">
+              <Link
+                href="/whitby-kids-parties"
+                className="text-charcoal underline-offset-2 hover:underline"
+              >
                 Whitby
               </Link>
               ,{" "}
               <Link
                 href="/durham-region-birthday-parties"
-                className="font-semibold text-charcoal hover:underline"
+                className="text-charcoal underline-offset-2 hover:underline"
               >
                 Oshawa
               </Link>
               ,{" "}
-              <Link href="/ajax-indoor-play" className="font-semibold text-charcoal hover:underline">
+              <Link
+                href="/ajax-indoor-play"
+                className="text-charcoal underline-offset-2 hover:underline"
+              >
                 Scarborough
               </Link>
               , and across{" "}
               <Link
                 href="/durham-region-birthday-parties"
-                className="font-semibold text-charcoal hover:underline"
+                className="text-charcoal underline-offset-2 hover:underline"
               >
                 Durham Region
               </Link>{" "}
               visit us for unlimited drop-in play, private party rooms, and{" "}
-              <Link href="/cafe" className="font-semibold text-charcoal hover:underline">
+              <Link href="/cafe" className="text-charcoal underline-offset-2 hover:underline">
                 Littles &amp; Lattés Café
               </Link>
               .
@@ -87,12 +96,12 @@ export function HomeLocalIntro() {
               Free parking in the Bayly Street plaza. Call{" "}
               <ConversionLink
                 href={siteConfig.phoneHref}
-                className="font-semibold text-charcoal hover:underline"
+                className="text-charcoal underline-offset-2 hover:underline"
               >
                 {siteConfig.phone}
               </ConversionLink>{" "}
               or{" "}
-              <Link href="/contact" className="font-semibold text-charcoal hover:underline">
+              <Link href="/contact" className="text-charcoal underline-offset-2 hover:underline">
                 contact us
               </Link>
               .

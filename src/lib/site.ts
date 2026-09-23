@@ -423,7 +423,7 @@ export const partyDecorPartner = {
   phoneHref: "tel:+16478951876",
   intro:
     "Decorate your party your way! Fun Factory x Pop & Petal Parties offers preferred pricing on all decor packages, including free delivery! Please see below for samples.",
-  note: "Note: all decor packages are customizable to your theme and celebration. Please contact Pop & Petal directly.",
+  note: "Note: all decor packages are customizable to your theme and celebration. Please contact Pop & Petal directly. Mention your party is at Fun Factory for preferred pricing and free delivery!",
 } as const;
 
 export const partyDecorPackages = [
@@ -577,7 +577,7 @@ export const galleryImages = [
 
 export const googleReviewsSummary = {
   rating: 4.4,
-  totalReviews: 680,
+  totalReviews: 800,
   placeId: process.env.GOOGLE_PLACE_ID ?? "ChIJW8V8K9bV1IkR8KqGxqJxJZQ",
 } as const;
 
