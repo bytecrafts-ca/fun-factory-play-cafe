@@ -71,7 +71,7 @@ export function HomeLocalIntro() {
               Fun Factory is built for real family visits in east Durham.
             </p>
             <p>
-              Drop-in admissions are paid at the front desk with unlimited play time. Birthday
+              Buy drop-in tickets online or pay at the front desk, with unlimited play time. Birthday
               packages include a private room, playtime, pizza, cake, juice, e-vites, and a party
               host. Every Tuesday and Thursday, enjoy 50% off drop-in admissions after 3:30 pm.
             </p>

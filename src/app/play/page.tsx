@@ -35,7 +35,7 @@ const playFaqs: FaqItem[] = [
       {
         type: "text",
         value:
-          "Under 1: $5.00 (free with paying sibling). Ages 1–3: $10. Ages 4–13: $14. Ages 14–17: $10. Pay at the front desk when you arrive.",
+          "Under 1: $5.00 (free with paying sibling). Ages 1–3: $10. Ages 4–13: $14. Ages 14–17: $10. Buy tickets online ahead of time or pay at the front desk when you arrive.",
       },
     ],
   },
@@ -87,7 +87,7 @@ export default function PlayPage() {
       />
       <PageHero
         title="Indoor Playground Drop-In Play"
-        subtitle="See our rates below and pay when you arrive. Sign your waiver, check our hours, and come play."
+        subtitle="Buy tickets online ahead of time or pay when you arrive. Sign your waiver, check our hours, and come play."
         accent="sky"
         eyebrow={
           <div
@@ -104,7 +104,10 @@ export default function PlayPage() {
         }
       >
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Button href={siteConfig.waiverUrl} external variant="primary" size="lg">
+          <Button href={siteConfig.square.dropInUrl} external variant="primary" size="lg">
+            Buy Drop-In Tickets
+          </Button>
+          <Button href={siteConfig.waiverUrl} external variant="outline" size="lg">
             Sign Waiver
           </Button>
           <Button href={siteRoutes.loyalty} variant="secondary" size="lg">
@@ -120,13 +123,17 @@ export default function PlayPage() {
               How drop-in works
             </p>
             <p className="mt-2 text-lg font-extrabold text-charcoal sm:text-xl">
-              Pay per person at the front desk when you enter
+              Buy online ahead or pay at the front desk
             </p>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
-              Admission is charged by age group at reception. Unlimited play time — there is
-              no time limit on your visit. Maximum two adults per family are included with
-              admission.
+              Admission is charged per person by age group. Unlimited play time, with no time
+              limit on your visit. Maximum two adults per family are included with admission.
             </p>
+            <div className="mt-5">
+              <Button href={siteConfig.square.dropInUrl} external variant="primary" size="md">
+                Buy Drop-In Tickets
+              </Button>
+            </div>
           </div>
         </div>
       </section>

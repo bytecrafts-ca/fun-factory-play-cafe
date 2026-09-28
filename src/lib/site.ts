@@ -72,6 +72,11 @@ export const siteConfig = {
       process.env.NEXT_PUBLIC_OVATU_PARTIES_URL ??
       "https://the-fun-factory.book.app/book-now",
   },
+  square: {
+    dropInUrl:
+      process.env.NEXT_PUBLIC_SQUARE_DROP_IN_URL ??
+      "https://app.squareup.com/appointments/buyer/widget/twu9b2g5h9s5w1/LP2WZ6RXS3ZT6",
+  },
   waiverUrl:
     process.env.NEXT_PUBLIC_WAIVER_URL ??
     "https://form.jotform.com/261257549756066",
@@ -621,9 +626,9 @@ export const dropInVisitSteps = [
       "See our current public play hours on this page before you visit.",
   },
   {
-    title: "Pay at the front desk",
+    title: "Buy tickets",
     description:
-      "Drop-in admissions are paid when you arrive. Access 2 Card holders save $2 — show your card when you check-in.",
+      "Buy drop-in tickets online ahead of time, or pay at the front desk when you arrive. Access 2 Card holders save $2 at the front desk. Show your card when you check in.",
   },
   {
     title: "Wear socks",
