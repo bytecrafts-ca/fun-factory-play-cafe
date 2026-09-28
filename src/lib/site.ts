@@ -145,6 +145,8 @@ export const specialHours: SpecialHours[] = [
     hours: "9:30 am – 12:30 pm, 4:30 pm – 8:30 pm",
   },
   { date: "2026-10-24", hours: "12:30 pm – 8:30 pm" },
+  { date: "2026-11-01", hours: "9:30 am – 1:30 pm, 4:00 pm – 8:30 pm" },
+  { date: "2026-11-22", hours: "9:30 am – 1:30 pm, 4:30 pm – 8:30 pm" },
 ];
 
 export const admissions = [
