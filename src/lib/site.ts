@@ -206,7 +206,7 @@ export const accessTwoCardUrl =
   "https://access2card.ca/participating-venues/?province=4";
 
 export const admissionNotes = [
-  "Maximum two (2) adults per family included in the admission",
+  "Two (2) adults per family included in the admission",
   "Socks available for purchase at reception — $3.00",
   "All prices are subject to HST",
   "We are a socks only facility",

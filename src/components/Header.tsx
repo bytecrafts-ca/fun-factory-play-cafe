@@ -63,7 +63,7 @@ export function Header() {
             variant="primary"
             size="sm"
           >
-            Book Now
+            Book a Party
           </Button>
         </div>
 
@@ -112,7 +112,7 @@ export function Header() {
                 Sign Waiver
               </Button>
               <Button href={siteConfig.square.dropInUrl} external variant="secondary" size="md">
-                Buy Drop-In Tickets
+                Buy Tickets
               </Button>
               <Button
                 href={siteConfig.ovatu.bookUrl}
@@ -120,7 +120,7 @@ export function Header() {
                 variant="primary"
                 size="md"
               >
-                Book Now
+                Book a Party
               </Button>
             </div>
           </div>

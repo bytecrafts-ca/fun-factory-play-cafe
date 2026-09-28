@@ -127,7 +127,7 @@ export default function PlayPage() {
             </p>
             <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
               Admission is charged per person by age group. Unlimited play time, with no time
-              limit on your visit. Maximum two adults per family are included with admission.
+              limit on your visit. Two adults per family are included with admission.
             </p>
             <div className="mt-5">
               <Button href={siteConfig.square.dropInUrl} external variant="primary" size="md">

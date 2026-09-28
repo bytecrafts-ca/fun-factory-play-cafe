@@ -136,7 +136,7 @@ export const guides: Guide[] = [
         heading: "Check-in and admission",
         paragraphs: [
           "Drop-in play is pay at the desk. There is no time limit on your visit, which surprises some first-time families who expect a two-hour cap. Stay as long as your kids have energy and your schedule allows.",
-          "Current admission rates: under 1 year is $5 (free with a paying sibling), ages 1 to 3 are $10, ages 4 to 13 are $14, and ages 14 to 17 are $10. Access 2 Card holders receive $2 off. Maximum two adults per family are included in admission.",
+          "Current admission rates: under 1 year is $5 (free with a paying sibling), ages 1 to 3 are $10, ages 4 to 13 are $14, and ages 14 to 17 are $10. Access 2 Card holders receive $2 off. Two adults per family are included in admission.",
           "After payment you will get wristbands or stamps depending on the day. Staff can point you toward the toddler zone if you have younger children, or toward the main structures if your kids are ready to climb.",
         ],
       },
@@ -425,7 +425,7 @@ export const guides: Guide[] = [
         paragraphs: [
           "Address: 1420 Bayly St., Unit 15, Pickering, ON L1W 3R4. Free parking in the plaza. Enter through the main Fun Factory doors and head to the front desk for drop-in or party check-in.",
           "Bring socks, signed waivers, and payment for admission. We accept cash, credit, and debit. Access 2 Card holders get $2 off drop-in rates.",
-          "Maximum two adults per family are included with child admission. Supervision is required at all times. Play structures are designed for active kids, so stay within sight even when you are seated.",
+          "Two adults per family are included with child admission. Supervision is required at all times. Play structures are designed for active kids, so stay within sight even when you are seated.",
           "Hours from September 8, 2026: Monday and Wednesday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm (50% off admissions after 3:30 pm), Friday to Sunday 9:30 am to 8:30 pm. Check our contact page for holiday exceptions.",
           "Strollers can usually stay near seating areas. Lock valuables in your car and keep phones in pockets while supervising active climbers.",
         ],
