@@ -45,8 +45,17 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <Button href={siteConfig.waiverUrl} external variant="outline" size="sm">
+          <Button
+            href={siteConfig.waiverUrl}
+            external
+            variant="outline"
+            size="sm"
+            className="lg:hidden xl:inline-flex"
+          >
             Waiver
+          </Button>
+          <Button href={siteConfig.square.dropInUrl} external variant="secondary" size="sm">
+            Buy Tickets
           </Button>
           <Button
             href={siteConfig.ovatu.bookUrl}
@@ -101,6 +110,9 @@ export function Header() {
             <div className="mt-3 flex flex-col gap-2 border-t border-peach/40 pt-3">
               <Button href={siteConfig.waiverUrl} external variant="outline" size="md">
                 Sign Waiver
+              </Button>
+              <Button href={siteConfig.square.dropInUrl} external variant="secondary" size="md">
+                Buy Drop-In Tickets
               </Button>
               <Button
                 href={siteConfig.ovatu.bookUrl}
