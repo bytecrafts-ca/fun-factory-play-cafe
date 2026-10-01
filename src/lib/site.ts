@@ -134,7 +134,10 @@ export type SpecialHours = {
   label?: string;
 };
 
-/** One-off date overrides — checked before the regular weekly schedule */
+export const hoursDisclaimer =
+  "Hours are subject to change due to private events and holidays.";
+
+/** One-off date overrides — checked before the regular weekly schedule. Show only the current month until Zak sends the next set. */
 export const specialHours: SpecialHours[] = [
   { date: "2026-07-29", hours: "12:00 pm – 8:00 pm" },
   { date: "2026-08-03", hours: "9:30 am – 7:30 pm" },
@@ -145,13 +148,7 @@ export const specialHours: SpecialHours[] = [
   { date: "2026-08-31", hours: "12:00 pm – 7:30 pm" },
   { date: "2026-09-14", hours: "9:30 am – 8:30 pm" },
   { date: "2026-09-07", hours: "Closed", closed: true, label: "Labour Day" },
-  {
-    date: "2026-12-11",
-    hours: "9:30 am – 12:30 pm, 4:30 pm – 8:30 pm",
-  },
   { date: "2026-10-24", hours: "12:30 pm – 8:30 pm" },
-  { date: "2026-11-01", hours: "9:30 am – 1:30 pm, 4:00 pm – 8:30 pm" },
-  { date: "2026-11-22", hours: "9:30 am – 1:30 pm, 4:30 pm – 8:30 pm" },
 ];
 
 export const admissions = [
@@ -165,11 +162,15 @@ export const playRatesNote =
   "Enjoy unlimited play time — there is no time limit on your visit.";
 
 export const partyBookingPromo = {
-  startDate: "2026-06-15",
-  endDate: "2026-08-31",
-  headline: "Enjoy 15% OFF all NEW party bookings",
-  period: "June 15 – August 31, 2026",
-  disclaimer: "Party date must be between the promotional period.",
+  startDate: "2026-10-01",
+  endDate: "2026-12-31",
+  headline: "10% off new party bookings made online",
+  period: "Until December 31",
+  offer: "10% off",
+  offerDetail: "birthday parties booked online",
+  deadline: "Book and celebrate by December 31, 2026.",
+  disclaimer:
+    "New bookings only. Applies to party packages. Both the booking date and the party date must be on or before December 31, 2026.",
   /** Ovatu marketing link — discount auto-applies when customers use this URL */
   ovatuPromoUrl: process.env.NEXT_PUBLIC_OVATU_PARTY_PROMO_URL ?? "",
   /** Code customers enter in Ovatu’s Voucher/Gift Card field at checkout */
@@ -188,7 +189,7 @@ export function getTorontoCalendarDate(now = new Date()) {
   return `${get("year")}-${get("month")}-${get("day")}`;
 }
 
-/** Active from startDate through endDate inclusive, midnight Toronto (off at Sep 1 00:00 ET) */
+/** Active from startDate through endDate inclusive, midnight Toronto */
 export function isPartyBookingPromoActive(now = new Date()) {
   const today = getTorontoCalendarDate(now);
   return today >= partyBookingPromo.startDate && today <= partyBookingPromo.endDate;
@@ -584,28 +585,40 @@ export const galleryImages = [
 
 export const googleReviewsSummary = {
   rating: 4.4,
-  totalReviews: 800,
+  totalReviews: 850,
   placeId: process.env.GOOGLE_PLACE_ID ?? "ChIJW8V8K9bV1IkR8KqGxqJxJZQ",
 } as const;
 
 export const googleReviewsFallback = [
   {
+    author: "Christine Nguyen",
+    rating: 5,
+    relativeTime: "a day ago",
+    text: "We had my sons birthday party here over the weekend and it was wonderful! The kiddies had a blast and didn’t want to leave. The place is clean and the staff members are super helpful and kind. Party package prices are very reasonably. Thank you for an amazing morning!",
+  },
+  {
+    author: "Janat M",
+    rating: 5,
+    relativeTime: "a day ago",
+    text: "Loved it my kids had a lovely time.",
+  },
+  {
+    author: "Andrew Cyrus",
+    rating: 5,
+    relativeTime: "a week ago",
+    text: "Great place and clean, affordable as well. 2 parents free with kids. Big play structure too.",
+  },
+  {
+    author: "LF",
+    rating: 5,
+    relativeTime: "a week ago",
+    text: "We had a great time, everything was very organized and clean. It’s highly recommended to have a party over there!!",
+  },
+  {
     author: "G & N Johnson",
     rating: 5,
     relativeTime: "4 weeks ago",
     text: "We had an amazing experience at Fun Factory Pickering! The prices are fantastic, and one of the best things is that there's no time limit, so the kids can play and enjoy themselves without feeling rushed. The facility is very clean, family-friendly, and welcoming. I highly recommend Fun Factory Pickering to any family looking for a fun, affordable outing.",
-  },
-  {
-    author: "Luksume Sarvananda",
-    rating: 5,
-    relativeTime: "7 months ago",
-    text: "Took our toddler here and had an amazing time! The space is clean, safe, and full of fun activities that kept our little one entertained for hours. Really loved that I could keep an eye on my little the entire time they were playing. Highly recommend for a fun family outing!",
-  },
-  {
-    author: "SONIC NICOP",
-    rating: 5,
-    relativeTime: "3 weeks ago",
-    text: "Such an amazing and fun place for kids and toddlers. Also great for birthday parties and mums date.",
   },
 ] as const;
 
