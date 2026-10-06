@@ -148,6 +148,7 @@ export const specialHours: SpecialHours[] = [
   { date: "2026-08-31", hours: "12:00 pm – 7:30 pm" },
   { date: "2026-09-14", hours: "9:30 am – 8:30 pm" },
   { date: "2026-09-07", hours: "Closed", closed: true, label: "Labour Day" },
+  { date: "2026-10-12", hours: "9:30 am – 5:00 pm", label: "Thanksgiving" },
   { date: "2026-10-24", hours: "12:30 pm – 8:30 pm" },
 ];
 
@@ -172,9 +173,11 @@ export const partyBookingPromo = {
   disclaimer:
     "New bookings only. Applies to party packages. Both the booking date and the party date must be on or before December 31, 2026.",
   /** Ovatu marketing link — discount auto-applies when customers use this URL */
-  ovatuPromoUrl: process.env.NEXT_PUBLIC_OVATU_PARTY_PROMO_URL ?? "",
-  /** Code customers enter in Ovatu’s Voucher/Gift Card field at checkout */
-  ovatuPromoCode: process.env.NEXT_PUBLIC_OVATU_PARTY_PROMO_CODE ?? "",
+  ovatuPromoUrl:
+    process.env.NEXT_PUBLIC_OVATU_PARTY_PROMO_URL ||
+    "https://the-fun-factory.book.app/book-now?voucher=SAVE10",
+  /** Code customers enter in Ovatu’s Promo code / Gift Card field at checkout */
+  ovatuPromoCode: process.env.NEXT_PUBLIC_OVATU_PARTY_PROMO_CODE || "SAVE10",
 } as const;
 
 /** YYYY-MM-DD in America/Toronto */

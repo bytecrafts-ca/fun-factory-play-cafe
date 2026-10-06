@@ -80,19 +80,22 @@ export function PartyPromoPopup() {
           </h2>
           <p className="mt-3 text-sm text-muted">{partyBookingPromo.deadline}</p>
 
-          {partyBookingPromo.ovatuPromoCode ? (
-            <div className="mt-5 rounded-xl border border-dashed border-lavender bg-lavender/10 px-4 py-3">
-              <p className="text-xs text-muted">Use code at checkout</p>
+          {partyBookingPromo.ovatuPromoCode && (
+            <a
+              href={getPartyBookingUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 block rounded-xl border border-dashed border-lavender bg-lavender/10 px-4 py-3 transition hover:bg-lavender/20"
+            >
+              <p className="text-xs text-muted">Promo code</p>
               <p className="mt-1 font-mono text-xl font-extrabold tracking-wide text-charcoal">
                 {partyBookingPromo.ovatuPromoCode}
               </p>
-              <p className="mt-1 text-xs text-muted">Enter it in the Voucher/Gift Card field</p>
-            </div>
-          ) : partyBookingPromo.ovatuPromoUrl ? (
-            <p className="mt-5 text-sm text-charcoal">
-              No code needed. The discount is applied when you book.
-            </p>
-          ) : null}
+              <p className="mt-1 text-xs text-muted">
+                Applied automatically when you book below
+              </p>
+            </a>
+          )}
 
           <div className="mt-6 flex flex-col gap-2">
             <Button href={getPartyBookingUrl()} external variant="primary" size="lg">

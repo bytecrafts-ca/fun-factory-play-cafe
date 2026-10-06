@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { navLinks, siteConfig } from "@/lib/site";
+import { getPartyBookingUrl, navLinks, siteConfig } from "@/lib/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -58,7 +58,7 @@ export function Header() {
             Buy Tickets
           </Button>
           <Button
-            href={siteConfig.ovatu.bookUrl}
+            href={getPartyBookingUrl()}
             external
             variant="primary"
             size="sm"
@@ -115,7 +115,7 @@ export function Header() {
                 Buy Tickets
               </Button>
               <Button
-                href={siteConfig.ovatu.bookUrl}
+                href={getPartyBookingUrl()}
                 external
                 variant="primary"
                 size="md"

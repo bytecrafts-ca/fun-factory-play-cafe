@@ -17,7 +17,9 @@ export function AnnouncementBar() {
           ·
         </span>
         <span className="mt-0.5 block text-xs font-medium text-charcoal/80 sm:mt-0 sm:inline sm:text-sm">
-          {partyBookingPromo.period}
+          {partyBookingPromo.ovatuPromoCode
+            ? `Code ${partyBookingPromo.ovatuPromoCode} · ${partyBookingPromo.period}`
+            : partyBookingPromo.period}
         </span>
         <Link
           href={bookingUrl}
