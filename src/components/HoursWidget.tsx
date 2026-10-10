@@ -4,6 +4,7 @@ import {
   formatSpecialHoursDate,
   getUpcomingSpecialHours,
   getWeeklyHours,
+  hoursDisclaimer,
 } from "@/lib/site";
 
 function HoursLine({ hours }: { hours: string }) {
@@ -40,7 +41,7 @@ export function HoursWidget({ compact = false }: { compact?: boolean }) {
                   {item.day}
                 </span>
                 <span
-                  className={`min-w-[11.5rem] ${item.closed ? "text-muted" : "text-charcoal"}`}
+                  className={`w-[11.5rem] shrink-0 ${item.closed ? "text-muted" : "text-charcoal"}`}
                 >
                   {item.closed ? (
                     <span className="block text-right">{item.hours}</span>
@@ -73,11 +74,11 @@ export function HoursWidget({ compact = false }: { compact?: boolean }) {
               return (
                 <li key={item.date} className="rounded-lg px-3 py-2 text-sm">
                   <div className="flex items-start justify-between gap-3">
-                    <span className="shrink-0 text-charcoal">
+                    <span className="min-w-0 text-charcoal">
                       {formatSpecialHoursDate(item.date, item.label)}
                     </span>
                     <span
-                      className={`min-w-[11.5rem] ${item.closed ? "text-muted" : "text-charcoal"}`}
+                      className={`w-[11.5rem] shrink-0 ${item.closed ? "text-muted" : "text-charcoal"}`}
                     >
                       {item.closed ? (
                         <span className="block text-right">Closed</span>
@@ -92,6 +93,9 @@ export function HoursWidget({ compact = false }: { compact?: boolean }) {
           </ul>
         </div>
       )}
+      <p className={`text-xs leading-relaxed text-muted ${compact ? "mt-4" : "mt-5"}`}>
+        {hoursDisclaimer}
+      </p>
     </div>
   );
 }
