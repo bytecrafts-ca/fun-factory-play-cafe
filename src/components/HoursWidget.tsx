@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import {
   formatSpecialHoursDate,
   getUpcomingSpecialHours,
@@ -7,19 +8,22 @@ import {
   hoursDisclaimer,
 } from "@/lib/site";
 
-function HoursLine({ hours }: { hours: string }) {
+function TimeCells({ hours, muted = false }: { hours: string; muted?: boolean }) {
+  const tone = muted ? "text-muted" : "text-charcoal";
   const parts = hours.split(/\s*[–-]\s*/).map((part) => part.trim()).filter(Boolean);
 
   if (parts.length !== 2) {
-    return <span className="block tabular-nums">{hours}</span>;
+    return <span className={`col-span-3 whitespace-nowrap text-right ${tone}`}>{hours}</span>;
   }
 
   return (
-    <span className="grid grid-cols-[1fr_auto_1fr] items-baseline gap-x-1.5 tabular-nums">
-      <span className="text-right">{parts[0]}</span>
-      <span aria-hidden>–</span>
-      <span className="text-left">{parts[1]}</span>
-    </span>
+    <>
+      <span className={`whitespace-nowrap text-right ${tone}`}>{parts[0]}</span>
+      <span className={tone} aria-hidden>
+        –
+      </span>
+      <span className={`whitespace-nowrap ${tone}`}>{parts[1]}</span>
+    </>
   );
 }
 
@@ -32,67 +36,57 @@ export function HoursWidget({ compact = false }: { compact?: boolean }) {
       <h3 className={`font-bold text-charcoal ${compact ? "text-base" : "text-lg"}`}>
         Public Play Hours
       </h3>
-      <ul className={`space-y-1 ${compact ? "mt-3" : "mt-4"}`}>
-        {weeklyHours.map((item) => {
-          return (
-            <li key={item.day} className="rounded-lg px-3 py-2 text-sm">
-              <div className="flex items-center justify-between gap-3">
-                <span className={item.closed ? "text-muted" : "text-charcoal"}>
-                  {item.day}
-                </span>
-                <span
-                  className={`w-[11.5rem] shrink-0 ${item.closed ? "text-muted" : "text-charcoal"}`}
-                >
-                  {item.closed ? (
-                    <span className="block text-right">{item.hours}</span>
-                  ) : (
-                    <HoursLine hours={item.hours} />
-                  )}
-                </span>
-              </div>
-              {item.promo && (
-                <p className="mt-0.5 text-right text-xs text-muted">{item.promo}</p>
-              )}
-            </li>
-          );
-        })}
-      </ul>
 
-      {upcomingSpecialHours.length > 0 && (
-        <div className={compact ? "mt-5" : "mt-6"}>
-          <h4
-            className={`font-bold text-charcoal ${compact ? "text-sm" : "text-base"}`}
-          >
-            Special Hours
-          </h4>
-          <ul className={`space-y-1 ${compact ? "mt-2" : "mt-3"}`}>
+      <div
+        className={`grid grid-cols-[minmax(0,1fr)_auto_auto_auto] items-baseline gap-x-1.5 gap-y-3 text-sm tabular-nums sm:px-3 ${
+          compact ? "mt-3" : "mt-4"
+        }`}
+      >
+        {weeklyHours.map((item) => (
+          <Fragment key={item.day}>
+            <span className={`pr-2 ${item.closed ? "text-muted" : "text-charcoal"}`}>
+              {item.day}
+            </span>
+            <TimeCells hours={item.hours} muted={item.closed} />
+            {item.promo && (
+              <span className="col-span-full -mt-2.5 text-right text-xs text-muted">
+                {item.promo}
+              </span>
+            )}
+          </Fragment>
+        ))}
+
+        {upcomingSpecialHours.length > 0 && (
+          <>
+            <h4
+              className={`col-span-full font-bold text-charcoal sm:-mx-3 ${
+                compact ? "mt-2 text-sm" : "mt-3 text-base"
+              }`}
+            >
+              Special Hours
+            </h4>
             {upcomingSpecialHours.map((item) => {
-              const timeLines = item.closed
+              const ranges = item.closed
                 ? ["Closed"]
                 : item.hours.split(/,\s*/).map((part) => part.trim()).filter(Boolean);
 
-              return (
-                <li key={item.date} className="rounded-lg px-3 py-2 text-sm">
-                  <div className="flex items-start justify-between gap-3">
-                    <span className="min-w-0 text-charcoal">
-                      {formatSpecialHoursDate(item.date, item.label)}
-                    </span>
-                    <span
-                      className={`w-[11.5rem] shrink-0 ${item.closed ? "text-muted" : "text-charcoal"}`}
-                    >
-                      {item.closed ? (
-                        <span className="block text-right">Closed</span>
-                      ) : (
-                        timeLines.map((line) => <HoursLine key={line} hours={line} />)
-                      )}
-                    </span>
-                  </div>
-                </li>
-              );
+              return ranges.map((range, index) => (
+                <Fragment key={`${item.date}-${range}`}>
+                  <span className="pr-2 text-charcoal">
+                    {index === 0 ? formatSpecialHoursDate(item.date, item.label) : ""}
+                  </span>
+                  {item.closed ? (
+                    <span className="col-span-3 text-right text-muted">Closed</span>
+                  ) : (
+                    <TimeCells hours={range} />
+                  )}
+                </Fragment>
+              ));
             })}
-          </ul>
-        </div>
-      )}
+          </>
+        )}
+      </div>
+
       <p className={`text-xs leading-relaxed text-muted ${compact ? "mt-4" : "mt-5"}`}>
         {hoursDisclaimer}
       </p>
