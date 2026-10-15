@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { faqItems, type FaqSegment } from "@/lib/seo";
+import { faqItems, type FaqItem, type FaqSegment } from "@/lib/seo";
 
 const linkClassName =
   "font-semibold text-charcoal underline decoration-sky decoration-2 underline-offset-4 transition hover:decoration-bubblegum";
@@ -37,17 +37,29 @@ function FaqAnswer({ segments }: { segments: FaqSegment[] }) {
   );
 }
 
-export function FaqSection() {
+type FaqSectionProps = {
+  items?: FaqItem[];
+  title?: string;
+  subtitle?: string;
+  accent?: "sky" | "lavender" | "mint" | "peach" | "bubblegum";
+  className?: string;
+  id?: string;
+};
+
+export function FaqSection({
+  items = faqItems,
+  title = "Frequently Asked Questions",
+  subtitle = "Everything families ask before visiting Fun Factory in Pickering.",
+  accent = "sky",
+  className = "bg-white",
+  id,
+}: FaqSectionProps = {}) {
   return (
-    <section className="section-pad bg-white" aria-label="Frequently asked questions">
+    <section id={id} className={`section-pad scroll-mt-24 ${className}`} aria-label={title}>
       <div className="container-main">
-        <SectionHeading
-          title="Frequently Asked Questions"
-          subtitle="Everything families ask before visiting Fun Factory in Pickering."
-          accent="sky"
-        />
+        <SectionHeading title={title} subtitle={subtitle} accent={accent} />
         <div className="mx-auto mt-10 max-w-3xl divide-y divide-border">
-          {faqItems.map((item) => (
+          {items.map((item) => (
             <details key={item.question} className="group py-5">
               <summary className="cursor-pointer list-none text-base font-bold text-charcoal marker:content-none [&::-webkit-details-marker]:hidden">
                 <span className="flex items-start justify-between gap-4">

@@ -1,5 +1,7 @@
 import { JsonLd } from "@/components/JsonLd";
 import { PartyCards } from "@/components/PartyCards";
+import { PartyPackageFinder } from "@/components/PartyPackageFinder";
+import { RatingBadge } from "@/components/RatingBadge";
 import { PartyDecor } from "@/components/PartyDecor";
 import { PartyTimelines } from "@/components/PartyTimelines";
 import { PageHero } from "@/components/PageHero";
@@ -72,6 +74,8 @@ const partyFaqs: FaqItem[] = [
 ];
 
 export default function BirthdayPartiesPage() {
+  const partyBookingUrl = getPartyBookingUrl();
+
   return (
     <>
       <JsonLd
@@ -99,14 +103,21 @@ export default function BirthdayPartiesPage() {
         }
         accent="lavender"
       >
-        <Button href={getPartyBookingUrl()} external variant="lavender" size="lg">
+        <Button href={partyBookingUrl} external variant="lavender" size="lg">
           Book Now
         </Button>
+        <p className="mt-3 text-sm text-charcoal/80">
+          Pick your date and time online. Takes about 2 minutes.
+        </p>
+        <RatingBadge className="mt-4" />
       </PageHero>
 
       <section className="section-pad bg-section-lavender">
         <div className="container-main">
           <SectionHeading title="Birthday Party Packages" accent="lavender" />
+          <div className="mt-10">
+            <PartyPackageFinder bookingUrl={partyBookingUrl} />
+          </div>
           <div className="mt-10">
             <PartyCards />
           </div>

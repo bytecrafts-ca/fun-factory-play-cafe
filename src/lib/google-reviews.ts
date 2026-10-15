@@ -41,13 +41,11 @@ export async function getGoogleReviews(): Promise<GoogleReviewsData> {
   try {
     const url = new URL("https://maps.googleapis.com/maps/api/place/details/json");
     url.searchParams.set("place_id", placeId);
-    url.searchParams.set(
-      "fields",
-      "reviews,rating,user_ratings_total",
-    );
+    url.searchParams.set("fields", "reviews,rating,user_ratings_total");
+    url.searchParams.set("reviews_sort", "newest");
     url.searchParams.set("key", apiKey);
 
-    const response = await fetch(url.toString(), { next: { revalidate: 86400 } });
+    const response = await fetch(url.toString(), { next: { revalidate: 3600 } });
     const data = (await response.json()) as {
       result?: {
         reviews?: PlacesReview[];
@@ -56,12 +54,15 @@ export async function getGoogleReviews(): Promise<GoogleReviewsData> {
       };
     };
 
-    const reviews = data.result?.reviews?.map((review) => ({
-      author: review.author_name ?? "Google reviewer",
-      rating: review.rating ?? 5,
-      text: review.text ?? "",
-      relativeTime: review.relative_time_description,
-    })).filter((review) => review.text.length > 0);
+    const reviews = (data.result?.reviews ?? [])
+      .map((review) => ({
+        author: review.author_name ?? "Google reviewer",
+        rating: review.rating ?? 5,
+        text: review.text ?? "",
+        relativeTime: review.relative_time_description,
+      }))
+      .filter((review) => review.text.length > 0 && review.rating >= 5)
+      .slice(0, 5);
 
     if (!reviews?.length) {
       throw new Error("No reviews returned");

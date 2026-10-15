@@ -11,6 +11,38 @@ export const googleAdsContactConversion =
   process.env.NEXT_PUBLIC_GOOGLE_ADS_CONTACT_CONVERSION ??
   "AW-18425793193/u82bCN3-zu0cEKmVjdJE";
 
+/** Optional click conversions for outbound booking links. Unset = GA4 event only. */
+export const googleAdsPartyClickConversion =
+  process.env.NEXT_PUBLIC_GOOGLE_ADS_PARTY_CLICK_CONVERSION ?? "";
+export const googleAdsTicketClickConversion =
+  process.env.NEXT_PUBLIC_GOOGLE_ADS_TICKET_CLICK_CONVERSION ?? "";
+
+export const ga4Id = process.env.NEXT_PUBLIC_GA4_ID ?? "";
+export const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID ?? "";
+
+export type BookingClickType = "party" | "tickets";
+
+export function getBookingClickType(href: string): BookingClickType | null {
+  if (/\.book\.app\b|ovatu\.com/i.test(href)) return "party";
+  if (/squareup\.com\/appointments|square\.site/i.test(href)) return "tickets";
+  return null;
+}
+
+/** Fire-and-forget. Never blocks navigation. */
+export function trackBookingClick(type: BookingClickType, href: string, location: string) {
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+
+  window.gtag("event", type === "party" ? "party_booking_click" : "ticket_purchase_click", {
+    link_url: href,
+    page_path: location,
+  });
+
+  const sendTo = type === "party" ? googleAdsPartyClickConversion : googleAdsTicketClickConversion;
+  if (sendTo) {
+    window.gtag("event", "conversion", { send_to: sendTo });
+  }
+}
+
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;

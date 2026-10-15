@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { localGuides } from "@/data/local-guides";
+import { landingPages } from "@/lib/landing-pages";
 import { ConversionLink } from "@/components/ConversionLink";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
@@ -47,13 +48,8 @@ export default function ResourcesPage() {
               </Link>
             </li>
             <li>
-              <Link href="/pickering-indoor-playground" className="font-semibold text-charcoal hover:underline">
-                Indoor playground Pickering
-              </Link>
-            </li>
-            <li>
-              <Link href="/kids-birthday-parties-pickering" className="font-semibold text-charcoal hover:underline">
-                Kids birthday parties Pickering
+              <Link href="/faq" className="font-semibold text-charcoal hover:underline">
+                Frequently asked questions
               </Link>
             </li>
             <li>
@@ -61,6 +57,17 @@ export default function ResourcesPage() {
                 Leave a Google review
               </Link>
             </li>
+          </ul>
+
+          <h2 className="mt-10 text-xl font-extrabold text-charcoal">Plan your visit</h2>
+          <ul className="mt-4 grid gap-3 text-sm sm:grid-cols-2">
+            {landingPages.map((page) => (
+              <li key={page.slug}>
+                <Link href={page.path} className="font-semibold text-charcoal hover:underline">
+                  {page.breadcrumbLabel}
+                </Link>
+              </li>
+            ))}
           </ul>
 
           <h2 className="mt-10 text-xl font-extrabold text-charcoal">Local guides</h2>

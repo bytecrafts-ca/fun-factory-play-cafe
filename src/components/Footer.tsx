@@ -61,6 +61,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/faq" className="text-sm text-muted transition hover:text-charcoal">
+                  FAQ
+                </Link>
+              </li>
+              <li>
                 <Link href="/review" className="text-sm text-muted transition hover:text-charcoal">
                   Leave a Review
                 </Link>
@@ -116,6 +121,16 @@ export function Footer() {
               <li>
                 <Link href="/whitby-kids-parties" className="transition hover:text-charcoal">
                   Parties near Whitby
+                </Link>
+              </li>
+              <li>
+                <Link href="/oshawa-kids-birthday-parties" className="transition hover:text-charcoal">
+                  Parties near Oshawa
+                </Link>
+              </li>
+              <li>
+                <Link href="/scarborough-indoor-playground" className="transition hover:text-charcoal">
+                  Indoor play near Scarborough
                 </Link>
               </li>
             </ul>

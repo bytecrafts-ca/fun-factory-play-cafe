@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
+import { BookingClickTracker } from "@/components/BookingClickTracker";
+import { MobileBookingBar } from "@/components/MobileBookingBar";
 import { Footer } from "@/components/Footer";
 import { GoogleAds } from "@/components/GoogleAds";
 import { Header } from "@/components/Header";
@@ -9,6 +11,8 @@ import { PartyPromoPopup } from "@/components/PartyPromoPopup";
 import { TopBar } from "@/components/TopBar";
 import { createPageMetadata, getGlobalSchemas, pageSeo, seoConfig } from "@/lib/seo";
 import "./globals.css";
+
+export const revalidate = 3600;
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -59,8 +63,9 @@ export default function RootLayout({
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM site summary" />
         <link rel="preload" href="/hero.webp" as="image" type="image/webp" fetchPriority="high" />
       </head>
-      <body className={jakarta.variable}>
+      <body className={`${jakarta.variable} pb-[calc(4rem+env(safe-area-inset-bottom))] md:pb-0`}>
         <GoogleAds />
+        <BookingClickTracker />
         <JsonLd data={getGlobalSchemas()} />
         <TopBar />
         <AnnouncementBar />
@@ -68,6 +73,7 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <PartyPromoPopup />
         <Footer />
+        <MobileBookingBar />
       </body>
     </html>
   );

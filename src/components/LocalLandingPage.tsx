@@ -7,7 +7,7 @@ import { ReviewBanner } from "@/components/ReviewBanner";
 import { Button } from "@/components/ui/Button";
 import { getBreadcrumbSchema, getFAQSchema } from "@/lib/seo";
 import type { LandingPage } from "@/lib/landing-pages";
-import { siteConfig } from "@/lib/site";
+import { getPartyBookingUrl, siteConfig } from "@/lib/site";
 
 type Props = {
   page: LandingPage;
@@ -30,7 +30,7 @@ export function LocalLandingPage({ page }: Props) {
           {page.ctas.map((cta) => (
             <Button
               key={cta.label}
-              href={cta.href}
+              href={cta.href === siteConfig.ovatu.partiesUrl ? getPartyBookingUrl() : cta.href}
               external={cta.external}
               variant={cta.variant ?? "primary"}
               size="lg"

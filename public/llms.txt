@@ -1,7 +1,7 @@
-# Fun Factory Play Café — LLM site summary
+# Fun Factory Play Café: LLM site summary
 # https://funfactoryplay.ca
 
-> Fun Factory Play Café is an indoor playground and birthday party centre in Pickering, Ontario, with on-site Littles & Lattés Café. Unlimited drop-in play, private party packages, and a toddler-friendly play floor at 1420 Bayly St., Unit 15, Pickering, ON L1W 3R4.
+> Fun Factory Play Café is an indoor playground and kids birthday party centre in Pickering, Ontario, with Littles & Lattés Café on site. Unlimited drop-in play, a toddler zone, private party rooms, and party packages from $399. 1420 Bayly St., Unit 15, Pickering, ON L1W 3R4. Rated 4.4 stars from 850+ Google reviews.
 
 ## Contact (NAP)
 - Name: Fun Factory Play Café
@@ -10,53 +10,71 @@
 - Email: info@funfactoryplay.ca
 - Website: https://funfactoryplay.ca
 - Café brand: Littles & Lattés Café (same location)
+- Parking: free, in the Bayly Street plaza, minutes from Highway 401
 
-## Hours (effective September 8, 2026)
-- Monday & Wednesday: 9:30 am – 2:00 pm
-- Tuesday & Thursday: 12:00 pm – 7:30 pm (50% off drop-in admissions after 3:30 pm)
-- Friday–Sunday: 9:30 am – 8:30 pm
-- September 7, 2026: Closed (Labour Day)
+## Service area
+Pickering, Ajax, Whitby, Oshawa, Scarborough, and Durham Region (east GTA).
 
-## Drop-in admissions (pay at desk, unlimited play time)
+## Public play hours
+- Monday & Wednesday: 9:30 am to 2:00 pm
+- Tuesday & Thursday: 12:00 pm to 7:30 pm (50% off drop-in admissions after 3:30 pm)
+- Friday to Sunday: 9:30 am to 8:30 pm
+- Special hours for holidays and private events: https://funfactoryplay.ca/play
+
+## Drop-in admissions (unlimited play time)
 - Under 1: $5.00 (free with paying sibling)
-- Ages 1–3: $10.00
-- Ages 4–13: $14.00
-- Ages 14–17: $10.00
-- Access 2 Card holders: $2 off drop-in admission rates
+- Ages 1 to 3: $10.00
+- Ages 4 to 13: $14.00
+- Ages 14 to 17: $10.00
+- Two adults per family included with admission
+- Access 2 Card holders: $2 off drop-in admission
+- Buy drop-in tickets online: https://funfactoryplay.ca/tickets (or pay at the front desk)
 
-## Party packages (September 2026 pricing)
+## Birthday party packages (2.5 hours, private room)
 - Fun Party: $399 (10 kids, 10 adults)
 - Active Fun Party: $499 (15 kids, 15 adults)
 - Supreme Fun Party: $599 (20 kids, 20 adults)
 - Extreme Fun Party: $699 (30 kids, 30 adults)
-- Ultimate Fun Party: $999 Mon–Thu / $1,499 Fri–Sun (up to 50 kids, private facility)
+- Ultimate Fun Party: $999 Mon to Thu / $1,499 Fri to Sun (up to 50 kids, private use of the facility)
+- Every package includes playtime, pizza, birthday cake, juice and water, coffee/tea for adults, e-vites, a party host, setup, and cleanup
+- Current promo: 10% off new online party bookings with code SAVE10 (booking and party date on or before December 31, 2026)
+- Party decor: Pop & Petal Parties offers preferred pricing and free delivery for Fun Factory parties
+- Book a party: https://funfactoryplay.ca/birthday-parties
 
 ## Key pages
 - Home: https://funfactoryplay.ca/
-- Drop-in play: https://funfactoryplay.ca/play
+- Drop-in play, rates and hours: https://funfactoryplay.ca/play
 - Birthday parties: https://funfactoryplay.ca/birthday-parties
-- Littles & Lattés café: https://funfactoryplay.ca/cafe
+- Littles & Lattés café menu: https://funfactoryplay.ca/cafe
+- FAQ: https://funfactoryplay.ca/faq
+- Loyalty program: https://funfactoryplay.ca/loyalty
+- Waiver: https://funfactoryplay.ca/waiver
 - Contact: https://funfactoryplay.ca/contact
-- Guides: https://funfactoryplay.ca/guides
-- Resources: https://funfactoryplay.ca/resources
-- Leave a review: https://funfactoryplay.ca/review
+- Parent guides: https://funfactoryplay.ca/guides
 
-## Local landing pages
+## Local and seasonal pages
 - https://funfactoryplay.ca/pickering-indoor-playground
 - https://funfactoryplay.ca/kids-birthday-parties-pickering
 - https://funfactoryplay.ca/durham-region-birthday-parties
 - https://funfactoryplay.ca/ajax-indoor-play
 - https://funfactoryplay.ca/whitby-kids-parties
+- https://funfactoryplay.ca/oshawa-kids-birthday-parties
+- https://funfactoryplay.ca/scarborough-indoor-playground
+- https://funfactoryplay.ca/toddler-play-pickering
+- https://funfactoryplay.ca/first-birthday-party-pickering
+- https://funfactoryplay.ca/things-to-do-with-kids-pickering
+- https://funfactoryplay.ca/rainy-day-activities-durham
+- https://funfactoryplay.ca/pa-day-activities-durham
+- https://funfactoryplay.ca/march-break-activities-pickering
+- https://funfactoryplay.ca/winter-break-activities-pickering
+- https://funfactoryplay.ca/school-daycare-group-trips-pickering
 
 ## Policies
 - Socks required for children and adults ($3 at reception)
-- Signed waiver required before entry
-- Parent supervision required
+- Signed waiver required for every child before entry
+- Parent supervision required at all times
 - Nut-free outside food allowed; no outside drinks
-- Tue/Thu discount visits do not earn loyalty points
-
-## Google reviews
-- Approximately 4.3 stars, ~680 reviews
+- All sales are final; prices subject to HST
 
 ## Sitemap
 - https://funfactoryplay.ca/sitemap.xml

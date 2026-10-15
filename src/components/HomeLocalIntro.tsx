@@ -39,14 +39,14 @@ export function HomeLocalIntro() {
               </Link>
               ,{" "}
               <Link
-                href="/durham-region-birthday-parties"
+                href="/oshawa-kids-birthday-parties"
                 className="text-charcoal underline-offset-2 hover:underline"
               >
                 Oshawa
               </Link>
               ,{" "}
               <Link
-                href="/ajax-indoor-play"
+                href="/scarborough-indoor-playground"
                 className="text-charcoal underline-offset-2 hover:underline"
               >
                 Scarborough

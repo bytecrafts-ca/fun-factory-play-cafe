@@ -11,6 +11,7 @@ import {
 } from "@/lib/site";
 
 const DISMISS_KEY = "fun-factory-party-promo-dismissed";
+const OPEN_DELAY_MS = 7000;
 
 const promoPaths = new Set(["/", "/birthday-parties"]);
 
@@ -22,7 +23,8 @@ export function PartyPromoPopup() {
     if (!promoPaths.has(pathname)) return;
     if (!isPartyBookingPromoActive()) return;
     if (sessionStorage.getItem(DISMISS_KEY)) return;
-    setOpen(true);
+    const timer = window.setTimeout(() => setOpen(true), OPEN_DELAY_MS);
+    return () => window.clearTimeout(timer);
   }, [pathname]);
 
   useEffect(() => {

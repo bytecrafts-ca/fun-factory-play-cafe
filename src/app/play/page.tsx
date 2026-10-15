@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/Button";
 import { HoursWidget } from "@/components/HoursWidget";
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
+import { RatingBadge } from "@/components/RatingBadge";
 import { ReviewBanner } from "@/components/ReviewBanner";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import {
@@ -114,6 +115,7 @@ export default function PlayPage() {
             Join Loyalty
           </Button>
         </div>
+        <RatingBadge className="mt-4" />
       </PageHero>
 
       <section className="section-pad bg-sky/15">

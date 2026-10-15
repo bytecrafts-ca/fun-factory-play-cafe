@@ -3,6 +3,8 @@ import { LocalLandingPage } from "@/components/LocalLandingPage";
 import { createPageMetadata } from "@/lib/seo";
 import { getAllLandingSlugs, landingPagesBySlug } from "@/lib/landing-pages";
 
+export const revalidate = 3600;
+
 type Props = {
   params: Promise<{ slug: string }>;
 };
