@@ -1,7 +1,7 @@
 // Submits every URL in the live sitemap to IndexNow (Bing, Yandex, Seznam, Naver).
 // Run after a deploy: npm run indexnow
 const SITE = "https://funfactoryplay.ca";
-const KEY = "ddeeb16f4a2cb78133afda4858c9bce0";
+const KEY = "ff13145129bd434e3737bf8b9569b890";
 
 const sitemap = await fetch(`${SITE}/sitemap.xml`).then((res) => {
   if (!res.ok) throw new Error(`Sitemap fetch failed: ${res.status}`);
