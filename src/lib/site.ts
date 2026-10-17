@@ -96,23 +96,23 @@ export type DayHours = {
 export const hoursScheduleChangeDate = "2026-09-01";
 
 const weeklyHoursBeforeSept8: DayHours[] = [
-  { day: "Monday", hours: "9:30 am – 2:00 pm" },
-  { day: "Tuesday", hours: "12:00 pm – 7:30 pm", promo: "50% off admissions after 3:30 pm" },
-  { day: "Wednesday", hours: "9:30 am – 2:00 pm" },
-  { day: "Thursday", hours: "12:00 pm – 7:30 pm", promo: "50% off admissions after 3:30 pm" },
-  { day: "Friday", hours: "9:30 am – 8:30 pm" },
-  { day: "Saturday", hours: "9:30 am – 8:30 pm" },
-  { day: "Sunday", hours: "9:30 am – 8:30 pm" },
+  { day: "Monday", hours: "9:30 am to 2:00 pm" },
+  { day: "Tuesday", hours: "12:00 pm to 7:30 pm", promo: "50% off admissions after 3:30 pm" },
+  { day: "Wednesday", hours: "9:30 am to 2:00 pm" },
+  { day: "Thursday", hours: "12:00 pm to 7:30 pm", promo: "50% off admissions after 3:30 pm" },
+  { day: "Friday", hours: "9:30 am to 8:30 pm" },
+  { day: "Saturday", hours: "9:30 am to 8:30 pm" },
+  { day: "Sunday", hours: "9:30 am to 8:30 pm" },
 ];
 
 const weeklyHoursFromSept8: DayHours[] = [
-  { day: "Monday", hours: "9:30 am – 2:00 pm" },
-  { day: "Tuesday", hours: "12:00 pm – 7:30 pm", promo: "50% off admissions after 3:30 pm" },
-  { day: "Wednesday", hours: "9:30 am – 2:00 pm" },
-  { day: "Thursday", hours: "12:00 pm – 7:30 pm", promo: "50% off admissions after 3:30 pm" },
-  { day: "Friday", hours: "9:30 am – 8:30 pm" },
-  { day: "Saturday", hours: "9:30 am – 8:30 pm" },
-  { day: "Sunday", hours: "9:30 am – 8:30 pm" },
+  { day: "Monday", hours: "9:30 am to 2:00 pm" },
+  { day: "Tuesday", hours: "12:00 pm to 7:30 pm", promo: "50% off admissions after 3:30 pm" },
+  { day: "Wednesday", hours: "9:30 am to 2:00 pm" },
+  { day: "Thursday", hours: "12:00 pm to 7:30 pm", promo: "50% off admissions after 3:30 pm" },
+  { day: "Friday", hours: "9:30 am to 8:30 pm" },
+  { day: "Saturday", hours: "9:30 am to 8:30 pm" },
+  { day: "Sunday", hours: "9:30 am to 8:30 pm" },
 ];
 
 /** @deprecated Use getWeeklyHours() — kept for imports that need the Sept 8+ schedule */
@@ -139,17 +139,17 @@ export const hoursDisclaimer =
 
 /** One-off date overrides — checked before the regular weekly schedule. Show only the current month until Zak sends the next set. */
 export const specialHours: SpecialHours[] = [
-  { date: "2026-07-29", hours: "12:00 pm – 8:00 pm" },
-  { date: "2026-08-03", hours: "9:30 am – 7:30 pm" },
-  { date: "2026-08-15", hours: "9:30 am – 2:30 pm, 5:30 pm – 8:30 pm" },
-  { date: "2026-08-23", hours: "9:30 am – 1:00 pm" },
-  { date: "2026-08-24", hours: "12:00 pm – 8:00 pm" },
-  { date: "2026-08-25", hours: "12:00 pm – 8:30 pm" },
-  { date: "2026-08-31", hours: "12:00 pm – 7:30 pm" },
-  { date: "2026-09-14", hours: "9:30 am – 8:30 pm" },
+  { date: "2026-07-29", hours: "12:00 pm to 8:00 pm" },
+  { date: "2026-08-03", hours: "9:30 am to 7:30 pm" },
+  { date: "2026-08-15", hours: "9:30 am to 2:30 pm, 5:30 pm to 8:30 pm" },
+  { date: "2026-08-23", hours: "9:30 am to 1:00 pm" },
+  { date: "2026-08-24", hours: "12:00 pm to 8:00 pm" },
+  { date: "2026-08-25", hours: "12:00 pm to 8:30 pm" },
+  { date: "2026-08-31", hours: "12:00 pm to 7:30 pm" },
+  { date: "2026-09-14", hours: "9:30 am to 8:30 pm" },
   { date: "2026-09-07", hours: "Closed", closed: true, label: "Labour Day" },
-  { date: "2026-10-12", hours: "9:30 am – 5:00 pm", label: "Thanksgiving" },
-  { date: "2026-10-24", hours: "12:30 pm – 8:30 pm" },
+  { date: "2026-10-12", hours: "9:30 am to 5:00 pm", label: "Thanksgiving" },
+  { date: "2026-10-24", hours: "12:30 pm to 8:30 pm" },
 ];
 
 export const admissions = [
@@ -160,7 +160,7 @@ export const admissions = [
 ] as const;
 
 export const playRatesNote =
-  "Enjoy unlimited play time — there is no time limit on your visit.";
+  "Enjoy unlimited play time. There is no time limit on your visit.";
 
 export const partyBookingPromo = {
   startDate: "2026-10-01",
@@ -211,7 +211,7 @@ export const accessTwoCardUrl =
 
 export const admissionNotes = [
   "Two (2) adults per family included in the admission",
-  "Socks available for purchase at reception — $3.00",
+  "Socks available for purchase at reception: $3.00",
   "All prices are subject to HST",
   "We are a socks only facility",
   "A signed waiver is required before entry",
@@ -226,7 +226,7 @@ export const partyPackages = [
     price: 399,
     children: 10,
     adults: 10,
-    pizzas: "1 party-size pizza (cheese/pepperoni/veggie — two toppings)",
+    pizzas: "1 party-size pizza (cheese/pepperoni/veggie, two toppings)",
     cake: "Birthday cake (can substitute for a large pizza)",
     drinks: 10,
     returnPasses: 1,
@@ -237,7 +237,7 @@ export const partyPackages = [
     price: 499,
     children: 15,
     adults: 15,
-    pizzas: "1 party-size pizza & 1 large pizza (cheese/pepperoni/veggie — two toppings)",
+    pizzas: "1 party-size pizza & 1 large pizza (cheese/pepperoni/veggie, two toppings)",
     cake: "Birthday cake (can substitute for a large pizza)",
     drinks: 15,
     returnPasses: 2,
@@ -249,7 +249,7 @@ export const partyPackages = [
     price: 599,
     children: 20,
     adults: 20,
-    pizzas: "2 party-size pizzas (cheese/pepperoni/veggie — two toppings)",
+    pizzas: "2 party-size pizzas (cheese/pepperoni/veggie, two toppings)",
     cake: "Birthday cake (can substitute for a large pizza)",
     drinks: 20,
     returnPasses: 3,
@@ -261,7 +261,7 @@ export const partyPackages = [
     price: 699,
     children: 30,
     adults: 30,
-    pizzas: "3 party-size pizzas (cheese/pepperoni/veggie — two toppings)",
+    pizzas: "3 party-size pizzas (cheese/pepperoni/veggie, two toppings)",
     cake: "Birthday cake (can substitute for a large pizza)",
     drinks: 30,
     returnPasses: 4,
@@ -277,7 +277,7 @@ export const ultimateParty = {
   weekendNote: "Friday to Sunday",
   children: 50,
   adults: 50,
-  pizzas: "4 party-size pizzas & 1 large pizza (cheese/pepperoni/veggie — two toppings)",
+  pizzas: "4 party-size pizzas & 1 large pizza (cheese/pepperoni/veggie, two toppings)",
   cake: "Birthday cake (can substitute for a large pizza)",
   drinks: 50,
   returnPasses: 5,
@@ -290,22 +290,22 @@ export const partyExtras = {
 } as const;
 
 export const partyRoomInfo = {
-  smallRoom: "Small room — Fun Party and Active Fun Party time slots",
-  largeRoom: "Large room — Supreme Fun Party and Extreme Fun Party time slots",
+  smallRoom: "Small room: Fun Party and Active Fun Party time slots",
+  largeRoom: "Large room: Supreme Fun Party and Extreme Fun Party time slots",
 } as const;
 
 export const partyTimeSlots = {
   smallRoom: [
-    "9:30 AM – 12:00 PM",
-    "12:15 PM – 2:45 PM",
-    "3:00 PM – 5:30 PM",
-    "5:45 PM – 8:15 PM",
+    "9:30 AM to 12:00 PM",
+    "12:15 PM to 2:45 PM",
+    "3:00 PM to 5:30 PM",
+    "5:45 PM to 8:15 PM",
   ],
   largeRoom: [
-    "10:00 AM – 12:30 PM",
-    "12:45 PM – 3:15 PM",
-    "3:30 PM – 6:00 PM",
-    "6:15 PM – 8:45 PM",
+    "10:00 AM to 12:30 PM",
+    "12:45 PM to 3:15 PM",
+    "3:30 PM to 6:00 PM",
+    "6:15 PM to 8:45 PM",
   ],
 } as const;
 
@@ -490,7 +490,7 @@ export const partyAddOns = [
 ] as const;
 
 export const partyCustomizeText =
-  "We'll help you customize your event just how you like it — Contact us to start planning your perfect party today!";
+  "We'll help you customize your event just how you like it. Contact us to start planning your perfect party today!";
 
 export const waiverText =
   "The Fun Factory is an unsupervised play area. Parents/guardians must supervise their children at all times and are fully responsible for their child's safety and supervision. The Fun Factory will not be held responsible for accidents that occur as a result of playing.";
@@ -522,10 +522,10 @@ export const importantInfo = [
 ] as const;
 
 export const socksReminder =
-  "We are a socks only facility — socks are required for children and adults.";
+  "We are a socks only facility. Socks are required for children and adults.";
 
 export const promoText =
-  "Tuesdays & Thursdays: open 12:00 to 7:30 pm — 50% off drop-in admissions from 3:30 to 7:30 pm";
+  "Tuesdays & Thursdays: open 12:00 to 7:30 pm, 50% off drop-in admissions from 3:30 to 7:30 pm";
 
 export const galleryImages = [
   {
@@ -657,14 +657,14 @@ export const loyaltyProgram = {
   pointsPerVisit: 10,
   freeVisitAt: 100,
   summary:
-    "Earn points on regular drop-in visits. After enough visits, your next admission is on us. Party packages include separate free return passes — that's not the same as loyalty points.",
+    "Earn points on regular drop-in visits. After enough visits, your next admission is on us. Party packages include separate free return passes. That's not the same as loyalty points.",
   enrollNote:
-    "Sign up below with your phone, email, and postal code — or ask staff to enroll you at the front desk on your first visit. Points are tracked through Square when you pay at regular drop-in rates.",
+    "Sign up below with your phone, email, and postal code, or ask staff to enroll you at the front desk on your first visit. Points are tracked through Square when you pay at regular drop-in rates.",
   rules: [
     "Earn 10 loyalty points with each regular drop-in visit paid at full admission price.",
     "Reach 100 points to redeem one free drop-in admission.",
-    "Tuesday and Thursday 50% off drop-in visits do not earn loyalty points — those are discounted admissions only.",
-    "Party packages include free return play passes when the package is paid in full (1–5 passes depending on package). Those passes are separate from loyalty points.",
+    "Tuesday and Thursday 50% off drop-in visits do not earn loyalty points. Those are discounted admissions only.",
+    "Party packages include free return play passes when the package is paid in full (1 to 5 passes depending on package). Those passes are separate from loyalty points.",
     "Points are tracked through Square when you pay at the front desk.",
     "Use the same phone number online and at the desk so your points stay linked.",
     "Ask staff to look up or redeem your points any time you visit.",
@@ -901,7 +901,7 @@ function parseHoursRanges(hoursStr: string): { open: number; close: number }[] |
 
   const ranges: { open: number; close: number }[] = [];
   for (const segment of hoursStr.split(",")) {
-    const parts = segment.trim().split(/[–-]/);
+    const parts = segment.trim().split(/\s+to\s+|[–-]/);
     if (parts.length !== 2) continue;
     const open = parseTimeToMinutes(parts[0]);
     const close = parseTimeToMinutes(parts[1]);
@@ -962,7 +962,7 @@ export function getTodayHours(): DayHours | null {
 }
 
 export function getDropInHoursSummary(): string {
-  return "We're open Mon & Wed 9:30 am–2:00 pm, Tue & Thu 12:00 pm–7:30 pm, and Fri–Sun 9:30 am–8:30 pm.";
+  return "We're open Mon & Wed 9:30 am to 2:00 pm, Tue & Thu 12:00 pm to 7:30 pm, and Fri to Sun 9:30 am to 8:30 pm.";
 }
 
 export function formatSpecialHoursDate(dateStr: string, label?: string): string {

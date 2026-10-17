@@ -53,7 +53,7 @@ export async function GoogleReviews({
               <Stars rating={review.rating} />
               <p className="mt-3 text-sm leading-relaxed text-charcoal">&ldquo;{review.text}&rdquo;</p>
               <p className="mt-4 text-xs font-semibold text-muted">
-                — {review.author}
+                {review.author}
                 {review.relativeTime ? ` · ${review.relativeTime}` : ""}
               </p>
             </article>

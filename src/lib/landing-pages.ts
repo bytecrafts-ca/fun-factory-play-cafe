@@ -93,7 +93,7 @@ export const landingPages: LandingPage[] = [
         heading: "What to expect on your first visit",
         paragraphs: [
           "Fun Factory is a socks-only facility. Bring socks for every child and adult, or purchase them at reception for $3. A signed waiver is required for each child before play. Nut-free outside food is welcome; outside drinks are not permitted.",
-          "Admission is charged by age group. Under 1 year is $5 (free with a paying sibling). Ages 1–3 are $10, ages 4–13 are $14, and ages 14–17 are $10. Access 2 Card holders receive $2 off drop-in admission rates.",
+          "Admission is charged by age group. Under 1 year is $5 (free with a paying sibling). Ages 1 to 3 are $10, ages 4 to 13 are $14, and ages 14 to 17 are $10. Access 2 Card holders receive $2 off drop-in admission rates.",
           "Every Tuesday and Thursday, drop-in admissions are 50% off after 3:30 pm. We are open from 12:00 pm on those days. While kids play, parents can order from Littles & Lattés Café on site.",
         ],
       },
@@ -113,7 +113,7 @@ export const landingPages: LandingPage[] = [
           {
             type: "text",
             value:
-              "Under 1: $5 (free with paying sibling). Ages 1–3: $10. Ages 4–13: $14. Ages 14–17: $10. Pay at the front desk. Unlimited play time.",
+              "Under 1: $5 (free with paying sibling). Ages 1 to 3: $10. Ages 4 to 13: $14. Ages 14 to 17: $10. Pay at the front desk. Unlimited play time.",
           },
         ],
       },

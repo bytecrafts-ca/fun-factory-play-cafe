@@ -68,6 +68,6 @@ export async function POST(request: Request) {
     message:
       result.status === "already_enrolled"
         ? "You're already enrolled! Show this phone number at the front desk to earn and redeem points."
-        : "You're enrolled! Visit us and pay at the front desk on regular drop-in days — your points are added when you pay full admission (not on Tue/Thu 50% off visits).",
+        : "You're enrolled! Visit us and pay at the front desk on regular drop-in days. Your points are added when you pay full admission (not on Tue/Thu 50% off visits).",
   });
 }

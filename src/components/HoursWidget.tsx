@@ -10,7 +10,7 @@ import {
 
 function TimeCells({ hours, muted = false }: { hours: string; muted?: boolean }) {
   const tone = muted ? "text-muted" : "text-charcoal";
-  const parts = hours.split(/\s*[–-]\s*/).map((part) => part.trim()).filter(Boolean);
+  const parts = hours.split(/\s+to\s+|\s*[–-]\s*/).map((part) => part.trim()).filter(Boolean);
 
   if (parts.length !== 2) {
     return <span className={`col-span-3 whitespace-nowrap text-right ${tone}`}>{hours}</span>;
@@ -19,9 +19,7 @@ function TimeCells({ hours, muted = false }: { hours: string; muted?: boolean })
   return (
     <>
       <span className={`whitespace-nowrap text-right ${tone}`}>{parts[0]}</span>
-      <span className={tone} aria-hidden>
-        –
-      </span>
+      <span className="text-muted">to</span>
       <span className={`whitespace-nowrap ${tone}`}>{parts[1]}</span>
     </>
   );

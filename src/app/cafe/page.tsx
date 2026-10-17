@@ -59,7 +59,7 @@ export default function CafePage() {
         <div className="container-main">
           <SectionHeading
             title="Specialty Lattes"
-            subtitle="Our signature iced lattes — hot and iced available."
+            subtitle="Our signature lattes, available hot or iced."
             accent="lavender"
           />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -74,7 +74,7 @@ export default function CafePage() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <SectionHeading
             title="Matcha"
-            subtitle="Made with real matcha — most drinks available hot or iced. Strawberry Matcha and Mango Matcha are iced only."
+            subtitle="Made with real matcha. Most drinks available hot or iced. Strawberry Matcha and Mango Matcha are iced only."
             accent="mint"
           />
           <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-5">

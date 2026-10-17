@@ -36,7 +36,7 @@ const playFaqs: FaqItem[] = [
       {
         type: "text",
         value:
-          "Under 1: $5.00 (free with paying sibling). Ages 1–3: $10. Ages 4–13: $14. Ages 14–17: $10. Buy tickets online ahead of time or pay at the front desk when you arrive.",
+          "Under 1: $5.00 (free with paying sibling). Ages 1 to 3: $10. Ages 4 to 13: $14. Ages 14 to 17: $10. Buy tickets online ahead of time or pay at the front desk when you arrive.",
       },
     ],
   },

@@ -61,11 +61,11 @@ export function PartyCards() {
         </h3>
         <div className="mt-1 space-y-0.5">
           <p className="text-base font-extrabold text-charcoal xl:text-sm 2xl:text-base">
-            Mon–Thu: {formatPrice(ultimateParty.weekdayPrice)}
+            Mon to Thu: {formatPrice(ultimateParty.weekdayPrice)}
           </p>
           <p className="text-[10px] leading-tight text-muted">Excludes holidays</p>
           <p className="text-base font-extrabold text-charcoal xl:text-sm 2xl:text-base">
-            Fri–Sun: {formatPrice(ultimateParty.weekendPrice)}
+            Fri to Sun: {formatPrice(ultimateParty.weekendPrice)}
           </p>
         </div>
         <ul className="mt-4 flex-1 space-y-1.5 text-xs leading-relaxed text-muted xl:text-[11px] 2xl:text-xs">

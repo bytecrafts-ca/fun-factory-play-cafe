@@ -103,14 +103,14 @@ export function ContactForm() {
               <option value="">Select a time slot</option>
               <optgroup label="Small room">
                 {partyTimeSlots.smallRoom.map((slot) => (
-                  <option key={slot} value={`Small room — ${slot}`}>
+                  <option key={slot} value={`Small room: ${slot}`}>
                     {slot}
                   </option>
                 ))}
               </optgroup>
               <optgroup label="Large room">
                 {partyTimeSlots.largeRoom.map((slot) => (
-                  <option key={slot} value={`Large room — ${slot}`}>
+                  <option key={slot} value={`Large room: ${slot}`}>
                     {slot}
                   </option>
                 ))}

@@ -177,7 +177,7 @@ function to24Hour(time: string): string {
 }
 
 function parseHoursRange(range: string): { opens: string; closes: string } | null {
-  const [open, close] = range.split("–").map((part) => part.trim());
+  const [open, close] = range.split(/\s+to\s+|–/).map((part) => part.trim());
   if (!open || !close) return null;
   return { opens: to24Hour(open), closes: to24Hour(close) };
 }
@@ -238,7 +238,7 @@ export const faqItems: FaqItem[] = [
     segments: [
       {
         type: "text",
-        value: `Under 1 year old: ${admissions[0].price}. Ages 1–3: ${admissions[1].price}. Ages 4–13: ${admissions[2].price}. Ages 14–17: ${admissions[3].price}. Pay at the front desk when you arrive. Enjoy unlimited play time with no time limit.`,
+        value: `Under 1 year old: ${admissions[0].price}. Ages 1 to 3: ${admissions[1].price}. Ages 4 to 13: ${admissions[2].price}. Ages 14 to 17: ${admissions[3].price}. Pay at the front desk when you arrive. Enjoy unlimited play time with no time limit.`,
       },
     ],
   },
@@ -248,7 +248,7 @@ export const faqItems: FaqItem[] = [
       {
         type: "text",
         value:
-          "Open Monday and Wednesday 9:30 am–2:00 pm, Tuesday and Thursday 12:00 pm–7:30 pm, and Friday–Sunday 9:30 am–8:30 pm.",
+          "Open Monday and Wednesday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm, and Friday to Sunday 9:30 am to 8:30 pm.",
       },
     ],
   },
@@ -492,7 +492,7 @@ export function getPartyOffersSchema() {
       availability: "https://schema.org/InStock",
       url: absoluteUrl("/birthday-parties"),
       seller: { "@id": `${seoConfig.siteUrl}/#localbusiness` },
-      description: `${pkg.name} — ${pkg.children} kids and ${pkg.adults} adults, private party room, playtime, pizza, cake, juice, e-vites, and party host.`,
+      description: `${pkg.name}: ${pkg.children} kids and ${pkg.adults} adults, private party room, playtime, pizza, cake, juice, e-vites, and party host.`,
     },
   }));
 
@@ -513,7 +513,7 @@ export function getPartyOffersSchema() {
           availability: "https://schema.org/InStock",
           url: absoluteUrl("/birthday-parties"),
           seller: { "@id": `${seoConfig.siteUrl}/#localbusiness` },
-          description: `${ultimateParty.name} — up to ${ultimateParty.children} kids, private facility use, weekday and weekend pricing available.`,
+          description: `${ultimateParty.name}: up to ${ultimateParty.children} kids, private facility use, weekday and weekend pricing available.`,
         },
       },
     ],
@@ -661,7 +661,7 @@ export const pageSeo = {
   gallery: {
     title: "Photo Gallery | Fun Factory Indoor Playground Pickering",
     description:
-      "See photos of Fun Factory Play Café — indoor play structures, toddler zones, birthday parties, and family fun in Pickering, Ontario.",
+      "See photos of Fun Factory Play Café: indoor play structures, toddler zones, birthday parties, and family fun in Pickering, Ontario.",
     path: "/gallery",
     keywords: ["indoor playground photos Pickering"],
   },
@@ -682,7 +682,7 @@ export const pageSeo = {
   loyalty: {
     title: "Loyalty Program | Earn Free Visits | Fun Factory",
     description:
-      "Join Fun Factory loyalty free — earn 10 points per regular drop-in visit, 100 points for a free admission. Enroll online with phone, email, and postal code.",
+      "Join Fun Factory loyalty for free. Earn 10 points per regular drop-in visit, 100 points for a free admission. Enroll online with phone, email, and postal code.",
     path: "/loyalty",
     keywords: ["play centre loyalty program Pickering"],
   },
