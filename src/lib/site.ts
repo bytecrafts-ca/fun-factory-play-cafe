@@ -150,6 +150,9 @@ export const specialHours: SpecialHours[] = [
   { date: "2026-09-07", hours: "Closed", closed: true, label: "Labour Day" },
   { date: "2026-10-12", hours: "9:30 am to 5:00 pm", label: "Thanksgiving" },
   { date: "2026-10-24", hours: "12:30 pm to 8:30 pm" },
+  { date: "2026-11-01", hours: "9:30 am to 1:30 pm, 4:00 pm to 8:30 pm" },
+  { date: "2026-11-13", hours: "9:30 am to 4:00 pm" },
+  { date: "2026-11-22", hours: "9:30 am to 1:30 pm, 4:30 pm to 8:30 pm" },
 ];
 
 export const admissions = [
