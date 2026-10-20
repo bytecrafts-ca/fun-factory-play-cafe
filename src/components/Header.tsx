@@ -13,7 +13,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-peach/40 bg-cream/95 backdrop-blur-sm">
-      <div className="container-main flex items-center justify-between gap-6 py-3">
+      <div className="container-main flex items-center justify-between gap-4 py-3 xl:gap-6">
         <Link href="/" className="shrink-0" onClick={() => setOpen(false)}>
           <Image
             src="/logo.webp"
@@ -32,7 +32,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`rounded-md px-3.5 py-2 text-sm font-semibold transition-colors ${
+                className={`rounded-md px-2.5 py-2 text-sm font-semibold transition-colors xl:px-3.5 ${
                   active
                     ? "bg-sky/50 text-charcoal"
                     : "text-muted hover:bg-peach/40 hover:text-charcoal"
@@ -54,7 +54,13 @@ export function Header() {
           >
             Waiver
           </Button>
-          <Button href={siteConfig.square.dropInUrl} external variant="secondary" size="sm">
+          <Button
+            href={siteConfig.square.dropInUrl}
+            external
+            variant="secondary"
+            size="sm"
+            className="whitespace-nowrap"
+          >
             Buy Tickets
           </Button>
           <Button
@@ -62,6 +68,7 @@ export function Header() {
             external
             variant="primary"
             size="sm"
+            className="whitespace-nowrap"
           >
             Book a Party
           </Button>

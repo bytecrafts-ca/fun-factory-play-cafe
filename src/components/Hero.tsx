@@ -12,12 +12,15 @@ export function Hero() {
       priority
       aside={<HoursWidget compact />}
     >
-      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:w-max lg:flex-nowrap">
         <Button href={siteRoutes.play} variant="primary" size="lg">
           Drop-In Play
         </Button>
         <Button href="/birthday-parties" variant="lavender" size="lg">
           Party Packages
+        </Button>
+        <Button href={siteConfig.ovatu.membershipsUrl} external variant="mint" size="lg">
+          Monthly Memberships
         </Button>
         <Button href="/cafe" variant="secondary" size="lg">
           Café Menu

@@ -4,7 +4,7 @@ import { LoyaltyEnrollForm } from "@/components/LoyaltyEnrollForm";
 import { PageHero } from "@/components/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { createPageMetadata, getBreadcrumbSchema, pageSeo } from "@/lib/seo";
-import { loyaltyProgram, siteRoutes } from "@/lib/site";
+import { loyaltyProgram, siteConfig, siteRoutes } from "@/lib/site";
 
 export const metadata = createPageMetadata(pageSeo.loyalty);
 
@@ -22,9 +22,14 @@ export default function LoyaltyPage() {
         subtitle={loyaltyProgram.summary}
         accent="lavender"
       >
-        <Button href={siteRoutes.play} variant="primary" size="lg">
-          View Drop-In Rates
-        </Button>
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <Button href={siteRoutes.play} variant="primary" size="lg">
+            View Drop-In Rates
+          </Button>
+          <Button href={siteConfig.ovatu.membershipsUrl} external variant="mint" size="lg">
+            Monthly Memberships
+          </Button>
+        </div>
       </PageHero>
 
       <section className="section-pad">

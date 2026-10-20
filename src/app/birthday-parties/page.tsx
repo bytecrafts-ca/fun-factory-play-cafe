@@ -124,7 +124,7 @@ export default function BirthdayPartiesPage() {
         </div>
       </section>
 
-      <section id="party-decor" className="section-pad bg-section-peach">
+      <section id="party-decor" className="section-pad scroll-mt-16 bg-section-peach">
         <div className="container-main">
           <PartyDecor />
         </div>

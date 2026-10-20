@@ -71,6 +71,9 @@ export const siteConfig = {
     partiesUrl:
       process.env.NEXT_PUBLIC_OVATU_PARTIES_URL ??
       "https://the-fun-factory.book.app/book-now",
+    membershipsUrl:
+      process.env.NEXT_PUBLIC_OVATU_MEMBERSHIPS_URL ??
+      "https://the-fun-factory.book.app/pass",
   },
   square: {
     dropInUrl:
@@ -161,6 +164,19 @@ export const admissions = [
   { ageGroup: "4 to 13 Year Old", price: "$14.00" },
   { ageGroup: "14 to 17 Year Old", price: "$10.00" },
 ] as const;
+
+export const memberships = {
+  plans: [
+    { ageGroup: "0 to 3 Years Old", monthly: 40, threeMonth: 35 },
+    { ageGroup: "4 to 13 Years Old", monthly: 50, threeMonth: 45 },
+  ],
+  perks: [
+    "Unlimited playtime",
+    "2 adults per pass included",
+    "10% off all Littles & Lattés café items",
+    "10% off additional memberships for multi-child families",
+  ],
+} as const;
 
 export const playRatesNote =
   "Enjoy unlimited play time. There is no time limit on your visit.";

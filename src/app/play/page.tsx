@@ -2,6 +2,7 @@ import { AdmissionsTable } from "@/components/AdmissionsTable";
 import { Button } from "@/components/ui/Button";
 import { HoursWidget } from "@/components/HoursWidget";
 import { JsonLd } from "@/components/JsonLd";
+import { MembershipsCard } from "@/components/MembershipsCard";
 import { PageHero } from "@/components/PageHero";
 import { RatingBadge } from "@/components/RatingBadge";
 import { ReviewBanner } from "@/components/ReviewBanner";
@@ -104,9 +105,12 @@ export default function PlayPage() {
           </div>
         }
       >
-        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:w-max lg:flex-nowrap">
           <Button href={siteConfig.square.dropInUrl} external variant="primary" size="lg">
             Buy Drop-In Tickets
+          </Button>
+          <Button href={siteConfig.ovatu.membershipsUrl} external variant="mint" size="lg">
+            Monthly Memberships
           </Button>
           <Button href={siteConfig.waiverUrl} external variant="outline" size="lg">
             Sign Waiver
@@ -146,6 +150,9 @@ export default function PlayPage() {
             <SectionHeading title="Per-Person Rates" centered={false} accent="sky" />
             <div className="mt-6">
               <AdmissionsTable />
+            </div>
+            <div className="mt-8">
+              <MembershipsCard />
             </div>
           </div>
           <div>

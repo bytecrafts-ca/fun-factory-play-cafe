@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { type ReactNode } from "react";
 
-type Variant = "primary" | "secondary" | "lavender" | "dark" | "outline";
+type Variant = "primary" | "secondary" | "lavender" | "mint" | "dark" | "outline";
 type Size = "sm" | "md" | "lg";
 
 const variantStyles: Record<Variant, string> = {
   primary: "bg-bubblegum text-charcoal hover:bg-[#ffb3cc]",
   secondary: "bg-sky text-charcoal hover:bg-[#a8d8fc]",
   lavender: "bg-lavender text-charcoal hover:bg-[#c9b5ef]",
+  mint: "bg-mint text-charcoal hover:bg-[#a6e0b4]",
   dark: "bg-charcoal text-white hover:bg-charcoal/90",
   outline:
     "border-2 border-peach bg-white text-charcoal hover:bg-peach/30",

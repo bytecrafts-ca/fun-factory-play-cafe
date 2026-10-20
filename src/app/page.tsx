@@ -5,6 +5,7 @@ import { GoogleReviews } from "@/components/GoogleReviews";
 import { Hero } from "@/components/Hero";
 import { HomeLocalIntro } from "@/components/HomeLocalIntro";
 import { JsonLd } from "@/components/JsonLd";
+import { MembershipsCard } from "@/components/MembershipsCard";
 import { PartyCards } from "@/components/PartyCards";
 import { ReviewBanner } from "@/components/ReviewBanner";
 import { RulesStrip } from "@/components/RulesStrip";
@@ -24,8 +25,9 @@ export default function HomePage() {
       <section className="section-pad">
         <div className="container-main">
           <SectionHeading title="Play Rates" centered={false} accent="mint" />
-          <div className="mt-6 max-w-xl">
+          <div className="mt-6 grid gap-8 lg:grid-cols-2 lg:items-start">
             <AdmissionsTable showNotes={false} />
+            <MembershipsCard />
           </div>
         </div>
       </section>
