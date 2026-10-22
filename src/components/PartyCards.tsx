@@ -10,6 +10,10 @@ const accentMap = {
   sunshine: { border: "border-t-sunshine", bg: "bg-sunshine/15" },
 };
 
+/** Header, details and button share subgrid rows so every card's lists start on the same line. */
+const cardClassName =
+  "card relative row-span-3 grid grid-rows-subgrid gap-y-4 border-t-4 p-5 xl:p-4 2xl:p-5";
+
 export function PartyCards() {
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
@@ -18,7 +22,7 @@ export function PartyCards() {
         return (
           <article
             key={pkg.name}
-            className={`card relative flex flex-col border-t-4 p-5 xl:p-4 2xl:p-5 ${accent.border} ${accent.bg} ${
+            className={`${cardClassName} ${accent.border} ${accent.bg} ${
               "featured" in pkg && pkg.featured ? "ring-2 ring-lavender/60" : ""
             }`}
           >
@@ -27,18 +31,20 @@ export function PartyCards() {
                 Popular
               </span>
             )}
-            <h3 className="pr-14 text-lg font-bold leading-tight text-charcoal xl:text-base 2xl:text-lg">
-              {pkg.name}
-            </h3>
-            <p className="mt-1 text-xl font-extrabold text-charcoal xl:text-lg 2xl:text-xl">
-              {formatPrice(pkg.price)}
-            </p>
-            <ul className="mt-4 flex-1 space-y-1.5 text-xs leading-relaxed text-muted xl:text-[11px] 2xl:text-xs">
+            <div>
+              <h3 className="pr-14 text-lg font-bold leading-tight text-charcoal xl:text-base 2xl:text-lg">
+                {pkg.name}
+              </h3>
+              <p className="mt-1 text-xl font-extrabold text-charcoal xl:text-lg 2xl:text-xl">
+                {formatPrice(pkg.price)}
+              </p>
+            </div>
+            <ul className="space-y-1.5 text-xs leading-relaxed text-muted xl:text-[11px] 2xl:text-xs">
               {getPartyPackageDetails(pkg).map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <div className="mt-5">
+            <div className="self-end pt-1">
               <Button
                 href={getPartyBookingUrl()}
                 external
@@ -53,27 +59,27 @@ export function PartyCards() {
         );
       })}
 
-      <article
-        className={`card relative flex flex-col border-t-4 p-5 xl:p-4 2xl:p-5 ${accentMap.sunshine.border} ${accentMap.sunshine.bg}`}
-      >
-        <h3 className="text-lg font-bold leading-tight text-charcoal xl:text-base 2xl:text-lg">
-          {ultimateParty.name}
-        </h3>
-        <div className="mt-1 space-y-0.5">
-          <p className="text-base font-extrabold text-charcoal xl:text-sm 2xl:text-base">
-            Mon to Thu: {formatPrice(ultimateParty.weekdayPrice)}
-          </p>
-          <p className="text-[10px] leading-tight text-muted">Excludes holidays</p>
-          <p className="text-base font-extrabold text-charcoal xl:text-sm 2xl:text-base">
-            Fri to Sun: {formatPrice(ultimateParty.weekendPrice)}
-          </p>
+      <article className={`${cardClassName} ${accentMap.sunshine.border} ${accentMap.sunshine.bg}`}>
+        <div>
+          <h3 className="text-lg font-bold leading-tight text-charcoal xl:text-base 2xl:text-lg">
+            {ultimateParty.name}
+          </h3>
+          <div className="mt-1 space-y-0.5">
+            <p className="text-base font-extrabold text-charcoal xl:text-sm 2xl:text-base">
+              Mon to Thu: {formatPrice(ultimateParty.weekdayPrice)}
+            </p>
+            <p className="text-[10px] leading-tight text-muted">Excludes holidays</p>
+            <p className="text-base font-extrabold text-charcoal xl:text-sm 2xl:text-base">
+              Fri to Sun: {formatPrice(ultimateParty.weekendPrice)}
+            </p>
+          </div>
         </div>
-        <ul className="mt-4 flex-1 space-y-1.5 text-xs leading-relaxed text-muted xl:text-[11px] 2xl:text-xs">
+        <ul className="space-y-1.5 text-xs leading-relaxed text-muted xl:text-[11px] 2xl:text-xs">
           {getPartyPackageDetails(ultimateParty).map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
-        <div className="mt-5">
+        <div className="self-end pt-1">
           <Button
             href={getPartyBookingUrl()}
             external
