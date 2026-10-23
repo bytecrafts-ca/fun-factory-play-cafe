@@ -175,7 +175,6 @@ export const memberships = {
     "Unlimited playtime",
     "2 adults per pass included",
     "10% off all Littles & Lattés café items",
-    "10% off additional memberships for multi-child families",
   ],
 } as const;
 

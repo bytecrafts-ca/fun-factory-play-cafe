@@ -22,7 +22,7 @@ export type LandingPage = {
     label: string;
     href: string;
     external?: boolean;
-    variant?: "primary" | "secondary" | "lavender";
+    variant?: "primary" | "secondary" | "lavender" | "peach";
   }[];
   sections: { heading: string; paragraphs: string[] }[];
   faqs: FaqItem[];
@@ -78,7 +78,7 @@ export const landingPages: LandingPage[] = [
     },
     ctas: [
       { label: "View Drop-In Rates", href: "/play" },
-      { label: "Sign Waiver Online", href: "https://form.jotform.com/261257549756066", external: true, variant: "secondary" },
+      { label: "Sign Waiver Online", href: "https://form.jotform.com/261257549756066", external: true, variant: "peach" },
     ],
     sections: [
       {

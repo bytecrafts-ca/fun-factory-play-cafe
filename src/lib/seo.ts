@@ -7,6 +7,7 @@ import {
   googleReviewsFallback,
   googleReviewsSummary,
   getWeeklyHours,
+  memberships,
   partyPackages,
   siteConfig,
   ultimateParty,
@@ -222,6 +223,34 @@ export function faqSegmentsToText(segments: FaqSegment[]): string {
     .map((segment) => (segment.type === "text" ? segment.value : segment.href))
     .join("");
 }
+
+export const membershipFaqs: FaqItem[] = [
+  {
+    question: "How much is a monthly membership?",
+    segments: [
+      {
+        type: "text",
+        value: `${memberships.plans
+          .map(
+            (plan) =>
+              `${plan.ageGroup}: $${plan.monthly} monthly, or $${plan.threeMonth} per month on a 3 month membership.`,
+          )
+          .join(" ")} Every membership includes unlimited playtime, 2 adults per pass, and 10% off all Littles & Lattés café items.`,
+      },
+    ],
+  },
+  {
+    question: "How do I sign up for a monthly membership?",
+    segments: [
+      { type: "link", href: siteConfig.ovatu.membershipsUrl, label: "Sign up online", external: true },
+      {
+        type: "text",
+        value:
+          " in a few minutes, or ask at the front desk on your next visit. Every child still needs a signed waiver before play.",
+      },
+    ],
+  },
+];
 
 export const faqItems: FaqItem[] = [
   {

@@ -48,7 +48,7 @@ export function Header() {
           <Button
             href={siteConfig.waiverUrl}
             external
-            variant="outline"
+            variant="peach"
             size="sm"
             className="lg:hidden xl:inline-flex"
           >
@@ -115,7 +115,7 @@ export function Header() {
               </Link>
             ))}
             <div className="mt-3 flex flex-col gap-2 border-t border-peach/40 pt-3">
-              <Button href={siteConfig.waiverUrl} external variant="outline" size="md">
+              <Button href={siteConfig.waiverUrl} external variant="peach" size="md">
                 Sign Waiver
               </Button>
               <Button href={siteConfig.square.dropInUrl} external variant="secondary" size="md">

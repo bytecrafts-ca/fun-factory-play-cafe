@@ -13,6 +13,7 @@ import {
   getDropInServiceSchema,
   getFAQSchema,
   getTueThuPromoEventSchema,
+  membershipFaqs,
   pageSeo,
   type FaqItem,
 } from "@/lib/seo";
@@ -68,6 +69,7 @@ const playFaqs: FaqItem[] = [
       },
     ],
   },
+  ...membershipFaqs,
 ];
 
 export default function PlayPage() {
@@ -112,7 +114,7 @@ export default function PlayPage() {
           <Button href={siteConfig.ovatu.membershipsUrl} external variant="mint" size="lg">
             Monthly Memberships
           </Button>
-          <Button href={siteConfig.waiverUrl} external variant="outline" size="lg">
+          <Button href={siteConfig.waiverUrl} external variant="peach" size="lg">
             Sign Waiver
           </Button>
           <Button href={siteRoutes.loyalty} variant="secondary" size="lg">

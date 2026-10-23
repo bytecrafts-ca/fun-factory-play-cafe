@@ -10,6 +10,7 @@ import {
   faqItems,
   getBreadcrumbSchema,
   getFAQSchema,
+  membershipFaqs,
   pageSeo,
   type FaqItem,
 } from "@/lib/seo";
@@ -38,6 +39,7 @@ const visitFaqs: FaqItem[] = [
     question: "Is there a time limit on drop-in play?",
     segments: [{ type: "text", value: "No. Drop-in visits include unlimited play time." }],
   },
+  ...membershipFaqs,
   {
     question: "Can I bring outside food?",
     segments: [

@@ -16,7 +16,7 @@ export function WaiverCTA() {
           <Button
             href={siteConfig.waiverUrl}
             external={isExternal}
-            variant="primary"
+            variant="peach"
             size="lg"
           >
             Sign Waiver
