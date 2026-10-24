@@ -2,7 +2,7 @@ import { accessTwoCardUrl } from "@/lib/site";
 
 export function AccessTwoCallout() {
   return (
-    <div className="rounded-xl border border-mint/50 bg-mint/15 px-4 py-3 sm:px-5 sm:py-4">
+    <div className="rounded-xl border border-mint/50 bg-mint/15 px-5 py-3 sm:py-4">
       <p className="text-xs font-bold uppercase tracking-wider text-charcoal/70">
         Partner discount
       </p>

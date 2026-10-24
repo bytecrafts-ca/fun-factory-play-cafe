@@ -149,7 +149,7 @@ export default function PlayPage() {
       <section className="section-pad">
         <div className="container-main grid gap-10 lg:grid-cols-2 lg:items-start">
           <div>
-            <SectionHeading title="Per-Person Rates" centered={false} accent="sky" />
+            <SectionHeading title="Admission Rates" centered={false} accent="sky" />
             <div className="mt-6">
               <AdmissionsTable />
             </div>

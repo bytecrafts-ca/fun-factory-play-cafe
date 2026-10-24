@@ -24,7 +24,7 @@ export default function HomePage() {
 
       <section className="section-pad">
         <div className="container-main">
-          <SectionHeading title="Play Rates" centered={false} accent="mint" />
+          <SectionHeading title="Admission Rates" centered={false} accent="mint" />
           <div className="mt-6 grid gap-8 lg:grid-cols-2 lg:items-start">
             <AdmissionsTable showNotes={false} />
             <MembershipsCard />

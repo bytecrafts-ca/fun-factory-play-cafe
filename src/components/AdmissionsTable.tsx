@@ -33,7 +33,7 @@ export function AdmissionsTable({ showNotes = true }: { showNotes?: boolean }) {
         <AccessTwoCallout />
       </div>
 
-      <ul className="mt-4 space-y-2 text-sm leading-relaxed text-muted">
+      <ul className="mt-4 space-y-2 px-5 text-sm leading-relaxed text-muted">
         <li>{playRatesNote}</li>
         {showNotes &&
           admissionNotes.map((note) => (
