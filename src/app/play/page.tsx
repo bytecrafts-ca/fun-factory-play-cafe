@@ -38,7 +38,7 @@ const playFaqs: FaqItem[] = [
       {
         type: "text",
         value:
-          "Under 1: $5.00 (free with paying sibling). Ages 1 to 3: $10. Ages 4 to 13: $14. Ages 14 to 17: $10. Buy tickets online ahead of time or pay at the front desk when you arrive.",
+          "Under 1: $5.00 (free with paying sibling). Ages 1 to 3: $10. Ages 4 to 13: $14. Ages 14 to 17: $10. Buy admissions online ahead of time or pay at the front desk when you arrive.",
       },
     ],
   },
@@ -91,7 +91,7 @@ export default function PlayPage() {
       />
       <PageHero
         title="Indoor Playground Drop-In Play"
-        subtitle="Buy tickets online ahead of time or pay when you arrive. Sign your waiver, check our hours, and come play."
+        subtitle="Buy admissions online ahead of time or pay when you arrive. Sign your waiver, check our hours, and come play."
         accent="sky"
         eyebrow={
           <div
@@ -109,7 +109,7 @@ export default function PlayPage() {
       >
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:w-max lg:flex-nowrap">
           <Button href={siteConfig.square.dropInUrl} external variant="primary" size="lg">
-            Buy Drop-In Tickets
+            Buy Admissions
           </Button>
           <Button href={siteConfig.ovatu.membershipsUrl} external variant="mint" size="lg">
             Monthly Memberships
@@ -139,7 +139,7 @@ export default function PlayPage() {
             </p>
             <div className="mt-5">
               <Button href={siteConfig.square.dropInUrl} external variant="primary" size="md">
-                Buy Drop-In Tickets
+                Buy Admissions
               </Button>
             </div>
           </div>

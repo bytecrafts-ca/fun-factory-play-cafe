@@ -31,7 +31,7 @@ const bookingClickEvents: Record<BookingClickType, string> = {
 export function getBookingClickType(href: string): BookingClickType | null {
   if (/\.book\.app\/pass\b/i.test(href)) return "membership";
   if (/\.book\.app\b|ovatu\.com/i.test(href)) return "party";
-  if (/squareup\.com\/appointments|square\.site/i.test(href)) return "tickets";
+  if (/squareup\.com\/(appointments|classes)|square\.site/i.test(href)) return "tickets";
   return null;
 }
 

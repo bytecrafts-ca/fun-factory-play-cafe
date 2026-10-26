@@ -35,6 +35,15 @@ export function IconCoffee({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
+export function IconUtensils({ className = "h-5 w-5" }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
+      <path d="M7 3v8M4.5 3v5a2.5 2.5 0 005 0V3M7 11v10" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M17 21V3c-2 1.5-3 4-3 7v3h3" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function IconPlay({ className = "h-6 w-6" }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden>

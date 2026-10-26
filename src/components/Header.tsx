@@ -61,7 +61,7 @@ export function Header() {
             size="sm"
             className="whitespace-nowrap"
           >
-            Buy Tickets
+            Buy Admissions
           </Button>
           <Button
             href={getPartyBookingUrl()}
@@ -119,7 +119,7 @@ export function Header() {
                 Sign Waiver
               </Button>
               <Button href={siteConfig.square.dropInUrl} external variant="secondary" size="md">
-                Buy Tickets
+                Buy Admissions
               </Button>
               <Button
                 href={getPartyBookingUrl()}

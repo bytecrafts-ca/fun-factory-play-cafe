@@ -22,11 +22,11 @@ export function MobileBookingBar() {
           external
           variant="secondary"
           size="md"
-          className="flex-1 px-3"
+          className="flex-1 whitespace-nowrap px-2 max-[359px]:text-xs"
         >
-          Buy Tickets
+          Buy Admissions
         </Button>
-        <Button href={getPartyBookingUrl()} external variant="primary" size="md" className="flex-1 px-3">
+        <Button href={getPartyBookingUrl()} external variant="primary" size="md" className="flex-1 whitespace-nowrap px-2 max-[359px]:text-xs">
           Book a Party
         </Button>
         <ConversionLink

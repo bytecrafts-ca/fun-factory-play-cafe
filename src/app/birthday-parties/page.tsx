@@ -1,3 +1,4 @@
+import { IconUtensils } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import { PartyCards } from "@/components/PartyCards";
 import { PartyPackageFinder } from "@/components/PartyPackageFinder";
@@ -48,6 +49,16 @@ const partyFaqs: FaqItem[] = [
         type: "text",
         value:
           "Yes. Every package includes a birthday cake. You can substitute the cake for a large pizza if you prefer.",
+      },
+    ],
+  },
+  {
+    question: "Can we bring our own food and drinks?",
+    segments: [
+      {
+        type: "text",
+        value:
+          "Yes. You're welcome to bring your own food and drinks for private parties. Please keep all food nut-free.",
       },
     ],
   },
@@ -120,6 +131,18 @@ export default function BirthdayPartiesPage() {
           </div>
           <div className="mt-10">
             <PartyCards />
+          </div>
+          <div className="card mx-auto mt-8 flex max-w-3xl items-start gap-4 p-5 sm:items-center sm:gap-5 sm:p-6">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-charcoal text-white">
+              <IconUtensils className="h-6 w-6" />
+            </span>
+            <div>
+              <h3 className="text-lg font-bold text-charcoal sm:text-xl">Bring Your Own Food</h3>
+              <p className="mt-1 text-sm leading-relaxed text-muted sm:text-base">
+                You&apos;re welcome to bring your own food and drinks for private parties. Just keep
+                everything nut-free.
+              </p>
+            </div>
           </div>
         </div>
       </section>

@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/site";
 /** LocalLandingPage swaps this for the SAVE10 promo URL while the promo is active */
 const partyBookingUrl = siteConfig.ovatu.partiesUrl;
 const ticketsCta = {
-  label: "Buy Drop-In Tickets",
+  label: "Buy Admissions",
   href: siteConfig.square.dropInUrl,
   external: true,
 };

@@ -28,10 +28,10 @@ export const metadata = createPageMetadata(pageSeo.faq);
 const visitFaqs: FaqItem[] = [
   ...faqItems,
   {
-    question: "Can I buy drop-in tickets online?",
+    question: "Can I buy drop-in admissions online?",
     segments: [
       { type: "text", value: "Yes. You can " },
-      { type: "link", href: siteConfig.square.dropInUrl, label: "buy drop-in tickets online", external: true },
+      { type: "link", href: siteConfig.square.dropInUrl, label: "buy drop-in admissions online", external: true },
       { type: "text", value: " before you arrive, or pay at the front desk when you get here." },
     ],
   },
