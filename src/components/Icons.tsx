@@ -44,6 +44,19 @@ export function IconUtensils({ className = "h-5 w-5" }: IconProps) {
   );
 }
 
+export function IconGift({ className = "h-5 w-5" }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
+      <rect x="3.5" y="8" width="17" height="4" rx="1" />
+      <path d="M5 12v8a1 1 0 001 1h12a1 1 0 001-1v-8M12 8v13" strokeLinecap="round" />
+      <path
+        d="M12 8c-1.5-3.5-5.5-4-5.5-1.5C6.5 8 9.5 8 12 8zM12 8c1.5-3.5 5.5-4 5.5-1.5C17.5 8 14.5 8 12 8z"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function IconPlay({ className = "h-6 w-6" }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden>

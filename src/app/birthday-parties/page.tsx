@@ -1,3 +1,4 @@
+import { GiftCardCallout } from "@/components/GiftCardCallout";
 import { IconUtensils } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import { PartyCards } from "@/components/PartyCards";
@@ -156,6 +157,9 @@ export default function BirthdayPartiesPage() {
       <section id="timelines" className="section-pad bg-white">
         <div className="container-main">
           <PartyTimelines />
+          <div className="mx-auto mt-12 max-w-4xl">
+            <GiftCardCallout />
+          </div>
         </div>
       </section>
 

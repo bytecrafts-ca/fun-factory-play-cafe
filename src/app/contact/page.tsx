@@ -1,6 +1,7 @@
 import { ContactDetails } from "@/components/ContactDetails";
 import { ContactForm } from "@/components/ContactForm";
 import { ConversionLink } from "@/components/ConversionLink";
+import { GiftCardCallout } from "@/components/GiftCardCallout";
 import { GoogleMap } from "@/components/GoogleMap";
 import { HoursWidget } from "@/components/HoursWidget";
 import { JsonLd } from "@/components/JsonLd";
@@ -57,6 +58,7 @@ export default function ContactPage() {
                   <SocialLinks showLabels />
                 </div>
               </div>
+              <GiftCardCallout compact />
               <HoursWidget />
             </div>
             <ContactForm />

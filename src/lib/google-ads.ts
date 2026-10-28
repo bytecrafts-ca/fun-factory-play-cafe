@@ -20,15 +20,17 @@ export const googleAdsTicketClickConversion =
 export const ga4Id = process.env.NEXT_PUBLIC_GA4_ID ?? "";
 export const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID ?? "";
 
-export type BookingClickType = "party" | "tickets" | "membership";
+export type BookingClickType = "party" | "tickets" | "membership" | "giftCard";
 
 const bookingClickEvents: Record<BookingClickType, string> = {
   party: "party_booking_click",
   tickets: "ticket_purchase_click",
   membership: "membership_click",
+  giftCard: "gift_card_click",
 };
 
 export function getBookingClickType(href: string): BookingClickType | null {
+  if (/squareup\.com\/gift\b/i.test(href)) return "giftCard";
   if (/\.book\.app\/pass\b/i.test(href)) return "membership";
   if (/\.book\.app\b|ovatu\.com/i.test(href)) return "party";
   if (/squareup\.com\/(appointments|classes)|square\.site/i.test(href)) return "tickets";

@@ -309,6 +309,14 @@ export const faqItems: FaqItem[] = [
     ],
   },
   {
+    question: "Do you sell gift cards?",
+    segments: [
+      { type: "text", value: "Yes. You can " },
+      { type: "link", href: siteConfig.square.giftCardUrl, label: "buy a gift card online", external: true },
+      { type: "text", value: " for yourself or send one as a gift." },
+    ],
+  },
+  {
     question: "Do children and adults need to wear socks?",
     segments: [
       {

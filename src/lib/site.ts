@@ -79,6 +79,9 @@ export const siteConfig = {
     dropInUrl:
       process.env.NEXT_PUBLIC_SQUARE_DROP_IN_URL ??
       "https://book.squareup.com/classes/ypj406pm9y9dnl/location/LP2WZ6RXS3ZT6/classes",
+    giftCardUrl:
+      process.env.NEXT_PUBLIC_SQUARE_GIFT_CARD_URL ??
+      "https://app.squareup.com/gift/ML3ENRYASKQQW/order",
   },
   waiverUrl:
     process.env.NEXT_PUBLIC_WAIVER_URL ??

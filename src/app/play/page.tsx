@@ -1,5 +1,6 @@
 import { AdmissionsTable } from "@/components/AdmissionsTable";
 import { Button } from "@/components/ui/Button";
+import { GiftCardCallout } from "@/components/GiftCardCallout";
 import { HoursWidget } from "@/components/HoursWidget";
 import { JsonLd } from "@/components/JsonLd";
 import { MembershipsCard } from "@/components/MembershipsCard";
@@ -188,6 +189,9 @@ export default function PlayPage() {
               </li>
             ))}
           </ol>
+          <div className="mx-auto mt-10 max-w-4xl">
+            <GiftCardCallout />
+          </div>
         </div>
       </section>
 

@@ -1,7 +1,15 @@
 import Link from "next/link";
 import { type ReactNode } from "react";
 
-type Variant = "primary" | "secondary" | "lavender" | "mint" | "peach" | "dark" | "outline";
+type Variant =
+  | "primary"
+  | "secondary"
+  | "lavender"
+  | "mint"
+  | "peach"
+  | "sunshine"
+  | "dark"
+  | "outline";
 type Size = "sm" | "md" | "lg";
 
 const variantStyles: Record<Variant, string> = {
@@ -10,6 +18,7 @@ const variantStyles: Record<Variant, string> = {
   lavender: "bg-lavender text-charcoal hover:bg-[#c9b5ef]",
   mint: "bg-mint text-charcoal hover:bg-[#a6e0b4]",
   peach: "bg-peach text-charcoal hover:bg-[#ffc8a6]",
+  sunshine: "bg-sunshine text-charcoal hover:bg-[#ffd75e]",
   dark: "bg-charcoal text-white hover:bg-charcoal/90",
   outline:
     "border-2 border-peach bg-white text-charcoal hover:bg-peach/30",
