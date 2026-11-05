@@ -3,20 +3,69 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { trackGoogleAdsContactConversion } from "@/lib/google-ads";
-import { partyRoomInfo, partyTimeSlots } from "@/lib/site";
+import { partyRoomInfo, partyTimeSlots, siteConfig } from "@/lib/site";
+
+const fieldLabels: Record<string, string> = {
+  name: "Name",
+  email: "Email",
+  phone: "Phone",
+  subject: "Subject",
+  "party-date": "Preferred date",
+  "time-slot": "Preferred time slot",
+  message: "Message",
+};
+
+function buildMailtoHref(subject: string, data: FormData) {
+  const body = Object.entries(fieldLabels)
+    .map(([name, label]) => [label, data.get(name)] as const)
+    .filter(([, value]) => typeof value === "string" && value.trim() !== "")
+    .map(([label, value]) => `${label}: ${value}`)
+    .join("\n");
+  return `mailto:${siteConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
 
 export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
+  const [mailtoHref, setMailtoHref] = useState("");
   const [subject, setSubject] = useState("General Inquiry");
 
   const isPartyInquiry = subject === "Party Booking Question";
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Google Ads Contact conversion (any inquiry form submit)
-    trackGoogleAdsContactConversion();
-    setSubmitted(true);
+    setStatus("loading");
+
+    const data = new FormData(e.currentTarget);
+    const emailSubject = `Website message: ${data.get("subject")}`;
+    data.append("_subject", emailSubject);
+    data.append("_replyto", data.get("email") as string);
+    data.append("_template", "table");
+    data.append("_captcha", "false");
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 12000);
+    try {
+      const response = await fetch(siteConfig.formSubmitUrl, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+        signal: controller.signal,
+      });
+      const result = await response.json().catch(() => null);
+      if (!response.ok || result?.success === false || result?.success === "false") {
+        throw new Error(result?.message ?? "Submission failed");
+      }
+      trackGoogleAdsContactConversion();
+      setStatus("sent");
+    } catch {
+      setMailtoHref(buildMailtoHref(emailSubject, data));
+      setStatus("error");
+    } finally {
+      clearTimeout(timeout);
+    }
   }
+
+  const submitted = status === "sent";
 
   if (submitted) {
     return (
@@ -36,6 +85,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="card border-l-4 border-l-sky space-y-5 p-6 sm:p-8">
+      <input type="text" name="_honey" className="sr-only" tabIndex={-1} autoComplete="off" aria-hidden />
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClass}>
@@ -131,8 +181,26 @@ export function ContactForm() {
           className={`${inputClass} resize-none`}
         />
       </div>
+      {status === "error" && (
+        <div role="alert" className="rounded-lg border border-bubblegum bg-bubblegum/15 p-4 text-sm text-charcoal">
+          <p>
+            Our form is having trouble right now. Tap below to send the same message by email.
+            Everything you entered is already filled in.
+          </p>
+          <Button href={mailtoHref} variant="dark" size="md" className="mt-3 w-full sm:w-auto">
+            Email This Message
+          </Button>
+          <p className="mt-3">
+            Or call{" "}
+            <a href={siteConfig.phoneHref} className="font-semibold underline">
+              {siteConfig.phone}
+            </a>
+            .
+          </p>
+        </div>
+      )}
       <Button type="submit" variant="primary" size="lg" className="w-full sm:w-auto">
-        Send Message
+        {status === "loading" ? "Sending..." : "Send Message"}
       </Button>
     </form>
   );

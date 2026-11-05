@@ -20,6 +20,7 @@ export const siteConfig = {
   phone: "(647) 824 - 8389",
   phoneHref: "tel:+16478248389",
   email: "info@funfactoryplay.ca",
+  formSubmitUrl: "https://formsubmit.co/ajax/info@funfactoryplay.ca",
   emailHref: "mailto:info@funfactoryplay.ca",
   address: {
     full: "1420 Bayly St., Unit 15, Pickering, ON L1W 3R4",
