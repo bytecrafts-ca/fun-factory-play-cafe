@@ -59,7 +59,7 @@ const partyFaqs: FaqItem[] = [
       {
         type: "text",
         value:
-          "Yes. You're welcome to bring your own food and drinks for private parties. Please keep all food nut-free.",
+          "Yes. You're welcome to bring your own food and non-alcoholic drinks for private parties. Please keep all food nut-free. Specialty coffee and matcha are available at Littles & Lattés.",
       },
     ],
   },
@@ -140,8 +140,9 @@ export default function BirthdayPartiesPage() {
             <div>
               <h3 className="text-lg font-bold text-charcoal sm:text-xl">Bring Your Own Food</h3>
               <p className="mt-1 text-sm leading-relaxed text-muted sm:text-base">
-                You&apos;re welcome to bring your own food and drinks for private parties. Just keep
-                everything nut-free.
+                You&apos;re welcome to bring your own food and non-alcoholic drinks for private
+                parties. Just keep everything nut-free. Specialty coffee and matcha are available at
+                Littles &amp; Lattés.
               </p>
             </div>
           </div>

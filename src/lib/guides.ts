@@ -94,7 +94,7 @@ export const guides: Guide[] = [
           {
             type: "text",
             value:
-              "Yes. Many families bring banners, table decor, and party favours. You can also bring your own food and drinks for private parties. Please keep all food nut-free.",
+              "Yes. Many families bring banners, table decor, and party favours. You can also bring your own food and non-alcoholic drinks for private parties. Please keep all food nut-free.",
           },
         ],
       },

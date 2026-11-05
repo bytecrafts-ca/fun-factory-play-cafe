@@ -67,14 +67,13 @@ export function PartyPackageFinder({ bookingUrl }: { bookingUrl: string }) {
             <p className="mt-1 text-xl font-extrabold text-charcoal">{recommendation.name}</p>
             <p className="mt-1 text-sm font-semibold text-charcoal">{recommendation.price}</p>
             <p className="mt-2 text-sm text-muted">
-              Up to {recommendation.children} kids and {recommendation.adults} adults. Extra kids are $14.99 each.
+              Up to {recommendation.children} kids and {recommendation.adults} adults.
             </p>
             <div className="mt-4 flex justify-center">
               <Button href={bookingUrl} external variant="lavender" size="md">
                 Book the {recommendation.name}
               </Button>
             </div>
-            <p className="mt-3 text-xs text-muted">Pick your date and time online. Takes about 2 minutes.</p>
           </div>
         )}
       </div>

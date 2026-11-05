@@ -533,7 +533,7 @@ export const facilityRules = [
   "No delivery food to the front desk.",
   "No groups, small or large, are permitted to have a party or other event at the facility without making a reservation.",
   "Outside drinks are NOT permitted during drop-in play. Please view café menu for drink selection. All food must be consumed in designated eating areas.",
-  "Outside food is permitted during drop-in play. Outside food and drinks are both welcome for private parties. Food must NOT contain any nuts.",
+  "Outside food is permitted during drop-in play. Outside food and non-alcoholic drinks are both welcome for private parties. Food must NOT contain any nuts.",
   "The Fun Factory reserves the right to refuse admittance or ask you and your child to leave if equipment is being used improperly or your play is unsafe or disrespectful to others.",
 ] as const;
 
