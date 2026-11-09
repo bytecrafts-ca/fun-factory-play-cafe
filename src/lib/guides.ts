@@ -129,7 +129,7 @@ export const guides: Guide[] = [
         paragraphs: [
           "A smooth indoor playground visit starts at home. Every child needs a signed waiver before they can play. At Fun Factory you can complete the waiver online so the front desk line moves faster when you arrive at 1420 Bayly St., Unit 15 in Pickering.",
           "Pack socks for every child and every adult. We are a socks-only facility. Reception sells socks for $3 if you need a pair. Leave outside drinks at home. Nut-free snacks from outside are welcome if you want something specific for picky eaters.",
-          "Check hours before you go. From September 8, 2026, we are open Monday and Wednesday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm with 50% off drop-in admissions after 3:30 pm, and Friday through Sunday 9:30 am to 8:30 pm.",
+          "Check hours before you go. We are open Monday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm with 50% off drop-in admissions after 3:30 pm, and Friday through Sunday 9:30 am to 8:30 pm. We are closed on Wednesdays.",
         ],
       },
       {
@@ -151,7 +151,7 @@ export const guides: Guide[] = [
       {
         heading: "Tips from regular Durham families",
         paragraphs: [
-          "Tuesday and Thursday afternoons are a strong value play if your schedule is flexible. After 3:30 pm, drop-in admissions are half price. Morning visits Monday, Wednesday, and weekends tend to skew younger, which suits toddlers and preschoolers.",
+          "Tuesday and Thursday afternoons are a strong value play if your schedule is flexible. After 3:30 pm, drop-in admissions are half price. Monday and weekend morning visits tend to skew younger, which suits toddlers and preschoolers.",
           "Bring a change of clothes for toddlers who work up a sweat. Label water bottles if you pack them for the car, since outside drinks cannot come inside.",
           "If you are planning a return visit or a birthday party later in the year, ask about loyalty points on regular drop-in visits and weekday party discounts. Many Durham families try drop-in first, then book a party once they see the layout.",
           "First visits feel smoother when you set expectations with kids ahead of time. Explain that socks stay on, running is for the play structures, and you will take breaks for snacks. That short talk prevents meltdowns at the door.",
@@ -224,7 +224,7 @@ export const guides: Guide[] = [
       {
         heading: "Making the most of a toddler visit",
         paragraphs: [
-          "Go early on Monday, Wednesday, or weekend mornings when the crowd skews younger. From September 8, 2026, Monday and Wednesday hours run 9:30 am to 2:00 pm, which fits nap schedules well if you arrive at opening.",
+          "Go early on Monday or weekend mornings when the crowd skews younger. Monday hours run 9:30 am to 2:00 pm, which fits nap schedules well if you arrive at opening.",
           "Sign the waiver online before you leave home. Pack socks for everyone. Toddlers touch everything and our facility requires socks for children and adults at all times.",
           "Bring nut-free snacks if your child has favourites we do not carry. Outside drinks are not allowed, but you can order from Littles & Lattés Café for yourself and pick up kid-friendly options on site.",
           "Stay near the toddler zone for the first twenty minutes even if your child seems confident. New spaces are exciting and sometimes overwhelming. A short warm-up before exploring the wider play floor helps.",
@@ -251,7 +251,7 @@ export const guides: Guide[] = [
         heading: "When to skip indoor play and when to go anyway",
         paragraphs: [
           "If your toddler is fighting a fever or has been vomiting, stay home and reschedule. For mild sniffles where they are otherwise active, many parents still come. Use your judgement and keep distance from newborn siblings on the play floor.",
-          "Extremely busy holiday Mondays can feel loud for sensitive toddlers. A Wednesday morning after September 8 often gives you a calmer window with the new 9:30 am open time.",
+          "Extremely busy holiday Mondays can feel loud for sensitive toddlers. A Monday morning right at the 9:30 am opening often gives you a calmer window.",
           "Call ahead on storm days when roads are bad. We post hour updates when weather affects staffing or access to the plaza parking lot.",
           "Rainy-day regulars often buy a multi-visit rhythm: one long morning play, lunch at the café, then home for nap. Unlimited play time means you are not watching the clock.",
         ],
@@ -426,7 +426,7 @@ export const guides: Guide[] = [
           "Address: 1420 Bayly St., Unit 15, Pickering, ON L1W 3R4. Free parking in the plaza. Enter through the main Fun Factory doors and head to the front desk for drop-in or party check-in.",
           "Bring socks, signed waivers, and payment for admission. We accept cash, credit, and debit. Access 2 Card holders get $2 off drop-in rates.",
           "Two adults per family are included with child admission. Supervision is required at all times. Play structures are designed for active kids, so stay within sight even when you are seated.",
-          "Hours from September 8, 2026: Monday and Wednesday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm (50% off admissions after 3:30 pm), Friday to Sunday 9:30 am to 8:30 pm. Check our contact page for holiday exceptions.",
+          "Hours: Monday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm (50% off admissions after 3:30 pm), Friday to Sunday 9:30 am to 8:30 pm. Closed Wednesdays. Check our contact page for holiday exceptions.",
           "Strollers can usually stay near seating areas. Lock valuables in your car and keep phones in pockets while supervising active climbers.",
         ],
       },
@@ -783,7 +783,7 @@ export const guides: Guide[] = [
         paragraphs: [
           "School breaks turn weekdays into Saturdays. Parents still work. Camps book up. Weather is unpredictable. Indoor play centres absorb that demand with open hours and drop-in admission.",
           "Fun Factory sees spikes during March break, summer weeks, and the December holidays. Plan around opening time if you want a quieter first hour, or use Tuesday and Thursday half-price afternoons after 3:30 pm when older kids are tired and toddlers thrive.",
-          "From September 8, 2026, expanded hours help break-week planning: Monday and Wednesday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm, and Friday to Sunday 9:30 am to 8:30 pm.",
+          "Regular hours for break-week planning: Monday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm, and Friday to Sunday 9:30 am to 8:30 pm. Closed Wednesdays, so check the play page for special break-week hours.",
         ],
       },
       {
@@ -847,7 +847,7 @@ export const guides: Guide[] = [
           {
             type: "text",
             value:
-              "Mornings on Monday and Wednesday tend to be calmer after September 8. The toddler zone gives younger kids a dedicated area even when the main structures are busy.",
+              "Monday mornings tend to be calmer. The toddler zone gives younger kids a dedicated area even when the main structures are busy.",
           },
         ],
       },

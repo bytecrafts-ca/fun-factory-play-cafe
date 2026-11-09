@@ -277,7 +277,7 @@ export const faqItems: FaqItem[] = [
       {
         type: "text",
         value:
-          "Open Monday and Wednesday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm, and Friday to Sunday 9:30 am to 8:30 pm.",
+          "Open Monday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm, and Friday to Sunday 9:30 am to 8:30 pm. Closed Wednesdays.",
       },
     ],
   },

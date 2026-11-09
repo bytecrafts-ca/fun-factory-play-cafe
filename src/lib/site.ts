@@ -115,7 +115,7 @@ const weeklyHoursBeforeSept8: DayHours[] = [
 const weeklyHoursFromSept8: DayHours[] = [
   { day: "Monday", hours: "9:30 am to 2:00 pm" },
   { day: "Tuesday", hours: "12:00 pm to 7:30 pm", promo: "50% off admissions after 3:30 pm" },
-  { day: "Wednesday", hours: "9:30 am to 2:00 pm" },
+  { day: "Wednesday", hours: "Closed", closed: true },
   { day: "Thursday", hours: "12:00 pm to 7:30 pm", promo: "50% off admissions after 3:30 pm" },
   { day: "Friday", hours: "9:30 am to 8:30 pm" },
   { day: "Saturday", hours: "9:30 am to 8:30 pm" },
@@ -986,7 +986,7 @@ export function getTodayHours(): DayHours | null {
 }
 
 export function getDropInHoursSummary(): string {
-  return "We're open Mon & Wed 9:30 am to 2:00 pm, Tue & Thu 12:00 pm to 7:30 pm, and Fri to Sun 9:30 am to 8:30 pm.";
+  return "We're open Mon 9:30 am to 2:00 pm, Tue & Thu 12:00 pm to 7:30 pm, and Fri to Sun 9:30 am to 8:30 pm. Closed Wednesdays.";
 }
 
 export function formatSpecialHoursDate(dateStr: string, label?: string): string {

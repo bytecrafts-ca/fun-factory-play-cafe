@@ -836,7 +836,7 @@ export const landingPages: LandingPage[] = [
         heading: "Toddler rates",
         paragraphs: [
           "Ages 1 to 3 are $10. Under 1 is $5, or free with a paying sibling. Two adults per family are included, and there is no time limit on your visit.",
-          "Weekday mornings on Monday and Wednesday (9:30 am to 2:00 pm) are a favourite with toddler parents.",
+          "Monday mornings (9:30 am to 2:00 pm) are a favourite with toddler parents.",
         ],
       },
     ],
@@ -923,7 +923,7 @@ export const landingPages: LandingPage[] = [
           {
             type: "text",
             value:
-              "Monday and Wednesday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm, and Friday to Sunday 9:30 am to 8:30 pm. Special hours are posted on the play page.",
+              "Monday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm, and Friday to Sunday 9:30 am to 8:30 pm. Closed Wednesdays. Special hours are posted on the play page.",
           },
         ],
       },
