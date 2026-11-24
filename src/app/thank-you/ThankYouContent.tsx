@@ -1,8 +1,9 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
+import { trackGoogleAdsPurchaseConversion } from "@/lib/google-ads";
 import { siteConfig } from "@/lib/site";
 
 function cleanName(value: string | null) {
@@ -30,7 +31,21 @@ export function ThankYouContent() {
   const params = useSearchParams();
   const name = cleanName(params.get("name"));
   const code = cleanCode(params.get("code"));
+  const fromBooking = params.get("booked") === "1";
   const [copied, setCopied] = useState(false);
+  const trackedPurchase = useRef(false);
+
+  // Only when Ovatu redirects here after confirm: .../thank-you?booked=1
+  useEffect(() => {
+    if (!fromBooking || trackedPurchase.current) return;
+    if (typeof window !== "undefined") {
+      const key = "ff_purchase_tracked";
+      if (sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key, "1");
+    }
+    trackedPurchase.current = true;
+    trackGoogleAdsPurchaseConversion({ currency: "CAD" });
+  }, [fromBooking]);
 
   async function copyCode() {
     try {
