@@ -277,7 +277,7 @@ export const faqItems: FaqItem[] = [
       {
         type: "text",
         value:
-          "Open Monday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm, and Friday to Sunday 9:30 am to 8:30 pm. Closed Wednesdays.",
+          "Open Monday 9:30 am to 2:00 pm, Tuesday 3:00 pm to 7:30 pm, Thursday 12:00 pm to 7:30 pm, and Friday to Sunday 9:30 am to 8:30 pm. Closed Wednesdays.",
       },
     ],
   },
@@ -287,7 +287,7 @@ export const faqItems: FaqItem[] = [
       {
         type: "text",
         value:
-          "Yes. Visit every Tuesday and Thursday from 3:30 pm for 50% off all drop-in admissions. We're open from 12:00 pm on those days.",
+          "Yes. Visit every Tuesday and Thursday from 3:30 pm for 50% off all drop-in admissions. Tuesday we open at 3:00 pm. Thursday we open at 12:00 pm.",
       },
     ],
   },

@@ -114,7 +114,7 @@ const weeklyHoursBeforeSept8: DayHours[] = [
 
 const weeklyHoursFromSept8: DayHours[] = [
   { day: "Monday", hours: "9:30 am to 2:00 pm" },
-  { day: "Tuesday", hours: "12:00 pm to 7:30 pm", promo: "50% off admissions after 3:30 pm" },
+  { day: "Tuesday", hours: "3:00 pm to 7:30 pm", promo: "50% off admissions after 3:30 pm" },
   { day: "Wednesday", hours: "Closed", closed: true },
   { day: "Thursday", hours: "12:00 pm to 7:30 pm", promo: "50% off admissions after 3:30 pm" },
   { day: "Friday", hours: "9:30 am to 8:30 pm" },
@@ -552,7 +552,7 @@ export const socksReminder =
   "We are a socks only facility. Socks are required for children and adults.";
 
 export const promoText =
-  "Tuesdays & Thursdays: open 12:00 to 7:30 pm, 50% off drop-in admissions from 3:30 to 7:30 pm";
+  "Tuesdays open 3:00 to 7:30 pm, Thursdays open 12:00 to 7:30 pm. 50% off drop-in admissions from 3:30 to 7:30 pm";
 
 export const galleryImages = [
   {
@@ -989,7 +989,7 @@ export function getTodayHours(): DayHours | null {
 }
 
 export function getDropInHoursSummary(): string {
-  return "We're open Mon 9:30 am to 2:00 pm, Tue & Thu 12:00 pm to 7:30 pm, and Fri to Sun 9:30 am to 8:30 pm. Closed Wednesdays.";
+  return "We're open Mon 9:30 am to 2:00 pm, Tue 3:00 pm to 7:30 pm, Thu 12:00 pm to 7:30 pm, and Fri to Sun 9:30 am to 8:30 pm. Closed Wednesdays.";
 }
 
 export function formatSpecialHoursDate(dateStr: string, label?: string): string {

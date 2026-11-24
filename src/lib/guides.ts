@@ -129,7 +129,7 @@ export const guides: Guide[] = [
         paragraphs: [
           "A smooth indoor playground visit starts at home. Every child needs a signed waiver before they can play. At Fun Factory you can complete the waiver online so the front desk line moves faster when you arrive at 1420 Bayly St., Unit 15 in Pickering.",
           "Pack socks for every child and every adult. We are a socks-only facility. Reception sells socks for $3 if you need a pair. Leave outside drinks at home. Nut-free snacks from outside are welcome if you want something specific for picky eaters.",
-          "Check hours before you go. We are open Monday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm with 50% off drop-in admissions after 3:30 pm, and Friday through Sunday 9:30 am to 8:30 pm. We are closed on Wednesdays.",
+          "Check hours before you go. We are open Monday 9:30 am to 2:00 pm, Tuesday 3:00 pm to 7:30 pm, Thursday 12:00 pm to 7:30 pm with 50% off drop-in admissions after 3:30 pm on both days, and Friday through Sunday 9:30 am to 8:30 pm. We are closed on Wednesdays.",
         ],
       },
       {
@@ -426,7 +426,7 @@ export const guides: Guide[] = [
           "Address: 1420 Bayly St., Unit 15, Pickering, ON L1W 3R4. Free parking in the plaza. Enter through the main Fun Factory doors and head to the front desk for drop-in or party check-in.",
           "Bring socks, signed waivers, and payment for admission. We accept cash, credit, and debit. Access 2 Card holders get $2 off drop-in rates.",
           "Two adults per family are included with child admission. Supervision is required at all times. Play structures are designed for active kids, so stay within sight even when you are seated.",
-          "Hours: Monday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm (50% off admissions after 3:30 pm), Friday to Sunday 9:30 am to 8:30 pm. Closed Wednesdays. Check our contact page for holiday exceptions.",
+          "Hours: Monday 9:30 am to 2:00 pm, Tuesday 3:00 pm to 7:30 pm, Thursday 12:00 pm to 7:30 pm (50% off admissions after 3:30 pm), Friday to Sunday 9:30 am to 8:30 pm. Closed Wednesdays. Check our contact page for holiday exceptions.",
           "Strollers can usually stay near seating areas. Lock valuables in your car and keep phones in pockets while supervising active climbers.",
         ],
       },
@@ -783,7 +783,7 @@ export const guides: Guide[] = [
         paragraphs: [
           "School breaks turn weekdays into Saturdays. Parents still work. Camps book up. Weather is unpredictable. Indoor play centres absorb that demand with open hours and drop-in admission.",
           "Fun Factory sees spikes during March break, summer weeks, and the December holidays. Plan around opening time if you want a quieter first hour, or use Tuesday and Thursday half-price afternoons after 3:30 pm when older kids are tired and toddlers thrive.",
-          "Regular hours for break-week planning: Monday 9:30 am to 2:00 pm, Tuesday and Thursday 12:00 pm to 7:30 pm, and Friday to Sunday 9:30 am to 8:30 pm. Closed Wednesdays, so check the play page for special break-week hours.",
+          "Regular hours for break-week planning: Monday 9:30 am to 2:00 pm, Tuesday 3:00 pm to 7:30 pm, Thursday 12:00 pm to 7:30 pm, and Friday to Sunday 9:30 am to 8:30 pm. Closed Wednesdays, so check the play page for special break-week hours.",
         ],
       },
       {

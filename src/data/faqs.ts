@@ -21,7 +21,7 @@ export const playFaqs = [
     segments: [
       {
         type: "text" as const,
-        value: "Every Tuesday and Thursday from 3:30 pm (we're open from 12:00 pm).",
+        value: "Every Tuesday and Thursday from 3:30 pm. Tuesday we open at 3:00 pm. Thursday we open at 12:00 pm.",
       },
     ],
   },
